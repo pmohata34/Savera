@@ -82,7 +82,7 @@ export default function Hero() {
           <div
             className="relative bg-white/[0.04] backdrop-blur-xl p-3.5 rounded-3xl border border-white/20 shadow-2xl group overflow-hidden">
             <div className="h-[520px] lg:h-[580px] w-full rounded-2xl overflow-hidden relative shadow-2xl bg-neutral-950">
-              <img src="photos/clean_hero.jpg" alt="Savera Textiles Showcase"
+              <img src="/photos/clean_hero.jpg" alt="Savera Textiles Showcase"
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out" />
             </div>
           </div>

@@ -11,7 +11,7 @@ export default function Founder() {
         {/*  Left: Founder Portrait Gallery Frame  */}
         <div className="col-span-12 lg:col-span-5 bg-white p-5 rounded-3xl border border-[#E8E3DA] shadow-xl space-y-4">
           <div className="h-[460px] rounded-2xl overflow-hidden shadow-inner relative group">
-            <img src="photos/founder_vineet_taparia.jpg" alt="Vineet Kr. Taparia"
+            <img src="/photos/founder_vineet_taparia.jpg" alt="Vineet Kr. Taparia"
               className="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
 

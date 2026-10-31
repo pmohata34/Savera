@@ -22,7 +22,7 @@ export default function ProductRange() {
         <div
           className="lg:col-span-7 bg-[#FAF8F5] rounded-3xl border border-[#E8E3DA] overflow-hidden shadow-lg flex flex-col justify-between group">
           <div className="relative h-[420px] overflow-hidden">
-            <img src="photos/clean_sarees.jpg" alt="Heritage Sarees Collection"
+            <img src="/photos/clean_sarees.jpg" alt="Heritage Sarees Collection"
               className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 
@@ -70,7 +70,7 @@ export default function ProductRange() {
           <div
             className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-md transition flex items-center gap-5 group">
             <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 relative">
-              <img src="photos/clean_salwar_suits.jpg" alt="Salwar Suits"
+              <img src="/photos/clean_salwar_suits.jpg" alt="Salwar Suits"
                 className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
               <span
                 className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-[#0B0E14]/80 text-[9px] font-bold text-amber-400">02</span>
@@ -89,7 +89,7 @@ export default function ProductRange() {
           <div
             className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-md transition flex items-center gap-5 group">
             <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 relative">
-              <img src="photos/clean_lehengas.jpg" alt="Lehengas"
+              <img src="/photos/clean_lehengas.jpg" alt="Lehengas"
                 className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
               <span
                 className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-[#0B0E14]/80 text-[9px] font-bold text-amber-400">03</span>
@@ -108,7 +108,7 @@ export default function ProductRange() {
           <div
             className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-md transition flex items-center gap-5 group">
             <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 relative">
-              <img src="photos/clean_indo_western.jpg" alt="Indo Western"
+              <img src="/photos/clean_indo_western.jpg" alt="Indo Western"
                 className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
               <span
                 className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-[#0B0E14]/80 text-[9px] font-bold text-amber-400">04</span>

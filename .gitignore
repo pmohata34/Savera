@@ -15,10 +15,12 @@ build/
 */.env
 */.env.local
 
-# Local reference and design master documents (Preserved locally, excluded from GitHub)
+# Local reference and standalone master files (Excluded from GitHub repository)
+reference/
 _references/
-*.docx
-*.pptx
+savera_designer_masterpiece.html
+photos/
+fonts/
 *.tmp
 *.log
 

@@ -105,3 +105,4 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 * **Registered Office:** Kolkata - 700007, West Bengal, India
 * **Sourcing Hubs:** Surat, Varanasi, Jaipur, Ahmedabad, Bhagalpur, Kolkata (HQ)
 * **Client Footprint:** 500+ Cities Across All 29 States, Union Territories & International Markets
+
