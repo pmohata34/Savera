@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-1/3 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[140px]"></div>
       {/*  Subtle Luxury Jacquard Matrix  */}
       <div className="absolute inset-0 opacity-15"
-        style="background-image: radial-gradient(#F59E0B 0.75px, transparent 0.75px); background-size: 28px 28px;">
+        style={{ backgroundImage: "radial-gradient(#F59E0B 0.75px, transparent 0.75px)", backgroundSize: "28px 28px" }}>
       </div>
     </div>
 

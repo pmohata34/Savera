@@ -438,8 +438,8 @@ export default function SourcingMap() {
                   {/*  City Label on Map  */}
                   <rect x="68" y="401" width="64" height="18" rx="5" fill="#FFFFFF" opacity="0.95" stroke="#CBD5E1"
                     strokeWidth="0.75" style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.08))" }} />
-                  <text x="100" y="413" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9"
-                    font-weight="800" fill="#2D4C1B">Surat</text>
+                  <text x="100" y="413" textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="9"
+                    fontWeight="800" fill="#2D4C1B">Surat</text>
                 </g>
 
                 {/*  2. AHMEDABAD (North-Central Gujarat • Cotton & Processing Hub)  */}
@@ -450,8 +450,8 @@ export default function SourcingMap() {
                   {/*  City Label on Map  */}
                   <rect x="46" y="307" width="92" height="18" rx="5" fill="#FFFFFF" opacity="0.95" stroke="#CBD5E1"
                     strokeWidth="0.75" style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.08))" }} />
-                  <text x="92" y="319" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9"
-                    font-weight="800" fill="#2D4C1B">Ahmedabad</text>
+                  <text x="92" y="319" textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="9"
+                    fontWeight="800" fill="#2D4C1B">Ahmedabad</text>
                 </g>
 
                 {/*  3. JAIPUR (East-Central Rajasthan • Handblock & Artisan Hub)  */}
@@ -462,8 +462,8 @@ export default function SourcingMap() {
                   {/*  City Label on Map  */}
                   <rect x="144" y="217" width="62" height="18" rx="5" fill="#FFFFFF" opacity="0.95" stroke="#CBD5E1"
                     strokeWidth="0.75" style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.08))" }} />
-                  <text x="175" y="229" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9"
-                    font-weight="800" fill="#9C442E">Jaipur</text>
+                  <text x="175" y="229" textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="9"
+                    fontWeight="800" fill="#9C442E">Jaipur</text>
                 </g>
 
                 {/*  4. VARANASI / BANARAS (South-Eastern Uttar Pradesh on Ganges • Brocades & Katan Silk)  */}
@@ -474,8 +474,8 @@ export default function SourcingMap() {
                   {/*  City Label on Map  */}
                   <rect x="290" y="261" width="76" height="18" rx="5" fill="#FFFFFF" opacity="0.95" stroke="#CBD5E1"
                     strokeWidth="0.75" style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.08))" }} />
-                  <text x="328" y="273" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9"
-                    font-weight="800" fill="#284467">Varanasi</text>
+                  <text x="328" y="273" textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="9"
+                    fontWeight="800" fill="#284467">Varanasi</text>
                 </g>
 
                 {/*  5. BHAGALPUR (Eastern Bihar on Ganges • Silk City Tussar Hub)  */}
@@ -486,8 +486,8 @@ export default function SourcingMap() {
                   {/*  City Label on Map  */}
                   <rect x="368" y="261" width="80" height="18" rx="5" fill="#FFFFFF" opacity="0.95" stroke="#CBD5E1"
                     strokeWidth="0.75" style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.08))" }} />
-                  <text x="408" y="273" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9"
-                    font-weight="800" fill="#A57618">Bhagalpur</text>
+                  <text x="408" y="273" textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="9"
+                    fontWeight="800" fill="#A57618">Bhagalpur</text>
                 </g>
 
                 {/*  6. KOLKATA (Southern West Bengal • Central Operational HQ)  */}
@@ -503,8 +503,8 @@ export default function SourcingMap() {
                   {/*  City Label on Map with HQ Tag  */}
                   <rect x="388" y="373" width="100" height="20" rx="5" fill="#0B0E14" opacity="0.95" stroke="#F59E0B"
                     strokeWidth="1" style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.15))" }} />
-                  <text x="438" y="386" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9"
-                    font-weight="900" fill="#F59E0B">KOLKATA (HQ)</text>
+                  <text x="438" y="386" textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="9"
+                    fontWeight="900" fill="#F59E0B">KOLKATA (HQ)</text>
                 </g>
               </g>
             </svg>
