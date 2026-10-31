@@ -1,0 +1,32 @@
+# Node dependencies
+node_modules/
+*/node_modules/
+
+# Production build outputs
+dist/
+*/dist/
+build/
+*/build/
+
+# Environment files and secrets
+.env
+.env.local
+*.env
+*/.env
+*/.env.local
+
+# Local reference and design master documents (Preserved locally, excluded from GitHub)
+_references/
+*.docx
+*.pptx
+*.tmp
+*.log
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories
+.vscode/
+.idea/

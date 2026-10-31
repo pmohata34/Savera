@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@layer base {
+  @font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('/fonts/PlusJakartaSans.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/PlayfairDisplay.ttf') format('truetype');
+    font-weight: 400 900;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Cinzel';
+    src: url('/fonts/Cinzel.ttf') format('truetype');
+    font-weight: 400 900;
+    font-display: swap;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+.font-designer {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-luxury {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-royal {
+  font-family: 'Cinzel', serif;
+}
+
+.glow-orange {
+  box-shadow: 0 10px 30px -10px rgba(255, 87, 34, 0.40);
+}
+
+.glow-gold {
+  box-shadow: 0 10px 35px -10px rgba(212, 175, 55, 0.30);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #ECC880 0%, #D4AF37 40%, #B8860B 80%, #996515 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Bus Topology & Pipeline Keyframe Animations */
+@keyframes busSignalFlow {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes nodePulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.7); }
+  70% { transform: scale(1.08); box-shadow: 0 0 0 16px rgba(255, 87, 34, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 87, 34, 0); }
+}
+
+@keyframes radarWave {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.bus-signal {
+  position: absolute;
+  width: 6px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, #FFFFFF, #FF5722, transparent);
+  border-radius: 9999px;
+  filter: drop-shadow(0 0 10px #FF5722);
+  animation: busSignalFlow 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.node-radar {
+  animation: nodePulse 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.radar-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 87, 34, 0.4);
+  animation: radarWave 2.8s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Infinite Graph Curve Keyframe Animation */
+@keyframes infiniteCurveFlow {
+  0% { stroke-dashoffset: 2400; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.infinite-curve-pulse {
+  stroke-dasharray: 160 800;
+  animation: infiniteCurveFlow 8s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 87, 34, 0.8));
+}
+
+@keyframes orbGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.6); transform: scale(1); }
+  50% { box-shadow: 0 0 0 12px rgba(255, 87, 34, 0); transform: scale(1.05); }
+}
+
+.milestone-orb {
+  animation: orbGlow 3s ease-in-out infinite;
+}

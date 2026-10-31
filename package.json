@@ -1,0 +1,23 @@
+{
+  "name": "savera-tex-solution-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-Stack Web Portal for Savera Tex Solution LLP (Established 1995)",
+  "scripts": {
+    "dev": "npm run dev:all",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "build:frontend": "npm run build --prefix frontend",
+    "install:all": "npm install --prefix frontend && npm install --prefix backend"
+  },
+  "keywords": [
+    "savera",
+    "textile",
+    "commission-agency",
+    "react",
+    "express",
+    "full-stack"
+  ],
+  "author": "Savera Tex Solution LLP",
+  "license": "UNLICENSED"
+}
