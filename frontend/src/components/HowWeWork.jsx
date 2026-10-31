@@ -44,7 +44,7 @@ export default function HowWeWork() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
             {/*  Stage 01  */}
             <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4">
+              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
               <div className="flex items-center justify-between">
                 <span className="text-3xl font-black font-royal text-[#FF5722]">01</span>
                 <span
@@ -65,7 +65,7 @@ export default function HowWeWork() {
 
             {/*  Stage 02  */}
             <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4">
+              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
               <div className="flex items-center justify-between">
                 <span className="text-3xl font-black font-royal text-[#FF5722]">02</span>
                 <span className="text-[10px] font-mono px-2.5 py-1 rounded bg-orange-100 text-[#FF5722] font-bold">NETWORK
@@ -115,7 +115,7 @@ export default function HowWeWork() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
             {/*  Stage 03  */}
             <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4">
+              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
               <div className="flex items-center justify-between">
                 <span className="text-3xl font-black font-royal text-[#FF5722]">03</span>
                 <span
@@ -136,7 +136,7 @@ export default function HowWeWork() {
 
             {/*  Stage 04  */}
             <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4">
+              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
               <div className="flex items-center justify-between">
                 <span className="text-3xl font-black font-royal text-[#FF5722]">04</span>
                 <span
@@ -186,7 +186,7 @@ export default function HowWeWork() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
             {/*  Stage 05  */}
             <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4">
+              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
               <div className="flex items-center justify-between">
                 <span className="text-3xl font-black font-royal text-[#FF5722]">05</span>
                 <span
@@ -206,7 +206,7 @@ export default function HowWeWork() {
 
             {/*  Stage 06  */}
             <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4">
+              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
               <div className="flex items-center justify-between">
                 <span className="text-3xl font-black font-royal text-[#FF5722]">06</span>
                 <span className="text-[10px] font-mono px-2.5 py-1 rounded bg-orange-100 text-[#FF5722] font-bold">TRUST &

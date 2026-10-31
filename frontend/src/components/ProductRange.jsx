@@ -1,162 +1,261 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function ProductRange() {
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const products = [
+    {
+      id: 'sarees',
+      category: 'sarees',
+      cardType: 'Heritage Loom Spotlight',
+      title: 'Sarees Collection',
+      tagline: 'Surat & Banaras Heritage Weaves',
+      image: '/photos/clean_sarees.jpg',
+      badge: 'Brocades & Silks',
+      badgeColor: 'bg-orange-500/20 text-orange-400 border-orange-500/40',
+      description: 'Direct connections with master weavers and composite mills producing genuine Banarasi Katan, Organza, Georgette, and Surat designer print sarees at true factory-gate prices.',
+      tags: ['Banarasi Katan Silk', 'Surat Jacquard', 'Pure Organza', 'Bandhani & Patola', 'Loom Rates'],
+      hubs: 'Varanasi & Surat',
+      moq: 'Flexible Wholesale Packs',
+      accentColor: 'from-[#FF5722] to-amber-500'
+    },
+    {
+      id: 'salwar_suits',
+      category: 'suits',
+      cardType: 'Prismatic Textile Card',
+      title: 'Salwar Suits & Dress Materials',
+      tagline: 'Unstitched & Semi-Stitched Sets',
+      image: '/photos/clean_salwar_suits.jpg',
+      badge: 'High-Volume Daily Wear',
+      badgeColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40',
+      description: 'Extensive collections of unstitched dress materials, festive embroidered three-piece suits, and printed daily wear cottons sourced directly from processing houses in Ahmedabad and Surat.',
+      tags: ['Pure Cotton Suits', 'Chanderi Silk Sets', 'Handblock Prints', 'Heavy Dupatta Sets', 'Fast Turnover'],
+      hubs: 'Ahmedabad & Surat',
+      moq: 'Direct Factory Bundles',
+      accentColor: 'from-emerald-500 to-teal-400'
+    },
+    {
+      id: 'lehengas',
+      category: 'lehengas',
+      cardType: 'Royal Gold Luxury Card',
+      title: 'Bridal & Festive Lehengas',
+      tagline: 'Artisan Zardozi & Heavy Embroidery',
+      image: '/photos/clean_lehengas.jpg',
+      badge: 'Wedding & Bridal Tier',
+      badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+      description: 'Curated bridal and occasion lehengas featuring intricate hand embroidery, sequins, and threadwork. Ideal for premier retail showrooms seeking high-margin seasonal bridal inventory.',
+      tags: ['Bridal Velvet', 'Georgette Can-Can Sets', 'Artisan Zari Work', 'Semi-Stitched Lehengas', 'Premium Tier'],
+      hubs: 'Surat & Kolkata',
+      moq: 'Curated Showroom Sets',
+      accentColor: 'from-amber-400 via-orange-500 to-amber-600'
+    },
+    {
+      id: 'indo_western',
+      category: 'indo_western',
+      cardType: 'Modern Kinetic Card',
+      title: 'Indo-Western & Ready-to-Wear',
+      tagline: 'Contemporary Fusion & Kurti Sets',
+      image: '/photos/clean_indo_western.jpg',
+      badge: 'Trending Fast Fashion',
+      badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
+      description: 'Contemporary silhouette tunics, co-ord sets, jacket gowns, and modern festive fusion wear tailored for high-repeat customer turnover and modern boutique display.',
+      tags: ['Kurti Pant Sets', 'Fusion Gowns', 'Designer Co-ords', 'Tunic Sets', 'Fast-Moving Lines'],
+      hubs: 'Jaipur & Surat',
+      moq: 'Assorted Size Packs',
+      accentColor: 'from-purple-500 to-pink-500'
+    }
+  ];
+
+  const filtered = activeFilter === 'all' 
+    ? products 
+    : products.filter(p => p.category === activeFilter);
+
   return (
-<section id="products" className="py-24 px-12 bg-white border-b border-[#E8E3DA]">
-    <div className="max-w-7xl mx-auto space-y-12">
+    <section id="products" className="py-24 px-6 sm:px-12 bg-white dark:bg-[#07090D] border-b border-[#E8E3DA] dark:border-neutral-800 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto space-y-12">
 
-      <div className="border-b border-[#E8E3DA] pb-8 space-y-2">
-        <span className="text-xs font-extrabold uppercase tracking-widest text-[#FF5722]">Official Catalogue</span>
-        <h2 className="text-4xl md:text-5xl font-bold font-luxury text-[#0B0E14] tracking-tight">
-          Product Range
-        </h2>
-        <p className="text-base text-neutral-600">
-          Connecting manufacturers and buyers across key ethnic wear, ready-to-wear, and loom fabric categories.
-        </p>
-      </div>
-
-      {/*  ASYMMETRICAL EDITORIAL SHOWCASE (HERO SPOTLIGHT + CURATED COLLECTION DECK)  */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-
-        {/*  Dominant Feature Spotlight: SAREES (7 cols)  */}
-        <div
-          className="lg:col-span-7 bg-[#FAF8F5] rounded-3xl border border-[#E8E3DA] overflow-hidden shadow-lg flex flex-col justify-between group">
-          <div className="relative h-[420px] overflow-hidden">
-            <img src="/photos/clean_sarees.jpg" alt="Heritage Sarees Collection"
-              className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-
-            <div className="absolute top-6 left-6 flex items-center gap-2">
-              <span
-                className="px-3.5 py-1.5 rounded-full bg-[#0B0E14]/80 backdrop-blur-md text-amber-400 text-xs font-bold uppercase tracking-wider border border-amber-400/30">
-                FEATURED SPOTLIGHT • COLLECTION 01
-              </span>
-              <span className="px-3 py-1 rounded-full bg-[#FF5722] text-white text-[11px] font-black">
-                ESTD 2003
-              </span>
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#E8E3DA] dark:border-neutral-800 pb-8">
+          <div className="space-y-2 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-100/80 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/30 text-[#FF5722]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF5722] animate-ping"></span>
+              <span className="text-[11px] font-bold uppercase tracking-widest font-mono">Curated Product Portfolios</span>
             </div>
-
-            <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-              <span className="text-xs font-mono uppercase tracking-widest text-amber-300">Handloom & Powerloom
-                Weaves</span>
-              <h3 className="text-3xl md:text-4xl font-black font-royal tracking-wide text-white">SAREES</h3>
-              <p className="text-xs text-neutral-200 max-w-lg leading-relaxed">
-                Cotton, Silk, Designer, and Partywear collections sourced straight from Varanasi, Surat, and Chanderi
-                looms.
-              </p>
-            </div>
+            <h2 className="text-3xl md:text-5xl font-bold font-luxury text-[#0B0E14] dark:text-white tracking-tight">
+              Featured Product Range
+            </h2>
+            <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-400">
+              Connecting manufacturers with buyers across 4 primary commercial categories directly from source looms.
+            </p>
           </div>
 
-          <div
-            className="p-8 bg-white flex flex-col md:flex-row items-center justify-between gap-6 border-t border-[#E8E3DA]">
-            <div className="flex flex-wrap items-center gap-2 text-xs">
-              <span className="px-3 py-1 rounded-lg bg-neutral-100 text-neutral-700 font-medium">Pure Katan Silk</span>
-              <span className="px-3 py-1 rounded-lg bg-neutral-100 text-neutral-700 font-medium">Banarasi Jacquard</span>
-              <span className="px-3 py-1 rounded-lg bg-neutral-100 text-neutral-700 font-medium">Surat Printed
-                Georgette</span>
-              <span className="px-3 py-1 rounded-lg bg-neutral-100 text-neutral-700 font-medium">Chanderi Cotton</span>
-            </div>
-            <a href="#connect"
-              className="px-6 py-2.5 rounded-full bg-[#FF5722] hover:bg-orange-600 text-white text-xs font-bold uppercase tracking-wider transition shadow shrink-0">
-              Inquire Sourcing
-            </a>
+          {/* Interactive Filter Pills */}
+          <div className="flex flex-wrap items-center gap-1.5 bg-[#FAF8F5] dark:bg-neutral-900/90 p-1.5 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-inner">
+            <button
+              onClick={() => setActiveFilter('all')}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                activeFilter === 'all'
+                  ? 'bg-[#FF5722] text-white shadow-md'
+                  : 'text-neutral-600 dark:text-neutral-400 hover:text-[#0B0E14] dark:hover:text-white'
+              }`}
+            >
+              All 4 Collections
+            </button>
+            <button
+              onClick={() => setActiveFilter('sarees')}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                activeFilter === 'sarees'
+                  ? 'bg-[#FF5722] text-white shadow-md'
+                  : 'text-neutral-600 dark:text-neutral-400 hover:text-[#0B0E14] dark:hover:text-white'
+              }`}
+            >
+              Sarees
+            </button>
+            <button
+              onClick={() => setActiveFilter('suits')}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                activeFilter === 'suits'
+                  ? 'bg-[#FF5722] text-white shadow-md'
+                  : 'text-neutral-600 dark:text-neutral-400 hover:text-[#0B0E14] dark:hover:text-white'
+              }`}
+            >
+              Salwar Suits
+            </button>
+            <button
+              onClick={() => setActiveFilter('lehengas')}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                activeFilter === 'lehengas'
+                  ? 'bg-[#FF5722] text-white shadow-md'
+                  : 'text-neutral-600 dark:text-neutral-400 hover:text-[#0B0E14] dark:hover:text-white'
+              }`}
+            >
+              Lehengas
+            </button>
+            <button
+              onClick={() => setActiveFilter('indo_western')}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                activeFilter === 'indo_western'
+                  ? 'bg-[#FF5722] text-white shadow-md'
+                  : 'text-neutral-600 dark:text-neutral-400 hover:text-[#0B0E14] dark:hover:text-white'
+              }`}
+            >
+              Indo-Western
+            </button>
           </div>
         </div>
 
-        {/*  Curated Vertical Trio Deck (5 cols)  */}
-        <div className="lg:col-span-5 flex flex-col justify-between gap-4">
+        {/* 4 Distinct Animated Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          {filtered.map((item, idx) => (
+            <div
+              key={item.id}
+              className="card-hover-lift hover-shimmer-trigger group relative bg-[#FAF8F5] dark:bg-neutral-900 rounded-3xl border border-[#E8E3DA] dark:border-neutral-800 overflow-hidden shadow-lg flex flex-col justify-between transition-all duration-500"
+            >
+              {/* Top Visual Frame with Animated Shimmer */}
+              <div className="relative h-72 sm:h-80 overflow-hidden bg-neutral-950">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                />
 
-          {/*  Card 1: SALWAR SUITS  */}
-          <div
-            className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-md transition flex items-center gap-5 group">
-            <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 relative">
-              <img src="/photos/clean_salwar_suits.jpg" alt="Salwar Suits"
-                className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <span
-                className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-[#0B0E14]/80 text-[9px] font-bold text-amber-400">02</span>
-            </div>
-            <div className="space-y-1">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-[#FF5722] font-bold">FOUNDATION WEAR •
-                ESTD 1995</span>
-              <h4 className="text-lg font-bold font-royal text-[#0B0E14]">SALWAR SUITS</h4>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                Stitched and unstitched varieties; fine muslin, cotton, chanderi, and partywear ensembles.
-              </p>
-            </div>
-          </div>
+                {/* Shimmer Light Bar */}
+                <div className="shimmer-shine pointer-events-none absolute inset-0 -top-full h-[300%] w-16 bg-white/20 blur-md transform -rotate-25 opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-          {/*  Card 2: LEHENGAS  */}
-          <div
-            className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-md transition flex items-center gap-5 group">
-            <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 relative">
-              <img src="/photos/clean_lehengas.jpg" alt="Lehengas"
-                className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <span
-                className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-[#0B0E14]/80 text-[9px] font-bold text-amber-400">03</span>
-            </div>
-            <div className="space-y-1">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-[#FF5722] font-bold">BRIDAL & OCCASION •
-                ESTD 2003</span>
-              <h4 className="text-lg font-bold font-royal text-[#0B0E14]">LEHENGAS</h4>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                Bridal, festive, and partywear collections featuring zari, resham, and intricate heritage embroidery.
-              </p>
-            </div>
-          </div>
+                {/* Gradient Shadow Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
 
-          {/*  Card 3: INDO WESTERN  */}
-          <div
-            className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-md transition flex items-center gap-5 group">
-            <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 relative">
-              <img src="/photos/clean_indo_western.jpg" alt="Indo Western"
-                className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <span
-                className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-[#0B0E14]/80 text-[9px] font-bold text-amber-400">04</span>
-            </div>
-            <div className="space-y-1">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-[#FF5722] font-bold">CONTEMPORARY FUSION
-                • ESTD 2006</span>
-              <h4 className="text-lg font-bold font-royal text-[#0B0E14]">INDO WESTERN WEAR</h4>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                Designer gowns, premium kurtis, coordinated sets, and fusion ready-to-wear silhouettes.
-              </p>
-            </div>
-          </div>
+                {/* Category Floating Badge */}
+                <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
+                  <span className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase border backdrop-blur-md ${item.badgeColor}`}>
+                    {item.badge}
+                  </span>
+                </div>
 
+                {/* Sourcing Hub Pin */}
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-black/60 backdrop-blur-md text-amber-300 border border-white/20 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                    <span>Hub: {item.hubs}</span>
+                  </span>
+                </div>
+
+                {/* Title Overlay at bottom of visual */}
+                <div className="absolute bottom-4 left-5 right-5 z-10">
+                  <span className="text-[10px] font-mono tracking-widest text-[#FF5722] uppercase font-bold">
+                    Category 0{idx + 1} • {item.cardType}
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-bold font-luxury text-white tracking-tight drop-shadow-md">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-amber-200/90 font-medium mt-0.5">
+                    {item.tagline}
+                  </p>
+                </div>
+              </div>
+
+              {/* Card Body & Technical Specifications */}
+              <div className="p-6 sm:p-7 space-y-5 flex-1 flex flex-col justify-between">
+                <div className="space-y-4">
+                  <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  {/* Fabric & Technical Attribute Pills */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.tags.map((tag, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700/80 shadow-2xs group-hover:border-orange-300 dark:group-hover:border-orange-500/40 transition"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Bottom Action Strip */}
+                <div className="pt-5 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between gap-4">
+                  <div className="text-[11px] text-neutral-500 dark:text-neutral-400 font-mono">
+                    <span>MOQ: </span>
+                    <span className="font-bold text-neutral-800 dark:text-neutral-200">{item.moq}</span>
+                  </div>
+
+                  <a
+                    href="#connect"
+                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#FF5722] to-amber-500 hover:from-[#E64A19] hover:to-amber-600 text-white font-bold text-xs uppercase tracking-wider shadow-md glow-orange transition transform hover:scale-105 flex items-center gap-1.5"
+                  >
+                    <span>Inquire Catalog</span>
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          ))}
         </div>
 
-      </div>
-
-      {/*  Architectural FABRIC HUB Banner (DOCX Specified Category)  */}
-      <div
-        className="bg-gradient-to-r from-[#0B0E14] via-[#1A1F2C] to-[#0B0E14] text-white p-8 px-10 rounded-3xl border border-neutral-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="space-y-2 max-w-2xl">
-          <div className="flex items-center gap-3">
-            <span className="px-2.5 py-1 rounded bg-[#FF5722] text-white text-[10px] font-mono font-bold tracking-widest">
-              CATEGORY 05 • FABRICS SOURCING
-            </span>
-            <span className="text-xs text-neutral-400 font-mono">DIRECT FROM PRODUCTION HUBS</span>
+        {/* Bottom Fast-Turnover Sourcing Callout */}
+        <div className="p-6 rounded-2xl bg-[#FAF8F5] dark:bg-neutral-900 border border-[#E8E3DA] dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="space-y-1">
+            <h4 className="font-bold font-royal text-[#0B0E14] dark:text-white text-base">
+              Custom Fabric Weaving & Unstitched Material Inquiries
+            </h4>
+            <p className="text-xs text-neutral-600 dark:text-neutral-400">
+              Need custom yarn specifications, jacquard motifs, or special loom runs? Our 700+ verified partner mills accommodate custom commercial weaving contracts.
+            </p>
           </div>
-          <h3 className="text-2xl font-bold font-royal text-white">FABRICS & TEXTILE MATERIALS</h3>
-          <p className="text-xs text-neutral-300 leading-relaxed">
-            Direct mill sourcing of dyable fabrics, mill-dyed materials, digital and screen printed textiles, pure silk,
-            and pure cotton fabrics across Surat, Ahmedabad, Kolkata, and Bhagalpur.
-          </p>
-        </div>
-
-        <div className="flex items-center gap-3 shrink-0">
-          <a href="#map"
-            className="px-5 py-2.5 rounded-full border border-neutral-600 hover:border-amber-400 text-xs text-neutral-300 font-bold transition">
-            View Sourcing Hubs
+          <a
+            href="#connect"
+            className="px-5 py-2.5 rounded-xl border-2 border-[#FF5722] text-[#FF5722] hover:bg-[#FF5722] hover:text-white font-bold text-xs uppercase tracking-wider transition shrink-0"
+          >
+            Custom Loom Order
           </a>
-          <a href="#connect"
-            className="px-6 py-2.5 rounded-full bg-[#FF5722] hover:bg-orange-600 text-white text-xs font-bold uppercase tracking-wider transition shadow">
-            Request Swatches
-          </a>
         </div>
-      </div>
 
-    </div>
-  </section>
+      </div>
+    </section>
   );
 }

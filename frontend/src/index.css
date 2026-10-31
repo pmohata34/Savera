@@ -25,6 +25,7 @@
 
   body {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
@@ -41,11 +42,11 @@
 }
 
 .glow-orange {
-  box-shadow: 0 10px 30px -10px rgba(255, 87, 34, 0.40);
+  box-shadow: 0 10px 30px -10px rgba(255, 87, 34, 0.45);
 }
 
 .glow-gold {
-  box-shadow: 0 10px 35px -10px rgba(212, 175, 55, 0.30);
+  box-shadow: 0 10px 35px -10px rgba(212, 175, 55, 0.35);
 }
 
 .gold-gradient-text {
@@ -54,7 +55,27 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Bus Topology & Pipeline Keyframe Animations */
+/* Card Hover Animations & Micro-Interactions */
+.card-hover-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 40px -12px rgba(255, 87, 34, 0.18), 0 12px 24px -8px rgba(0, 0, 0, 0.12);
+}
+
+/* Shimmer Sweep Animation on Product Cards */
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(250%) rotate(25deg); }
+}
+
+.hover-shimmer-trigger:hover .shimmer-shine {
+  animation: shimmerSweep 1.2s ease-in-out forwards;
+}
+
+/* Bus Topology Keyframe Animations */
 @keyframes busSignalFlow {
   0% { top: 0%; opacity: 0; }
   15% { opacity: 1; }
@@ -95,21 +116,25 @@
   animation: radarWave 2.8s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 
-/* Infinite Graph Curve Keyframe Animation */
-@keyframes infiniteCurveFlow {
-  0% { stroke-dashoffset: 2400; }
-  100% { stroke-dashoffset: 0; }
+/* Infinite Graph Curve Flow Animation: REVERSED (Flows from Down to Up: 1995 Root -> 2026 Crest) */
+@keyframes infiniteCurveFlowUpward {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 2400;
+  }
 }
 
 .infinite-curve-pulse {
-  stroke-dasharray: 160 800;
-  animation: infiniteCurveFlow 8s linear infinite;
-  filter: drop-shadow(0 0 10px rgba(255, 87, 34, 0.8));
+  stroke-dasharray: 180 800;
+  animation: infiniteCurveFlowUpward 7.5s linear infinite;
+  filter: drop-shadow(0 0 14px rgba(255, 87, 34, 0.95));
 }
 
 @keyframes orbGlow {
   0%, 100% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.6); transform: scale(1); }
-  50% { box-shadow: 0 0 0 12px rgba(255, 87, 34, 0); transform: scale(1.05); }
+  50% { box-shadow: 0 0 0 12px rgba(255, 87, 34, 0); transform: scale(1.06); }
 }
 
 .milestone-orb {

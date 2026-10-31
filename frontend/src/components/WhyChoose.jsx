@@ -37,7 +37,7 @@ export default function WhyChoose() {
 
           {/*  Card 1: Experience Since 1995  */}
           <div
-            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group">
+            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group card-hover-lift cursor-pointer">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span
@@ -68,7 +68,7 @@ export default function WhyChoose() {
 
           {/*  Card 2: Connecting Genuine Buyers  */}
           <div
-            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group">
+            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group card-hover-lift cursor-pointer">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span
@@ -98,7 +98,7 @@ export default function WhyChoose() {
 
           {/*  Card 3: Saving Time  */}
           <div
-            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group">
+            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group card-hover-lift cursor-pointer">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span
@@ -128,7 +128,7 @@ export default function WhyChoose() {
 
           {/*  Card 4: Support for New and Growing Businesses  */}
           <div
-            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group">
+            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group card-hover-lift cursor-pointer">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span
@@ -159,7 +159,7 @@ export default function WhyChoose() {
 
           {/*  Card 5: Access to Multiple Textile Markets  */}
           <div
-            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group">
+            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group card-hover-lift cursor-pointer">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span
@@ -189,7 +189,7 @@ export default function WhyChoose() {
 
           {/*  Card 6: Transparency & Clear Communication  */}
           <div
-            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group">
+            className="bg-white p-8 rounded-3xl border border-[#E8E3DA] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 flex flex-col justify-between group card-hover-lift cursor-pointer">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span
