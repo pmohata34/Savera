@@ -117,17 +117,17 @@ export default function GrowthJourney() {
             {/*  MILESTONE 1: 2026 (Top Arc - Savera Tex Solution LLP)  */}
             <div className="grid grid-cols-1 md:grid-cols-12 items-center">
               <div
-                className="md:col-span-6 bg-gradient-to-tr from-[#0B0E14] via-[#1A1F2C] to-[#0B0E14] text-white p-6 md:p-8 rounded-3xl border-2 border-amber-400 shadow-xl hover:shadow-2xl transition space-y-3 relative group">
+                className="md:col-span-6 bg-gradient-to-tr from-white via-orange-50 to-amber-50 text-neutral-800 p-6 md:p-8 rounded-3xl border-2 border-[#FF5722] shadow-xl hover:shadow-2xl transition space-y-3 relative group">
                 <div className="flex items-center justify-between">
                   <span
                     className="px-3 py-1 rounded-full bg-[#FF5722] text-white text-xs font-bold uppercase tracking-wider">
                     Present Platform
                   </span>
-                  <span className="text-3xl font-black font-royal text-amber-400">2026</span>
+                  <span className="text-3xl font-black font-royal text-[#FF5722]">2026</span>
                 </div>
-                <h4 className="text-xl font-bold font-royal text-white">Formation of <span
+                <h4 className="text-xl font-bold font-royal text-[#0B0E14]">Formation of <span
                     className="text-[#FF5722]">Savera</span> Tex Solution LLP</h4>
-                <p className="text-xs text-neutral-300 leading-relaxed">
+                <p className="text-xs text-neutral-600 leading-relaxed font-normal">
                   Established <span className="text-[#FF5722] font-bold">Savera</span> Tex Solution LLP, bringing together
                   thirty years of industry experience and trusted business relationships under a structured
                   institutional platform. We connect manufacturers, retailers, and wholesalers across India and
@@ -135,8 +135,8 @@ export default function GrowthJourney() {
                 </p>
                 {/*  Delicate connector dot toward curve  */}
                 <div
-                  className="hidden md:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-amber-400 border-2 border-white items-center justify-center shadow-lg milestone-orb">
-                  <span className="w-3 h-3 rounded-full bg-[#0B0E14]"></span>
+                  className="hidden md:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#FF5722] border-2 border-white items-center justify-center shadow-lg milestone-orb">
+                  <span className="w-3 h-3 rounded-full bg-white"></span>
                 </div>
               </div>
               <div className="hidden md:block md:col-span-6 pl-12 text-neutral-500 font-mono text-xs">

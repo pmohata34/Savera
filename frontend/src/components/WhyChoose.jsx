@@ -271,13 +271,13 @@ export default function WhyChoose() {
 
         {/*  Desktop Comparison Table (Hidden on small mobile, flex on md+)  */}
         <div className="hidden md:block bg-white rounded-3xl border border-[#E8E3DA] overflow-hidden shadow-xl">
-          <div className="grid grid-cols-12 bg-neutral-900 text-white text-xs font-bold uppercase tracking-wider divide-x divide-neutral-800">
+          <div className="grid grid-cols-12 bg-gradient-to-r from-slate-100 via-orange-50 to-amber-50 text-neutral-800 text-xs font-bold uppercase tracking-wider divide-x divide-neutral-200 border-b border-orange-200">
             <div className="col-span-3 p-5">Commercial Parameter</div>
-            <div className="col-span-4 p-5 bg-neutral-900/90 text-neutral-300 flex items-center gap-2">
+            <div className="col-span-4 p-5 bg-slate-100/90 text-neutral-700 flex items-center gap-2">
               <span className="w-5 h-5 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center text-[10px]">✕</span>
               <span>Without Agent (Solo Sourcing)</span>
             </div>
-            <div className="col-span-5 p-5 bg-gradient-to-r from-orange-950/60 to-neutral-900 text-amber-300 flex items-center justify-between">
+            <div className="col-span-5 p-5 bg-gradient-to-r from-orange-100/80 via-orange-50 to-amber-100/80 text-[#FF5722] flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px]">✓</span>
                 <span>With <span className="text-[#FF5722]">Savera</span> Tex Solution LLP</span>
@@ -475,17 +475,17 @@ export default function WhyChoose() {
 
 
 <div
-        className="p-6 md:p-8 bg-gradient-to-r from-[#0B0E14] via-[#1A1F2C] to-[#0B0E14] text-white rounded-3xl border border-neutral-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+        className="p-6 md:p-8 bg-gradient-to-r from-orange-50 via-white to-amber-50 text-neutral-800 rounded-3xl border border-orange-200 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-center md:text-left space-y-1">
-          <p className="text-amber-400 font-designer italic text-lg md:text-xl">
+          <p className="text-[#FF5722] font-designer italic text-lg md:text-xl font-medium">
             "Goodwill is more valuable than money, and trust is the true foundation of business."
           </p>
-          <p className="text-xs text-neutral-400">
+          <p className="text-xs text-neutral-600">
             Founder Vineet Kr. Taparia • Established 1995 • Three decades of trusted partnership
           </p>
         </div>
         <a href="#founder"
-          className="px-6 py-2.5 rounded-full border border-neutral-600 hover:border-amber-400 text-xs text-neutral-300 font-bold transition shrink-0">
+          className="px-6 py-2.5 rounded-full border border-orange-300 hover:bg-[#FF5722] hover:text-white text-xs text-neutral-800 font-bold transition shrink-0 bg-white shadow-2xs">
           Read Founder's Vision
         </a>
       </div>

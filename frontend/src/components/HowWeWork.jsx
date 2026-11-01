@@ -33,7 +33,7 @@ export default function HowWeWork() {
           <div className="flex items-center justify-between border-b border-[#E8E3DA] pb-4">
             <div className="flex items-center gap-3">
               <span
-                className="px-3 py-1 rounded-full bg-[#0B0E14] text-amber-400 text-[10px] font-black uppercase tracking-widest font-mono">
+                className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-500/30 text-[#FF5722] text-[10px] font-black uppercase tracking-widest font-mono">
                 PHASE 01 • INTELLIGENCE & SOURCING
               </span>
               <span className="text-xs text-neutral-500 font-medium">Requirements Intake & Factory Discovery</span>
@@ -104,7 +104,7 @@ export default function HowWeWork() {
           <div className="flex items-center justify-between border-b border-[#E8E3DA] pb-4">
             <div className="flex items-center gap-3">
               <span
-                className="px-3 py-1 rounded-full bg-[#0B0E14] text-amber-400 text-[10px] font-black uppercase tracking-widest font-mono">
+                className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-500/30 text-[#FF5722] text-[10px] font-black uppercase tracking-widest font-mono">
                 PHASE 02 • CURATION & COMMERCIALS
               </span>
               <span className="text-xs text-neutral-500 font-medium">Sample Matching & Transparent Negotiation</span>
@@ -175,7 +175,7 @@ export default function HowWeWork() {
           <div className="flex items-center justify-between border-b border-[#E8E3DA] pb-4">
             <div className="flex items-center gap-3">
               <span
-                className="px-3 py-1 rounded-full bg-[#0B0E14] text-amber-400 text-[10px] font-black uppercase tracking-widest font-mono">
+                className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-500/30 text-[#FF5722] text-[10px] font-black uppercase tracking-widest font-mono">
                 PHASE 03 • EXECUTION & PARTNERSHIP
               </span>
               <span className="text-xs text-neutral-500 font-medium">Order Follow-Up & Long-Term Trust</span>

@@ -212,37 +212,37 @@ export default function ConnectForm() {
 
           {/* Right Information Card (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-[#0B0E14] text-white p-8 rounded-3xl border border-neutral-800 shadow-2xl space-y-6">
+            <div className="bg-gradient-to-br from-white via-orange-50/50 to-amber-50/30 text-neutral-800 p-8 rounded-3xl border border-orange-200/80 shadow-xl space-y-6">
               <div>
                 <span className="text-[10px] font-mono tracking-widest text-[#FF5722] uppercase">Official Commission Agency</span>
-                <h3 className="text-2xl font-bold font-royal text-white mt-1">
+                <h3 className="text-2xl font-bold font-royal text-[#0B0E14] mt-1">
                   <span className="text-[#FF5722]">SAVERA</span> TEX SOLUTION LLP
                 </h3>
-                <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
+                <p className="text-xs text-neutral-600 mt-2 leading-relaxed">
                   Connecting textile manufacturers with retailers and wholesalers across India and international markets since 1995.
                 </p>
               </div>
 
-              <div className="space-y-4 text-xs border-t border-neutral-800 pt-6">
+              <div className="space-y-4 text-xs border-t border-orange-100 pt-6">
                 <div>
                   <span className="block text-neutral-500 font-bold uppercase tracking-wider text-[10px]">Headquarters & Operations</span>
-                  <p className="text-neutral-200 mt-0.5">Kolkata - 700007, West Bengal, India</p>
+                  <p className="text-neutral-900 font-medium mt-0.5">Kolkata - 700007, West Bengal, India</p>
                 </div>
                 <div>
                   <span className="block text-neutral-500 font-bold uppercase tracking-wider text-[10px]">Mobile & WhatsApp Direct</span>
-                  <a href="tel:+919830504850" className="text-neutral-200 hover:text-amber-400 transition font-mono mt-0.5 block">+91 98305 04850</a>
+                  <a href="tel:+919830504850" className="text-neutral-900 hover:text-[#FF5722] transition font-mono font-medium mt-0.5 block">+91 98305 04850</a>
                 </div>
                 <div>
                   <span className="block text-neutral-500 font-bold uppercase tracking-wider text-[10px]">Email Communications</span>
-                  <a href="mailto:saveratexsolutionllp@gmail.com" className="text-neutral-200 hover:text-amber-400 transition font-mono mt-0.5 block">saveratexsolutionllp@gmail.com</a>
+                  <a href="mailto:saveratexsolutionllp@gmail.com" className="text-neutral-900 hover:text-[#FF5722] transition font-mono font-medium mt-0.5 block">saveratexsolutionllp@gmail.com</a>
                 </div>
                 <div>
                   <span className="block text-neutral-500 font-bold uppercase tracking-wider text-[10px]">Sourcing Hubs Active</span>
-                  <p className="text-neutral-300 mt-0.5">Surat, Varanasi (Banaras), Jaipur, Ahmedabad, Bhagalpur, Kolkata</p>
+                  <p className="text-neutral-700 mt-0.5">Surat, Varanasi (Banaras), Jaipur, Ahmedabad, Bhagalpur, Kolkata</p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-neutral-800">
+              <div className="pt-4 border-t border-orange-100">
                 <a
                   href="https://wa.me/919830504850?text=Hello%20Savera%20Tex%20Solution%20LLP,%20I%20would%20like%20to%20connect%20regarding%20textile%20sourcing."
                   target="_blank"

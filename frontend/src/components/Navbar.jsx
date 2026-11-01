@@ -18,7 +18,7 @@ export default function Navbar() {
             <span className="block text-lg font-black tracking-tight text-[#FF5722] font-royal leading-none">
               SAVERA
             </span>
-            <span className="block text-[8px] font-bold tracking-[0.22em] text-[#FF5722] uppercase mt-0.5">
+            <span className="block text-[8px] font-bold tracking-[0.22em] text-[#000000] uppercase mt-0.5">
               TEX SOLUTION LLP
             </span>
           </div>
