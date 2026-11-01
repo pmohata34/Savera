@@ -4,50 +4,46 @@ import Hero from './components/Hero';
 import HowWeWork from './components/HowWeWork';
 import SourcingMap from './components/SourcingMap';
 import ProductRange from './components/ProductRange';
-import Founder from './components/Founder';
 import GrowthJourney from './components/GrowthJourney';
-import ComparativeDifference from './components/ComparativeDifference';
 import WhyChoose from './components/WhyChoose';
+import Founder from './components/Founder';
 import ConnectForm from './components/ConnectForm';
 import Footer from './components/Footer';
 
 export default function App() {
   return (
     <div className="min-h-screen bg-[#FAF8F5] text-[#0F1318] relative selection:bg-[#FF5722] selection:text-white">
-      {/* 1. Fixed Top Luxury Navbar */}
+      {/* Fixed Top Luxury Navbar */}
       <Navbar />
 
       {/* Main Content Sections */}
       <main className="w-full pt-16">
-        {/* 2. Hero Section with White Luxury Canvas & Trust Metrics (Clean Picture, Zero Buttons) */}
+        {/* 1. Home Page (Hero Section with Trust Metrics) */}
         <Hero />
 
-        {/* 3. How We Work (6-Step Sourcing & Order Process) */}
+        {/* 2. How We Work (6-Step Sourcing & Order Process) */}
         <HowWeWork />
 
-        {/* 4. Pan-India 3D Sourcing Map (6 Textile Hubs) */}
+        {/* 3. Sourcing Hubs (Pan-India 3D Sourcing Map) */}
         <SourcingMap />
 
-        {/* 5. Product Range Showcase (Interactive Expanding Flex Carousel) */}
+        {/* 4. Product Range (Interactive Expanding Flex Carousel) */}
         <ProductRange />
 
-        {/* 6. Founder & Vision (Mr. Vineet Kr. Taparia) */}
-        <Founder />
-
-        {/* 7. Our Growth Journey (The Infinite Graph Curve: Upward Flow) */}
+        {/* 5. Growth Journey (The Infinite Graph Curve Trajectory: 1995 to 2026) */}
         <GrowthJourney />
 
-        {/* 8. The Difference Matrix: Direct Solo Sourcing vs. Partnering with Savera */}
-        <ComparativeDifference />
-
-        {/* 9. Why Choose Us: 7 Strategic Pillars of Excellence & Founder Monograph */}
+        {/* 6. Why Choose Us (The Institutional Standard & 7 Strategic Pillars) */}
         <WhyChoose />
 
-        {/* 10. Interactive Sourcing Inquiry Form */}
+        {/* 7. Founder & Vision (Mr. Vineet Kr. Taparia) */}
+        <Founder />
+
+        {/* 8. Sourcing Inquiry Form */}
         <ConnectForm />
       </main>
 
-      {/* 11. Corporate Legal Footer */}
+      {/* 9. Corporate Legal Footer */}
       <Footer />
     </div>
   );

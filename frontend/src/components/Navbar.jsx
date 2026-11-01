@@ -24,19 +24,15 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Center Nav Pills (Desktop Capsule Structure in Sequential Flow) */}
+        {/* Center Nav Pills (Desktop Capsule Structure in Sequential Page Order) */}
         <nav className="hidden xl:flex items-center gap-1 bg-slate-100/90 p-1.5 rounded-full border border-slate-200/80 text-xs font-semibold text-neutral-600 shadow-inner">
-          <a href="#hero" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">About Us</a>
+          <a href="#hero" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Home</a>
           <a href="#how-we-work" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">How We Work</a>
           <a href="#map" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Sourcing Hubs</a>
           <a href="#products" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Product Range</a>
+          <a href="#growth-journey" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Growth Journey</a>
+          <a href="#why-choose" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Why Choose Us</a>
           <a href="#founder" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Founder</a>
-          <a href="#story" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Our Journey</a>
-          <a href="#difference" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">The Difference</a>
-          <a href="#why-choose" className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-orange-500/15 to-amber-500/15 text-[#FF5722] border border-orange-500/30 flex items-center gap-1.5 shadow-2xs font-bold">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FF5722] animate-pulse"></span>
-            <span>Why Choose Us</span>
-          </a>
         </nav>
 
         {/* Right Action Cluster */}
@@ -74,14 +70,14 @@ export default function Navbar() {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="xl:hidden border-t border-slate-200 bg-white/98 backdrop-blur-2xl px-6 py-5 shadow-2xl flex flex-col gap-2.5 text-sm text-neutral-700 animate-fadeIn">
-          <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">About Us</a>
+          <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Home</a>
           <a href="#how-we-work" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">How We Work (6 Steps)</a>
-          <a href="#map" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl text-[#FF5722] font-bold hover:bg-orange-50 transition">Sourcing Hubs (6 Cities)</a>
+          <a href="#map" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Sourcing Hubs (6 Cities)</a>
           <a href="#products" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Product Range (4 Collections)</a>
-          <a href="#founder" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Founder & Vision</a>
-          <a href="#story" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Our Journey (1995 ➔ 2026)</a>
-          <a href="#difference" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">The Difference (Direct vs. Savera)</a>
+          <a href="#growth-journey" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Growth Journey (1995 ➔ 2026)</a>
           <a href="#why-choose" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Why Choose Us (7 Pillars)</a>
+          <a href="#founder" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Founder & Vision</a>
+          <a href="#connect" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl bg-orange-50 text-[#FF5722] font-bold transition">Inquire Now</a>
         </div>
       )}
     </header>
