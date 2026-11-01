@@ -54,21 +54,6 @@ export default function Hero() {
               manufacturers and explore collections that match their market needs.
             </p>
 
-            {/* Interactive Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#connect"
-                className="px-8 py-4 rounded-full bg-gradient-to-r from-[#FF5722] via-orange-500 to-amber-500 hover:from-[#E64A19] hover:to-amber-600 text-white font-bold text-sm shadow-xl glow-orange transition transform hover:scale-105 flex items-center gap-2.5">
-                <span>Inquire for Sourcing</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-              <a href="#map"
-                className="px-7 py-4 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-300 text-neutral-800 font-bold text-sm shadow-2xs transition flex items-center gap-2">
-                <span>Explore Sourcing Hubs</span>
-              </a>
-            </div>
-
           </div>
 
           {/* Right Column: Pure Luxury Showcase Visual (Zero Text Overlays) */}

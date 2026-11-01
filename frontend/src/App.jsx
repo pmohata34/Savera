@@ -1,12 +1,13 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import WhyChoose from './components/WhyChoose';
 import HowWeWork from './components/HowWeWork';
 import SourcingMap from './components/SourcingMap';
 import ProductRange from './components/ProductRange';
 import Founder from './components/Founder';
 import GrowthJourney from './components/GrowthJourney';
+import ComparativeDifference from './components/ComparativeDifference';
+import WhyChoose from './components/WhyChoose';
 import ConnectForm from './components/ConnectForm';
 import Footer from './components/Footer';
 
@@ -18,32 +19,35 @@ export default function App() {
 
       {/* Main Content Sections */}
       <main className="w-full pt-16">
-        {/* 2. Hero Section with White Luxury Canvas & Trust Metrics */}
+        {/* 2. Hero Section with White Luxury Canvas & Trust Metrics (Clean Picture, Zero Buttons) */}
         <Hero />
 
-        {/* 3. Why Choose Us & Comparative Difference Matrix */}
-        <WhyChoose />
-
-        {/* 4. How We Work (6-Step Sourcing & Order Process) */}
+        {/* 3. How We Work (6-Step Sourcing & Order Process) */}
         <HowWeWork />
 
-        {/* 5. Pan-India 3D Sourcing Map (6 Textile Hubs) */}
+        {/* 4. Pan-India 3D Sourcing Map (6 Textile Hubs) */}
         <SourcingMap />
 
-        {/* 6. Product Range Showcase (4 Animated Product Cards) */}
+        {/* 5. Product Range Showcase (Interactive Expanding Flex Carousel) */}
         <ProductRange />
 
-        {/* 7. Founder & Vision (Mr. Vineet Kr. Taparia) */}
+        {/* 6. Founder & Vision (Mr. Vineet Kr. Taparia) */}
         <Founder />
 
-        {/* 8. Our Growth Journey (The Infinite Graph Curve: Upward Flow) */}
+        {/* 7. Our Growth Journey (The Infinite Graph Curve: Upward Flow) */}
         <GrowthJourney />
 
-        {/* 9. Interactive Sourcing Inquiry Form */}
+        {/* 8. The Difference Matrix: Direct Solo Sourcing vs. Partnering with Savera */}
+        <ComparativeDifference />
+
+        {/* 9. Why Choose Us: 7 Strategic Pillars of Excellence & Founder Monograph */}
+        <WhyChoose />
+
+        {/* 10. Interactive Sourcing Inquiry Form */}
         <ConnectForm />
       </main>
 
-      {/* 10. Corporate Legal Footer */}
+      {/* 11. Corporate Legal Footer */}
       <Footer />
     </div>
   );
