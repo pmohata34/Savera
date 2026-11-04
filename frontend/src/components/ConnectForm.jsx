@@ -13,12 +13,12 @@ export default function ConnectForm() {
   const [status, setStatus] = useState(null);
 
   const categoryOptions = [
-    'Sarees (Surat & Banaras)',
-    'Salwar Suits & Dress Materials',
-    'Bridal & Designer Lehengas',
-    'Indo-Western & Ready-to-Wear',
-    'Kurti Pant Sets & Tunics',
-    'Bed Sheets & Home Textiles'
+    'Sarees (Cotton, Silk, Designer & Partywear)',
+    'Salwar Suits (Stitched & Unstitched Materials)',
+    'Lehengas (Bridal, Festive & Partywear)',
+    'Indo Western Wear (Gowns, Kurtis & Fusion)',
+    'Fabrics (Dyeable, Printed, Silk & Cotton)',
+    'Specialized Commercial Loom Contracts'
   ];
 
   const handleCheckboxChange = (cat) => {
@@ -52,24 +52,22 @@ export default function ConnectForm() {
           leadId: data.leadId,
           whatsappUrl: data.whatsappUrl
         });
-        // reset form
         setFormData({
           firmName: '',
           personName: '',
           mobileNumber: '',
           cityState: '',
-          categories: ['Sarees (Surat & Banaras)'],
+          categories: ['Sarees (Cotton, Silk, Designer & Partywear)'],
           message: ''
         });
       } else {
         setStatus({
           type: 'error',
-          message: data.error || 'Unable to register inquiry. Please try again or connect directly via WhatsApp.'
+          message: data.error || 'Unable to register inquiry. Please connect directly via WhatsApp.'
         });
       }
     } catch (err) {
       console.error(err);
-      // Fallback: direct WhatsApp link
       const fallbackUrl = `https://wa.me/919830504850?text=${encodeURIComponent(
         `Hello Savera Tex Solution LLP, I would like to inquire about textile sourcing for ${formData.firmName || 'my business'} in ${formData.cityState || 'India'}.`
       )}`;
@@ -84,26 +82,33 @@ export default function ConnectForm() {
   };
 
   return (
-    <section id="connect" className="py-24 px-12 bg-[#FAF8F5] border-b border-[#E8E3DA] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto space-y-12">
+    <section id="connect" className="py-24 px-6 sm:px-12 bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
+
+      {/* Atmospheric Ambient Lighting */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/4 -right-24 w-96 h-96 bg-gradient-to-bl from-[#f7e5d4] to-[#f8b47d]/20 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-1/4 -left-24 w-96 h-96 bg-gradient-to-tr from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl animate-float-reverse"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
 
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-100/80 border border-orange-200 text-[#FF5722]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FF5722] animate-ping"></span>
-            <span className="text-[11px] font-bold uppercase tracking-widest font-mono">Institutional Inquiries</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#f7e5d4] to-white border border-[#f8b47d]/60 text-[#f16701] text-xs font-bold uppercase tracking-widest shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-[#f16701] animate-ping"></span>
+            <span>Commercial Inquiries</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-luxury text-[#0B0E14] tracking-tight">
-            Connect With <span className="text-[#FF5722]">Savera</span> Tex Solution LLP
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0F1318] tracking-tight">
+            Connect With <span className="text-[#f16701]">Savera</span> Tex Solution LLP
           </h2>
-          <p className="text-base text-neutral-600">
-            Whether you are a manufacturer looking to expand your buyer network or a retailer seeking reliable sourcing from India's premier hubs, our team is ready to assist.
+          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+            Whether you are a manufacturer looking to expand your buyer network or a retailer seeking reliable sourcing from India's premier textile hubs, our team is ready to assist.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
           {/* Left Form (7 cols) */}
-          <div className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl border border-[#E8E3DA] shadow-xl">
+          <div className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl border border-[#f8b47d]/40 shadow-xl">
             {status && (
               <div className={`mb-6 p-5 rounded-2xl border ${status.type === 'error' ? 'bg-rose-50 border-rose-200 text-rose-800' : 'bg-emerald-50 border-emerald-200 text-emerald-900'} space-y-2`}>
                 <p className="font-bold text-sm">{status.message}</p>
@@ -126,10 +131,10 @@ export default function ConnectForm() {
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Taparia Creations / Retail Showroom"
+                    placeholder="e.g. Retail Showroom / Wholesale Agency"
                     value={formData.firmName}
                     onChange={e => setFormData({ ...formData, firmName: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#FF5722] focus:ring-2 focus:ring-orange-100 outline-none text-sm transition"
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#f16701] focus:ring-2 focus:ring-[#f8b47d]/30 outline-none text-sm transition"
                   />
                 </div>
                 <div>
@@ -140,7 +145,7 @@ export default function ConnectForm() {
                     placeholder="e.g. Rajesh Kumar"
                     value={formData.personName}
                     onChange={e => setFormData({ ...formData, personName: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#FF5722] focus:ring-2 focus:ring-orange-100 outline-none text-sm transition"
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#f16701] focus:ring-2 focus:ring-[#f8b47d]/30 outline-none text-sm transition"
                   />
                 </div>
               </div>
@@ -155,18 +160,18 @@ export default function ConnectForm() {
                     placeholder="98765 43210"
                     value={formData.mobileNumber}
                     onChange={e => setFormData({ ...formData, mobileNumber: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#FF5722] focus:ring-2 focus:ring-orange-100 outline-none text-sm transition"
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#f16701] focus:ring-2 focus:ring-[#f8b47d]/30 outline-none text-sm transition"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-2">City & State *</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-2">City &amp; State *</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. Kolkata, West Bengal or Surat, Gujarat"
                     value={formData.cityState}
                     onChange={e => setFormData({ ...formData, cityState: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#FF5722] focus:ring-2 focus:ring-orange-100 outline-none text-sm transition"
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#f16701] focus:ring-2 focus:ring-[#f8b47d]/30 outline-none text-sm transition"
                   />
                 </div>
               </div>
@@ -175,85 +180,87 @@ export default function ConnectForm() {
                 <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-3">Product Categories of Interest</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                   {categoryOptions.map(cat => (
-                    <label key={cat} className="flex items-center gap-2.5 p-3 rounded-xl border border-neutral-200 hover:border-orange-300 bg-neutral-50/50 cursor-pointer transition">
+                    <label key={cat} className="flex items-center gap-2.5 p-3 rounded-xl border border-neutral-200 hover:border-[#f16701]/40 bg-[#FAF8F5]/50 cursor-pointer transition">
                       <input
                         type="checkbox"
                         checked={formData.categories.includes(cat)}
                         onChange={() => handleCheckboxChange(cat)}
-                        className="rounded text-[#FF5722] focus:ring-orange-400"
+                        className="rounded text-[#f16701] focus:ring-[#f16701] h-4 w-4"
                       />
-                      <span className="font-medium text-neutral-800">{cat}</span>
+                      <span className="text-neutral-800 font-medium">{cat}</span>
                     </label>
                   ))}
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-2">Requirement Details / Sourcing Volumes (Optional)</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-2">Sourcing Requirements or Message</label>
                 <textarea
                   rows="3"
-                  placeholder="Tell us about the fabric tiers, price segments, or specific collections you are looking to source..."
+                  placeholder="Detail your fabric preferences, target price range, or preferred production centers..."
                   value={formData.message}
                   onChange={e => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#FF5722] focus:ring-2 focus:ring-orange-100 outline-none text-sm transition"
+                  className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#f16701] focus:ring-2 focus:ring-[#f8b47d]/30 outline-none text-sm transition"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-4 rounded-xl bg-gradient-to-r from-[#FF5722] to-amber-500 hover:from-[#E64A19] hover:to-amber-600 text-white font-bold text-sm uppercase tracking-wider shadow-lg glow-orange transition transform hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                className="w-full py-4 rounded-xl bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52] hover:opacity-95 text-white font-extrabold text-sm uppercase tracking-wider shadow-md glow-orange transition transform hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
               >
-                <span>{loading ? 'Submitting Sourcing Inquiry...' : 'Submit Sourcing Inquiry'}</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                {loading ? (
+                  <span>Submitting Sourcing Inquiry...</span>
+                ) : (
+                  <>
+                    <span>Submit Sourcing Inquiry</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                  </>
+                )}
               </button>
             </form>
           </div>
 
-          {/* Right Information Card (5 cols) */}
+          {/* Right Information Cards (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-gradient-to-br from-white via-orange-50/50 to-amber-50/30 text-neutral-800 p-8 rounded-3xl border border-orange-200/80 shadow-xl space-y-6">
-              <div>
-                <span className="text-[10px] font-mono tracking-widest text-[#FF5722] uppercase">Official Commission Agency</span>
-                <h3 className="text-2xl font-bold font-royal text-[#0B0E14] mt-1">
-                  <span className="text-[#FF5722]">SAVERA</span> TEX SOLUTION LLP
-                </h3>
-                <p className="text-xs text-neutral-600 mt-2 leading-relaxed">
-                  Connecting textile manufacturers with retailers and wholesalers across India and international markets since 1995.
-                </p>
-              </div>
 
-              <div className="space-y-4 text-xs border-t border-orange-100 pt-6">
-                <div>
-                  <span className="block text-neutral-500 font-bold uppercase tracking-wider text-[10px]">Headquarters & Operations</span>
-                  <p className="text-neutral-900 font-medium mt-0.5">Kolkata - 700007, West Bengal, India</p>
+            <div className="p-8 rounded-3xl bg-gradient-to-br from-white to-[#f7e5d4]/40 border border-[#f8b47d]/40 shadow-lg space-y-4">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">Central Operations Office</span>
+              <h3 className="text-2xl font-bold text-[#0F1318]">Kolkata Central Hub</h3>
+              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                Direct coordination across eastern and nationwide retail corridors. Connecting manufacturers directly with retailers and wholesalers since 1995.
+              </p>
+              <div className="pt-4 border-t border-[#fbd7b4]/50 space-y-2 text-xs">
+                <div className="flex items-center gap-2">
+                  <span className="text-neutral-500 font-bold">Email:</span>
+                  <a href="mailto:contact@saveratex.com" className="text-[#f16701] font-semibold hover:underline">contact@saveratex.com</a>
                 </div>
-                <div>
-                  <span className="block text-neutral-500 font-bold uppercase tracking-wider text-[10px]">Mobile & WhatsApp Direct</span>
-                  <a href="tel:+919830504850" className="text-neutral-900 hover:text-[#FF5722] transition font-mono font-medium mt-0.5 block">+91 98305 04850</a>
+                <div className="flex items-center gap-2">
+                  <span className="text-neutral-500 font-bold">WhatsApp:</span>
+                  <a href="https://wa.me/919830504850" target="_blank" rel="noopener noreferrer" className="text-[#f16701] font-semibold hover:underline">+91 98305 04850</a>
                 </div>
-                <div>
-                  <span className="block text-neutral-500 font-bold uppercase tracking-wider text-[10px]">Email Communications</span>
-                  <a href="mailto:saveratexsolutionllp@gmail.com" className="text-neutral-900 hover:text-[#FF5722] transition font-mono font-medium mt-0.5 block">saveratexsolutionllp@gmail.com</a>
-                </div>
-                <div>
-                  <span className="block text-neutral-500 font-bold uppercase tracking-wider text-[10px]">Sourcing Hubs Active</span>
-                  <p className="text-neutral-700 mt-0.5">Surat, Varanasi (Banaras), Jaipur, Ahmedabad, Bhagalpur, Kolkata</p>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-orange-100">
-                <a
-                  href="https://wa.me/919830504850?text=Hello%20Savera%20Tex%20Solution%20LLP,%20I%20would%20like%20to%20connect%20regarding%20textile%20sourcing."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 shadow-lg"
-                >
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                  <span>Chat Directly on WhatsApp</span>
-                </a>
               </div>
             </div>
+
+            <div className="p-8 rounded-3xl bg-gradient-to-br from-white to-[#f7e5d4]/40 border border-[#f8b47d]/40 shadow-lg space-y-3">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">Prompt Commercial Response</span>
+              <h4 className="text-lg font-bold text-[#0F1318]">What Happens Next?</h4>
+              <ul className="space-y-2 text-xs text-neutral-600">
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#f16701] mt-1.5 flex-shrink-0"></span>
+                  <span>Our agency team reviews your requirements and identifies relevant manufacturing partners.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#f16701] mt-1.5 flex-shrink-0"></span>
+                  <span>We share verified collections, sample swatches, and direct loom commercial terms.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#f16701] mt-1.5 flex-shrink-0"></span>
+                  <span>We facilitate clear price negotiations and end-to-end order dispatch follow-ups.</span>
+                </li>
+              </ul>
+            </div>
+
           </div>
 
         </div>

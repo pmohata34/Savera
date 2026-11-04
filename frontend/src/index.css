@@ -3,6 +3,17 @@
 @source "./*.{js,jsx}";
 @source "../index.html";
 
+:root {
+  /* Official Savera Orange Gradient Palette (From user guide: #f7e5d4 to #f16701) */
+  --c-stop-1: #f7e5d4;
+  --c-stop-2: #fbd7b4;
+  --c-stop-3: #f8b47d;
+  --c-stop-4: #f79a52;
+  --c-stop-5: #f48129;
+  --c-stop-6: #f26e12;
+  --c-stop-7: #f16701;
+}
+
 @layer base {
   @font-face {
     font-family: 'Plus Jakarta Sans';
@@ -10,133 +21,139 @@
     font-weight: 100 900;
     font-display: swap;
   }
-  @font-face {
-    font-family: 'Playfair Display';
-    src: url('/fonts/PlayfairDisplay.ttf') format('truetype');
-    font-weight: 400 900;
-    font-display: swap;
+
+  * {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
-  @font-face {
-    font-family: 'Cinzel';
-    src: url('/fonts/Cinzel.ttf') format('truetype');
-    font-weight: 400 900;
-    font-display: swap;
+
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
   }
 
   body {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #0F1318;
+    background-color: #FAF8F5;
   }
 }
 
-.font-designer {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-}
-
-.font-luxury {
-  font-family: 'Playfair Display', Georgia, serif;
-}
-
+/* Map font utility classes to Plus Jakarta Sans for 100% font uniformity */
+.font-designer,
+.font-luxury,
 .font-royal {
-  font-family: 'Cinzel', serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Brand Gradient Utilities */
+.bg-savera-gradient {
+  background: linear-gradient(135deg, #f7e5d4 0%, #fbd7b4 25%, #f8b47d 50%, #f79a52 75%, #f16701 100%);
+}
+
+.bg-savera-soft {
+  background: linear-gradient(135deg, #FAF8F5 0%, #FFF5ED 50%, #FDF0E6 100%);
+}
+
+.bg-savera-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 244, 236, 0.75) 100%);
+}
+
+.bg-savera-card-hover:hover {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 1) 0%, rgba(253, 237, 224, 0.9) 100%);
+}
+
+.text-savera-orange {
+  color: #f16701;
+}
+
+.border-savera-subtle {
+  border-color: rgba(247, 154, 82, 0.25);
 }
 
 .glow-orange {
-  box-shadow: 0 10px 30px -10px rgba(255, 87, 34, 0.45);
+  box-shadow: 0 10px 30px -10px rgba(241, 103, 1, 0.4);
 }
 
-.glow-gold {
-  box-shadow: 0 10px 35px -10px rgba(212, 175, 55, 0.35);
+.glow-orange-lg {
+  box-shadow: 0 20px 40px -12px rgba(241, 103, 1, 0.35);
 }
 
-.gold-gradient-text {
-  background: linear-gradient(135deg, #ECC880 0%, #D4AF37 40%, #B8860B 80%, #996515 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.02);
+  }
 }
 
-/* Card Hover Animations & Micro-Interactions */
-.card-hover-lift {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(12px) scale(0.98);
+  }
 }
 
-.card-hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 22px 40px -12px rgba(255, 87, 34, 0.18), 0 12px 24px -8px rgba(0, 0, 0, 0.12);
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
 }
 
-/* Shimmer Sweep Animation on Product Cards */
-@keyframes shimmerSweep {
-  0% { transform: translateX(-100%) rotate(25deg); }
-  100% { transform: translateX(250%) rotate(25deg); }
-}
-
-.hover-shimmer-trigger:hover .shimmer-shine {
-  animation: shimmerSweep 1.2s ease-in-out forwards;
-}
-
-/* Bus Topology Keyframe Animations */
-@keyframes busSignalFlow {
-  0% { top: 0%; opacity: 0; }
-  15% { opacity: 1; }
-  85% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-
-@keyframes nodePulse {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.7); }
-  70% { transform: scale(1.08); box-shadow: 0 0 0 16px rgba(255, 87, 34, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 87, 34, 0); }
-}
-
-@keyframes radarWave {
-  0% { transform: scale(1); opacity: 0.9; }
-  100% { transform: scale(2.4); opacity: 0; }
-}
-
-.bus-signal {
-  position: absolute;
-  width: 6px;
-  height: 48px;
-  background: linear-gradient(to bottom, transparent, #FFFFFF, #FF5722, transparent);
-  border-radius: 9999px;
-  filter: drop-shadow(0 0 10px #FF5722);
-  animation: busSignalFlow 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-.node-radar {
-  animation: nodePulse 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.radar-ring {
-  position: absolute;
-  inset: -6px;
-  border-radius: 9999px;
-  border: 2px solid rgba(255, 87, 34, 0.4);
-  animation: radarWave 2.8s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-}
-
-/* Infinite Graph Curve Flow Animation: REVERSED (Flows from Down to Up: 1995 Root -> 2026 Crest) */
-@keyframes infiniteCurveFlowUpward {
+@keyframes busPulse {
   0% {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 1000;
   }
   100% {
-    stroke-dashoffset: 2400;
+    stroke-dashoffset: 0;
   }
 }
 
-.infinite-curve-pulse {
-  stroke-dasharray: 180 800;
-  animation: infiniteCurveFlowUpward 7.5s linear infinite;
-  filter: drop-shadow(0 0 14px rgba(255, 87, 34, 0.95));
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
-@keyframes orbGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.6); transform: scale(1); }
-  50% { box-shadow: 0 0 0 12px rgba(255, 87, 34, 0); transform: scale(1.06); }
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
 }
 
-.milestone-orb {
-  animation: orbGlow 3s ease-in-out infinite;
+.animate-float-reverse {
+  animation: floatReverse 9s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+.bus-line-pulse {
+  stroke-dasharray: 40 180;
+  animation: busPulse 6s linear infinite;
+}
+
+/* Custom Scrollbar for Horizontal Bus Journey */
+.hide-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.hide-scrollbar::-webkit-scrollbar-track {
+  background: #f7e5d4;
+  border-radius: 9999px;
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background: #f16701;
+  border-radius: 9999px;
 }

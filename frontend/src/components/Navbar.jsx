@@ -4,18 +4,16 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 bg-white/95 backdrop-blur-2xl border-b border-slate-200/90 shadow-xs text-neutral-800">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 bg-white/95 backdrop-blur-2xl border-b border-[#f8b47d]/30 shadow-xs text-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
 
-        {/* Brand Pill */}
+        {/* Brand Pill with Official Logo */}
         <a href="#hero" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#FF5722] via-[#E64A19] to-amber-500 flex items-center justify-center text-white shadow-md glow-orange transition transform group-hover:scale-105">
-            <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24">
-              <path d="M12 2L14.4 7.6L20 8.4L16 12.8L17.2 18.8L12 15.6L6.8 18.8L8 12.8L4 8.4L9.6 7.6L12 2Z" />
-            </svg>
+          <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm border border-[#f8b47d]/40 transition transform group-hover:scale-105 bg-white flex items-center justify-center p-0.5">
+            <img src="/assets/logo.jpg" alt="Savera Logo" className="w-full h-full object-contain" />
           </div>
           <div>
-            <span className="block text-lg font-black tracking-tight text-[#FF5722] font-royal leading-none">
+            <span className="block text-lg font-extrabold tracking-tight text-[#f16701] leading-none">
               SAVERA
             </span>
             <span className="block text-[8px] font-bold tracking-[0.22em] text-neutral-500 uppercase mt-0.5">
@@ -24,24 +22,22 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Center Nav Pills (Desktop Capsule Structure in Sequential Page Order) */}
-        <nav className="hidden xl:flex items-center gap-1 bg-slate-100/90 p-1.5 rounded-full border border-slate-200/80 text-xs font-semibold text-neutral-600 shadow-inner">
-          <a href="#hero" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Home</a>
-          <a href="#how-we-work" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">How We Work</a>
-          <a href="#map" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Sourcing Hubs</a>
-          <a href="#products" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Product Range</a>
-          <a href="#growth-journey" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Growth Journey</a>
-          <a href="#why-choose" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Why Choose Us</a>
-          <a href="#founder" className="px-3 py-1.5 rounded-full hover:text-neutral-900 hover:bg-white transition">Founder</a>
+        {/* Center Nav Capsule in Sequential Order */}
+        <nav className="hidden xl:flex items-center gap-1 bg-[#FAF8F5] p-1.5 rounded-full border border-[#fbd7b4]/60 text-xs font-semibold text-neutral-600 shadow-inner">
+          <a href="#hero" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">About Us</a>
+          <a href="#how-we-work" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">How We Work</a>
+          <a href="#sourcing-map" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">Sourcing Hubs</a>
+          <a href="#products" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">Product Range</a>
+          <a href="#growth-journey" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">Growth Journey</a>
+          <a href="#why-choose" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">Why Choose Us</a>
+          <a href="#founder" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">Founder</a>
         </nav>
 
         {/* Right Action Cluster */}
         <div className="flex items-center gap-2 sm:gap-3">
-
-          {/* Inquire Action Button */}
           <a
             href="#connect"
-            className="px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-[#FF5722] to-amber-500 hover:from-[#E64A19] hover:to-amber-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-md glow-orange transition transform hover:scale-105 flex items-center gap-1.5"
+            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider shadow-md glow-orange transition transform hover:scale-105 flex items-center gap-1.5"
           >
             <span>Inquire Now</span>
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -52,7 +48,7 @@ export default function Navbar() {
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2 rounded-full bg-slate-100 text-neutral-700 hover:bg-slate-200 transition cursor-pointer"
+            className="xl:hidden p-2 rounded-full bg-[#FAF8F5] text-neutral-700 hover:bg-[#fbd7b4]/30 transition cursor-pointer"
             aria-label="Toggle mobile menu"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,15 +65,15 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-slate-200 bg-white/98 backdrop-blur-2xl px-6 py-5 shadow-2xl flex flex-col gap-2.5 text-sm text-neutral-700 animate-fadeIn">
-          <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Home</a>
-          <a href="#how-we-work" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">How We Work (6 Steps)</a>
-          <a href="#map" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Sourcing Hubs (6 Cities)</a>
-          <a href="#products" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Product Range (4 Collections)</a>
-          <a href="#growth-journey" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Growth Journey (1995 ➔ 2026)</a>
-          <a href="#why-choose" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Why Choose Us (7 Pillars)</a>
-          <a href="#founder" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-slate-50 hover:text-[#FF5722] transition">Founder & Vision</a>
-          <a href="#connect" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl bg-orange-50 text-[#FF5722] font-bold transition">Inquire Now</a>
+        <div className="xl:hidden border-t border-[#fbd7b4]/40 bg-white/98 backdrop-blur-2xl px-6 py-5 shadow-2xl flex flex-col gap-2.5 text-sm text-neutral-700 animate-fadeIn">
+          <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">About Us</a>
+          <a href="#how-we-work" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">How We Work (6 Steps)</a>
+          <a href="#sourcing-map" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Sourcing Hubs (6 Cities)</a>
+          <a href="#products" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Product Range (5 Collections)</a>
+          <a href="#growth-journey" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Growth Journey (1995 ➔ 2026)</a>
+          <a href="#why-choose" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Why Choose Us (7 Pillars)</a>
+          <a href="#founder" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Founder Message &amp; Vision</a>
+          <a href="#connect" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl bg-[#f7e5d4] text-[#f16701] font-bold transition">Inquire Now</a>
         </div>
       )}
     </header>

@@ -7,66 +7,77 @@ export default function ProductRange() {
     {
       id: 'sarees',
       categoryNum: '01',
-      title: 'Sarees Collection',
+      title: 'SAREES',
       shortTitle: 'Sarees',
-      tagline: 'Surat & Banaras Heritage Weaves',
-      image: '/photos/clean_sarees.jpg',
-      badge: 'Brocades & Silks',
-      badgeColor: 'bg-orange-100 text-[#FF5722] border-orange-200',
-      description: 'Direct connections with master weavers and composite mills producing genuine Banarasi Katan, Organza, Georgette, and Surat designer print sarees at true factory-gate prices.',
-      tags: ['Banarasi Katan Silk', 'Surat Jacquard', 'Pure Organza', 'Bandhani & Patola', 'Loom Rates'],
-      hubs: 'Varanasi & Surat',
-      moq: 'Flexible Wholesale Packs',
-      delivery: 'Direct Mill Dispatch',
-      themeGradient: 'from-orange-500/10 via-amber-500/5 to-white'
+      tagline: 'Cotton, Silk, Designer, and Partywear collections',
+      image: '/assets/Sarees.jpeg',
+      description: 'Comprehensive wholesale collections spanning pure Varanasi Katan silks, lightweight organzas, handloom cottons, partywear georgettes, and intricately embellished designer festive sarees direct from composite looms.',
+      tags: ['Cotton Sarees', 'Pure Silk', 'Designer Wear', 'Partywear Collections'],
+      hubs: 'Varanasi, Surat & Kolkata HQ',
+      moq: 'Wholesale Commercial Lots',
+      badge: 'Bestseller Portfolio',
+      badgeColor: 'bg-[#f7e5d4] text-[#f16701] border-[#f8b47d]/60',
+      delivery: 'Direct Loom Dispatch'
     },
     {
-      id: 'salwar_suits',
+      id: 'salwar-suits',
       categoryNum: '02',
-      title: 'Salwar Suits & Dress Materials',
+      title: 'SALWAR SUITS',
       shortTitle: 'Salwar Suits',
-      tagline: 'Unstitched & Semi-Stitched Sets',
-      image: '/photos/clean_salwar_suits.jpg',
-      badge: 'High-Volume Daily Wear',
-      badgeColor: 'bg-emerald-100 text-emerald-700 border-emerald-200',
-      description: 'Extensive collections of unstitched dress materials, festive embroidered three-piece suits, and printed daily wear cottons sourced directly from processing houses in Ahmedabad and Surat.',
-      tags: ['Pure Cotton Suits', 'Chanderi Silk Sets', 'Handblock Prints', 'Heavy Dupatta Sets', 'Fast Turnover'],
-      hubs: 'Ahmedabad & Surat',
-      moq: 'Direct Factory Bundles',
-      delivery: 'Bulk Processing Houses',
-      themeGradient: 'from-emerald-500/10 via-teal-500/5 to-white'
+      tagline: 'Stitched and unstitched varieties',
+      image: '/assets/Salwar_Suit.jpeg',
+      description: 'Extensive portfolio of daily-wear and festive salwar suit sets available in unstitched 3-piece cuts as well as ready-to-wear tailored sets. Features premium cottons, chanderi silks, modal, and handblock prints.',
+      tags: ['Stitched Suits', 'Unstitched Dress Materials', '3-Piece Sets', 'Handblock Prints'],
+      hubs: 'Jaipur, Surat & Ahmedabad',
+      moq: 'Catalog & Bundle Minimums',
+      badge: 'High Turnaround',
+      badgeColor: 'bg-[#fbd7b4] text-[#f16701] border-[#f8b47d]/60',
+      delivery: 'Direct Loom Dispatch'
     },
     {
       id: 'lehengas',
       categoryNum: '03',
-      title: 'Bridal & Festive Lehengas',
+      title: 'LEHENGAS',
       shortTitle: 'Lehengas',
-      tagline: 'Artisan Zardozi & Heavy Embroidery',
-      image: '/photos/clean_lehengas.jpg',
-      badge: 'Wedding & Bridal Tier',
-      badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
-      description: 'Curated bridal and occasion lehengas featuring intricate hand embroidery, sequins, and threadwork. Ideal for premier retail showrooms seeking high-margin seasonal bridal inventory.',
-      tags: ['Bridal Velvet', 'Georgette Can-Can Sets', 'Artisan Zari Work', 'Semi-Stitched Lehengas', 'Premium Tier'],
-      hubs: 'Surat & Kolkata',
-      moq: 'Curated Showroom Sets',
-      delivery: 'Master Artisan Centers',
-      themeGradient: 'from-amber-500/10 via-orange-500/5 to-white'
+      tagline: 'Bridal, festive, and partywear collections',
+      image: '/assets/Lehengas.jpeg',
+      description: 'Bridal masterpieces, festive occasion wear, and contemporary lightweight partywear lehenga sets. Masterfully crafted with intricate zardozi, gota patti, resham embroidery, sequins, and opulent can-can flares.',
+      tags: ['Bridal Lehengas', 'Festive Wear', 'Partywear Collections', 'Semi-Stitched Sets'],
+      hubs: 'Surat, Varanasi & Kolkata HQ',
+      moq: 'Tiered Boutique Lots',
+      badge: 'Bridal & Festive',
+      badgeColor: 'bg-[#f8b47d]/40 text-[#f16701] border-[#f8b47d]/60',
+      delivery: 'Direct Loom Dispatch'
     },
     {
-      id: 'indo_western',
+      id: 'indo-western',
       categoryNum: '04',
-      title: 'Indo-Western & Ready-to-Wear',
-      shortTitle: 'Indo-Western',
-      tagline: 'Contemporary Fusion & Kurti Sets',
-      image: '/photos/clean_indo_western.jpg',
-      badge: 'Trending Fast Fashion',
-      badgeColor: 'bg-purple-100 text-purple-700 border-purple-200',
-      description: 'Contemporary silhouette tunics, co-ord sets, jacket gowns, and modern festive fusion wear tailored for high-repeat customer turnover and modern boutique display.',
-      tags: ['Kurti Pant Sets', 'Fusion Gowns', 'Designer Co-ords', 'Tunic Sets', 'Fast-Moving Lines'],
-      hubs: 'Jaipur & Surat',
-      moq: 'Assorted Size Packs',
-      delivery: 'Express Boutique Lines',
-      themeGradient: 'from-purple-500/10 via-pink-500/5 to-white'
+      title: 'INDO WESTERN WEAR',
+      shortTitle: 'Indo Western',
+      tagline: 'Gowns, kurtis, and fusion sets',
+      image: '/assets/Indo_Western.jpeg',
+      description: 'Modern silhouettes meeting traditional textiles: floor-length evening gowns, asymmetrical tunic kurtis, co-ord jacket sets, and fusion drape dresses designed for the modern ethnic retail market.',
+      tags: ['Designer Gowns', 'Contemporary Kurtis', 'Fusion Sets', 'Co-ord Ensembles'],
+      hubs: 'Jaipur, Surat & Ahmedabad',
+      moq: 'Curated Assortments',
+      badge: 'Contemporary Fusion',
+      badgeColor: 'bg-[#f79a52]/20 text-[#f16701] border-[#f8b47d]/60',
+      delivery: 'Direct Loom Dispatch'
+    },
+    {
+      id: 'fabrics',
+      categoryNum: '05',
+      title: 'FABRICS',
+      shortTitle: 'Fabrics',
+      tagline: 'Dyable, dyed, printed, silk, and cotton fabrics',
+      image: '/assets/Fabrics.jpeg',
+      description: 'Industrial and commercial wholesale fabric yardage covering pure dyeable whites, mills-dyed solids, screen and digital prints, pure silks, viscose blends, modal muslins, and rich cambric cottons.',
+      tags: ['Dyeable Fabrics', 'Dyed Solids', 'Printed Yardage', 'Silk & Cotton Blends'],
+      hubs: 'Surat, Ahmedabad & Bhagalpur',
+      moq: 'Commercial Roll & Bale Runs',
+      badge: 'Industrial Yardage',
+      badgeColor: 'bg-[#f48129]/20 text-[#f16701] border-[#f8b47d]/60',
+      delivery: 'Direct Loom Dispatch'
     }
   ];
 
@@ -79,42 +90,42 @@ export default function ProductRange() {
   };
 
   return (
-    <section id="products" className="py-24 px-6 sm:px-12 bg-gradient-to-b from-white via-orange-50/20 to-white border-b border-[#E8E3DA] relative overflow-hidden">
+    <section id="products" className="py-24 px-6 sm:px-12 bg-gradient-to-b from-white via-[#FAF8F5] to-white border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
-      {/* Warm Ambient Decorative Lighting */}
+      {/* Atmospheric Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 -left-24 w-96 h-96 bg-gradient-to-tr from-[#f7e5d4] to-[#f8b47d]/20 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-1/4 -right-24 w-96 h-96 bg-gradient-to-bl from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl animate-float-reverse"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto space-y-10 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
 
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#E8E3DA] pb-8">
-          <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-100/80 border border-orange-200 text-[#FF5722]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF5722] animate-ping"></span>
-              <span className="text-[11px] font-bold uppercase tracking-widest font-mono">Curated Product Portfolios</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#fbd7b4]/50 pb-8">
+          <div className="space-y-3 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#f7e5d4] to-white border border-[#f8b47d]/60 text-[#f16701] text-xs font-bold uppercase tracking-widest shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-[#f16701] animate-ping"></span>
+              <span>Commercial Product Portfolios</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold font-luxury text-[#0B0E14] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0F1318] tracking-tight">
               Featured Product Range
             </h2>
-            <p className="text-sm md:text-base text-neutral-600">
-              Connecting manufacturers with buyers across 4 primary commercial categories directly from source looms.
+            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+              Connecting manufacturers with retailers and wholesalers across 5 primary commercial categories directly from source looms.
             </p>
           </div>
 
-          {/* Carousel Category Switcher & Controls */}
+          {/* Carousel Category Switcher Buttons */}
           <div className="flex flex-wrap items-center gap-2">
-            <div className="flex items-center gap-1.5 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="flex flex-wrap items-center gap-1.5 bg-white p-1.5 rounded-2xl border border-[#f8b47d]/40 shadow-xs">
               {products.map((p, idx) => (
                 <button
                   key={p.id}
                   onClick={() => setActiveIndex(idx)}
-                  className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
+                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
                     activeIndex === idx
-                      ? 'bg-gradient-to-r from-[#FF5722] to-amber-500 text-white shadow-md'
-                      : 'text-neutral-600 hover:text-[#0B0E14] hover:bg-slate-100'
+                      ? 'bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52] text-white shadow-md glow-orange'
+                      : 'text-neutral-600 hover:text-[#0F1318] hover:bg-[#FAF8F5]'
                   }`}
                 >
                   <span className="font-mono text-[10px] opacity-80">{p.categoryNum}</span>
@@ -124,12 +135,11 @@ export default function ProductRange() {
             </div>
 
             {/* Prev / Next Arrows */}
-            <div className="flex items-center gap-1 bg-white p-1 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="flex items-center gap-1 bg-white p-1.5 rounded-2xl border border-[#f8b47d]/40 shadow-xs">
               <button
                 onClick={handlePrev}
-                className="w-9 h-9 rounded-xl hover:bg-slate-100 flex items-center justify-center text-neutral-700 hover:text-[#FF5722] transition cursor-pointer"
-                title="Previous Category"
-                aria-label="Previous Category"
+                className="p-2 rounded-xl hover:bg-[#FAF8F5] text-neutral-700 hover:text-[#f16701] transition cursor-pointer"
+                aria-label="Previous product"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
@@ -137,9 +147,8 @@ export default function ProductRange() {
               </button>
               <button
                 onClick={handleNext}
-                className="w-9 h-9 rounded-xl hover:bg-slate-100 flex items-center justify-center text-neutral-700 hover:text-[#FF5722] transition cursor-pointer"
-                title="Next Category"
-                aria-label="Next Category"
+                className="p-2 rounded-xl hover:bg-[#FAF8F5] text-neutral-700 hover:text-[#f16701] transition cursor-pointer"
+                aria-label="Next product"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
@@ -149,49 +158,43 @@ export default function ProductRange() {
           </div>
         </div>
 
-        {/* ═══ INTERACTIVE FLEX CAROUSEL (Desktop & Tablet) ═══ */}
-        <div className="hidden lg:flex gap-4 h-[640px] w-full transition-all duration-700 ease-in-out">
+        {/* ── DESKTOP INTERACTIVE FLEX CAROUSEL (5 Columns) ── */}
+        <div className="hidden lg:flex gap-4 h-[580px] w-full transition-all duration-500">
           {products.map((item, idx) => {
-            const isActive = activeIndex === idx;
+            const isExpanded = activeIndex === idx;
 
             return (
               <div
                 key={item.id}
                 onClick={() => setActiveIndex(idx)}
-                className={`relative rounded-3xl overflow-hidden border transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer shadow-lg group ${
-                  isActive
-                    ? 'flex-[3.5] border-orange-300 bg-white ring-2 ring-orange-400/20 shadow-2xl'
-                    : 'flex-[1] border-slate-200 hover:border-orange-300 bg-slate-50 hover:bg-white'
+                className={`relative rounded-3xl overflow-hidden transition-all duration-700 ease-out cursor-pointer border border-[#f8b47d]/50 shadow-lg ${
+                  isExpanded ? 'flex-[5] shadow-2xl ring-2 ring-[#f16701]/30' : 'flex-[1] hover:flex-[1.25] opacity-90 hover:opacity-100'
                 }`}
               >
-                {/* ── EXPANDED STATE (Active Card) ── */}
-                {isActive && (
-                  <div className="h-full w-full grid grid-cols-12 animate-fadeIn overflow-hidden">
-                    {/* Left: High-Res Photo Showcase (5 Cols) */}
-                    <div className="col-span-5 relative h-full overflow-hidden bg-neutral-100">
+                {/* ── EXPANDED STATE ── */}
+                {isExpanded ? (
+                  <div className="w-full h-full grid grid-cols-12 bg-white">
+                    {/* Left: Authentic Image (5 Cols) */}
+                    <div className="col-span-5 relative overflow-hidden bg-[#FAF8F5]">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        className="w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out"
                       />
-                      {/* Soft ambient gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
 
-                      {/* Top Badges */}
                       <div className="absolute top-5 left-5 right-5 flex items-center justify-between z-10">
-                        <span className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase border backdrop-blur-md ${item.badgeColor}`}>
+                        <span className={`px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border backdrop-blur-md ${item.badgeColor}`}>
                           {item.badge}
                         </span>
-                        <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-white/90 backdrop-blur-md text-[#FF5722] border border-orange-200 shadow-sm flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#FF5722] animate-pulse"></span>
-                          <span>Hub: {item.hubs}</span>
+                        <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/90 text-[#f16701] border border-[#f8b47d]/50">
+                          Hub: {item.hubs}
                         </span>
                       </div>
 
-                      {/* Bottom Image Tag */}
                       <div className="absolute bottom-5 left-5 right-5 z-10 text-white">
-                        <span className="text-[10px] font-mono tracking-widest text-amber-300 uppercase font-bold">
-                          Direct Loom Rates
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#fbd7b4]">
+                          Direct Loom Sourcing
                         </span>
                         <p className="text-sm font-semibold drop-shadow-md">
                           Verified Composite Mill Partners
@@ -200,41 +203,38 @@ export default function ProductRange() {
                     </div>
 
                     {/* Right: Technical Details & Commercial CTA (7 Cols) */}
-                    <div className="col-span-7 p-6 lg:p-8 flex flex-col justify-between bg-gradient-to-br from-white via-orange-50/20 to-amber-50/10">
+                    <div className="col-span-7 p-7 lg:p-8 flex flex-col justify-between bg-gradient-to-br from-white via-[#FAF8F5] to-[#f7e5d4]/30">
                       <div className="space-y-4">
-                        {/* Category Header */}
                         <div>
                           <div className="flex items-center gap-2 mb-1.5">
-                            <span className="px-2.5 py-0.5 rounded-md bg-[#FF5722] text-white font-mono font-black text-xs">
+                            <span className="px-2.5 py-0.5 rounded-md bg-[#f16701] text-white font-black text-xs">
                               {item.categoryNum}
                             </span>
-                            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#FF5722]">
+                            <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">
                               Textile Portfolio Collection
                             </span>
                           </div>
-                          <h3 className="text-3xl font-bold font-luxury text-[#0B0E14] tracking-tight">
+                          <h3 className="text-3xl font-extrabold text-[#0F1318] tracking-tight">
                             {item.title}
                           </h3>
-                          <p className="text-xs text-[#FF5722] font-semibold mt-0.5">
+                          <p className="text-xs font-bold text-[#f16701] mt-0.5">
                             {item.tagline}
                           </p>
                         </div>
 
-                        {/* Description */}
                         <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
                           {item.description}
                         </p>
 
-                        {/* Attribute Pills */}
                         <div className="space-y-1.5">
-                          <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 font-bold block">
+                          <span className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold block">
                             Key Fabric Specifications
                           </span>
                           <div className="flex flex-wrap gap-1.5">
                             {item.tags.map((tag, tIdx) => (
                               <span
                                 key={tIdx}
-                                className="px-2.5 py-1 rounded-xl text-xs font-medium bg-white text-neutral-800 border border-slate-200 shadow-2xs hover:border-orange-300 transition"
+                                className="px-2.5 py-1 rounded-xl text-xs font-medium bg-white text-neutral-800 border border-[#f8b47d]/40 shadow-2xs"
                               >
                                 {tag}
                               </span>
@@ -242,18 +242,17 @@ export default function ProductRange() {
                           </div>
                         </div>
 
-                        {/* Specifications Grid */}
-                        <div className="grid grid-cols-2 gap-3 pt-3 border-t border-slate-200/80">
-                          <div className="bg-white/90 p-3 rounded-2xl border border-slate-200/80">
-                            <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 font-bold">
+                        <div className="grid grid-cols-2 gap-3 pt-3 border-t border-[#fbd7b4]/50">
+                          <div className="bg-white/90 p-3 rounded-2xl border border-[#f8b47d]/35">
+                            <span className="block text-[10px] uppercase tracking-wider text-neutral-500 font-bold">
                               Production Centers
                             </span>
                             <span className="text-xs font-bold text-neutral-900 mt-0.5 block">
                               {item.hubs}
                             </span>
                           </div>
-                          <div className="bg-white/90 p-3 rounded-2xl border border-slate-200/80">
-                            <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 font-bold">
+                          <div className="bg-white/90 p-3 rounded-2xl border border-[#f8b47d]/35">
+                            <span className="block text-[10px] uppercase tracking-wider text-neutral-500 font-bold">
                               Wholesale MOQ
                             </span>
                             <span className="text-xs font-bold text-neutral-900 mt-0.5 block">
@@ -264,19 +263,19 @@ export default function ProductRange() {
                       </div>
 
                       {/* Bottom Action Strip */}
-                      <div className="pt-4 border-t border-slate-200/80 flex items-center justify-between gap-4">
+                      <div className="pt-4 border-t border-[#fbd7b4]/50 flex items-center justify-between gap-4">
                         <div className="flex items-center gap-2">
                           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                          <span className="text-xs font-semibold text-neutral-600 font-mono">
+                          <span className="text-xs font-bold text-neutral-600">
                             {item.delivery}
                           </span>
                         </div>
 
                         <a
                           href="#connect"
-                          className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#FF5722] to-amber-500 hover:from-[#E64A19] hover:to-amber-600 text-white font-bold text-xs uppercase tracking-wider shadow-md glow-orange transition transform hover:scale-105 flex items-center gap-2"
+                          className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider shadow-md glow-orange transition transform hover:scale-105 flex items-center gap-2"
                         >
-                          <span>Inquire Catalog & Swatches</span>
+                          <span>Inquire Catalog &amp; Swatches</span>
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                           </svg>
@@ -284,41 +283,26 @@ export default function ProductRange() {
                       </div>
                     </div>
                   </div>
-                )}
+                ) : (
+                  /* ── COLLAPSED VERTICAL TAB ── */
+                  <div className="w-full h-full relative overflow-hidden bg-neutral-900 flex flex-col justify-between p-4">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="absolute inset-0 w-full h-full object-cover filter brightness-[0.7] group-hover:brightness-[0.9] transition duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
 
-                {/* ── COLLAPSED STATE (Inactive Card) ── */}
-                {!isActive && (
-                  <div className="h-full w-full relative flex flex-col items-center justify-between py-8 px-4 overflow-hidden">
-                    {/* Background preview image with warm translucent tint */}
-                    <div className="absolute inset-0 z-0">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover opacity-25 filter blur-xs group-hover:opacity-40 group-hover:scale-110 transition duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-orange-50/70 to-white/95"></div>
+                    <span className="relative z-10 w-7 h-7 rounded-lg bg-white/90 backdrop-blur-md text-[#f16701] font-black text-xs flex items-center justify-center shadow-md">
+                      {item.categoryNum}
+                    </span>
+
+                    <div className="relative z-10 [writing-mode:vertical-rl] rotate-180 text-white font-extrabold text-sm tracking-wider uppercase drop-shadow-md py-4">
+                      {item.title}
                     </div>
 
-                    {/* Top: Category Number */}
-                    <div className="relative z-10 flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-2xl bg-white border border-orange-200/80 shadow-sm flex items-center justify-center text-[#FF5722] font-black font-royal text-sm group-hover:scale-110 transition">
-                        {item.categoryNum}
-                      </div>
-                    </div>
-
-                    {/* Center: Vertical Rotated Title */}
-                    <div className="relative z-10 flex-1 flex items-center justify-center my-6">
-                      <span className="[writing-mode:vertical-rl] rotate-180 font-luxury font-bold text-lg text-neutral-800 group-hover:text-[#FF5722] tracking-wider uppercase transition whitespace-nowrap">
-                        {item.title}
-                      </span>
-                    </div>
-
-                    {/* Bottom: Click to Expand Pill */}
-                    <div className="relative z-10">
-                      <div className="px-3 py-1.5 rounded-full bg-white/90 border border-slate-200 shadow-2xs text-[10px] font-bold text-neutral-600 group-hover:text-[#FF5722] group-hover:border-orange-300 transition flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#FF5722]"></span>
-                        <span>Expand</span>
-                      </div>
+                    <div className="relative z-10 text-center">
+                      <span className="inline-block w-2 h-2 rounded-full bg-[#f16701]"></span>
                     </div>
                   </div>
                 )}
@@ -327,12 +311,10 @@ export default function ProductRange() {
           })}
         </div>
 
-        {/* ═══ MOBILE / TABLET VIEW (< lg) ═══ */}
-        <div className="lg:hidden space-y-6">
-          {/* Active Card for Mobile */}
-          <div className="bg-white rounded-3xl border border-orange-200 shadow-xl overflow-hidden">
-            {/* Top Image Frame */}
-            <div className="relative h-64 sm:h-72 overflow-hidden bg-neutral-100">
+        {/* ── MOBILE / TABLET ACCORDION CARDS ── */}
+        <div className="lg:hidden space-y-4">
+          <div className="rounded-3xl overflow-hidden border border-[#f8b47d]/50 bg-white shadow-xl">
+            <div className="relative h-64 sm:h-80 w-full overflow-hidden">
               <img
                 src={products[activeIndex].image}
                 alt={products[activeIndex].title}
@@ -340,64 +322,61 @@ export default function ProductRange() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
-              {/* Floating Badges */}
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                <span className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase border backdrop-blur-md ${products[activeIndex].badgeColor}`}>
+                <span className={`px-3 py-1 rounded-full text-[11px] font-bold uppercase border backdrop-blur-md ${products[activeIndex].badgeColor}`}>
                   {products[activeIndex].badge}
                 </span>
-                <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/90 text-[#FF5722] border border-orange-200">
+                <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/90 text-[#f16701] border border-[#f8b47d]/50">
                   Hub: {products[activeIndex].hubs}
                 </span>
               </div>
 
-              {/* Bottom Title on Image */}
               <div className="absolute bottom-4 left-4 right-4 text-white z-10">
-                <span className="text-[10px] font-mono font-bold text-amber-300 uppercase">
+                <span className="text-[10px] font-bold uppercase text-[#fbd7b4]">
                   Category {products[activeIndex].categoryNum}
                 </span>
-                <h3 className="text-2xl font-bold font-luxury">
+                <h3 className="text-2xl font-extrabold">
                   {products[activeIndex].title}
                 </h3>
               </div>
             </div>
 
-            {/* Content Body */}
-            <div className="p-6 space-y-5 bg-gradient-to-b from-white to-orange-50/20">
-              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+            <div className="p-6 space-y-4 bg-gradient-to-b from-white to-[#FAF8F5]">
+              <p className="text-xs font-bold text-[#f16701]">
+                {products[activeIndex].tagline}
+              </p>
+              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
                 {products[activeIndex].description}
               </p>
 
-              {/* Tags */}
               <div className="flex flex-wrap gap-1.5">
                 {products[activeIndex].tags.map((t, idx) => (
                   <span
                     key={idx}
-                    className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white text-neutral-800 border border-slate-200 shadow-2xs"
+                    className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white text-neutral-800 border border-[#f8b47d]/40 shadow-2xs"
                   >
                     {t}
                   </span>
                 ))}
               </div>
 
-              {/* Specs */}
-              <div className="grid grid-cols-2 gap-3 pt-3 border-t border-slate-200 text-xs">
+              <div className="grid grid-cols-2 gap-3 pt-3 border-t border-[#fbd7b4]/50 text-xs">
                 <div>
-                  <span className="block text-[10px] font-mono text-neutral-500 uppercase font-bold">Hubs</span>
+                  <span className="block text-[10px] text-neutral-500 uppercase font-bold">Hubs</span>
                   <span className="font-bold text-neutral-900">{products[activeIndex].hubs}</span>
                 </div>
                 <div>
-                  <span className="block text-[10px] font-mono text-neutral-500 uppercase font-bold">MOQ</span>
+                  <span className="block text-[10px] text-neutral-500 uppercase font-bold">MOQ</span>
                   <span className="font-bold text-neutral-900">{products[activeIndex].moq}</span>
                 </div>
               </div>
 
-              {/* Mobile CTA */}
-              <div className="pt-4 border-t border-slate-200">
+              <div className="pt-4 border-t border-[#fbd7b4]/50">
                 <a
                   href="#connect"
-                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#FF5722] to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow-md flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52] text-white font-bold text-xs uppercase tracking-wider shadow-md flex items-center justify-center gap-2"
                 >
-                  <span>Inquire Catalog & Swatches</span>
+                  <span>Inquire Catalog &amp; Swatches</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
@@ -406,11 +385,11 @@ export default function ProductRange() {
             </div>
           </div>
 
-          {/* Quick Indicator Dots & Prev/Next for Mobile */}
+          {/* Indicator Dots & Prev/Next for Mobile */}
           <div className="flex items-center justify-between pt-2">
             <button
               onClick={handlePrev}
-              className="px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-neutral-700 shadow-xs flex items-center gap-1"
+              className="px-4 py-2 rounded-xl bg-white border border-[#f8b47d]/40 text-xs font-bold text-neutral-700 shadow-xs flex items-center gap-1 cursor-pointer"
             >
               ← Prev
             </button>
@@ -419,8 +398,8 @@ export default function ProductRange() {
                 <button
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    activeIndex === idx ? 'w-7 bg-[#FF5722]' : 'bg-slate-300'
+                  className={`h-3 rounded-full transition-all cursor-pointer ${
+                    activeIndex === idx ? 'w-7 bg-[#f16701]' : 'w-3 bg-[#fbd7b4]'
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -428,7 +407,7 @@ export default function ProductRange() {
             </div>
             <button
               onClick={handleNext}
-              className="px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-neutral-700 shadow-xs flex items-center gap-1"
+              className="px-4 py-2 rounded-xl bg-white border border-[#f8b47d]/40 text-xs font-bold text-neutral-700 shadow-xs flex items-center gap-1 cursor-pointer"
             >
               Next →
             </button>

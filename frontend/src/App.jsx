@@ -7,43 +7,47 @@ import ProductRange from './components/ProductRange';
 import GrowthJourney from './components/GrowthJourney';
 import WhyChoose from './components/WhyChoose';
 import Founder from './components/Founder';
+import MissionVision from './components/MissionVision';
 import ConnectForm from './components/ConnectForm';
 import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#0F1318] relative selection:bg-[#FF5722] selection:text-white">
+    <div className="min-h-screen bg-[#FAF8F5] text-[#0F1318] relative selection:bg-[#f16701] selection:text-white overflow-x-hidden">
       {/* Fixed Top Luxury Navbar */}
       <Navbar />
 
       {/* Main Content Sections */}
       <main className="w-full pt-16">
-        {/* 1. Home Page (Hero Section with Trust Metrics) */}
+        {/* 1. About Us (Hero Section with Heritage Positioning & Metrics) */}
         <Hero />
 
-        {/* 2. How We Work (6-Step Sourcing & Order Process) */}
+        {/* 2. How We Work (6-Stage Sourcing Pipeline) */}
         <HowWeWork />
 
-        {/* 3. Sourcing Hubs (Pan-India 3D Sourcing Map) */}
+        {/* 3. Sourcing Hubs (Pan-India 6 Major Production Centers) */}
         <SourcingMap />
 
-        {/* 4. Product Range (Interactive Expanding Flex Carousel) */}
+        {/* 4. Product Range (5 Collections Interactive Flex Carousel) */}
         <ProductRange />
 
-        {/* 5. Growth Journey (The Infinite Graph Curve Trajectory: 1995 to 2026) */}
+        {/* 5. Our Story & Growth Journey (Horizontal Bus Line Route: 1995 to 2026) */}
         <GrowthJourney />
 
-        {/* 6. Why Choose Us (The Institutional Standard & 7 Strategic Pillars) */}
+        {/* 6. Why Choose Us (7 Strategic Pillars & 3 Decades of Experience) */}
         <WhyChoose />
 
-        {/* 7. Founder & Vision (Mr. Vineet Kr. Taparia) */}
+        {/* 7. Message from Our Founder (Mr. Vineet Kr. Taparia) */}
         <Founder />
 
-        {/* 8. Sourcing Inquiry Form */}
+        {/* 8. Mission & Vision */}
+        <MissionVision />
+
+        {/* 9. Commercial Sourcing Inquiry Form */}
         <ConnectForm />
       </main>
 
-      {/* 9. Corporate Legal Footer */}
+      {/* 10. Corporate Legal Footer */}
       <Footer />
     </div>
   );

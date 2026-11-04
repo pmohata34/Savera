@@ -1,235 +1,122 @@
 import React from 'react';
 
 export default function HowWeWork() {
+  const steps = [
+    {
+      num: '01',
+      title: 'Understanding Requirements',
+      badge: 'Step 01 • Intake',
+      description: "We begin by understanding our clients' specific needs, including product preferences, quality expectations, quantity requirements and target market. This helps us identify suitable sourcing opportunities aligned with their business objectives.",
+      deliverable: 'Target Sourcing Alignment'
+    },
+    {
+      num: '02',
+      title: 'Sourcing from Our Network',
+      badge: 'Step 02 • Network Scan',
+      description: "Based on the requirements, we explore our established network of manufacturers across major textile hubs to identify relevant manufacturing partners and suitable sourcing options.",
+      deliverable: 'Vetted Mill & Weaver Matching'
+    },
+    {
+      num: '03',
+      title: 'Product Matching & Selection',
+      badge: 'Step 03 • Curated Selection',
+      description: "We help identify and match suitable products with our clients' requirements, considering their preferences, target customers and market needs to support better product selection.",
+      deliverable: 'Sample & Swatch Verification'
+    },
+    {
+      num: '04',
+      title: 'Price Coordination & Negotiation',
+      badge: 'Step 04 • Commercial Alignment',
+      description: "We facilitate commercial discussions between our clients and manufacturers, helping both parties communicate their expectations and work towards mutually agreeable terms.",
+      deliverable: 'Direct Loom Commercial Terms'
+    },
+    {
+      num: '05',
+      title: 'Order Processing & Follow-Up',
+      badge: 'Step 05 • Execution',
+      description: "Once the order terms are finalised, we coordinate with the relevant parties and follow up on the order process to help maintain proper communication and timely progress.",
+      deliverable: 'Dispatch & Production Coordination'
+    },
+    {
+      num: '06',
+      title: 'Transparency & Reliable Support',
+      badge: 'Step 06 • Long-Term Support',
+      description: "We prioritise clear communication and transparency throughout the process, keeping our clients and manufacturing partners informed of relevant updates and agreed arrangements.",
+      deliverable: 'Continuous Relationship Management'
+    }
+  ];
+
   return (
-<section id="how-we-work" className="py-24 px-12 bg-white border-b border-[#E8E3DA]">
-    <div className="max-w-7xl mx-auto space-y-14">
+    <section id="how-we-work" className="py-24 px-6 sm:px-12 bg-gradient-to-b from-white via-[#FAF8F5] to-white border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
-      {/*  Section Header  */}
-      <div className="border-b border-[#E8E3DA] pb-8 space-y-3">
-        <div
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-[#FF5722] text-xs font-extrabold uppercase tracking-widest">
-          <span>Operating Pipeline</span>
-        </div>
-        <h2 className="text-4xl md:text-5xl font-bold font-luxury text-[#0B0E14] tracking-tight">
-          How We Work
-        </h2>
-        <p className="text-xl font-designer italic text-[#FF5722]">
-          From Understanding Your Needs to Building Business Opportunities
-        </p>
-        <p className="text-base text-neutral-600 max-w-4xl leading-relaxed">
-          At <span className="text-[#FF5722] font-bold">Savera</span> Tex Solution LLP, we follow a structured approach to
-          connect retailers and wholesalers with suitable manufacturers. From understanding your requirements to
-          coordinating orders and follow-ups, our 6-stage engine makes trade clear, organized, and frictionless.
-        </p>
+      {/* Atmospheric Ambient Gradient Lighting */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/4 -left-28 w-96 h-96 bg-gradient-to-tr from-[#f7e5d4] to-[#f8b47d]/20 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-1/4 -right-28 w-96 h-96 bg-gradient-to-bl from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl animate-float-reverse"></div>
       </div>
 
-      {/*  6-STAGE CONNECTED PIPELINE (3 STRATEGIC PHASES)  */}
-      <div className="space-y-12">
+      <div className="max-w-7xl mx-auto space-y-16 relative z-10">
 
-        {/*  Phase I: Discovery & Sourcing  */}
-        <div
-          className="bg-[#FAF8F5] p-8 md:p-10 rounded-3xl border border-[#E8E3DA] shadow-sm space-y-6 relative overflow-hidden">
-          <div className="flex items-center justify-between border-b border-[#E8E3DA] pb-4">
-            <div className="flex items-center gap-3">
-              <span
-                className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-500/30 text-[#FF5722] text-[10px] font-black uppercase tracking-widest font-mono">
-                PHASE 01 • INTELLIGENCE & SOURCING
-              </span>
-              <span className="text-xs text-neutral-500 font-medium">Requirements Intake & Factory Discovery</span>
-            </div>
-            <span className="text-xs font-mono font-bold text-[#FF5722]">STAGES 01 — 02</span>
+        {/* Section Header with Verbatim Text */}
+        <div className="max-w-3xl space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#f7e5d4] to-white text-[#f16701] text-xs font-bold uppercase tracking-widest border border-[#f8b47d]/50 shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-[#f16701] animate-pulse"></span>
+            <span>Structured Sourcing Engine</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-            {/*  Stage 01  */}
-            <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
-              <div className="flex items-center justify-between">
-                <span className="text-3xl font-black font-royal text-[#FF5722]">01</span>
-                <span
-                  className="text-[10px] font-mono px-2.5 py-1 rounded bg-orange-100 text-[#FF5722] font-bold">REQUIREMENTS</span>
-              </div>
-              <h3 className="text-xl font-bold font-luxury text-[#0B0E14]">Understanding Requirements</h3>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                We begin by understanding our clients' specific needs, including product preferences, quality
-                expectations, quantity requirements, and target markets. This deep intake ensures every sourcing
-                proposal aligns precisely with commercial objectives.
-              </p>
-              <div
-                className="pt-3 border-t border-neutral-100 flex items-center justify-between text-[11px] text-neutral-500">
-                <span>Deliverable:</span>
-                <span className="font-bold text-[#0B0E14]">Target Sourcing Specification</span>
-              </div>
-            </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0F1318] tracking-tight">
+            How We Work
+          </h2>
 
-            {/*  Stage 02  */}
-            <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
-              <div className="flex items-center justify-between">
-                <span className="text-3xl font-black font-royal text-[#FF5722]">02</span>
-                <span className="text-[10px] font-mono px-2.5 py-1 rounded bg-orange-100 text-[#FF5722] font-bold">NETWORK
-                  SCAN</span>
-              </div>
-              <h3 className="text-xl font-bold font-luxury text-[#0B0E14]">Sourcing from Our Network</h3>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                Based on the requirements, we explore our established network of manufacturers across major textile hubs
-                — Surat, Banaras, Jaipur, Ahmedabad, and Bhagalpur — identifying relevant manufacturing partners and
-                optimal production capacities.
-              </p>
-              <div
-                className="pt-3 border-t border-neutral-100 flex items-center justify-between text-[11px] text-neutral-500">
-                <span>Deliverable:</span>
-                <span className="font-bold text-[#0B0E14]">Vetted Mill & Weaver Matching</span>
-              </div>
-            </div>
-          </div>
+          <p className="text-base sm:text-lg font-semibold text-[#f16701]">
+            From Understanding Your Needs to Building Business Opportunities
+          </p>
+
+          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+            At <strong className="text-[#0F1318] font-bold">Savera Tex Solution LLP</strong>, we follow a structured approach to connect retailers and wholesalers with suitable manufacturers. From understanding your requirements to coordinating orders and follow-ups, we aim to make the process clear, organised and convenient for everyone involved.
+          </p>
         </div>
 
-        {/*  Directional Flow Indicator  */}
-        <div className="flex items-center justify-center">
-          <div className="flex items-center gap-3 px-6 py-2 rounded-full bg-neutral-100 border border-neutral-200">
-            <span className="w-2 h-2 rounded-full bg-[#FF5722] animate-ping"></span>
-            <span className="text-xs font-mono font-bold tracking-wider text-neutral-600">STREAMING TO SELECTION &
-              COMMERCIAL ALIGNMENT</span>
-            <svg className="w-4 h-4 text-[#FF5722]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </div>
-        </div>
-
-        {/*  Phase II: Selection & Negotiation  */}
-        <div
-          className="bg-[#FAF8F5] p-8 md:p-10 rounded-3xl border border-[#E8E3DA] shadow-sm space-y-6 relative overflow-hidden">
-          <div className="flex items-center justify-between border-b border-[#E8E3DA] pb-4">
-            <div className="flex items-center gap-3">
-              <span
-                className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-500/30 text-[#FF5722] text-[10px] font-black uppercase tracking-widest font-mono">
-                PHASE 02 • CURATION & COMMERCIALS
-              </span>
-              <span className="text-xs text-neutral-500 font-medium">Sample Matching & Transparent Negotiation</span>
-            </div>
-            <span className="text-xs font-mono font-bold text-[#FF5722]">STAGES 03 — 04</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-            {/*  Stage 03  */}
+        {/* 6-Card Structured Grid (No ugly pill bridges!) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {steps.map((step, idx) => (
             <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
-              <div className="flex items-center justify-between">
-                <span className="text-3xl font-black font-royal text-[#FF5722]">03</span>
-                <span
-                  className="text-[10px] font-mono px-2.5 py-1 rounded bg-orange-100 text-[#FF5722] font-bold">SELECTION</span>
+              key={idx}
+              className="group relative p-7 sm:p-8 rounded-3xl bg-gradient-to-br from-white via-white to-[#f7e5d4]/40 border border-[#f8b47d]/35 hover:border-[#f16701]/50 shadow-xs hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between"
+            >
+              {/* Top Row: Number & Badge */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f16701] to-[#f48129]">
+                    {step.num}
+                  </span>
+                  <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#f7e5d4]/80 text-[#f16701] border border-[#f8b47d]/40">
+                    {step.badge}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-bold text-[#0F1318] group-hover:text-[#f16701] transition-colors">
+                  {step.title}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                  {step.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold font-luxury text-[#0B0E14]">Product Matching & Selection</h3>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                We help identify and match suitable products with our clients' requirements, considering weave nuances,
-                design palettes, target retail price-points, and regional fashion preferences to support superior
-                merchandising decisions.
-              </p>
-              <div
-                className="pt-3 border-t border-neutral-100 flex items-center justify-between text-[11px] text-neutral-500">
-                <span>Deliverable:</span>
-                <span className="font-bold text-[#0B0E14]">Curated Swatches & Lookbooks</span>
+
+              {/* Bottom Deliverable Strip */}
+              <div className="pt-6 mt-6 border-t border-[#fbd7b4]/40 flex items-center justify-between">
+                <span className="text-[11px] font-semibold text-neutral-500">Deliverable</span>
+                <span className="text-xs font-bold text-neutral-800 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#f16701]"></span>
+                  {step.deliverable}
+                </span>
               </div>
             </div>
-
-            {/*  Stage 04  */}
-            <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
-              <div className="flex items-center justify-between">
-                <span className="text-3xl font-black font-royal text-[#FF5722]">04</span>
-                <span
-                  className="text-[10px] font-mono px-2.5 py-1 rounded bg-orange-100 text-[#FF5722] font-bold">COMMERCIALS</span>
-              </div>
-              <h3 className="text-xl font-bold font-luxury text-[#0B0E14]">Price Coordination & Negotiation</h3>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                We facilitate transparent commercial discussions between clients and manufacturers, bridging
-                expectations with respect to rate parity, minimum order quantities, and delivery schedules to achieve
-                mutually beneficial agreements.
-              </p>
-              <div
-                className="pt-3 border-t border-neutral-100 flex items-center justify-between text-[11px] text-neutral-500">
-                <span>Deliverable:</span>
-                <span className="font-bold text-[#0B0E14]">Agreed Commercial Contract</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/*  Directional Flow Indicator  */}
-        <div className="flex items-center justify-center">
-          <div className="flex items-center gap-3 px-6 py-2 rounded-full bg-neutral-100 border border-neutral-200">
-            <span className="w-2 h-2 rounded-full bg-[#FF5722] animate-ping"></span>
-            <span className="text-xs font-mono font-bold tracking-wider text-neutral-600">STREAMING TO EXECUTION &
-              TRANSPARENCY</span>
-            <svg className="w-4 h-4 text-[#FF5722]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </div>
-        </div>
-
-        {/*  Phase III: Execution & Transparency  */}
-        <div
-          className="bg-[#FAF8F5] p-8 md:p-10 rounded-3xl border border-[#E8E3DA] shadow-sm space-y-6 relative overflow-hidden">
-          <div className="flex items-center justify-between border-b border-[#E8E3DA] pb-4">
-            <div className="flex items-center gap-3">
-              <span
-                className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/15 to-amber-500/15 border border-orange-500/30 text-[#FF5722] text-[10px] font-black uppercase tracking-widest font-mono">
-                PHASE 03 • EXECUTION & PARTNERSHIP
-              </span>
-              <span className="text-xs text-neutral-500 font-medium">Order Follow-Up & Long-Term Trust</span>
-            </div>
-            <span className="text-xs font-mono font-bold text-[#FF5722]">STAGES 05 — 06</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-            {/*  Stage 05  */}
-            <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
-              <div className="flex items-center justify-between">
-                <span className="text-3xl font-black font-royal text-[#FF5722]">05</span>
-                <span
-                  className="text-[10px] font-mono px-2.5 py-1 rounded bg-orange-100 text-[#FF5722] font-bold">PROCESSING</span>
-              </div>
-              <h3 className="text-xl font-bold font-luxury text-[#0B0E14]">Order Processing & Follow-Up</h3>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                Once terms are finalized, we coordinate actively with all parties, tracking loom schedules, packaging
-                parameters, and dispatch timelines to ensure seamless communication and punctual fulfillment.
-              </p>
-              <div
-                className="pt-3 border-t border-neutral-100 flex items-center justify-between text-[11px] text-neutral-500">
-                <span>Deliverable:</span>
-                <span className="font-bold text-[#0B0E14]">Dispatch Monitoring & Logistics Tracking</span>
-              </div>
-            </div>
-
-            {/*  Stage 06  */}
-            <div
-              className="bg-white p-7 rounded-2xl border border-[#E8E3DA] hover:border-[#FF5722] hover:shadow-lg transition space-y-4 card-hover-lift cursor-pointer">
-              <div className="flex items-center justify-between">
-                <span className="text-3xl font-black font-royal text-[#FF5722]">06</span>
-                <span className="text-[10px] font-mono px-2.5 py-1 rounded bg-orange-100 text-[#FF5722] font-bold">TRUST &
-                  SUPPORT</span>
-              </div>
-              <h3 className="text-xl font-bold font-luxury text-[#0B0E14]">Transparency & Reliable Support</h3>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                We prioritize total transparency throughout the relationship, keeping both clients and manufacturing
-                partners informed of real-time updates, fostering the trust essential for repeat business and
-                generational goodwill.
-              </p>
-              <div
-                className="pt-3 border-t border-neutral-100 flex items-center justify-between text-[11px] text-neutral-500">
-                <span>Deliverable:</span>
-                <span className="font-bold text-[#0B0E14]">Enduring Commercial Relationship</span>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
       </div>
-
-    </div>
-  </section>
+    </section>
   );
 }
