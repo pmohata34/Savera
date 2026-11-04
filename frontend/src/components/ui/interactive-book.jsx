@@ -1,0 +1,407 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight, RefreshCcw, X, BookOpen } from 'lucide-react';
+import { cn } from '../../lib/utils';
+
+export function InteractiveBook({
+  coverImage,
+  coverTitle = "Operating Pipeline",
+  coverSubtitle = "Savera Sourcing Handbook",
+  bookAuthor = "Savera Tex Solution LLP",
+  pages = [],
+  className,
+  width = 340,
+  height = 460,
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentPageIndex, setCurrentPageIndex] = useState(-1);
+  const [isHovering, setIsHovering] = useState(false);
+
+  const widthNum = typeof width === 'number' ? width : 340;
+  const heightNum = typeof height === 'number' ? height : 460;
+
+  const BOOK_OPEN_DURATION = 1.2;
+  const EASING = [0.25, 0, 0, 1];
+
+  const handleOpenBook = () => setIsOpen(true);
+
+  const handleCloseBook = (e) => {
+    e?.stopPropagation();
+    setIsOpen(false);
+    setCurrentPageIndex(-1);
+  };
+
+  const nextPage = (e) => {
+    e?.stopPropagation();
+    if (currentPageIndex < pages.length - 1) {
+      setCurrentPageIndex((prev) => prev + 1);
+    }
+  };
+
+  const prevPage = (e) => {
+    e?.stopPropagation();
+    if (currentPageIndex >= 0) {
+      setCurrentPageIndex((prev) => prev - 1);
+    }
+  };
+
+  const restartBook = (e) => {
+    e?.stopPropagation();
+    setCurrentPageIndex(-1);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') nextPage();
+      if (e.key === 'ArrowLeft') prevPage();
+      if (e.key === 'Escape') handleCloseBook();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, currentPageIndex, pages.length]);
+
+  return (
+    <div
+      className={cn("relative flex flex-col items-center justify-center my-4 overflow-visible", className)}
+      style={{
+        perspective: '2000px',
+        minHeight: heightNum + 80,
+      }}
+    >
+      {/* 3D Book Container */}
+      <motion.div
+        className="relative"
+        style={{
+          width: widthNum,
+          height: heightNum,
+          transformStyle: 'preserve-3d',
+        }}
+        initial={{ x: 0 }}
+        animate={{ x: isOpen ? widthNum / 2 : 0 }}
+        transition={{ duration: BOOK_OPEN_DURATION, ease: EASING }}
+      >
+        {/* ── FRONT COVER ── */}
+        <motion.div
+          className="absolute inset-0 w-full h-full origin-left cursor-pointer select-none"
+          initial={{ rotateY: 0, zIndex: 100 }}
+          animate={{
+            rotateY: isOpen ? -180 : (isHovering ? -15 : 0),
+            zIndex: isOpen ? 0 : 100,
+          }}
+          transition={{
+            rotateY: { duration: BOOK_OPEN_DURATION, ease: EASING },
+            zIndex: { delay: isOpen ? BOOK_OPEN_DURATION * 0.6 : BOOK_OPEN_DURATION * 0.4 },
+          }}
+          style={{ transformStyle: 'preserve-3d' }}
+          onClick={!isOpen ? handleOpenBook : undefined}
+          onHoverStart={() => !isOpen && setIsHovering(true)}
+          onHoverEnd={() => setIsHovering(false)}
+        >
+          {/* Front Face (Cover Art with Rich Orange Gradient) */}
+          <div
+            className="absolute inset-0 w-full h-full rounded-r-2xl rounded-l-md shadow-2xl overflow-hidden border border-[#f8b47d]/60 bg-gradient-to-br from-[#f16701] via-[#f48129] to-[#f8b47d] text-white p-6 flex flex-col justify-between"
+            style={{ transform: 'translateZ(1px)', backfaceVisibility: 'hidden' }}
+          >
+            {/* Book Spine Shadow Left Edge */}
+            <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/40 via-black/10 to-transparent pointer-events-none" />
+            <div className="absolute left-4 top-0 bottom-0 w-[1px] bg-white/20" />
+
+            {/* Top Foil Embellishment */}
+            <div className="relative z-10 flex items-center justify-between">
+              <span className="px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest uppercase bg-white/20 backdrop-blur-md border border-white/30 text-white">
+                Handbook • Since 1995
+              </span>
+              <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
+                <BookOpen className="w-4 h-4 text-white" />
+              </div>
+            </div>
+
+            {/* Central Seal & Crest */}
+            <div className="relative z-10 my-auto text-center space-y-3 px-2">
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-white/15 backdrop-blur-md border border-white/30 p-2 shadow-inner flex items-center justify-center">
+                <img src="/assets/logo_cropped.png" alt="Savera" className="w-full h-full object-contain filter brightness-0 invert" />
+              </div>
+
+              <div>
+                <span className="block text-[11px] font-bold uppercase tracking-[0.25em] text-[#fbd7b4]">
+                  {coverSubtitle}
+                </span>
+                <h3 className="text-2xl font-black text-white tracking-tight leading-tight mt-1">
+                  {coverTitle}
+                </h3>
+              </div>
+
+              <div className="w-12 h-0.5 mx-auto bg-white/40 rounded-full" />
+              <p className="text-xs text-white/90 leading-relaxed font-normal max-w-xs mx-auto">
+                Connecting textile manufacturers, retailers &amp; wholesalers through structured execution.
+              </p>
+            </div>
+
+            {/* Bottom Authority Line */}
+            <div className="relative z-10 pt-4 border-t border-white/25 flex items-center justify-between text-[11px]">
+              <span className="font-bold tracking-wider uppercase text-white/90">{bookAuthor}</span>
+              <span className="text-white/80 font-mono text-[10px]">VOL. 2026</span>
+            </div>
+          </div>
+
+          {/* Back Face (Inside Front Cover) */}
+          <div
+            className="absolute inset-0 w-full h-full rounded-l-2xl rounded-r-md bg-[#FAF8F5] p-6 sm:p-8 border-r border-[#fbd7b4]/60 shadow-xl flex flex-col justify-between"
+            style={{
+              transform: 'rotateY(180deg) translateZ(1px)',
+              backfaceVisibility: 'hidden',
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              prevPage();
+            }}
+          >
+            <div className="flex-1 flex flex-col justify-center items-center text-center space-y-3">
+              <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40">
+                Operating Pipeline
+              </span>
+              <h4 className="text-xl font-black text-[#0F1318]">
+                Six-Stage Sourcing Framework
+              </h4>
+              <p className="text-xs text-neutral-600 leading-relaxed max-w-xs">
+                Turn the pages forward to explore each operational stage from requirements intake to long-term trust.
+              </p>
+              <div className="pt-2 text-xs font-bold text-[#f16701] flex items-center gap-1.5">
+                <span>Click anywhere to begin</span>
+                <span>→</span>
+              </div>
+            </div>
+
+            <div className="text-[10px] text-neutral-400 font-mono text-center pt-3 border-t border-[#fbd7b4]/40">
+              Savera Tex Solution LLP • Standard Sourcing Protocol
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ── PAGES STACK ── */}
+        <div className="absolute inset-0 w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
+          {pages.map((page, index) => {
+            const isFlipped = index <= currentPageIndex;
+
+            return (
+              <motion.div
+                key={index}
+                className="absolute inset-0 w-full h-full origin-left rounded-r-2xl rounded-l-md shadow-md border border-[#f8b47d]/35 select-none"
+                style={{ transformStyle: 'preserve-3d' }}
+                initial={{ rotateY: 0, zIndex: pages.length - index }}
+                animate={{
+                  rotateY: isFlipped ? -180 : 0,
+                  zIndex: isFlipped ? index + 1 : pages.length - index,
+                }}
+                transition={{
+                  duration: 0.7,
+                  ease: [0.645, 0.045, 0.355, 1],
+                }}
+              >
+                {/* Front Face of Page (Right Spread) */}
+                <div
+                  className="absolute inset-0 w-full h-full p-6 sm:p-7 flex flex-col justify-between bg-white rounded-r-2xl cursor-pointer hover:bg-[#FFFDFB] transition-colors"
+                  style={{
+                    transform: 'translateZ(0.5px)',
+                    backfaceVisibility: 'hidden',
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    nextPage();
+                  }}
+                >
+                  {/* Left Gutter Crease Shadow */}
+                  <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/10 via-black/5 to-transparent pointer-events-none" />
+
+                  {/* Header: Stage Badge + Page Number */}
+                  <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-3">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#f16701] bg-[#f7e5d4] px-2.5 py-0.5 rounded-full border border-[#f8b47d]/40">
+                      {page.stageTag || `Stage 0${index + 1}`}
+                    </span>
+                    <span className="text-xs font-mono font-bold text-neutral-400">
+                      Page 0{page.pageNumber * 2 - 1}
+                    </span>
+                  </div>
+
+                  {/* Page Body */}
+                  <div className="flex-1 py-4 flex flex-col justify-center space-y-3">
+                    <h4 className="text-lg font-black text-[#0F1318] leading-snug">
+                      {page.title}
+                    </h4>
+                    <p className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed font-normal">
+                      {page.content}
+                    </p>
+                    {page.highlight && (
+                      <div className="p-3 rounded-xl bg-gradient-to-r from-[#f7e5d4]/60 to-white border border-[#f8b47d]/40 text-[11px] font-semibold text-[#f16701]">
+                        {page.highlight}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Footer Hint */}
+                  <div className="pt-3 border-t border-[#fbd7b4]/30 flex items-center justify-between text-[11px] text-neutral-500">
+                    <span>Turn Page</span>
+                    <span className="text-[#f16701] font-bold">→</span>
+                  </div>
+                </div>
+
+                {/* Back Face of Page (Left Spread) */}
+                <div
+                  className="absolute inset-0 w-full h-full p-6 sm:p-7 flex flex-col justify-between bg-[#FAF8F5] rounded-l-2xl border-r border-[#fbd7b4]/40 cursor-pointer hover:bg-[#F7F4EF] transition-colors"
+                  style={{
+                    transform: 'rotateY(180deg) translateZ(0.5px)',
+                    backfaceVisibility: 'hidden',
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevPage();
+                  }}
+                >
+                  {/* Right Gutter Crease Shadow */}
+                  <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-black/10 via-black/5 to-transparent pointer-events-none" />
+
+                  {/* Header */}
+                  <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-3">
+                    <span className="text-xs font-mono font-bold text-neutral-400">
+                      Page 0{page.pageNumber * 2}
+                    </span>
+                    <span className="text-[10px] font-bold text-[#f16701] uppercase tracking-wider">
+                      Process Overview
+                    </span>
+                  </div>
+
+                  {/* Page Back Content or Value Note */}
+                  <div className="flex-1 py-4 flex flex-col justify-center space-y-2.5">
+                    {page.backContent ? (
+                      page.backContent
+                    ) : (
+                      <div className="p-4 rounded-xl bg-white border border-[#f8b47d]/35 space-y-2">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#f16701]">
+                          Commercial Principle
+                        </span>
+                        <p className="text-xs text-neutral-700 italic leading-relaxed">
+                          "Structured communication and direct loom coordination protect value and foster generational trade."
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Footer Hint */}
+                  <div className="pt-3 border-t border-[#fbd7b4]/30 flex items-center justify-between text-[11px] text-neutral-500">
+                    <span className="text-[#f16701] font-bold">←</span>
+                    <span>Previous Page</span>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+
+          {/* ── BACK COVER (Static Inside) ── */}
+          <div
+            className="absolute inset-0 w-full h-full bg-[#FAF8F5] rounded-r-2xl rounded-l-md shadow-xl border border-[#f8b47d]/40 flex flex-col justify-between p-7 text-center"
+            style={{ transform: 'translateZ(-1px)', zIndex: -1 }}
+          >
+            <div className="flex-1 flex flex-col items-center justify-center space-y-3">
+              <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40">
+                End of Framework
+              </span>
+              <h4 className="text-xl font-black text-[#0F1318]">
+                Ready to Source With Us?
+              </h4>
+              <p className="text-xs text-neutral-600 max-w-xs leading-relaxed">
+                Connect with our Kolkata central office to discuss manufacturer representation or commercial sourcing requirements.
+              </p>
+              <button
+                onClick={restartBook}
+                className="mt-3 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] text-white text-xs font-bold uppercase tracking-wider shadow-md hover:opacity-95 transition transform hover:scale-105 cursor-pointer"
+              >
+                <RefreshCcw className="w-3.5 h-3.5" />
+                <span>Read Again</span>
+              </button>
+            </div>
+
+            <p className="text-[10px] text-neutral-400 font-mono">
+              Savera Tex Solution LLP • Operating Since 1995
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ── EXTERNAL NAVIGATION CONTROLS (Always accessible when open) ── */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            className="mt-8 z-20 flex items-center gap-4 bg-white/95 px-5 py-2.5 rounded-full border border-[#f8b47d]/50 shadow-lg backdrop-blur-md"
+          >
+            {/* Prev Button */}
+            <button
+              onClick={prevPage}
+              disabled={currentPageIndex < 0}
+              className="p-2 rounded-full hover:bg-[#f7e5d4] text-neutral-700 hover:text-[#f16701] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer"
+              title="Previous Page"
+              aria-label="Previous Page"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Page Counter */}
+            <div className="text-xs font-bold text-neutral-700 min-w-[120px] text-center">
+              {currentPageIndex === -1 ? (
+                <span className="text-[#f16701]">Cover Page</span>
+              ) : currentPageIndex >= pages.length ? (
+                <span className="text-[#f16701]">Handbook End</span>
+              ) : (
+                <span>
+                  Stage <span className="text-[#f16701] font-black">{currentPageIndex + 1}</span> of {pages.length}
+                </span>
+              )}
+            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={nextPage}
+              disabled={currentPageIndex >= pages.length - 1}
+              className="p-2 rounded-full hover:bg-[#f7e5d4] text-neutral-700 hover:text-[#f16701] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer"
+              title="Next Page"
+              aria-label="Next Page"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            <div className="w-[1px] h-5 bg-[#fbd7b4]" />
+
+            {/* Close Button */}
+            <button
+              onClick={handleCloseBook}
+              className="px-3.5 py-1.5 rounded-full bg-[#f7e5d4] hover:bg-[#f8b47d] text-[#f16701] text-xs font-bold uppercase tracking-wider transition cursor-pointer flex items-center gap-1.5"
+            >
+              <X className="w-3.5 h-3.5" />
+              <span>Close Book</span>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── CLICK TO OPEN HINT (When Closed) ── */}
+      {!isOpen && (
+        <motion.button
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          onClick={handleOpenBook}
+          className="mt-6 inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] text-white text-xs font-extrabold uppercase tracking-widest shadow-md hover:shadow-xl transition transform hover:scale-105 cursor-pointer glow-orange"
+        >
+          <BookOpen className="w-4 h-4" />
+          <span>Click to Open Operating Handbook</span>
+        </motion.button>
+      )}
+    </div>
+  );
+}
+
+export default InteractiveBook;
