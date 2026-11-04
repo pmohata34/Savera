@@ -5,20 +5,25 @@ import { cn } from '../../lib/utils';
 
 export function InteractiveBook({
   coverImage,
-  coverTitle = "Operating Pipeline",
-  coverSubtitle = "Savera Sourcing Handbook",
+  coverBadge = "Lookbook • Since 1995",
+  coverTitle = "Product Range",
+  coverSubtitle = "Textile Portfolios & Swatches",
+  coverDescription = "Wholesale collections direct from India's premier manufacturing hubs.",
   bookAuthor = "Savera Tex Solution LLP",
+  insideCoverBadge = "Wholesale Portfolios",
+  insideCoverTitle = "Five Signature Textile Categories",
+  insideCoverDescription = "Turn the pages to explore our comprehensive collections spanning sarees, salwar suits, lehengas, indo-western wear and commercial fabrics.",
   pages = [],
   className,
-  width = 340,
-  height = 460,
+  width = 360,
+  height = 490,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentPageIndex, setCurrentPageIndex] = useState(-1);
   const [isHovering, setIsHovering] = useState(false);
 
-  const widthNum = typeof width === 'number' ? width : 340;
-  const heightNum = typeof height === 'number' ? height : 460;
+  const widthNum = typeof width === 'number' ? width : 360;
+  const heightNum = typeof height === 'number' ? height : 490;
 
   const BOOK_OPEN_DURATION = 1.2;
   const EASING = [0.25, 0, 0, 1];
@@ -101,7 +106,7 @@ export function InteractiveBook({
         >
           {/* Front Face (Cover Art with Rich Orange Gradient) */}
           <div
-            className="absolute inset-0 w-full h-full rounded-r-2xl rounded-l-md shadow-2xl overflow-hidden border border-[#f8b47d]/60 bg-gradient-to-br from-[#f16701] via-[#f48129] to-[#f8b47d] text-white p-6 flex flex-col justify-between"
+            className="absolute inset-0 w-full h-full rounded-r-2xl rounded-l-md shadow-2xl overflow-hidden border border-[#f8b47d]/60 bg-gradient-to-br from-[#f16701] via-[#f48129] to-[#f8b47d] text-white p-6 sm:p-7 flex flex-col justify-between"
             style={{ transform: 'translateZ(1px)', backfaceVisibility: 'hidden' }}
           >
             {/* Book Spine Shadow Left Edge */}
@@ -110,8 +115,8 @@ export function InteractiveBook({
 
             {/* Top Foil Embellishment */}
             <div className="relative z-10 flex items-center justify-between">
-              <span className="px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest uppercase bg-white/20 backdrop-blur-md border border-white/30 text-white">
-                Handbook • Since 1995
+              <span className="px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest uppercase bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-xs">
+                {coverBadge}
               </span>
               <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
                 <BookOpen className="w-4 h-4 text-white" />
@@ -128,14 +133,14 @@ export function InteractiveBook({
                 <span className="block text-[11px] font-bold uppercase tracking-[0.25em] text-[#fbd7b4]">
                   {coverSubtitle}
                 </span>
-                <h3 className="text-2xl font-black text-white tracking-tight leading-tight mt-1">
+                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight mt-1">
                   {coverTitle}
                 </h3>
               </div>
 
               <div className="w-12 h-0.5 mx-auto bg-white/40 rounded-full" />
               <p className="text-xs text-white/90 leading-relaxed font-normal max-w-xs mx-auto">
-                Connecting textile manufacturers, retailers &amp; wholesalers through structured execution.
+                {coverDescription}
               </p>
             </div>
 
@@ -160,22 +165,22 @@ export function InteractiveBook({
           >
             <div className="flex-1 flex flex-col justify-center items-center text-center space-y-3">
               <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40">
-                Operating Pipeline
+                {insideCoverBadge}
               </span>
               <h4 className="text-xl font-black text-[#0F1318]">
-                Six-Stage Sourcing Framework
+                {insideCoverTitle}
               </h4>
               <p className="text-xs text-neutral-600 leading-relaxed max-w-xs">
-                Turn the pages forward to explore each operational stage from requirements intake to long-term trust.
+                {insideCoverDescription}
               </p>
               <div className="pt-2 text-xs font-bold text-[#f16701] flex items-center gap-1.5">
-                <span>Click anywhere to begin</span>
+                <span>Click anywhere to open pages</span>
                 <span>→</span>
               </div>
             </div>
 
             <div className="text-[10px] text-neutral-400 font-mono text-center pt-3 border-t border-[#fbd7b4]/40">
-              Savera Tex Solution LLP • Standard Sourcing Protocol
+              {bookAuthor} • Verified Production Sourcing
             </div>
           </div>
         </motion.div>
@@ -202,7 +207,7 @@ export function InteractiveBook({
               >
                 {/* Front Face of Page (Right Spread) */}
                 <div
-                  className="absolute inset-0 w-full h-full p-6 sm:p-7 flex flex-col justify-between bg-white rounded-r-2xl cursor-pointer hover:bg-[#FFFDFB] transition-colors"
+                  className="absolute inset-0 w-full h-full p-5 sm:p-6 flex flex-col justify-between bg-white rounded-r-2xl cursor-pointer hover:bg-[#FFFDFB] transition-colors"
                   style={{
                     transform: 'translateZ(0.5px)',
                     backfaceVisibility: 'hidden',
@@ -215,41 +220,72 @@ export function InteractiveBook({
                   {/* Left Gutter Crease Shadow */}
                   <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/10 via-black/5 to-transparent pointer-events-none" />
 
-                  {/* Header: Stage Badge + Page Number */}
-                  <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-3">
+                  {/* Header: Category Badge + Page Number */}
+                  <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-2.5">
                     <span className="text-[10px] font-black uppercase tracking-wider text-[#f16701] bg-[#f7e5d4] px-2.5 py-0.5 rounded-full border border-[#f8b47d]/40">
-                      {page.stageTag || `Stage 0${index + 1}`}
+                      {page.stageTag || `Category 0${index + 1}`}
                     </span>
                     <span className="text-xs font-mono font-bold text-neutral-400">
-                      Page 0{page.pageNumber * 2 - 1}
+                      Plate 0{page.pageNumber * 2 - 1}
                     </span>
                   </div>
 
-                  {/* Page Body */}
-                  <div className="flex-1 py-4 flex flex-col justify-center space-y-3">
-                    <h4 className="text-lg font-black text-[#0F1318] leading-snug">
-                      {page.title}
-                    </h4>
-                    <p className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed font-normal">
+                  {/* Page Body: Title, Tagline, Description, Chips */}
+                  <div className="flex-1 py-3 flex flex-col justify-center space-y-2.5">
+                    <div>
+                      <h4 className="text-lg sm:text-xl font-black text-[#0F1318] leading-tight">
+                        {page.title}
+                      </h4>
+                      {page.tagline && (
+                        <p className="text-xs font-bold text-[#f16701] mt-0.5">
+                          {page.tagline}
+                        </p>
+                      )}
+                    </div>
+
+                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal">
                       {page.content}
                     </p>
-                    {page.highlight && (
-                      <div className="p-3 rounded-xl bg-gradient-to-r from-[#f7e5d4]/60 to-white border border-[#f8b47d]/40 text-[11px] font-semibold text-[#f16701]">
-                        {page.highlight}
+
+                    {/* Tags / Specs Chips */}
+                    {page.tags && page.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 pt-1">
+                        {page.tags.map((t, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#FAF8F5] text-neutral-700 border border-[#fbd7b4]/60"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Inquiry CTA */}
+                    {page.ctaHref && (
+                      <div className="pt-2">
+                        <a
+                          href={page.ctaHref}
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] text-white text-[11px] font-bold uppercase tracking-wider shadow-xs hover:opacity-95 transition"
+                        >
+                          <span>Inquire {page.title}</span>
+                          <span>→</span>
+                        </a>
                       </div>
                     )}
                   </div>
 
                   {/* Footer Hint */}
-                  <div className="pt-3 border-t border-[#fbd7b4]/30 flex items-center justify-between text-[11px] text-neutral-500">
+                  <div className="pt-2.5 border-t border-[#fbd7b4]/30 flex items-center justify-between text-[11px] text-neutral-500">
                     <span>Turn Page</span>
                     <span className="text-[#f16701] font-bold">→</span>
                   </div>
                 </div>
 
-                {/* Back Face of Page (Left Spread) */}
+                {/* Back Face of Page (Left Spread: Rich Image or Value Note) */}
                 <div
-                  className="absolute inset-0 w-full h-full p-6 sm:p-7 flex flex-col justify-between bg-[#FAF8F5] rounded-l-2xl border-r border-[#fbd7b4]/40 cursor-pointer hover:bg-[#F7F4EF] transition-colors"
+                  className="absolute inset-0 w-full h-full rounded-l-2xl border-r border-[#fbd7b4]/40 cursor-pointer overflow-hidden flex flex-col justify-between bg-[#FAF8F5]"
                   style={{
                     transform: 'rotateY(180deg) translateZ(0.5px)',
                     backfaceVisibility: 'hidden',
@@ -259,40 +295,62 @@ export function InteractiveBook({
                     prevPage();
                   }}
                 >
-                  {/* Right Gutter Crease Shadow */}
-                  <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-black/10 via-black/5 to-transparent pointer-events-none" />
+                  {/* Full Photo Plate on the Left Spread if image provided */}
+                  {page.image ? (
+                    <div className="relative w-full h-full overflow-hidden flex flex-col justify-between p-5 text-white">
+                      <img
+                        src={page.image}
+                        alt={page.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1e1005]/90 via-[#1e1005]/30 to-transparent" />
 
-                  {/* Header */}
-                  <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-3">
-                    <span className="text-xs font-mono font-bold text-neutral-400">
-                      Page 0{page.pageNumber * 2}
-                    </span>
-                    <span className="text-[10px] font-bold text-[#f16701] uppercase tracking-wider">
-                      Process Overview
-                    </span>
-                  </div>
-
-                  {/* Page Back Content or Value Note */}
-                  <div className="flex-1 py-4 flex flex-col justify-center space-y-2.5">
-                    {page.backContent ? (
-                      page.backContent
-                    ) : (
-                      <div className="p-4 rounded-xl bg-white border border-[#f8b47d]/35 space-y-2">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#f16701]">
-                          Commercial Principle
+                      {/* Header on Photo */}
+                      <div className="relative z-10 flex items-center justify-between">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-white bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/30">
+                          {page.stageTag || `Plate 0${page.pageNumber * 2}`}
                         </span>
-                        <p className="text-xs text-neutral-700 italic leading-relaxed">
-                          "Structured communication and direct loom coordination protect value and foster generational trade."
-                        </p>
+                        <span className="text-xs font-mono font-bold text-white/80">
+                          {page.pageNumber * 2}
+                        </span>
                       </div>
-                    )}
-                  </div>
 
-                  {/* Footer Hint */}
-                  <div className="pt-3 border-t border-[#fbd7b4]/30 flex items-center justify-between text-[11px] text-neutral-500">
-                    <span className="text-[#f16701] font-bold">←</span>
-                    <span>Previous Page</span>
-                  </div>
+                      {/* Title on Photo */}
+                      <div className="relative z-10 space-y-1">
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#fbd7b4]">
+                          Textile Showcase
+                        </span>
+                        <h4 className="text-xl font-black text-white">
+                          {page.title}
+                        </h4>
+                        <div className="text-[10px] text-white/80 font-mono">
+                          Direct Loom Sourcing
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Text Back Content */
+                    <div className="p-6 flex flex-col justify-between h-full bg-[#FAF8F5]">
+                      <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-2.5">
+                        <span className="text-xs font-mono font-bold text-neutral-400">
+                          Page 0{page.pageNumber * 2}
+                        </span>
+                        <span className="text-[10px] font-bold text-[#f16701] uppercase tracking-wider">
+                          Portfolio Note
+                        </span>
+                      </div>
+                      <div className="flex-1 py-4 flex flex-col justify-center">
+                        {page.backContent}
+                      </div>
+                      <div className="pt-2.5 border-t border-[#fbd7b4]/30 flex items-center justify-between text-[11px] text-neutral-500">
+                        <span className="text-[#f16701] font-bold">←</span>
+                        <span>Previous Page</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Right Gutter Crease Shadow */}
+                  <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-black/15 via-black/5 to-transparent pointer-events-none" />
                 </div>
               </motion.div>
             );
@@ -305,25 +363,25 @@ export function InteractiveBook({
           >
             <div className="flex-1 flex flex-col items-center justify-center space-y-3">
               <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40">
-                End of Framework
+                End of Lookbook
               </span>
               <h4 className="text-xl font-black text-[#0F1318]">
-                Ready to Source With Us?
+                Custom Loom Orders &amp; Weaving
               </h4>
               <p className="text-xs text-neutral-600 max-w-xs leading-relaxed">
-                Connect with our Kolkata central office to discuss manufacturer representation or commercial sourcing requirements.
+                Need custom yarn specifications, jacquard motifs, or special loom runs? Our 700+ partner mills accommodate commercial contracts.
               </p>
               <button
                 onClick={restartBook}
                 className="mt-3 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] text-white text-xs font-bold uppercase tracking-wider shadow-md hover:opacity-95 transition transform hover:scale-105 cursor-pointer"
               >
                 <RefreshCcw className="w-3.5 h-3.5" />
-                <span>Read Again</span>
+                <span>Read From Beginning</span>
               </button>
             </div>
 
             <p className="text-[10px] text-neutral-400 font-mono">
-              Savera Tex Solution LLP • Operating Since 1995
+              Savera Tex Solution LLP • Wholesale Sourcing Platform
             </p>
           </div>
         </div>
@@ -350,14 +408,14 @@ export function InteractiveBook({
             </button>
 
             {/* Page Counter */}
-            <div className="text-xs font-bold text-neutral-700 min-w-[120px] text-center">
+            <div className="text-xs font-bold text-neutral-700 min-w-[130px] text-center">
               {currentPageIndex === -1 ? (
                 <span className="text-[#f16701]">Cover Page</span>
               ) : currentPageIndex >= pages.length ? (
-                <span className="text-[#f16701]">Handbook End</span>
+                <span className="text-[#f16701]">Lookbook End</span>
               ) : (
                 <span>
-                  Stage <span className="text-[#f16701] font-black">{currentPageIndex + 1}</span> of {pages.length}
+                  Collection <span className="text-[#f16701] font-black">{currentPageIndex + 1}</span> of {pages.length}
                 </span>
               )}
             </div>
@@ -397,7 +455,7 @@ export function InteractiveBook({
           className="mt-6 inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] text-white text-xs font-extrabold uppercase tracking-widest shadow-md hover:shadow-xl transition transform hover:scale-105 cursor-pointer glow-orange"
         >
           <BookOpen className="w-4 h-4" />
-          <span>Click to Open Operating Handbook</span>
+          <span>Click to Open Textile Lookbook</span>
         </motion.button>
       )}
     </div>
@@ -405,4 +463,3 @@ export function InteractiveBook({
 }
 
 export default InteractiveBook;
-
