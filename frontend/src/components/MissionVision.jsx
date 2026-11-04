@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function MissionVision() {
   return (
-    <section id="mission-vision" className="py-20 px-6 sm:px-12 bg-gradient-to-b from-white via-[#FAF8F5] to-white border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="mission-vision" className="py-14 sm:py-16 px-4 sm:px-8 lg:px-12 bg-gradient-to-b from-white via-[#FAF8F5] to-white border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Atmospheric Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -97,3 +97,4 @@ export default function MissionVision() {
     </section>
   );
 }
+

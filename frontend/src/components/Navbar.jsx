@@ -4,19 +4,23 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 bg-white/95 backdrop-blur-2xl border-b border-[#f8b47d]/30 shadow-xs text-neutral-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#fbd7b4]/50 shadow-xs">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
 
-        {/* Brand Pill with Official Logo */}
-        <a href="#hero" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm border border-[#f8b47d]/40 transition transform group-hover:scale-105 bg-white flex items-center justify-center p-0.5">
-            <img src="/assets/logo.jpg" alt="Savera Logo" className="w-full h-full object-contain" />
+        {/* Brand Pill with Prominent Cropped Official Logo & Visible 'Since 1995' */}
+        <a href="#hero" className="flex items-center gap-3.5 group">
+          <div className="h-13 w-13 rounded-xl overflow-hidden bg-white p-1 border border-[#f8b47d]/40 shadow-xs flex items-center justify-center flex-shrink-0 group-hover:border-[#f16701] transition">
+            <img
+              src="/assets/logo_cropped.png"
+              alt="Savera - Since 1995"
+              className="w-full h-full object-contain"
+            />
           </div>
-          <div>
-            <span className="block text-lg font-extrabold tracking-tight text-[#f16701] leading-none">
+          <div className="flex flex-col">
+            <span className="text-xl sm:text-2xl font-black tracking-tight text-[#f16701] leading-none">
               SAVERA
             </span>
-            <span className="block text-[8px] font-bold tracking-[0.22em] text-neutral-500 uppercase mt-0.5">
+            <span className="text-[9px] font-bold tracking-[0.22em] text-neutral-600 uppercase mt-0.5">
               TEX SOLUTION LLP
             </span>
           </div>
@@ -65,14 +69,14 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-[#fbd7b4]/40 bg-white/98 backdrop-blur-2xl px-6 py-5 shadow-2xl flex flex-col gap-2.5 text-sm text-neutral-700 animate-fadeIn">
+        <div className="xl:hidden border-t border-[#fbd7b4]/40 bg-white/98 backdrop-blur-2xl px-6 py-5 shadow-2xl flex flex-col gap-2.5 text-sm text-neutral-700">
           <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">About Us</a>
-          <a href="#how-we-work" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">How We Work (6 Steps)</a>
-          <a href="#sourcing-map" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Sourcing Hubs (6 Cities)</a>
-          <a href="#products" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Product Range (5 Collections)</a>
-          <a href="#growth-journey" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Growth Journey (1995 ➔ 2026)</a>
-          <a href="#why-choose" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Why Choose Us (7 Pillars)</a>
-          <a href="#founder" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Founder Message &amp; Vision</a>
+          <a href="#how-we-work" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">How We Work</a>
+          <a href="#sourcing-map" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Sourcing Hubs</a>
+          <a href="#products" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Product Range</a>
+          <a href="#growth-journey" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Growth Journey</a>
+          <a href="#why-choose" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Why Choose Us</a>
+          <a href="#founder" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Founder Message</a>
           <a href="#connect" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl bg-[#f7e5d4] text-[#f16701] font-bold transition">Inquire Now</a>
         </div>
       )}

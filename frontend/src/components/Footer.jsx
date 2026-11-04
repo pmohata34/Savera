@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-white via-[#FAF8F5] to-[#f7e5d4]/40 text-neutral-800 pt-20 pb-12 px-6 sm:px-12 border-t border-[#fbd7b4]/40 relative">
+    <footer className="bg-gradient-to-b from-white via-[#FAF8F5] to-[#f7e5d4]/40 text-neutral-800 pt-14 pb-10 px-4 sm:px-8 lg:px-12 border-t border-[#fbd7b4]/40 relative">
       <div className="max-w-7xl mx-auto space-y-16">
 
         {/* 3 Main Columns */}
