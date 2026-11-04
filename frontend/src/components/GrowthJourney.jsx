@@ -35,9 +35,9 @@ export default function GrowthJourney() {
   ];
 
   return (
-    <section id="growth-journey" className="py-14 sm:py-16 px-4 sm:px-8 lg:px-12 bg-gradient-to-b from-white via-[#FAF8F5] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="growth-journey" className="py-14 sm:py-18 px-4 sm:px-8 lg:px-12 bg-gradient-to-b from-white via-[#FAF8F5] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
-      {/* Ambient Lighting */}
+      {/* Atmospheric Ambient Lighting Mesh */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 -right-20 w-80 h-80 bg-gradient-to-bl from-[#f7e5d4] to-[#f8b47d]/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-gradient-to-tr from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl"></div>
@@ -58,125 +58,94 @@ export default function GrowthJourney() {
           </p>
         </div>
 
-        {/* ── DESKTOP FLOWING CURVED TIMELINE (1995 on Left ➔ 2026 on Right) ── */}
-        <div className="hidden lg:block relative py-8">
+        {/* ── DESKTOP CONNECTED TIMELINE: LINE CONNECTS DOTS, TEXT BOXES ABOVE ── */}
+        <div className="hidden lg:block relative py-6">
 
-          {/* Flowing SVG Sinuous Curved Line from Left to Right */}
-          <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-48 pointer-events-none z-0">
-            <svg viewBox="0 0 1200 200" preserveAspectRatio="none" className="w-full h-full">
-              <defs>
-                <linearGradient id="horizontalCurvedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#f7e5d4" stopOpacity="0.8" />
-                  <stop offset="25%" stopColor="#f8b47d" stopOpacity="1" />
-                  <stop offset="60%" stopColor="#f48129" stopOpacity="1" />
-                  <stop offset="100%" stopColor="#f16701" stopOpacity="1" />
-                </linearGradient>
-              </defs>
-
-              {/* Base Smooth Flowing Curvy Wave */}
-              <path
-                d="M 60 100 
-                   C 160 30, 260 170, 360 100 
-                   C 460 30, 560 170, 660 100 
-                   C 760 30, 860 170, 960 100 
-                   C 1060 40, 1120 120, 1160 100"
-                fill="none"
-                stroke="url(#horizontalCurvedGradient)"
-                strokeWidth="5"
-                strokeLinecap="round"
-              />
-
-              {/* Pulsing Dash Beam along the curve */}
-              <path
-                d="M 60 100 
-                   C 160 30, 260 170, 360 100 
-                   C 460 30, 560 170, 660 100 
-                   C 760 30, 860 170, 960 100 
-                   C 1060 40, 1120 120, 1160 100"
-                fill="none"
-                stroke="#ffffff"
-                strokeWidth="2.5"
-                strokeDasharray="16 30"
-                strokeLinecap="round"
-                className="bus-line-pulse opacity-90"
-              />
-            </svg>
-          </div>
-
-          {/* 6 Milestone Nodes positioned across the 6 columns */}
+          {/* 6 Milestone Columns: Text Box Above ➔ Vertical Stem ➔ Dot on Line */}
           <div className="grid grid-cols-6 gap-3.5 relative z-10">
-            {milestones.map((m, idx) => {
-              const isEven = idx % 2 === 0;
-
-              return (
-                <div
-                  key={m.year}
-                  className={`flex flex-col items-center ${isEven ? 'justify-start' : 'justify-end'} min-h-[300px]`}
-                >
-                  {/* Card for Even Nodes (Top Position) */}
-                  {isEven && (
-                    <div className="w-full p-3.5 rounded-2xl bg-white border border-[#f8b47d]/40 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 space-y-1.5 mb-8">
-                      <span className="text-xl font-black text-[#f16701] block">
+            {milestones.map((m, idx) => (
+              <div key={m.year} className="flex flex-col items-center">
+                
+                {/* 1. Text Box Positioned Above the Dot */}
+                <div className="w-full p-4 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between h-[215px] space-y-2 group">
+                  <div>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-xl font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
                         {m.year}
                       </span>
-                      <h3 className="text-xs font-bold text-[#0F1318] leading-tight">
-                        {m.title}
-                      </h3>
-                      <p className="text-[11px] text-neutral-600 leading-snug font-normal">
-                        {m.description}
-                      </p>
+                      <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/35">
+                        0{idx + 1}
+                      </span>
                     </div>
-                  )}
-
-                  {/* Station Node on the Curved Path */}
-                  <div className="relative my-auto flex items-center justify-center">
-                    <div className="w-8 h-8 rounded-full bg-white border-3 border-[#f16701] shadow-md flex items-center justify-center text-xs font-black text-[#f16701] transition-transform hover:scale-125 cursor-pointer">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#f16701]"></span>
-                    </div>
+                    <h3 className="text-xs font-bold text-[#0F1318] leading-snug line-clamp-2">
+                      {m.title}
+                    </h3>
                   </div>
 
-                  {/* Card for Odd Nodes (Bottom Position) */}
-                  {!isEven && (
-                    <div className="w-full p-3.5 rounded-2xl bg-white border border-[#f8b47d]/40 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 space-y-1.5 mt-8">
-                      <span className="text-xl font-black text-[#f16701] block">
-                        {m.year}
-                      </span>
-                      <h3 className="text-xs font-bold text-[#0F1318] leading-tight">
-                        {m.title}
-                      </h3>
-                      <p className="text-[11px] text-neutral-600 leading-snug font-normal">
-                        {m.description}
-                      </p>
-                    </div>
-                  )}
+                  <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-5">
+                    {m.description}
+                  </p>
                 </div>
-              );
-            })}
+
+                {/* 2. Vertical Stem Connecting Card Directly to Dot */}
+                <div className="w-0.5 h-6 bg-gradient-to-b from-[#f8b47d] to-[#f16701]"></div>
+
+                {/* 3. Station Node (Dot) Positioned Directly On The Connecting Line */}
+                <div className="relative z-10 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-white border-3 border-[#f16701] shadow-md flex items-center justify-center transition-transform hover:scale-125 cursor-pointer group">
+                    <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] group-hover:scale-125 transition-transform"></span>
+                  </div>
+                </div>
+
+                {/* 4. Year Label Underneath the Dot */}
+                <div className="mt-2.5 text-center">
+                  <span className="text-xs font-black text-[#0F1318] font-mono tracking-wider">
+                    {m.year}
+                  </span>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
+          {/* Continuous Connecting Line that runs directly through all 6 dots */}
+          {/* Spans from center of Column 1 (8.33%) to center of Column 6 (91.67%) */}
+          <div
+            className="absolute left-[8.33%] right-[8.33%] h-1 bg-gradient-to-r from-[#f7e5d4] via-[#f79a52] to-[#f16701] rounded-full shadow-xs pointer-events-none"
+            style={{ bottom: '40px' }}
+          >
+            {/* Subtle light shimmer along the connecting line */}
+            <div className="h-full w-full bg-gradient-to-r from-transparent via-white/80 to-transparent opacity-75"></div>
           </div>
 
         </div>
 
-        {/* ── MOBILE / TABLET RESPONSIVE HORIZONTAL TIMELINE ── */}
-        <div className="lg:hidden flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x">
+        {/* ── MOBILE CONNECTED VERTICAL TIMELINE ── */}
+        <div className="lg:hidden relative pl-6 border-l-2 border-[#f16701]/70 ml-3 space-y-6">
           {milestones.map((m, idx) => (
-            <div
-              key={m.year}
-              className="min-w-[260px] max-w-[280px] p-4.5 rounded-2xl bg-white border border-[#f8b47d]/40 shadow-xs flex-shrink-0 snap-center space-y-2"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xl font-black text-[#f16701]">
-                  {m.year}
-                </span>
-                <span className="w-6 h-6 rounded-full bg-[#f7e5d4] text-[#f16701] text-[10px] font-bold flex items-center justify-center">
-                  0{idx + 1}
-                </span>
+            <div key={m.year} className="relative group">
+              {/* Dot on the vertical line */}
+              <div className="absolute -left-[31px] top-4 w-6 h-6 rounded-full bg-white border-3 border-[#f16701] flex items-center justify-center shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#f16701]"></span>
               </div>
-              <h3 className="text-sm font-bold text-[#0F1318]">
-                {m.title}
-              </h3>
-              <p className="text-xs text-neutral-600 leading-relaxed font-normal">
-                {m.description}
-              </p>
+
+              {/* Text Box */}
+              <div className="p-4 rounded-2xl bg-white border border-[#f8b47d]/40 shadow-xs space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-lg font-black text-[#f16701]">
+                    {m.year}
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701]">
+                    0{idx + 1}
+                  </span>
+                </div>
+                <h3 className="text-xs font-bold text-[#0F1318]">
+                  {m.title}
+                </h3>
+                <p className="text-xs text-neutral-600 font-normal leading-relaxed">
+                  {m.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
