@@ -71,7 +71,7 @@ export default function Hero() {
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#f16701]/25 via-[#f8b47d]/20 to-transparent rounded-3xl blur-xl opacity-70"></div>
 
             <div className="relative bg-white p-2.5 sm:p-3 rounded-2xl border border-[#fbd7b4]/60 shadow-lg w-full max-w-md group">
-              <div className="h-[230px] sm:h-[270px] lg:h-[310px] xl:h-[340px] w-full rounded-xl overflow-hidden relative shadow-inner bg-black">
+              <div className="h-[230px] sm:h-[270px] lg:h-[310px] xl:h-[340px] w-full rounded-xl overflow-hidden relative shadow-inner bg-[#FAF8F5]">
                 <video
                   ref={videoRef}
                   src="/assets/about_us.mp4"
@@ -85,7 +85,7 @@ export default function Hero() {
 
                 {/* Subtle Header Badge */}
                 <div className="absolute top-3 left-3 z-10 pointer-events-none">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-black/60 text-white backdrop-blur-md border border-white/20">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#f16701] backdrop-blur-md border border-[#f8b47d]/60 shadow-xs">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#f16701] animate-ping"></span>
                     <span>About Us Video</span>
                   </span>
@@ -94,7 +94,7 @@ export default function Hero() {
                 {/* Interactive Audio Toggle Control */}
                 <button
                   onClick={toggleMute}
-                  className="absolute bottom-3 right-3 z-10 p-2 rounded-full bg-black/60 text-white hover:bg-[#f16701] backdrop-blur-md border border-white/20 shadow-md transition transform hover:scale-110 cursor-pointer"
+                  className="absolute bottom-3 right-3 z-10 p-2 rounded-full bg-white/90 text-[#f16701] hover:bg-[#f16701] hover:text-white backdrop-blur-md border border-[#f8b47d]/60 shadow-md transition transform hover:scale-110 cursor-pointer"
                   title={isMuted ? 'Unmute Audio' : 'Mute Audio'}
                   aria-label="Toggle Audio"
                 >
