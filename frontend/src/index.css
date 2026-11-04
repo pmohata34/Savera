@@ -143,6 +143,19 @@
   animation: busPulse 6s linear infinite;
 }
 
+@keyframes flowDashes {
+  from {
+    stroke-dashoffset: 40;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-dash-flow {
+  animation: flowDashes 1.6s linear infinite;
+}
+
 /* Custom Scrollbar for Horizontal Bus Journey */
 .hide-scrollbar::-webkit-scrollbar {
   height: 6px;
