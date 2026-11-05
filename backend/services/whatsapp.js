@@ -13,26 +13,26 @@ async function sendWhatsAppBrochureAutomation(lead, serverBaseUrl = 'http://loca
   const brochureUrl = `${serverBaseUrl}/brochure.pdf`;
   const cleanPhone = String(lead.mobileNumber).replace(/\D/g, '');
   const recipientNumber = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
-  const catText = lead.categories && lead.categories.length > 0 ? lead.categories.join(', ') : 'All Core Collections';
 
-  const messageText = 
-`Namaste *${lead.personName}* ji (*${lead.firmName}*),
+  // Exact user-provided Thank You message
+  const thankYouText = 
+`Hello! Thank you for connecting with Savera Tex Solution LLP.
+We have received your business enquiry and appreciate your interest in our textile trade services.
+Our team will review your requirements and get in touch with you shortly.
 
-Thank you for reaching out to *Savera Tex Solution LLP* (Established 1995).
+Regards,
+Savera Tex Solution LLP`;
 
-We have received your wholesale sourcing inquiry:
-📌 *Product Interest*: ${catText}
-🏷️ *Reference ID*: ${lead.id}
-📍 *Location*: ${lead.cityState}
+  const messageWithLink = 
+`Hello! Thank you for connecting with Savera Tex Solution LLP.
+We have received your business enquiry and appreciate your interest in our textile trade services.
+Our team will review your requirements and get in touch with you shortly.
 
-📄 *Download Our Official Wholesale Sourcing Brochure & Catalog*:
+📄 View / Download Company Brochure:
 ${brochureUrl}
 
-Our Kolkata central operations team will review your requirements and connect with verified loom collections, sample swatches, and direct mill pricing.
-
-🏢 *Head Office*: 1/C Burman Street, 3rd Floor, Room No. 312, Kolkata – 700007, West Bengal
-📞 *Direct Lines*: +91 94325 83461 / +91 94776 65429
-✉️ *Email*: saveratexsolutionllp@gmail.com`;
+Regards,
+Savera Tex Solution LLP`;
 
   // ── Provider 1: Meta WhatsApp Cloud API ──
   const cloudToken = process.env.WHATSAPP_CLOUD_API_TOKEN;
@@ -55,7 +55,7 @@ Our Kolkata central operations team will review your requirements and connect wi
           type: 'document',
           document: {
             link: brochureUrl,
-            caption: messageText,
+            caption: thankYouText,
             filename: 'Savera_Tex_Solution_Brochure.pdf'
           }
         })
@@ -85,7 +85,7 @@ Our Kolkata central operations team will review your requirements and connect wi
       const params = new URLSearchParams();
       params.append('From', twilioFrom.startsWith('whatsapp:') ? twilioFrom : `whatsapp:${twilioFrom}`);
       params.append('To', `whatsapp:+${recipientNumber}`);
-      params.append('Body', messageText);
+      params.append('Body', thankYouText);
       params.append('MediaUrl', brochureUrl);
 
       const response = await fetch(twilioUrl, {
@@ -119,7 +119,7 @@ Our Kolkata central operations team will review your requirements and connect wi
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           recipient: recipientNumber,
-          message: messageText,
+          message: thankYouText,
           brochureUrl,
           lead
         })
@@ -133,13 +133,13 @@ Our Kolkata central operations team will review your requirements and connect wi
   }
 
   // ── Fallback: Local Simulation & Click-to-Chat URL ──
-  const clientDirectWhatsAppUrl = `https://wa.me/91${cleanPhone}?text=${encodeURIComponent(messageText)}`;
+  const clientDirectWhatsAppUrl = `https://wa.me/91${cleanPhone}?text=${encodeURIComponent(messageWithLink)}`;
 
   console.log('\n============================================================');
   console.log('[WhatsApp Automation: SIMULATED MODE]');
   console.log(`To Client Number: +${recipientNumber} (${lead.personName})`);
   console.log(`Brochure URL: ${brochureUrl}`);
-  console.log(`Message Preview:\n${messageText}`);
+  console.log(`Message Preview:\n${thankYouText}`);
   console.log('Notice: Configure WHATSAPP_CLOUD_API_TOKEN, TWILIO_ACCOUNT_SID, or WHATSAPP_WEBHOOK_URL in backend/.env for autonomous background delivery.');
   console.log('============================================================\n');
 
@@ -155,3 +155,4 @@ Our Kolkata central operations team will review your requirements and connect wi
 module.exports = {
   sendWhatsAppBrochureAutomation
 };
+
