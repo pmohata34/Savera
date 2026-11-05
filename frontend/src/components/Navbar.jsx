@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import RadialGlowButton from './ui/radial-glow-button';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#fbd7b4]/50 shadow-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 h-18 flex items-center justify-between relative">
 
-        {/* Brand Pill with Prominent Cropped Official Logo & Visible 'Since 1995' */}
-        <a href="#hero" className="flex items-center gap-3.5 group">
+        {/* Brand Pill with Prominent Cropped Official Logo & Visible 'Since 1995' - VERY LEFT */}
+        <a href="#hero" className="flex items-center gap-3.5 group flex-shrink-0 z-10">
           <div className="h-13 w-13 rounded-xl overflow-hidden bg-white p-1 border border-[#f8b47d]/40 shadow-xs flex items-center justify-center flex-shrink-0 group-hover:border-[#f16701] transition">
             <img
               src="/assets/logo_cropped.png"
@@ -26,8 +27,8 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Center Nav Capsule in Sequential Order */}
-        <nav className="hidden xl:flex items-center gap-1 bg-[#FAF8F5] p-1.5 rounded-full border border-[#fbd7b4]/60 text-xs font-semibold text-neutral-600 shadow-inner">
+        {/* Center Nav Capsule in Sequential Order - EXACT MIDDLE */}
+        <nav className="hidden xl:flex items-center gap-1 bg-[#FAF8F5] p-1.5 rounded-full border border-[#fbd7b4]/60 text-xs font-bold text-neutral-600 shadow-inner absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10">
           <a href="#hero" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">About Us</a>
           <a href="#how-we-work" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">How We Work</a>
           <a href="#sourcing-map" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">Sourcing Hubs</a>
@@ -37,17 +38,18 @@ export default function Navbar() {
           <a href="#founder" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">Founder</a>
         </nav>
 
-        {/* Right Action Cluster */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          <a
+        {/* Right Action Cluster - VERY RIGHT */}
+        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 z-10">
+          <RadialGlowButton
+            as="a"
             href="#connect"
-            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider shadow-md glow-orange transition transform hover:scale-105 flex items-center gap-1.5"
+            size="sm"
           >
             <span>Inquire Now</span>
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </a>
+          </RadialGlowButton>
 
           {/* Mobile Hamburger Toggle */}
           <button

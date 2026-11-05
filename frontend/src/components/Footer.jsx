@@ -67,7 +67,7 @@ export default function Footer() {
           {/* Column 3: Sourcing Corridors & Operations Hub */}
           <div className="space-y-4">
             <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#f16701]">
-              CENTRAL OPERATIONS OFFICE
+              CENTRAL OPERATION OFFICE
             </h4>
 
             <div className="space-y-3 text-xs text-neutral-700">

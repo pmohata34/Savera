@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import RadialGlowButton from './ui/radial-glow-button';
 
 export default function ConnectForm() {
   const [formData, setFormData] = useState({
@@ -200,10 +201,12 @@ export default function ConnectForm() {
                 ></textarea>
               </div>
 
-              <button
+              <RadialGlowButton
+                as="button"
                 type="submit"
                 disabled={loading}
-                className="w-full py-4 rounded-xl bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52] hover:opacity-95 text-white font-extrabold text-sm uppercase tracking-wider shadow-md glow-orange transition transform hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                containerClassName="w-full"
+                className="w-full py-4 text-sm"
               >
                 {loading ? (
                   <span>Submitting Sourcing Inquiry...</span>
@@ -213,7 +216,7 @@ export default function ConnectForm() {
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                   </>
                 )}
-              </button>
+              </RadialGlowButton>
             </form>
           </div>
 
