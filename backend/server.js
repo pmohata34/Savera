@@ -20,8 +20,8 @@ if (!fs.existsSync(DATA_FILE)) {
   fs.writeFileSync(DATA_FILE, JSON.stringify([], null, 2), 'utf-8');
 }
 
-// Generate / ensure PDF brochure exists
-ensureBrochurePDF().catch(err => console.error('[Brochure] Init error:', err));
+// Generate / ensure PDF brochure exists safely
+Promise.resolve(ensureBrochurePDF()).catch(err => console.error('[Brochure] Init error:', err));
 
 // Middleware
 app.use(cors({
@@ -155,11 +155,12 @@ app.post('/api/inquire', async (req, res) => {
   }
 
   // 5. Generate direct fallback WhatsApp chat URL
+  const saveraWhatsApp = process.env.WHATSAPP_NUMBER || '919477665429';
   const catText = newLead.categories.length > 0 ? newLead.categories.join(', ') : 'All Collections';
   const waText = encodeURIComponent(
     `Hello Savera Tex Solution LLP,\n\nI have submitted a sourcing inquiry on your portal (Ref: ${leadId}):\n- Firm: ${newLead.firmName}\n- Contact: ${newLead.personName} (${newLead.mobileNumber})\n- Location: ${newLead.cityState}\n- Product Interest: ${catText}\n\nPlease share your current catalogs and mill rate cards.`
   );
-  const whatsappUrl = `https://wa.me/919830504850?text=${waText}`;
+  const whatsappUrl = `https://wa.me/${saveraWhatsApp}?text=${waText}`;
 
   res.status(201).json({
     success: true,

@@ -10,7 +10,7 @@ const BROCHURE_PATH = path.join(ASSETS_DIR, 'Savera_Brochure.pdf');
  * backend/assets/Savera_Brochure.pdf, it uses that.
  * Otherwise, generates an authentic, branded brochure PDF with Savera details.
  */
-function ensureBrochurePDF() {
+async function ensureBrochurePDF() {
   if (!fs.existsSync(ASSETS_DIR)) {
     fs.mkdirSync(ASSETS_DIR, { recursive: true });
   }
@@ -162,3 +162,4 @@ module.exports = {
   getBrochurePath,
   BROCHURE_PATH
 };
+
