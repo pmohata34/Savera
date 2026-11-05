@@ -93,7 +93,7 @@ export function InteractiveBook({
           initial={{ rotateY: 0, zIndex: 100 }}
           animate={{
             rotateY: isOpen ? -180 : (isHovering ? -15 : 0),
-            zIndex: isOpen ? 0 : 100,
+            zIndex: isOpen ? 1 : 100,
           }}
           transition={{
             rotateY: { duration: BOOK_OPEN_DURATION, ease: EASING },
@@ -107,7 +107,7 @@ export function InteractiveBook({
           {/* Front Face (Cover Art with Rich Orange Gradient) */}
           <div
             className="absolute inset-0 w-full h-full rounded-r-2xl rounded-l-md shadow-2xl overflow-hidden border border-[#f8b47d]/60 bg-gradient-to-br from-[#f16701] via-[#f48129] to-[#f8b47d] text-white p-6 sm:p-7 flex flex-col justify-between"
-            style={{ transform: 'translateZ(1px)', backfaceVisibility: 'hidden' }}
+            style={{ transform: 'translateZ(20px)', backfaceVisibility: 'hidden' }}
           >
             {/* Book Spine Shadow Left Edge */}
             <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/40 via-black/10 to-transparent pointer-events-none" />
@@ -151,37 +151,67 @@ export function InteractiveBook({
             </div>
           </div>
 
-          {/* Back Face (Inside Front Cover) */}
+          {/* Back Face (Inside Front Cover) -> Displays Photo Plate for Page 0 (Sarees) */}
           <div
-            className="absolute inset-0 w-full h-full rounded-l-2xl rounded-r-md bg-[#FAF8F5] p-6 sm:p-8 border-r border-[#fbd7b4]/60 shadow-xl flex flex-col justify-between"
+            className="absolute inset-0 w-full h-full rounded-l-2xl rounded-r-md overflow-hidden border-r border-[#fbd7b4]/60 shadow-xl flex flex-col justify-between bg-[#1e1005]"
             style={{
               transform: 'rotateY(180deg) translateZ(1px)',
               backfaceVisibility: 'hidden',
             }}
             onClick={(e) => {
               e.stopPropagation();
-              prevPage();
+              handleCloseBook(e);
             }}
+            title="Click to close book"
           >
-            <div className="flex-1 flex flex-col justify-center items-center text-center space-y-3">
-              <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40">
-                {insideCoverBadge}
-              </span>
-              <h4 className="text-xl font-black text-[#0F1318]">
-                {insideCoverTitle}
-              </h4>
-              <p className="text-xs text-neutral-600 leading-relaxed max-w-xs">
-                {insideCoverDescription}
-              </p>
-              <div className="pt-2 text-xs font-bold text-[#f16701] flex items-center gap-1.5">
-                <span>Click anywhere to open pages</span>
-                <span>→</span>
-              </div>
-            </div>
+            {pages[0]?.image ? (
+              <div className="relative w-full h-full overflow-hidden flex flex-col justify-between p-5 sm:p-6 text-white">
+                <img
+                  src={pages[0].image}
+                  alt={pages[0].title || "Sarees"}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1e1005]/90 via-[#1e1005]/20 to-[#1e1005]/30" />
 
-            <div className="text-[10px] text-neutral-400 font-mono text-center pt-3 border-t border-[#fbd7b4]/40">
-              {bookAuthor} • Verified Production Sourcing
-            </div>
+                {/* Top Badge on Photo */}
+                <div className="relative z-10 flex items-center justify-between">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-white bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/30">
+                    {pages[0].stageTag || "Category 01 • Portfolio"}
+                  </span>
+                  <span className="text-xs font-mono font-bold text-white/90">
+                    Plate 01
+                  </span>
+                </div>
+
+                {/* Bottom Title on Photo */}
+                <div className="relative z-10 space-y-1">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#fbd7b4]">
+                    Textile Showcase
+                  </span>
+                  <h4 className="text-xl sm:text-2xl font-black text-white">
+                    {pages[0].title}
+                  </h4>
+                  <div className="text-[10px] text-white/80 font-mono">
+                    Direct Loom Sourcing • {pages[0].tagline || "Verified Collections"}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="p-6 flex-1 flex flex-col justify-center items-center text-center space-y-3 bg-[#FAF8F5]">
+                <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40">
+                  {insideCoverBadge}
+                </span>
+                <h4 className="text-xl font-black text-[#0F1318]">
+                  {insideCoverTitle}
+                </h4>
+                <p className="text-xs text-neutral-600 leading-relaxed max-w-xs">
+                  {insideCoverDescription}
+                </p>
+              </div>
+            )}
+
+            {/* Right Gutter Crease Shadow */}
+            <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-black/25 via-black/10 to-transparent pointer-events-none" />
           </div>
         </motion.div>
 
@@ -195,21 +225,21 @@ export function InteractiveBook({
                 key={index}
                 className="absolute inset-0 w-full h-full origin-left rounded-r-2xl rounded-l-md shadow-md border border-[#f8b47d]/35 select-none"
                 style={{ transformStyle: 'preserve-3d' }}
-                initial={{ rotateY: 0, zIndex: pages.length - index }}
+                initial={{ rotateY: 0, zIndex: (pages.length - index) * 10 }}
                 animate={{
                   rotateY: isFlipped ? -180 : 0,
-                  zIndex: isFlipped ? index + 1 : pages.length - index,
+                  zIndex: isFlipped ? (index + 2) * 10 : (pages.length - index) * 10,
                 }}
                 transition={{
-                  duration: 0.7,
-                  ease: [0.645, 0.045, 0.355, 1],
+                  rotateY: { duration: 0.7, ease: [0.645, 0.045, 0.355, 1] },
+                  zIndex: { delay: isFlipped ? 0.35 : 0 },
                 }}
               >
                 {/* Front Face of Page (Right Spread) */}
                 <div
                   className="absolute inset-0 w-full h-full p-5 sm:p-6 flex flex-col justify-between bg-white rounded-r-2xl cursor-pointer hover:bg-[#FFFDFB] transition-colors"
                   style={{
-                    transform: 'translateZ(0.5px)',
+                    transform: `translateZ(${(pages.length - index) * 1 + 2}px)`,
                     backfaceVisibility: 'hidden',
                   }}
                   onClick={(e) => {
@@ -260,20 +290,6 @@ export function InteractiveBook({
                         ))}
                       </div>
                     )}
-
-                    {/* Inquiry CTA */}
-                    {page.ctaHref && (
-                      <div className="pt-2">
-                        <a
-                          href={page.ctaHref}
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] text-white text-[11px] font-bold uppercase tracking-wider shadow-xs hover:opacity-95 transition"
-                        >
-                          <span>Inquire {page.title}</span>
-                          <span>→</span>
-                        </a>
-                      </div>
-                    )}
                   </div>
 
                   {/* Footer Hint */}
@@ -283,74 +299,78 @@ export function InteractiveBook({
                   </div>
                 </div>
 
-                {/* Back Face of Page (Left Spread: Rich Image or Value Note) */}
+                {/* Back Face of Page (Left Spread: Rich Image matching the next active right page) */}
                 <div
-                  className="absolute inset-0 w-full h-full rounded-l-2xl border-r border-[#fbd7b4]/40 cursor-pointer overflow-hidden flex flex-col justify-between bg-[#FAF8F5]"
+                  className="absolute inset-0 w-full h-full rounded-l-2xl border-r border-[#fbd7b4]/40 cursor-pointer overflow-hidden flex flex-col justify-between bg-[#1e1005]"
                   style={{
-                    transform: 'rotateY(180deg) translateZ(0.5px)',
+                    transform: `rotateY(180deg) translateZ(${(index + 1) * 2 + 2}px)`,
                     backfaceVisibility: 'hidden',
                   }}
                   onClick={(e) => {
                     e.stopPropagation();
                     prevPage();
                   }}
+                  title="Click to turn back"
                 >
-                  {/* Full Photo Plate on the Left Spread if image provided */}
-                  {page.image ? (
-                    <div className="relative w-full h-full overflow-hidden flex flex-col justify-between p-5 text-white">
-                      <img
-                        src={page.image}
-                        alt={page.title}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1e1005]/90 via-[#1e1005]/30 to-transparent" />
+                  {(() => {
+                    const spreadProduct = pages[index + 1] || page;
+                    const isLastPage = index === pages.length - 1;
 
-                      {/* Header on Photo */}
-                      <div className="relative z-10 flex items-center justify-between">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-white bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/30">
-                          {page.stageTag || `Plate 0${page.pageNumber * 2}`}
-                        </span>
-                        <span className="text-xs font-mono font-bold text-white/80">
-                          {page.pageNumber * 2}
-                        </span>
-                      </div>
+                    return spreadProduct.image ? (
+                      <div className="relative w-full h-full overflow-hidden flex flex-col justify-between p-5 text-white">
+                        <img
+                          src={spreadProduct.image}
+                          alt={spreadProduct.title}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1e1005]/90 via-[#1e1005]/20 to-[#1e1005]/30" />
 
-                      {/* Title on Photo */}
-                      <div className="relative z-10 space-y-1">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#fbd7b4]">
-                          Textile Showcase
-                        </span>
-                        <h4 className="text-xl font-black text-white">
-                          {page.title}
-                        </h4>
-                        <div className="text-[10px] text-white/80 font-mono">
-                          Direct Loom Sourcing
+                        {/* Header on Photo */}
+                        <div className="relative z-10 flex items-center justify-between">
+                          <span className="text-[10px] font-black uppercase tracking-wider text-white bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/30">
+                            {isLastPage ? "Wholesale Heritage" : (spreadProduct.stageTag || `Plate 0${(index + 2) * 2}`)}
+                          </span>
+                          <span className="text-xs font-mono font-bold text-white/90">
+                            Plate 0{index + 2}
+                          </span>
+                        </div>
+
+                        {/* Title on Photo */}
+                        <div className="relative z-10 space-y-1">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#fbd7b4]">
+                            Textile Showcase
+                          </span>
+                          <h4 className="text-xl sm:text-2xl font-black text-white">
+                            {isLastPage ? "Composite Loom Supply" : spreadProduct.title}
+                          </h4>
+                          <div className="text-[10px] text-white/80 font-mono">
+                            Direct Loom Sourcing • {spreadProduct.tagline || "Verified Collections"}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ) : (
-                    /* Text Back Content */
-                    <div className="p-6 flex flex-col justify-between h-full bg-[#FAF8F5]">
-                      <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-2.5">
-                        <span className="text-xs font-mono font-bold text-neutral-400">
-                          Page 0{page.pageNumber * 2}
-                        </span>
-                        <span className="text-[10px] font-bold text-[#f16701] uppercase tracking-wider">
-                          Portfolio Note
-                        </span>
+                    ) : (
+                      <div className="p-6 flex flex-col justify-between h-full bg-[#FAF8F5]">
+                        <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-2.5">
+                          <span className="text-xs font-mono font-bold text-neutral-400">
+                            Page 0{index + 2}
+                          </span>
+                          <span className="text-[10px] font-bold text-[#f16701] uppercase tracking-wider">
+                            Portfolio Note
+                          </span>
+                        </div>
+                        <div className="flex-1 py-4 flex flex-col justify-center">
+                          {spreadProduct.backContent || spreadProduct.content}
+                        </div>
+                        <div className="pt-2.5 border-t border-[#fbd7b4]/30 flex items-center justify-between text-[11px] text-neutral-500">
+                          <span className="text-[#f16701] font-bold">←</span>
+                          <span>Previous Page</span>
+                        </div>
                       </div>
-                      <div className="flex-1 py-4 flex flex-col justify-center">
-                        {page.backContent}
-                      </div>
-                      <div className="pt-2.5 border-t border-[#fbd7b4]/30 flex items-center justify-between text-[11px] text-neutral-500">
-                        <span className="text-[#f16701] font-bold">←</span>
-                        <span>Previous Page</span>
-                      </div>
-                    </div>
-                  )}
+                    );
+                  })()}
 
                   {/* Right Gutter Crease Shadow */}
-                  <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-black/15 via-black/5 to-transparent pointer-events-none" />
+                  <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-black/25 via-black/10 to-transparent pointer-events-none" />
                 </div>
               </motion.div>
             );
@@ -408,14 +428,16 @@ export function InteractiveBook({
             </button>
 
             {/* Page Counter */}
-            <div className="text-xs font-bold text-neutral-700 min-w-[130px] text-center">
+            <div className="text-xs font-bold text-neutral-700 min-w-[150px] text-center">
               {currentPageIndex === -1 ? (
-                <span className="text-[#f16701]">Cover Page</span>
-              ) : currentPageIndex >= pages.length ? (
-                <span className="text-[#f16701]">Lookbook End</span>
+                <span>
+                  Category <span className="text-[#f16701] font-black">1</span> of {pages.length} • {pages[0]?.title || "Sarees"}
+                </span>
+              ) : currentPageIndex >= pages.length - 1 ? (
+                <span className="text-[#f16701]">Lookbook End • Mill Orders</span>
               ) : (
                 <span>
-                  Collection <span className="text-[#f16701] font-black">{currentPageIndex + 1}</span> of {pages.length}
+                  Category <span className="text-[#f16701] font-black">{currentPageIndex + 2}</span> of {pages.length} • {pages[currentPageIndex + 1]?.title}
                 </span>
               )}
             </div>

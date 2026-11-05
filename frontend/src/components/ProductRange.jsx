@@ -114,58 +114,8 @@ export default function ProductRange() {
           />
         </div>
 
-        {/* ── QUICK COLLECTION SELECTOR TILES ── */}
-        <div className="pt-6 border-t border-[#fbd7b4]/40">
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#f16701]">
-              Browse All 5 Core Collections
-            </span>
-            <span className="text-[11px] text-neutral-500">
-              Direct Mill Supply
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
-            {products.map((item, idx) => (
-              <div
-                key={item.id}
-                className="group p-3.5 rounded-2xl bg-white border border-[#f8b47d]/35 hover:border-[#f16701]/60 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-2.5"
-              >
-                <div className="relative h-28 w-full rounded-xl overflow-hidden bg-[#FAF8F5]">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1e1005]/80 via-transparent to-transparent" />
-                  <span className="absolute bottom-2 left-2 text-[10px] font-bold text-white uppercase tracking-wider">
-                    Category 0{idx + 1}
-                  </span>
-                </div>
-
-                <div className="space-y-1">
-                  <h4 className="text-xs font-bold text-[#0F1318] group-hover:text-[#f16701] transition-colors">
-                    {item.title}
-                  </h4>
-                  <p className="text-[10px] text-neutral-500 line-clamp-2">
-                    {item.tagline}
-                  </p>
-                </div>
-
-                <a
-                  href="#connect"
-                  className="text-[10px] font-bold text-[#f16701] flex items-center justify-between pt-1 border-t border-[#fbd7b4]/30"
-                >
-                  <span>Inquire</span>
-                  <span>→</span>
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Centered Popped Inquiry CTA */}
-        <div className="pt-2 flex justify-center">
+        <div className="pt-4 flex justify-center">
           <a
             href="#connect"
             className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52] hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg glow-orange transition transform hover:scale-105 flex items-center gap-2"
