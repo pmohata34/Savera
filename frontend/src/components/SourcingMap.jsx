@@ -5,8 +5,8 @@ export default function SourcingMap() {
     {
       city: 'Kolkata',
       state: 'West Bengal',
-      tag: 'Headquarters & Central Hub',
-      description: 'Central operations office and eastern India textile trading gateway since 1995, managing order coordination and multi-state distribution.'
+      tag: 'Headquarters & Single Office',
+      description: '1/C Burman Street, 3rd Floor, Room No. 312. Central operations office managing trade and direct connections across all partner manufacturing hubs.'
     },
     {
       city: 'Surat',

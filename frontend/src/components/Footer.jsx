@@ -64,33 +64,26 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 3: Sourcing Corridors & Operations Hub */}
+          {/* Column 3: Single Central Office */}
           <div className="space-y-4">
             <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#f16701]">
-              CENTRAL OPERATION OFFICE
+              OFFICE ADDRESS
             </h4>
 
-            <div className="space-y-3 text-xs text-neutral-700">
-              <div className="p-4 rounded-2xl bg-white border border-[#f8b47d]/40 shadow-xs space-y-1">
-                <p className="font-bold text-neutral-900 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#f16701]"></span>
-                  <span>Operational Hub (Since 1995):</span>
-                </p>
-                <p className="text-neutral-600 text-[11px] leading-relaxed pl-4">
-                  Central Operations Office,<br />
-                  Kolkata - 700007, West Bengal, India
-                </p>
+            <div className="p-4.5 rounded-2xl bg-white border border-[#f8b47d]/40 shadow-xs space-y-3 text-xs text-neutral-700">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#f16701]"></span>
+                <span className="font-bold text-neutral-900 text-sm">Savera Tex Solution LLP</span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-[#f8b47d]/40 shadow-xs space-y-1">
-                <p className="font-bold text-neutral-900 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#f79a52]"></span>
-                  <span>Registered Corporate Office:</span>
-                </p>
-                <p className="text-neutral-600 text-[11px] leading-relaxed pl-4">
-                  Registered Corporate Office,<br />
-                  Kolkata - 700007, West Bengal, India
-                </p>
+              <div className="text-neutral-600 text-xs leading-relaxed pl-3.5 border-l-2 border-[#f16701]/60 space-y-0.5">
+                <p className="font-semibold text-neutral-800">1/C Burman Street, 3rd Floor</p>
+                <p className="font-semibold text-neutral-800">Room No. 312</p>
+                <p className="text-neutral-700">Kolkata – 700007, West Bengal</p>
+              </div>
+
+              <div className="pt-2 border-t border-[#fbd7b4]/40 text-[11px] text-neutral-500">
+                <p>Single central operations office managing direct connections across all partner production hubs.</p>
               </div>
             </div>
           </div>
@@ -100,20 +93,12 @@ export default function Footer() {
         {/* Bottom Copyright & Sourcing Network Bar */}
         <div className="pt-8 border-t border-[#fbd7b4]/40 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
           <div>
-            © 1995 – 2026 <strong>Savera Tex Solution LLP</strong>. All rights reserved.
+            © <strong>Savera Tex Solution LLP</strong>. All rights reserved.
           </div>
-          <div className="flex flex-wrap items-center gap-4 text-[11px]">
-            <span>Kolkata HQ</span>
-            <span>•</span>
-            <span>Surat</span>
-            <span>•</span>
-            <span>Ahmedabad</span>
-            <span>•</span>
-            <span>Jaipur</span>
-            <span>•</span>
-            <span>Varanasi</span>
-            <span>•</span>
-            <span>Bhagalpur</span>
+          <div className="flex flex-wrap items-center gap-2.5 text-[11px]">
+            <span className="font-bold text-neutral-700">Central Office: Kolkata</span>
+            <span className="text-neutral-300">|</span>
+            <span className="text-neutral-500">Sourcing Hubs: Surat • Ahmedabad • Jaipur • Varanasi • Bhagalpur</span>
           </div>
         </div>
 

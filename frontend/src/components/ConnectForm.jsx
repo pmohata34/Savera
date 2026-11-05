@@ -225,18 +225,27 @@ export default function ConnectForm() {
 
             <div className="p-8 rounded-3xl bg-gradient-to-br from-white to-[#f7e5d4]/40 border border-[#f8b47d]/40 shadow-lg space-y-4">
               <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">Central Operations Office</span>
-              <h3 className="text-2xl font-bold text-[#0F1318]">Kolkata Central Hub</h3>
+              <h3 className="text-2xl font-bold text-[#0F1318]">Kolkata Central Office</h3>
+
+              <div className="p-3.5 rounded-xl bg-white/90 border border-[#f8b47d]/30 text-xs sm:text-sm text-neutral-800 space-y-0.5">
+                <p className="font-bold text-neutral-900">1/C Burman Street, 3rd Floor</p>
+                <p className="font-bold text-neutral-900">Room No. 312</p>
+                <p className="text-neutral-600">Kolkata – 700007, West Bengal</p>
+              </div>
+
               <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
-                Direct coordination across eastern and nationwide retail corridors. Connecting manufacturers directly with retailers and wholesalers since 1995.
+                Single central operations office managing direct commercial connections across all regional production corridors.
               </p>
               <div className="pt-4 border-t border-[#fbd7b4]/50 space-y-2 text-xs">
                 <div className="flex items-center gap-2">
                   <span className="text-neutral-500 font-bold">Email:</span>
-                  <a href="mailto:contact@saveratex.com" className="text-[#f16701] font-semibold hover:underline">contact@saveratex.com</a>
+                  <a href="mailto:saveratexsolutionllp@gmail.com" className="text-[#f16701] font-semibold hover:underline">saveratexsolutionllp@gmail.com</a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-neutral-500 font-bold">WhatsApp:</span>
-                  <a href="https://wa.me/919830504850" target="_blank" rel="noopener noreferrer" className="text-[#f16701] font-semibold hover:underline">+91 98305 04850</a>
+                  <span className="text-neutral-500 font-bold">Phone:</span>
+                  <a href="tel:+919432583461" className="text-[#f16701] font-semibold hover:underline">+91 94325 83461</a>
+                  <span className="text-neutral-400">/</span>
+                  <a href="tel:+919477665429" className="text-[#f16701] font-semibold hover:underline">+91 94776 65429</a>
                 </div>
               </div>
             </div>
