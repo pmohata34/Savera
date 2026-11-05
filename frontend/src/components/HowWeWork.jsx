@@ -1,62 +1,43 @@
 import React from 'react';
 import GlowCard from './ui/glow-card';
-import { Target, Layers, Compass, Handshake, Clock, ShieldCheck } from 'lucide-react';
 
 export default function HowWeWork() {
   const steps = [
     {
       num: '01',
-      stageTag: 'Stage 01 • Intake',
-      icon: Target,
       title: 'Understanding Requirements',
       subtitle: 'Client-First Sourcing Alignment',
-      description: "We begin by understanding our clients' specific needs, including product preferences, quality expectations, quantity requirements and target market. This helps us identify suitable sourcing opportunities aligned with their business objectives.",
-      deliverable: 'Target Commercial Brief & Mill Alignment'
+      description: "We begin by understanding our clients' specific needs, including product preferences, quality expectations, quantity requirements and target market. This helps us identify suitable sourcing opportunities aligned with their business objectives."
     },
     {
       num: '02',
-      stageTag: 'Stage 02 • Network Scan',
-      icon: Compass,
       title: 'Sourcing from Our Network',
       subtitle: 'Direct Production Corridors',
-      description: "Based on the requirements, we explore our established network of manufacturers across major textile hubs to identify relevant manufacturing partners and suitable sourcing options.",
-      deliverable: 'Vetted Mill & Weaver Matching'
+      description: "Based on the requirements, we explore our established network of manufacturers across major textile hubs to identify relevant manufacturing partners and suitable sourcing options."
     },
     {
       num: '03',
-      stageTag: 'Stage 03 • Curated Selection',
-      icon: Layers,
       title: 'Product Matching & Selection',
       subtitle: 'Sample Verification & Swatch Scrutiny',
-      description: "We help identify and match suitable products with our clients' requirements, considering their preferences, target customers and market needs to support better product selection.",
-      deliverable: 'Verified Swatch & Sampling Coordination'
+      description: "We help identify and match suitable products with our clients' requirements, considering their preferences, target customers and market needs to support better product selection."
     },
     {
       num: '04',
-      stageTag: 'Stage 04 • Commercial Terms',
-      icon: Handshake,
       title: 'Price Coordination & Negotiation',
       subtitle: 'Direct Loom Commercial Alignment',
-      description: "We facilitate commercial discussions between our clients and manufacturers, helping both parties communicate their expectations and work towards mutually agreeable terms.",
-      deliverable: 'Transparent Direct-Loom Pricing'
+      description: "We facilitate commercial discussions between our clients and manufacturers, helping both parties communicate their expectations and work towards mutually agreeable terms."
     },
     {
       num: '05',
-      stageTag: 'Stage 05 • Execution',
-      icon: Clock,
       title: 'Order Processing & Follow-Up',
       subtitle: 'Dispatch & Production Tracking',
-      description: "Once the order terms are finalised, we coordinate with the relevant parties and follow up on the order process to help maintain proper communication and timely progress.",
-      deliverable: 'End-to-End Loom Schedule Tracking'
+      description: "Once the order terms are finalised, we coordinate with the relevant parties and follow up on the order process to help maintain proper communication and timely progress."
     },
     {
       num: '06',
-      stageTag: 'Stage 06 • Long-Term Trust',
-      icon: ShieldCheck,
       title: 'Transparency & Reliable Support',
       subtitle: 'Generational Relationship Management',
-      description: "We prioritise clear communication and transparency throughout the process, keeping our clients and manufacturing partners informed of relevant updates and agreed arrangements.",
-      deliverable: 'Enduring Commercial Relationship'
+      description: "We prioritise clear communication and transparency throughout the process, keeping our clients and manufacturing partners informed of relevant updates and agreed arrangements."
     }
   ];
 

@@ -26,7 +26,6 @@ export function PerspectiveCarousel({
   viewportClassName,
   slideClassName,
   imageClassName,
-  labelClassName,
   controlsClassName,
   className,
   onKeyDown,

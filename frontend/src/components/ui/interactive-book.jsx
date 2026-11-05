@@ -4,7 +4,6 @@ import { ChevronLeft, ChevronRight, RefreshCcw, X, BookOpen } from 'lucide-react
 import { cn } from '../../lib/utils';
 
 export function InteractiveBook({
-  coverImage,
   coverBadge = "Lookbook • Since 1995",
   coverTitle = "Product Range",
   coverSubtitle = "Textile Portfolios & Swatches",
