@@ -153,7 +153,7 @@ export function InteractiveBook({
 
           {/* Back Face (Inside Front Cover) -> Displays Photo Plate for Page 0 (Sarees) */}
           <div
-            className="absolute inset-0 w-full h-full rounded-l-2xl rounded-r-md overflow-hidden border-r border-[#fbd7b4]/60 shadow-xl flex flex-col justify-between bg-[#1e1005]"
+            className="absolute inset-0 w-full h-full rounded-l-2xl rounded-r-md overflow-hidden border-r border-[#fbd7b4]/60 shadow-xl flex flex-col justify-end bg-[#1e1005] cursor-pointer"
             style={{
               transform: 'rotateY(180deg) translateZ(1px)',
               backfaceVisibility: 'hidden',
@@ -162,38 +162,21 @@ export function InteractiveBook({
               e.stopPropagation();
               handleCloseBook(e);
             }}
-            title="Click to close book"
           >
             {pages[0]?.image ? (
-              <div className="relative w-full h-full overflow-hidden flex flex-col justify-between p-5 sm:p-6 text-white">
+              <div className="relative w-full h-full overflow-hidden flex flex-col justify-end p-6 sm:p-7 text-white">
                 <img
                   src={pages[0].image}
                   alt={pages[0].title || "Sarees"}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1e1005]/90 via-[#1e1005]/20 to-[#1e1005]/30" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1e1005]/85 via-[#1e1005]/20 to-transparent" />
 
-                {/* Top Badge on Photo */}
-                <div className="relative z-10 flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-white bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/30">
-                    {pages[0].stageTag || "Category 01 • Portfolio"}
-                  </span>
-                  <span className="text-xs font-mono font-bold text-white/90">
-                    Plate 01
-                  </span>
-                </div>
-
-                {/* Bottom Title on Photo */}
-                <div className="relative z-10 space-y-1">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#fbd7b4]">
-                    Textile Showcase
-                  </span>
-                  <h4 className="text-xl sm:text-2xl font-black text-white">
+                {/* Only Category Name at Bottom */}
+                <div className="relative z-10">
+                  <h4 className="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-md">
                     {pages[0].title}
                   </h4>
-                  <div className="text-[10px] text-white/80 font-mono">
-                    Direct Loom Sourcing • {pages[0].tagline || "Verified Collections"}
-                  </div>
                 </div>
               </div>
             ) : (
@@ -216,14 +199,14 @@ export function InteractiveBook({
         </motion.div>
 
         {/* ── PAGES STACK ── */}
-        <div className="absolute inset-0 w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
+        <div className="absolute inset-0 w-full h-full pointer-events-none" style={{ transformStyle: 'preserve-3d' }}>
           {pages.map((page, index) => {
             const isFlipped = index <= currentPageIndex;
 
             return (
               <motion.div
                 key={index}
-                className="absolute inset-0 w-full h-full origin-left rounded-r-2xl rounded-l-md shadow-md border border-[#f8b47d]/35 select-none"
+                className="absolute inset-0 w-full h-full origin-left rounded-r-2xl rounded-l-md shadow-md border border-[#f8b47d]/35 select-none pointer-events-auto"
                 style={{ transformStyle: 'preserve-3d' }}
                 initial={{ rotateY: 0, zIndex: (pages.length - index) * 10 }}
                 animate={{
@@ -301,7 +284,7 @@ export function InteractiveBook({
 
                 {/* Back Face of Page (Left Spread: Rich Image matching the next active right page) */}
                 <div
-                  className="absolute inset-0 w-full h-full rounded-l-2xl border-r border-[#fbd7b4]/40 cursor-pointer overflow-hidden flex flex-col justify-between bg-[#1e1005]"
+                  className="absolute inset-0 w-full h-full rounded-l-2xl border-r border-[#fbd7b4]/40 cursor-pointer overflow-hidden flex flex-col justify-end bg-[#1e1005]"
                   style={{
                     transform: `rotateY(180deg) translateZ(${(index + 1) * 2 + 2}px)`,
                     backfaceVisibility: 'hidden',
@@ -310,42 +293,25 @@ export function InteractiveBook({
                     e.stopPropagation();
                     prevPage();
                   }}
-                  title="Click to turn back"
                 >
                   {(() => {
                     const spreadProduct = pages[index + 1] || page;
                     const isLastPage = index === pages.length - 1;
 
                     return spreadProduct.image ? (
-                      <div className="relative w-full h-full overflow-hidden flex flex-col justify-between p-5 text-white">
+                      <div className="relative w-full h-full overflow-hidden flex flex-col justify-end p-6 sm:p-7 text-white">
                         <img
                           src={spreadProduct.image}
                           alt={spreadProduct.title}
                           className="absolute inset-0 w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#1e1005]/90 via-[#1e1005]/20 to-[#1e1005]/30" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1e1005]/85 via-[#1e1005]/20 to-transparent" />
 
-                        {/* Header on Photo */}
-                        <div className="relative z-10 flex items-center justify-between">
-                          <span className="text-[10px] font-black uppercase tracking-wider text-white bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/30">
-                            {isLastPage ? "Wholesale Heritage" : (spreadProduct.stageTag || `Plate 0${(index + 2) * 2}`)}
-                          </span>
-                          <span className="text-xs font-mono font-bold text-white/90">
-                            Plate 0{index + 2}
-                          </span>
-                        </div>
-
-                        {/* Title on Photo */}
-                        <div className="relative z-10 space-y-1">
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#fbd7b4]">
-                            Textile Showcase
-                          </span>
-                          <h4 className="text-xl sm:text-2xl font-black text-white">
-                            {isLastPage ? "Composite Loom Supply" : spreadProduct.title}
+                        {/* Only Category Name at Bottom */}
+                        <div className="relative z-10">
+                          <h4 className="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-md">
+                            {isLastPage ? "Composite Loom Weaving" : spreadProduct.title}
                           </h4>
-                          <div className="text-[10px] text-white/80 font-mono">
-                            Direct Loom Sourcing • {spreadProduct.tagline || "Verified Collections"}
-                          </div>
                         </div>
                       </div>
                     ) : (
@@ -378,8 +344,8 @@ export function InteractiveBook({
 
           {/* ── BACK COVER (Static Inside) ── */}
           <div
-            className="absolute inset-0 w-full h-full bg-[#FAF8F5] rounded-r-2xl rounded-l-md shadow-xl border border-[#f8b47d]/40 flex flex-col justify-between p-7 text-center"
-            style={{ transform: 'translateZ(-1px)', zIndex: -1 }}
+            className="absolute inset-0 w-full h-full bg-[#FAF8F5] rounded-r-2xl rounded-l-md shadow-xl border border-[#f8b47d]/40 flex flex-col justify-between p-7 text-center pointer-events-auto"
+            style={{ transform: 'translateZ(0px)', zIndex: 1 }}
           >
             <div className="flex-1 flex flex-col items-center justify-center space-y-3">
               <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40">
@@ -392,8 +358,9 @@ export function InteractiveBook({
                 Need custom yarn specifications, jacquard motifs, or special loom runs? Our 700+ partner mills accommodate commercial contracts.
               </p>
               <button
+                type="button"
                 onClick={restartBook}
-                className="mt-3 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] text-white text-xs font-bold uppercase tracking-wider shadow-md hover:opacity-95 transition transform hover:scale-105 cursor-pointer"
+                className="mt-3 relative z-30 inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] text-white text-xs font-bold uppercase tracking-wider shadow-md hover:opacity-95 transition transform hover:scale-105 cursor-pointer pointer-events-auto"
               >
                 <RefreshCcw className="w-3.5 h-3.5" />
                 <span>Read From Beginning</span>
