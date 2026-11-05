@@ -93,53 +93,23 @@ export default function HowWeWork() {
 
         {/* ── 6 GLOW CARDS GRID ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 items-stretch">
-          {steps.map((step) => {
-            const IconComponent = step.icon;
+          {steps.map((step) => (
+            <GlowCard key={step.num} borderWidth="p-[3.5px]">
+              <div className="space-y-3">
+                <h3 className="text-xl sm:text-2xl font-black text-[#0F1318] group-hover:text-[#f16701] transition-colors leading-tight">
+                  {step.title}
+                </h3>
 
-            return (
-              <GlowCard key={step.num} className="space-y-5">
-                {/* Card Top: Stage Tag + Number + Icon */}
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40 shadow-2xs">
-                      {step.stageTag}
-                    </span>
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#f7e5d4] to-white border border-[#f8b47d]/40 flex items-center justify-center text-[#f16701] shadow-2xs group-hover:scale-110 transition-transform">
-                        <IconComponent className="w-4 h-4" />
-                      </div>
-                      <span className="text-xl font-black text-[#f16701]/60 font-mono group-hover:text-[#f16701] transition-colors">
-                        {step.num}
-                      </span>
-                    </div>
-                  </div>
+                <p className="text-xs sm:text-sm font-bold text-[#f16701]">
+                  {step.subtitle}
+                </p>
 
-                  <h3 className="text-base sm:text-lg font-black text-[#0F1318] group-hover:text-[#f16701] transition-colors leading-snug">
-                    {step.title}
-                  </h3>
-
-                  <p className="text-[11px] font-bold text-[#f48129] mt-0.5 mb-2.5">
-                    {step.subtitle}
-                  </p>
-
-                  <p className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed font-normal">
-                    {step.description}
-                  </p>
-                </div>
-
-                {/* Card Bottom: Key Deliverable Chip */}
-                <div className="pt-3.5 border-t border-[#fbd7b4]/40 flex items-center justify-between text-[11px] text-neutral-600">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#f16701]"></span>
-                    <span className="font-semibold text-neutral-700">{step.deliverable}</span>
-                  </div>
-                  <span className="text-[#f16701] font-bold group-hover:translate-x-1 transition-transform">
-                    →
-                  </span>
-                </div>
-              </GlowCard>
-            );
-          })}
+                <p className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed font-normal pt-1">
+                  {step.description}
+                </p>
+              </div>
+            </GlowCard>
+          ))}
         </div>
 
         {/* Bottom Operational Guarantee Note */}
