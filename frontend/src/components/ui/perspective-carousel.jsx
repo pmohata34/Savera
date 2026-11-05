@@ -88,7 +88,7 @@ export function PerspectiveCarousel({
       {...props}
     >
       <div
-        className={cn('relative w-full h-[380px] sm:h-[420px] overflow-hidden flex items-center justify-center', viewportClassName)}
+        className={cn('relative w-full h-[430px] sm:h-[460px] overflow-hidden flex items-center justify-center', viewportClassName)}
         style={{ perspective: '1200px' }}
       >
         <motion.div
@@ -107,7 +107,7 @@ export function PerspectiveCarousel({
               >
                 <motion.div
                   className={cn(
-                    'flex w-full flex-col items-center gap-3 will-change-transform cursor-pointer px-2',
+                    'flex w-full flex-col items-center will-change-transform cursor-pointer px-2',
                     slideClassName
                   )}
                   animate={{
@@ -121,66 +121,51 @@ export function PerspectiveCarousel({
                 >
                   <div
                     className={cn(
-                      'w-full aspect-[4/5] rounded-2xl overflow-hidden relative transition-all duration-300',
+                      'w-full h-[380px] sm:h-[400px] rounded-3xl overflow-hidden relative transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between text-left select-none',
                       isActive
-                        ? 'ring-3 ring-[#f16701] shadow-2xl shadow-[#f16701]/25'
-                        : 'border border-[#f8b47d]/40 shadow-md hover:border-[#f16701]/60',
+                        ? 'bg-gradient-to-br from-white via-white to-[#FFF6EE] ring-3 ring-[#f16701] shadow-2xl shadow-[#f16701]/25 border-2 border-[#f8b47d]/70'
+                        : 'bg-white/95 border border-[#f8b47d]/40 shadow-lg hover:border-[#f16701]/60',
                       imageClassName
                     )}
                   >
-                    {/* Card Background: Gradient or Image */}
-                    {item.src ? (
-                      <img
-                        src={item.src}
-                        alt={item.alt ?? item.title}
-                        draggable={false}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-[#f7e5d4] via-[#fbd7b4] to-[#f8b47d]" />
-                    )}
-
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a0e05]/90 via-[#1a0e05]/30 to-transparent" />
+                    {/* Top Ambient Corner Glow Accent */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#f7e5d4]/60 to-transparent rounded-full blur-xl pointer-events-none" />
 
                     {/* Top Pill / Number */}
-                    <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-white/90 text-[#f16701] backdrop-blur-md shadow-xs border border-[#f8b47d]/50">
+                    <div className="relative z-10 flex items-center justify-between border-b border-[#fbd7b4]/40 pb-3">
+                      <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] shadow-2xs border border-[#f8b47d]/40">
                         {item.tag || `Pillar 0${index + 1}`}
                       </span>
-                      <span className="text-sm font-black text-white/80 font-mono">
+                      <span className="text-base font-black text-[#f16701] font-mono">
                         0{index + 1}
                       </span>
                     </div>
 
-                    {/* Card Content at Bottom */}
-                    <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white space-y-1">
-                      <h4 className="text-sm sm:text-base font-extrabold leading-snug line-clamp-2">
+                    {/* Main Content: Title, Subtitle, Description */}
+                    <div className="relative z-10 my-auto py-2 space-y-2">
+                      <h4 className="text-lg sm:text-xl font-black text-[#0F1318] leading-tight">
                         {item.title}
                       </h4>
+
                       {item.subtitle && (
-                        <p className="text-[10px] text-[#fbd7b4] font-medium line-clamp-1">
+                        <p className="text-xs font-bold text-[#f16701]">
                           {item.subtitle}
                         </p>
                       )}
+
+                      <div className="w-10 h-0.5 bg-gradient-to-r from-[#f16701] to-[#f8b47d] rounded-full my-2" />
+
+                      <p className="text-xs text-neutral-600 leading-relaxed font-normal">
+                        {item.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom Brand Line */}
+                    <div className="relative z-10 pt-3 border-t border-[#fbd7b4]/40 flex items-center justify-between text-[10px] text-neutral-400 font-mono">
+                      <span>Savera Tex Solution</span>
+                      <span className="font-bold text-[#f16701]">Pillar {index + 1} of 7</span>
                     </div>
                   </div>
-
-                  {/* Active Indicator Label */}
-                  <motion.p
-                    className={cn(
-                      'whitespace-nowrap text-xs font-bold text-center transition-colors',
-                      isActive ? 'text-[#f16701]' : 'text-neutral-500',
-                      labelClassName
-                    )}
-                    animate={{
-                      filter: isActive ? 'blur(0px)' : 'blur(1px)',
-                      opacity: isActive ? 1 : 0.6,
-                    }}
-                    transition={transition}
-                  >
-                    {item.title}
-                  </motion.p>
                 </motion.div>
               </div>
             );
