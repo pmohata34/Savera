@@ -102,10 +102,8 @@ export default function ConnectForm() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-
-          {/* Left Form (7 cols) */}
-          <div className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl border border-[#f8b47d]/40 shadow-xl">
+        <div className="max-w-3xl mx-auto w-full">
+          <div className="bg-white p-6 sm:p-10 md:p-12 rounded-3xl border border-[#f8b47d]/40 shadow-xl">
             {status && (
               <div className={`mb-6 p-5 rounded-2xl border ${status.type === 'error' ? 'bg-rose-50 border-rose-200 text-rose-800' : 'bg-emerald-50 border-emerald-200 text-emerald-900'} space-y-2`}>
                 <p className="font-bold text-sm">{status.message}</p>
@@ -219,58 +217,6 @@ export default function ConnectForm() {
               </RadialGlowButton>
             </form>
           </div>
-
-          {/* Right Information Cards (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-
-            <div className="p-8 rounded-3xl bg-gradient-to-br from-white to-[#f7e5d4]/40 border border-[#f8b47d]/40 shadow-lg space-y-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">Central Operations Office</span>
-              <h3 className="text-2xl font-bold text-[#0F1318]">Kolkata Central Office</h3>
-
-              <div className="p-3.5 rounded-xl bg-white/90 border border-[#f8b47d]/30 text-xs sm:text-sm text-neutral-800 space-y-0.5">
-                <p className="font-bold text-neutral-900">1/C Burman Street, 3rd Floor</p>
-                <p className="font-bold text-neutral-900">Room No. 312</p>
-                <p className="text-neutral-600">Kolkata – 700007, West Bengal</p>
-              </div>
-
-              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
-                Single central operations office managing direct commercial connections across all regional production corridors.
-              </p>
-              <div className="pt-4 border-t border-[#fbd7b4]/50 space-y-2 text-xs">
-                <div className="flex items-center gap-2">
-                  <span className="text-neutral-500 font-bold">Email:</span>
-                  <a href="mailto:saveratexsolutionllp@gmail.com" className="text-[#f16701] font-semibold hover:underline">saveratexsolutionllp@gmail.com</a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-neutral-500 font-bold">Phone:</span>
-                  <a href="tel:+919432583461" className="text-[#f16701] font-semibold hover:underline">+91 94325 83461</a>
-                  <span className="text-neutral-400">/</span>
-                  <a href="tel:+919477665429" className="text-[#f16701] font-semibold hover:underline">+91 94776 65429</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-8 rounded-3xl bg-gradient-to-br from-white to-[#f7e5d4]/40 border border-[#f8b47d]/40 shadow-lg space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">Prompt Commercial Response</span>
-              <h4 className="text-lg font-bold text-[#0F1318]">What Happens Next?</h4>
-              <ul className="space-y-2 text-xs text-neutral-600">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#f16701] mt-1.5 flex-shrink-0"></span>
-                  <span>Our agency team reviews your requirements and identifies relevant manufacturing partners.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#f16701] mt-1.5 flex-shrink-0"></span>
-                  <span>We share verified collections, sample swatches, and direct loom commercial terms.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#f16701] mt-1.5 flex-shrink-0"></span>
-                  <span>We facilitate clear price negotiations and end-to-end order dispatch follow-ups.</span>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-
         </div>
 
       </div>
