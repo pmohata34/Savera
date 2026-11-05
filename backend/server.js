@@ -4,6 +4,10 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
+const { ensureBrochurePDF, getBrochurePath, BROCHURE_PATH } = require('./services/brochure');
+const { sendLeadNotificationEmail } = require('./services/email');
+const { sendWhatsAppBrochureAutomation } = require('./services/whatsapp');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 const DATA_FILE = path.join(__dirname, 'data', 'leads.json');
@@ -16,6 +20,9 @@ if (!fs.existsSync(DATA_FILE)) {
   fs.writeFileSync(DATA_FILE, JSON.stringify([], null, 2), 'utf-8');
 }
 
+// Generate / ensure PDF brochure exists
+ensureBrochurePDF().catch(err => console.error('[Brochure] Init error:', err));
+
 // Middleware
 app.use(cors({
   origin: process.env.CORS_ORIGIN || '*',
@@ -24,6 +31,19 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve the brochure PDF publicly
+app.get(['/brochure.pdf', '/assets/Savera_Brochure.pdf', '/api/brochure'], (req, res) => {
+  const file = getBrochurePath() || BROCHURE_PATH;
+  if (fs.existsSync(file)) {
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'inline; filename="Savera_Tex_Solution_Brochure.pdf"');
+    const stream = fs.createReadStream(file);
+    stream.pipe(res);
+  } else {
+    res.status(404).json({ error: 'Brochure PDF not found.' });
+  }
+});
 
 // Helper to read leads
 function getLeads() {
@@ -52,7 +72,10 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'healthy',
     service: 'Savera Tex Solution LLP Backend API',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    brochureAvailable: fs.existsSync(getBrochurePath() || BROCHURE_PATH),
+    emailConfigured: Boolean(process.env.GMAIL_APP_PASSWORD),
+    whatsappAutomated: Boolean(process.env.WHATSAPP_CLOUD_API_TOKEN || process.env.TWILIO_ACCOUNT_SID || process.env.WHATSAPP_WEBHOOK_URL)
   });
 });
 
@@ -65,13 +88,14 @@ app.get('/', (req, res) => {
     endpoints: {
       health: 'GET /api/health',
       inquire: 'POST /api/inquire',
-      leads: 'GET /api/leads'
+      leads: 'GET /api/leads',
+      brochure: 'GET /brochure.pdf'
     }
   });
 });
 
-// Inquire / Lead Submission Endpoint
-app.post('/api/inquire', (req, res) => {
+// Inquire / Lead Submission Endpoint with WhatsApp & Gmail Automations
+app.post('/api/inquire', async (req, res) => {
   const { firmName, personName, mobileNumber, cityState, categories, message } = req.body;
 
   // Validation
@@ -103,11 +127,34 @@ app.post('/api/inquire', (req, res) => {
     status: 'NEW'
   };
 
+  // 1. Persist lead to database / leads.json
   const leads = getLeads();
   leads.unshift(newLead);
   saveLeads(leads);
 
-  // Generate WhatsApp redirection URL for direct connection
+  // 2. Determine base URL for publicly serving brochure
+  const host = req.get('host') || `localhost:${PORT}`;
+  const protocol = req.protocol === 'https' || req.get('x-forwarded-proto') === 'https' ? 'https' : 'http';
+  const serverBaseUrl = process.env.PUBLIC_APP_URL || `${protocol}://${host}`;
+  const brochureUrl = `${serverBaseUrl}/brochure.pdf`;
+
+  // 3. Trigger Gmail notification to owner (saveratexsolutionllp@gmail.com)
+  let emailResult = { success: false };
+  try {
+    emailResult = await sendLeadNotificationEmail(newLead);
+  } catch (err) {
+    console.error('[Inquire: Email Trigger Failed]', err.message);
+  }
+
+  // 4. Trigger WhatsApp automation with Brochure PDF to client
+  let whatsappResult = { success: false };
+  try {
+    whatsappResult = await sendWhatsAppBrochureAutomation(newLead, serverBaseUrl);
+  } catch (err) {
+    console.error('[Inquire: WhatsApp Trigger Failed]', err.message);
+  }
+
+  // 5. Generate direct fallback WhatsApp chat URL
   const catText = newLead.categories.length > 0 ? newLead.categories.join(', ') : 'All Collections';
   const waText = encodeURIComponent(
     `Hello Savera Tex Solution LLP,\n\nI have submitted a sourcing inquiry on your portal (Ref: ${leadId}):\n- Firm: ${newLead.firmName}\n- Contact: ${newLead.personName} (${newLead.mobileNumber})\n- Location: ${newLead.cityState}\n- Product Interest: ${catText}\n\nPlease share your current catalogs and mill rate cards.`
@@ -118,7 +165,10 @@ app.post('/api/inquire', (req, res) => {
     success: true,
     message: 'Your sourcing inquiry has been registered successfully. Our representative will contact you within 24 hours.',
     leadId,
-    whatsappUrl
+    brochureUrl,
+    whatsappUrl,
+    emailStatus: emailResult.mode || (emailResult.success ? 'SENT' : 'FAILED'),
+    whatsappStatus: whatsappResult.mode || (whatsappResult.success ? 'SENT' : 'FAILED')
   });
 });
 
@@ -134,5 +184,5 @@ app.get('/api/leads', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Savera Tex Solution API server running on port ${PORT}`);
+  console.log(`Brochure available at http://localhost:${PORT}/brochure.pdf`);
 });
-

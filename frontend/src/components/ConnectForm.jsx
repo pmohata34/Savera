@@ -51,7 +51,8 @@ export default function ConnectForm() {
           type: 'success',
           message: data.message,
           leadId: data.leadId,
-          whatsappUrl: data.whatsappUrl
+          whatsappUrl: data.whatsappUrl,
+          brochureUrl: data.brochureUrl || 'http://localhost:5000/brochure.pdf'
         });
         setFormData({
           firmName: '',
@@ -110,12 +111,20 @@ export default function ConnectForm() {
                 {status.leadId && (
                   <p className="text-xs text-neutral-600">Reference ID: <span className="font-mono font-bold text-neutral-900">{status.leadId}</span></p>
                 )}
-                {status.whatsappUrl && (
-                  <a href={status.whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition">
-                    <span>Open in WhatsApp</span>
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                  </a>
-                )}
+                <div className="flex flex-wrap items-center gap-2.5 pt-1">
+                  {status.whatsappUrl && (
+                    <a href={status.whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition">
+                      <span>Open in WhatsApp</span>
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                  )}
+                  {status.brochureUrl && (
+                    <a href={status.brochureUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#f16701] hover:bg-[#d45500] text-white text-xs font-bold transition">
+                      <span>Download Brochure (PDF)</span>
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    </a>
+                  )}
+                </div>
               </div>
             )}
 
