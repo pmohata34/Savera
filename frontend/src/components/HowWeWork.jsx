@@ -1,7 +1,6 @@
 import React from 'react';
 import GlowCard from './ui/glow-card';
-import RadialGlowButton from './ui/radial-glow-button';
-import { ArrowRight, CheckCircle2, ShieldCheck, Target, Layers, Compass, Handshake, Clock } from 'lucide-react';
+import { Target, Layers, Compass, Handshake, Clock, ShieldCheck } from 'lucide-react';
 
 export default function HowWeWork() {
   const steps = [
@@ -106,27 +105,6 @@ export default function HowWeWork() {
               </div>
             </GlowCard>
           ))}
-        </div>
-
-        {/* Bottom Operational Guarantee Note */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-white via-[#FAF8F5] to-white border border-[#f8b47d]/40 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="space-y-0.5">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-[#f16701]">
-              Commercial Excellence
-            </h4>
-            <p className="text-xs sm:text-sm text-neutral-700 font-medium">
-              Every stage is managed directly by our Kolkata central operations team to ensure seamless communication between manufacturers and buyers.
-            </p>
-          </div>
-          <RadialGlowButton
-            as="a"
-            href="#connect"
-            size="sm"
-            className="flex-shrink-0"
-          >
-            <span>Inquire Sourcing</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </RadialGlowButton>
         </div>
 
       </div>

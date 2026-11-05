@@ -93,15 +93,9 @@ export default function Founder() {
 
             {/* Concluding Belief Card */}
             <div className="p-5 rounded-xl bg-gradient-to-r from-[#f7e5d4] via-[#fbd7b4]/40 to-white border border-[#f8b47d]/50 shadow-xs">
-              <p className="text-xs sm:text-sm font-bold text-neutral-800 italic mb-2">
+              <p className="text-xs sm:text-sm font-bold text-neutral-800 italic">
                 "Our journey began with trust, has grown through relationships and will continue with the same values for generations to come."
               </p>
-              <div className="flex items-center gap-2 pt-2 border-t border-[#fbd7b4]/60">
-                <span className="w-2 h-2 rounded-full bg-[#f16701]"></span>
-                <span className="text-xs font-extrabold text-[#f16701]">
-                  Vineet Kr. Taparia • Founder, Savera Tex Solution LLP
-                </span>
-              </div>
             </div>
 
           </div>

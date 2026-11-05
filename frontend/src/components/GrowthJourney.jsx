@@ -235,24 +235,6 @@ export default function GrowthJourney() {
           ))}
         </div>
 
-        {/* Moving Forward Card (From Document) */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52] text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="space-y-1 text-center sm:text-left">
-            <h3 className="text-lg font-bold text-white">
-              Moving Forward
-            </h3>
-            <p className="text-xs sm:text-sm text-white/95 leading-relaxed font-normal max-w-3xl">
-              Building on our experience since 1995, we continue to strengthen textile connections, develop new business opportunities and create lasting relationships across the industry.
-            </p>
-          </div>
-          <a
-            href="#connect"
-            className="px-5 py-2.5 rounded-full bg-white text-[#f16701] font-bold text-xs uppercase tracking-wider shadow-sm hover:bg-[#FAF8F5] transition flex-shrink-0"
-          >
-            Connect With Us
-          </a>
-        </div>
-
       </div>
     </section>
   );
