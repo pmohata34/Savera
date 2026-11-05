@@ -18,6 +18,7 @@ build/
 # Local reference and standalone master files (Excluded from GitHub repository)
 reference/
 _references/
+scratch/
 savera_designer_masterpiece.html
 photos/
 fonts/
