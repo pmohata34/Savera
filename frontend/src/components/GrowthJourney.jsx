@@ -47,9 +47,6 @@ export default function GrowthJourney() {
 
         {/* Section Header */}
         <div className="max-w-3xl space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#f8b47d]/60 text-[#f16701] text-[11px] font-bold uppercase tracking-widest shadow-2xs">
-            <span>Milestone Trajectory</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F1318] tracking-tight">
             Our Growth Journey
           </h2>

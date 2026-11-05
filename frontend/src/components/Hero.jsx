@@ -21,12 +21,6 @@ export default function Hero() {
           {/* Left Column: Verbatim About Us Copy */}
           <div className="lg:col-span-7 space-y-3 sm:space-y-4 text-left">
 
-            {/* Established Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold bg-white/90 border border-[#f8b47d]/60 text-[#f16701] shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-[#f16701] animate-ping"></span>
-              <span className="tracking-widest uppercase">ESTABLISHED 1995 • ABOUT US</span>
-            </div>
-
             {/* Editorial Headline */}
             <h1 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-5xl font-extrabold text-[#0F1318] leading-[1.12] tracking-tight">
               Connecting{' '}

@@ -57,10 +57,6 @@ export default function SourcingMap() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#fbd7b4]/50 pb-6">
           <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#f8b47d]/60 text-[#f16701] text-[11px] font-bold uppercase tracking-widest shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-[#f16701] animate-ping"></span>
-              <span>Pan-India Manufacturing Network</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F1318] tracking-tight">
               Our Sourcing Hubs
             </h2>

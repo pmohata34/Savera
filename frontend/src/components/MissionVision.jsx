@@ -13,10 +13,6 @@ export default function MissionVision() {
       <div className="max-w-7xl mx-auto space-y-12 relative z-10">
 
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#f7e5d4] to-white text-[#f16701] text-xs font-bold uppercase tracking-widest border border-[#f8b47d]/50 shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-[#f16701] animate-ping"></span>
-            <span>Strategic Direction</span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0F1318] tracking-tight">
             Our Mission &amp; Vision
           </h2>

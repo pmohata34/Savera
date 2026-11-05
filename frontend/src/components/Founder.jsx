@@ -14,9 +14,6 @@ export default function Founder() {
 
         {/* Section Header */}
         <div className="border-b border-[#fbd7b4]/50 pb-6 space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#f16701] text-[11px] font-bold uppercase tracking-widest border border-[#f8b47d]/50 shadow-2xs">
-            <span>Executive Monograph &amp; Values</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F1318] tracking-tight">
             Message from Our Founder
           </h2>
