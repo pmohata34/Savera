@@ -156,6 +156,39 @@
   animation: flowDashes 1.6s linear infinite;
 }
 
+@property --glow-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes glow-angle-rotate {
+  from {
+    --glow-angle: 0deg;
+  }
+  to {
+    --glow-angle: 360deg;
+  }
+}
+
+.glow-card-border {
+  background: conic-gradient(
+    from var(--glow-angle),
+    #f7e5d4,
+    #fbd7b4,
+    #f8b47d,
+    #f79a52,
+    #f48129,
+    #f26e12,
+    #f16701,
+    #f48129,
+    #f79a52,
+    #f8b47d,
+    #f7e5d4
+  );
+  animation: glow-angle-rotate 6s linear infinite;
+}
+
 /* Custom Scrollbar for Horizontal Bus Journey */
 .hide-scrollbar::-webkit-scrollbar {
   height: 6px;
