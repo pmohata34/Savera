@@ -1,9 +1,10 @@
 import React from 'react';
+import SocialFlipButton from './ui/social-flip-button';
 
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-white via-[#FAF8F5] to-[#f7e5d4]/40 text-neutral-800 pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-t border-[#fbd7b4]/40 relative">
-      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
+      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-14">
 
         {/* 3 Main Columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
@@ -82,8 +83,16 @@ export default function Footer() {
 
         </div>
 
+        {/* Interactive Social Flip Button Capsule */}
+        <div className="pt-6 border-t border-[#fbd7b4]/40 flex flex-col items-center justify-center space-y-2">
+          <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-neutral-500">
+            Connect &amp; Follow Our Network
+          </span>
+          <SocialFlipButton />
+        </div>
+
         {/* Bottom Copyright & Sourcing Network Bar */}
-        <div className="pt-8 border-t border-[#fbd7b4]/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-500 text-center sm:text-left">
+        <div className="pt-6 border-t border-[#fbd7b4]/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-500 text-center sm:text-left">
           <p>© <strong className="font-playfair font-bold inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong>. All rights reserved.</p>
 
           <p className="text-[11px] text-neutral-500">Pan-India Textile Commission Agency • Since 1995</p>
