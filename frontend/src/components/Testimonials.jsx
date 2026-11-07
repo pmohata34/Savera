@@ -66,7 +66,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-[#FFF5EC] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden"
+      className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-[#FFF5EC] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden"
     >
       {/* Warm Ambient Lighting Mesh */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -77,7 +77,7 @@ export default function Testimonials() {
       <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 relative z-10">
 
         {/* Section Header: ShriVara Typography & Proportions */}
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-2">
           
           {/* — TESTIMONIALS — with refined horizontal rules */}
           <div className="flex items-center justify-center gap-3 text-xs sm:text-sm font-bold tracking-[0.28em] text-[#f16701] uppercase">
@@ -95,23 +95,47 @@ export default function Testimonials() {
         {/* Carousel Card Container */}
         <div className="relative">
 
+          {/* Prev Button Positioned Directly on Left Border */}
+          <button
+            type="button"
+            onClick={handlePrev}
+            aria-label="Previous testimonial"
+            className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-[#f8b47d]/80 hover:border-[#f16701] text-neutral-800 hover:text-[#f16701] shadow-md hover:shadow-xl flex items-center justify-center transition-all duration-200 transform hover:scale-110 active:scale-95 cursor-pointer"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Next Button Positioned Directly on Right Border */}
+          <button
+            type="button"
+            onClick={handleNext}
+            aria-label="Next testimonial"
+            className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-[#f8b47d]/80 hover:border-[#f16701] text-neutral-800 hover:text-[#f16701] shadow-md hover:shadow-xl flex items-center justify-center transition-all duration-200 transform hover:scale-110 active:scale-95 cursor-pointer"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
           {/* Active Testimonial Card in Warm Gradient Luxe Styling */}
-          <div className="relative rounded-3xl p-7 sm:p-10 md:p-12 bg-gradient-to-br from-white via-white to-[#FFF6ED] border border-[#f8b47d]/60 shadow-xl hover:border-[#f16701]/60 transition-all duration-300">
+          <div className="relative rounded-3xl p-6 sm:p-10 md:p-12 bg-gradient-to-br from-white via-white to-[#FFF6ED] border border-[#f8b47d]/60 shadow-xl hover:border-[#f16701]/60 transition-all duration-300">
             
             {/* Quotation Mark (66 shape) in Savera Orange */}
-            <div className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#f16701] leading-none mb-4 sm:mb-6 select-none font-bold">
+            <div className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#f16701] leading-none mb-3 sm:mb-5 select-none font-bold">
               “
             </div>
 
             {/* Testimonial Quote Text: Italicized, High-End Editorial Serif */}
-            <div className="space-y-4 text-sm sm:text-base md:text-lg italic font-serif leading-relaxed text-neutral-800 font-normal min-h-[160px] sm:min-h-[140px]">
+            <div className="space-y-4 text-sm sm:text-base md:text-lg italic font-serif leading-relaxed text-neutral-800 font-normal min-h-[150px] sm:min-h-[130px]">
               {current.paragraphs.map((p, idx) => (
                 <p key={idx}>{p}</p>
               ))}
             </div>
 
             {/* Bottom Attribution Line: Dash prefix + Uppercase author + tag */}
-            <div className="mt-8 pt-6 border-t border-[#fbd7b4]/50 flex flex-wrap items-center justify-between gap-3">
+            <div className="mt-6 pt-5 border-t border-[#fbd7b4]/50 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <span className="w-6 sm:w-8 h-px bg-[#f16701]"></span>
                 <div>
@@ -131,51 +155,21 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* Navigation Controls: Previous / Next Buttons & Indicator Dots */}
-          <div className="flex items-center justify-between pt-6 sm:pt-8">
-            
-            {/* Prev Button */}
-            <button
-              type="button"
-              onClick={handlePrev}
-              aria-label="Previous testimonial"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white border border-[#f8b47d]/60 text-neutral-700 hover:border-[#f16701] hover:text-[#f16701] hover:bg-[#FAF8F5] shadow-xs transition-all duration-200 cursor-pointer"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
-              </svg>
-              <span>Prev</span>
-            </button>
-
-            {/* Indicator Dots */}
-            <div className="flex items-center gap-2">
-              {testimonials.map((t, idx) => (
-                <button
-                  key={t.id}
-                  type="button"
-                  onClick={() => setCurrentIndex(idx)}
-                  aria-label={`Go to review ${idx + 1}`}
-                  className={`transition-all duration-300 rounded-full h-2 cursor-pointer ${
-                    currentIndex === idx
-                      ? 'w-7 bg-[#f16701]'
-                      : 'w-2 bg-[#fbd7b4] hover:bg-[#f8b47d]'
-                  }`}
-                />
-              ))}
-            </div>
-
-            {/* Next Button */}
-            <button
-              type="button"
-              onClick={handleNext}
-              aria-label="Next testimonial"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white border border-[#f8b47d]/60 text-neutral-700 hover:border-[#f16701] hover:text-[#f16701] hover:bg-[#FAF8F5] shadow-xs transition-all duration-200 cursor-pointer"
-            >
-              <span>Next</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+          {/* Indicator Dots Centered Below Card */}
+          <div className="flex items-center justify-center gap-2 pt-4">
+            {testimonials.map((t, idx) => (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => setCurrentIndex(idx)}
+                aria-label={`Go to review ${idx + 1}`}
+                className={`transition-all duration-300 rounded-full h-2 cursor-pointer ${
+                  currentIndex === idx
+                    ? 'w-7 bg-[#f16701]'
+                    : 'w-2 bg-[#fbd7b4] hover:bg-[#f8b47d]'
+                }`}
+              />
+            ))}
           </div>
 
         </div>
