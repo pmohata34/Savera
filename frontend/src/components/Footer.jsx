@@ -20,22 +20,14 @@ export default function Footer() {
                   <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
                 </span>
                 <span className="block text-[9px] font-bold tracking-[0.25em] text-neutral-600 uppercase mt-0.5">
-                  COMMISSION AGENT SINCE 1995
+                  COMMISSION AGENT OF ALL TEXTILE GOODS
                 </span>
               </div>
             </div>
 
-            <p className="text-xs font-bold uppercase tracking-widest text-[#f16701]">
-              COMMISSION AGENT SINCE 1995
-            </p>
-
             <p className="text-xs text-neutral-600 leading-relaxed max-w-sm">
               Connecting manufacturers with retailers and wholesalers across India and international markets. Built on three decades of trust, goodwill and long-term business relationships.
             </p>
-
-            <div className="pt-2 text-[11px] text-neutral-500">
-              <span>Operational Commission Platform • Registered LLP</span>
-            </div>
           </div>
 
           {/* Column 2: Business Enquiries */}
@@ -85,10 +77,6 @@ export default function Footer() {
                 <p className="font-semibold text-neutral-800">Room No. 312</p>
                 <p className="text-neutral-700">Kolkata – 700007, West Bengal</p>
               </div>
-
-              <div className="pt-2 border-t border-[#fbd7b4]/40 text-[11px] text-neutral-500">
-                <p>Single central operations office managing direct connections across all partner production hubs.</p>
-              </div>
             </div>
           </div>
 
@@ -96,14 +84,10 @@ export default function Footer() {
 
         {/* Bottom Copyright & Sourcing Network Bar */}
         <div className="pt-8 border-t border-[#fbd7b4]/40 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
-          <div>
-            © <strong className="font-playfair font-bold inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong>. All rights reserved.
-          </div>
-          <div className="flex flex-wrap items-center gap-2.5 text-[11px]">
-            <span className="font-bold text-neutral-700">Central Office: Kolkata</span>
-            <span className="text-neutral-300">|</span>
-            <span className="text-neutral-500">Sourcing Hubs: Surat • Ahmedabad • Jaipur • Varanasi • Bhagalpur</span>
-          </div>
+
+          © <strong className="font-playfair font-bold inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong>. All rights reserved.
+
+
         </div>
 
       </div>

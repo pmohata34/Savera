@@ -130,10 +130,10 @@ export default function GrowthJourney() {
                       /* ── DOWN CARD (1995, 2003, 2010 - Starts from Bottom) ── */
                       <>
                         {/* 1. Spacer above so dot aligns with trough at Y=320 */}
-                        <div className="h-[250px]" />
+                        <div className="h-[270px]" />
 
                         {/* 2. Year Label Above Dot */}
-                        <div className="h-5 mb-2 flex items-center justify-center text-center">
+                        <div className="h-6 mb-2 flex items-center justify-center text-center">
                           <span className="text-xs font-black text-[#0F1318] font-mono tracking-wider">
                             {m.year}
                           </span>
@@ -171,7 +171,7 @@ export default function GrowthJourney() {
                       /* ── UP CARD (1999, 2006, 2026 - Text Box Above) ── */
                       <>
                         {/* 1. Full Text Box Above */}
-                        <div className="w-full p-3.5 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-start min-h-[200px] space-y-1.5 group">
+                        <div className="w-full p-3.5 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-start min-h-[190px] space-y-1.5 group">
                           <div className="flex items-center justify-between">
                             <span className="text-base font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
                               {m.year}
@@ -189,7 +189,7 @@ export default function GrowthJourney() {
                         </div>
 
                         {/* 2. Vertical Stem down to Dot */}
-                        <div className="w-0.5 h-6 bg-gradient-to-b from-[#f8b47d] to-[#f16701]"></div>
+                        <div className="w-0.5 h-8 bg-gradient-to-b from-[#f8b47d] to-[#f16701]"></div>
 
                         {/* 3. Dot on Crest of Curve */}
                         <div className="relative z-20 flex items-center justify-center">
@@ -199,14 +199,14 @@ export default function GrowthJourney() {
                         </div>
 
                         {/* 4. Year Label Under Dot */}
-                        <div className="h-5 mt-2 flex items-center justify-center text-center">
+                        <div className="h-6 mt-2 flex items-center justify-center text-center">
                           <span className="text-xs font-black text-[#0F1318] font-mono tracking-wider">
                             {m.year}
                           </span>
                         </div>
 
                         {/* 5. Spacer below so dot aligns with crest at Y=240 */}
-                        <div className="h-[250px]" />
+                        <div className="h-[270px]" />
                       </>
                     )}
                   </div>
