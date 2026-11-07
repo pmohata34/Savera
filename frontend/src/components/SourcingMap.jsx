@@ -79,9 +79,8 @@ export default function SourcingMap() {
             {leftHubs.map((hub, idx) => (
               <div
                 key={idx}
-                className={`p-3.5 sm:p-4 rounded-xl border-l-4 border-l-[#f16701] border-t border-r border-b border-[#f8b47d]/40 shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-between gap-3 ${
-                  hub.isHQ ? 'bg-gradient-to-br from-white via-white to-[#FFF6ED]' : 'bg-white'
-                }`}
+                className={`p-3.5 sm:p-4 rounded-xl border-l-4 border-l-[#f16701] border-t border-r border-b border-[#f8b47d]/40 shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-between gap-3 ${hub.isHQ ? 'bg-gradient-to-br from-white via-white to-[#FFF6ED]' : 'bg-white'
+                  }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div className="w-7 h-7 rounded-lg bg-[#FFF3E8] border border-[#f8b47d]/50 flex items-center justify-center flex-shrink-0 text-[#f16701] shadow-2xs">
@@ -96,8 +95,7 @@ export default function SourcingMap() {
 
                 {hub.isHQ ? (
                   <span className="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-[#f16701] text-white shadow-xs tracking-wider uppercase whitespace-nowrap flex-shrink-0">
-                    West Bengal • Central HQ
-                  </span>
+                    West Bengal</span>
                 ) : (
                   <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#FAF8F5] border border-[#f8b47d]/60 text-neutral-800 shadow-2xs whitespace-nowrap flex-shrink-0">
                     {hub.state}

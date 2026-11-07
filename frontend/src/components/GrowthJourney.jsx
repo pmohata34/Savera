@@ -43,7 +43,7 @@ export default function GrowthJourney() {
           <strong className="font-playfair font-bold inline-flex items-baseline gap-1">
             <span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
           </strong>
-          , bringing together years of industry experience and business relationships under a structured platform across India and international markets.
+          , bringing together years of industry experience and business relationships under a structured business platform, with a broader vision of connecting manufacturers, retailers and wholesalers across India and international markets.
         </span>
       )
     }
@@ -66,17 +66,17 @@ export default function GrowthJourney() {
             Our Growth Journey
           </h2>
           <p className="text-xs sm:text-sm text-neutral-600 font-normal">
-            A thirty-year journey connecting manufacturers with buyers, expanding continuously from 1995 to 2026.
+            Building on our experience since 1995, we continue to strengthen textile connections, develop new business opportunities and create lasting relationships across the industry.
           </p>
         </div>
 
         {/* ── DESKTOP ALTERNATING UP & DOWN TIMELINE WITH ANIMATED DASHED CURVE ── */}
         <div className="hidden lg:block relative py-6">
-          <div className="relative h-[530px] w-full">
+          <div className="relative min-h-[570px] w-full">
 
             {/* Background Sinuous SVG Wave (Dashed & Animated Left to Right) */}
             <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-              <svg viewBox="0 0 1200 530" preserveAspectRatio="none" className="w-full h-full">
+              <svg viewBox="0 0 1200 570" preserveAspectRatio="none" className="w-full h-full">
                 <defs>
                   <linearGradient id="curvedWaveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#f7e5d4" />
@@ -88,7 +88,7 @@ export default function GrowthJourney() {
 
                 {/* Soft Ambient Glow under the wave */}
                 <path
-                  d="M 20 294 L 100 294 C 200 294, 200 226, 300 226 C 400 226, 400 294, 500 294 C 600 294, 600 226, 700 226 C 800 226, 800 294, 900 294 C 1000 294, 1000 226, 1100 226 L 1180 226"
+                  d="M 20 314 L 100 314 C 200 314, 200 236, 300 236 C 400 236, 400 314, 500 314 C 600 314, 600 236, 700 236 C 800 236, 800 314, 900 314 C 1000 314, 1000 236, 1100 236 L 1180 236"
                   fill="none"
                   stroke="#f8b47d"
                   strokeWidth="8"
@@ -98,7 +98,7 @@ export default function GrowthJourney() {
 
                 {/* Base Soft Guidance Track */}
                 <path
-                  d="M 20 294 L 100 294 C 200 294, 200 226, 300 226 C 400 226, 400 294, 500 294 C 600 294, 600 226, 700 226 C 800 226, 800 294, 900 294 C 1000 294, 1000 226, 1100 226 L 1180 226"
+                  d="M 20 314 L 100 314 C 200 314, 200 236, 300 236 C 400 236, 400 314, 500 314 C 600 314, 600 236, 700 236 C 800 236, 800 314, 900 314 C 1000 314, 1000 236, 1100 236 L 1180 236"
                   fill="none"
                   stroke="#fbd7b4"
                   strokeWidth="2"
@@ -107,7 +107,7 @@ export default function GrowthJourney() {
 
                 {/* Active Dashed Animated Line Streaming from Left to Right */}
                 <path
-                  d="M 20 294 L 100 294 C 200 294, 200 226, 300 226 C 400 226, 400 294, 500 294 C 600 294, 600 226, 700 226 C 800 226, 800 294, 900 294 C 1000 294, 1000 226, 1100 226 L 1180 226"
+                  d="M 20 314 L 100 314 C 200 314, 200 236, 300 236 C 400 236, 400 314, 500 314 C 600 314, 600 236, 700 236 C 800 236, 800 314, 900 314 C 1000 314, 1000 236, 1100 236 L 1180 236"
                   fill="none"
                   stroke="url(#curvedWaveGradient)"
                   strokeWidth="4"
@@ -124,12 +124,12 @@ export default function GrowthJourney() {
                 const isBottom = idx % 2 === 0; // Even: Start from BOTTOM (1995, 2003, 2010), Odd: TOP (1999, 2006, 2026)
 
                 return (
-                  <div key={m.year} className="flex flex-col items-center h-full">
+                  <div key={idx} className="flex flex-col items-center h-full">
                     {isBottom ? (
                       /* ── DOWN CARD (1995, 2003, 2010 - Starts from Bottom) ── */
                       <>
                         {/* Spacer above so dot aligns with trough */}
-                        <div className="h-[240px]" />
+                        <div className="h-[250px]" />
 
                         {/* 1. Year Label Above Dot */}
                         <div className="mb-2 text-center">
@@ -146,53 +146,49 @@ export default function GrowthJourney() {
                         </div>
 
                         {/* 3. Vertical Stem down to Card */}
-                        <div className="w-0.5 h-7 bg-gradient-to-b from-[#f16701] to-[#f8b47d]"></div>
+                        <div className="w-0.5 h-6 bg-gradient-to-b from-[#f16701] to-[#f8b47d]"></div>
 
-                        {/* 4. Text Box Below */}
-                        <div className="w-full p-4 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between h-[180px] space-y-1.5 group">
-                          <div>
-                            <div className="flex items-center justify-between mb-1">
-                              <span className="text-lg font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
-                                {m.year}
-                              </span>
-                              <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/35">
-                                0{idx + 1}
-                              </span>
-                            </div>
-                            <h3 className="text-xs font-bold text-[#0F1318] leading-snug line-clamp-2">
-                              {m.title}
-                            </h3>
+                        {/* 4. Full Text Box Below (No Truncation / No line-clamp) */}
+                        <div className="w-full p-4 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-start min-h-[195px] space-y-2 group">
+                          <div className="flex items-center justify-between">
+                            <span className="text-lg font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
+                              {m.year}
+                            </span>
+                            <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/35">
+                              0{idx + 1}
+                            </span>
                           </div>
-                          <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-4">
+                          <h3 className="text-xs font-bold text-[#0F1318] leading-snug">
+                            {m.title}
+                          </h3>
+                          <p className="text-[11px] text-neutral-600 leading-relaxed font-normal">
                             {m.description}
                           </p>
                         </div>
                       </>
                     ) : (
-                      /* ── UP CARD (1999, 2006, 2026) ── */
+                      /* ── UP CARD (1999, 2006, 2026 - Text Box Above) ── */
                       <>
-                        {/* 1. Text Box Above */}
-                        <div className="w-full p-4 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between h-[180px] space-y-1.5 group">
-                          <div>
-                            <div className="flex items-center justify-between mb-1">
-                              <span className="text-lg font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
-                                {m.year}
-                              </span>
-                              <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/35">
-                                0{idx + 1}
-                              </span>
-                            </div>
-                            <h3 className="text-xs font-bold text-[#0F1318] leading-snug line-clamp-2">
-                              {m.title}
-                            </h3>
+                        {/* 1. Full Text Box Above (No Truncation / No line-clamp) */}
+                        <div className="w-full p-4 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-start min-h-[195px] space-y-2 group">
+                          <div className="flex items-center justify-between">
+                            <span className="text-lg font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
+                              {m.year}
+                            </span>
+                            <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/35">
+                              0{idx + 1}
+                            </span>
                           </div>
-                          <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-4">
+                          <h3 className="text-xs font-bold text-[#0F1318] leading-snug">
+                            {m.title}
+                          </h3>
+                          <p className="text-[11px] text-neutral-600 leading-relaxed font-normal">
                             {m.description}
                           </p>
                         </div>
 
                         {/* 2. Vertical Stem down to Dot */}
-                        <div className="w-0.5 h-7 bg-gradient-to-b from-[#f8b47d] to-[#f16701]"></div>
+                        <div className="w-0.5 h-6 bg-gradient-to-b from-[#f8b47d] to-[#f16701]"></div>
 
                         {/* 3. Dot on Crest of Curve */}
                         <div className="relative z-20 flex items-center justify-center">
@@ -223,7 +219,7 @@ export default function GrowthJourney() {
         {/* ── MOBILE CONNECTED VERTICAL TIMELINE ── */}
         <div className="lg:hidden relative pl-6 border-l-2 border-dashed border-[#f16701]/70 ml-3 space-y-6">
           {milestones.map((m, idx) => (
-            <div key={m.year} className="relative group">
+            <div key={idx} className="relative group">
               {/* Dot on the vertical line */}
               <div className="absolute -left-[31px] top-4 w-6 h-6 rounded-full bg-white border-3 border-[#f16701] flex items-center justify-center shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#f16701]"></span>
