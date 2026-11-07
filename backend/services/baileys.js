@@ -146,3 +146,4 @@ module.exports = {
   sendWhatsAppDocument,
   isBaileysConnected: () => isConnected
 };
+
