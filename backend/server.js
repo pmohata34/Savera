@@ -7,7 +7,7 @@ require('dotenv').config();
 const { ensureBrochurePDF, getBrochurePath, BROCHURE_PATH } = require('./services/brochure');
 const { sendLeadNotificationEmail } = require('./services/email');
 const { sendWhatsAppBrochureAutomation } = require('./services/whatsapp');
-const { initBaileys, getWhatsAppStatus, isBaileysConnected } = require('./services/baileys');
+const { initBaileys, getWhatsAppStatus, isBaileysConnected, resetWhatsAppSession } = require('./services/baileys');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -111,6 +111,16 @@ app.get('/api/test-whatsapp', async (req, res) => {
     isLinked: isBaileysConnected(),
     result
   });
+});
+
+// Reset WhatsApp session / generate fresh QR
+app.get('/api/whatsapp-reset', async (req, res) => {
+  try {
+    await resetWhatsAppSession();
+  } catch (e) {
+    console.error('Reset error:', e);
+  }
+  res.redirect('/whatsapp-link');
 });
 
 // WhatsApp Link Web Interface (Scan QR to link +91 9477665429)
@@ -243,6 +253,12 @@ app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
               <p style="margin: 8px 0 0 0; font-size: 12px;">The QR code will appear in a moment.</p>
             </div>
           `}
+        </div>
+
+        <div style="margin-top: 18px;">
+          <a href="/api/whatsapp-reset" style="display: inline-block; padding: 8px 18px; border-radius: 9999px; background: #FFF3E8; color: #F16701; border: 1px solid #F8B47D; font-size: 11px; font-weight: 700; text-decoration: none; transition: background 0.2s;">
+            🔄 Generate Fresh QR Code / Reset Session
+          </a>
         </div>
 
         <div class="footer-note">

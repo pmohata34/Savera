@@ -49,10 +49,11 @@ async function initBaileys() {
 
       if (connection === 'close') {
         isConnected = false;
+        currentQRDataUrl = null;
+        currentRawQR = null;
         const statusCode = lastDisconnect?.error?.output?.statusCode;
-        const shouldReconnect = statusCode !== DisconnectReason.loggedOut;
 
-        console.log(`[WhatsApp Bridge] Connection closed (status: ${statusCode}). Reconnecting: ${shouldReconnect}`);
+        console.log(`[WhatsApp Bridge] Connection closed (status: ${statusCode})`);
 
         if (statusCode === DisconnectReason.loggedOut) {
           console.log('[WhatsApp Bridge] Logged out. Resetting auth directory for a fresh scan.');
@@ -62,14 +63,11 @@ async function initBaileys() {
           } catch (e) {}
         }
 
-        if (shouldReconnect) {
-          setTimeout(() => {
-            isInitializing = false;
-            initBaileys();
-          }, 3000);
-        } else {
+        // Always restart to generate a fresh QR code for the next scan
+        setTimeout(() => {
           isInitializing = false;
-        }
+          initBaileys();
+        }, 1500);
       } else if (connection === 'open') {
         isConnected = true;
         currentQRDataUrl = null;
@@ -140,10 +138,29 @@ async function sendWhatsAppDocument(recipientPhone, pdfPath, captionText) {
   }
 }
 
+async function resetWhatsAppSession() {
+  isConnected = false;
+  currentQRDataUrl = null;
+  currentRawQR = null;
+  if (sock) {
+    try {
+      sock.end();
+    } catch (e) {}
+    sock = null;
+  }
+  try {
+    fs.rmSync(AUTH_DIR, { recursive: true, force: true });
+    fs.mkdirSync(AUTH_DIR, { recursive: true });
+  } catch (e) {}
+  isInitializing = false;
+  return initBaileys();
+}
+
 module.exports = {
   initBaileys,
   getWhatsAppStatus,
   sendWhatsAppDocument,
+  resetWhatsAppSession,
   isBaileysConnected: () => isConnected
 };
 
