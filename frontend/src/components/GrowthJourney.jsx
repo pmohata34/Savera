@@ -29,23 +29,13 @@ export default function GrowthJourney() {
     },
     {
       year: '2026',
-      title: (
+      title:
         <span>
           Formation of{' '}
           <strong className="font-playfair font-bold inline-flex items-baseline gap-1">
             <span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
           </strong>
         </span>
-      ),
-      description: (
-        <span>
-          Established{' '}
-          <strong className="font-playfair font-bold inline-flex items-baseline gap-1">
-            <span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
-          </strong>
-          , bringing together years of industry experience and business relationships under a structured business platform, with a broader vision of connecting manufacturers, retailers and wholesalers across India and international markets.
-        </span>
-      )
     }
   ];
 
