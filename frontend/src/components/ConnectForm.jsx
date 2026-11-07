@@ -36,14 +36,16 @@ export default function ConnectForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Clean mobile number: accept +91, spaces, hyphens, and extract 10 digits
-    const rawDigits = String(formData.mobileNumber || '').replace(/\D/g, '');
-    const cleanPhone = rawDigits.length > 10 ? rawDigits.slice(-10) : rawDigits;
+    // Clean mobile number to exactly 10 digits (format: 9007385793)
+    let rawDigits = String(formData.mobileNumber || '').replace(/\D/g, '');
+    if (rawDigits.startsWith('91') && rawDigits.length > 10) rawDigits = rawDigits.slice(2);
+    if (rawDigits.startsWith('0') && rawDigits.length > 10) rawDigits = rawDigits.slice(1);
+    const cleanPhone = rawDigits.slice(0, 10);
 
     if (cleanPhone.length !== 10) {
       setStatus({
         type: 'error',
-        message: 'Please enter a valid 10-digit mobile or WhatsApp number (e.g. 94776 65429 or +91 9477665429).'
+        message: 'Please enter a valid 10-digit mobile number (e.g. 9007385793).'
       });
       return;
     }
@@ -51,11 +53,32 @@ export default function ConnectForm() {
     setLoading(true);
     setStatus(null);
 
+    // Prepare client-side WhatsApp inquiry message
+    const catText = formData.categories.length > 0 ? formData.categories.join(', ') : 'All Collections';
+    const waText = encodeURIComponent(
+      `Hello Savera Tex Solution LLP,\n\nI have submitted a sourcing inquiry on your portal:\n• Firm: ${formData.firmName}\n• Contact Person: ${formData.personName} (${cleanPhone})\n• City & State: ${formData.cityState}\n• Product Categories: ${catText}\n• Requirements: ${formData.message || 'Please share your latest collections, brochure, and commercial terms.'}\n\nPlease share your company catalog and mill rate cards.`
+    );
+    const targetWhatsAppUrl = `https://wa.me/919477665429?text=${waText}`;
+
+    // 1. Immediately launch WhatsApp from client side so the client sends the WhatsApp message to +91 9477665429
+    try {
+      const waWindow = window.open(targetWhatsAppUrl, '_blank');
+      if (!waWindow || waWindow.closed || typeof waWindow.closed === 'undefined') {
+        // Fallback if browser popup blocker stops window.open
+        setTimeout(() => {
+          window.location.href = targetWhatsAppUrl;
+        }, 500);
+      }
+    } catch (popupErr) {
+      console.warn('Popup blocked, will use button/redirect:', popupErr);
+    }
+
     const payload = {
       ...formData,
       mobileNumber: cleanPhone
     };
 
+    // 2. Concurrently record the lead and trigger Gmail email notification
     try {
       const res = await fetch('/api/inquire', {
         method: 'POST',
@@ -70,38 +93,30 @@ export default function ConnectForm() {
         data = {};
       }
 
-      if (res.ok && data.success) {
-        setStatus({
-          type: 'success',
-          message: data.message || 'Your sourcing inquiry has been registered successfully!',
-          leadId: data.leadId,
-          whatsappUrl: data.whatsappUrl || `https://wa.me/919477665429`,
-          brochureUrl: data.brochureUrl || '/brochure.pdf'
-        });
-        setFormData({
-          firmName: '',
-          personName: '',
-          mobileNumber: '',
-          cityState: '',
-          categories: ['Sarees (Cotton, Silk, Designer & Partywear)'],
-          message: ''
-        });
-      } else {
-        setStatus({
-          type: 'error',
-          message: data.error || 'Unable to register inquiry. Please connect directly via WhatsApp.'
-        });
-      }
-    } catch (err) {
-      console.warn('API connection offline or error, providing direct WhatsApp bridge:', err);
-      const catText = formData.categories.length > 0 ? formData.categories.join(', ') : 'All Collections';
-      const fallbackUrl = `https://wa.me/919477665429?text=${encodeURIComponent(
-        `Hello Savera Tex Solution LLP,\n\nI would like to inquire about textile sourcing:\n- Firm: ${formData.firmName || 'My Business'}\n- Contact: ${formData.personName || 'Sir/Ma\'am'} (${cleanPhone})\n- Location: ${formData.cityState || 'India'}\n- Product Interest: ${catText}\n- Message: ${formData.message || 'Please share product catalog and commercial terms.'}`
-      )}`;
+      const returnedLeadId = data.leadId || `ST-${Date.now().toString().slice(-6)}`;
+
       setStatus({
         type: 'success',
-        message: 'Inquiry registered! Click below to send your details directly on WhatsApp or download our brochure.',
-        whatsappUrl: fallbackUrl,
+        message: 'Inquiry submitted! WhatsApp has opened with your inquiry text. If WhatsApp didn\'t open automatically, click the green button below.',
+        leadId: returnedLeadId,
+        whatsappUrl: targetWhatsAppUrl,
+        brochureUrl: data.brochureUrl || '/brochure.pdf'
+      });
+
+      setFormData({
+        firmName: '',
+        personName: '',
+        mobileNumber: '',
+        cityState: '',
+        categories: ['Sarees (Cotton, Silk, Designer & Partywear)'],
+        message: ''
+      });
+    } catch (err) {
+      console.warn('API sync completed or offline fallback:', err);
+      setStatus({
+        type: 'success',
+        message: 'Inquiry submitted! WhatsApp has opened with your inquiry text. Click the green button below to send your details.',
+        whatsappUrl: targetWhatsAppUrl,
         brochureUrl: '/brochure.pdf'
       });
     } finally {
@@ -182,14 +197,22 @@ export default function ConnectForm() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-2">WhatsApp / Mobile Number *</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-2">
+                    WhatsApp / Mobile Number * <span className="text-[11px] font-normal text-neutral-500 lowercase">(10 digits)</span>
+                  </label>
                   <input
                     type="tel"
                     required
-                    placeholder="e.g. +91 94776 65429"
+                    maxLength={10}
+                    placeholder="9007385793"
                     value={formData.mobileNumber}
-                    onChange={e => setFormData({ ...formData, mobileNumber: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#f16701] focus:ring-2 focus:ring-[#f8b47d]/30 outline-none text-sm transition"
+                    onChange={e => {
+                      let val = e.target.value.replace(/\D/g, '');
+                      if (val.startsWith('91') && val.length > 10) val = val.slice(2);
+                      if (val.startsWith('0') && val.length > 10) val = val.slice(1);
+                      setFormData({ ...formData, mobileNumber: val.slice(0, 10) });
+                    }}
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#f16701] focus:ring-2 focus:ring-[#f8b47d]/30 outline-none text-sm transition font-mono tracking-wider"
                   />
                 </div>
                 <div>

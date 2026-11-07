@@ -119,7 +119,7 @@ app.post('/api/inquire', async (req, res) => {
     id: leadId,
     firmName: String(firmName).trim(),
     personName: String(personName).trim(),
-    mobileNumber: cleanPhone,
+    mobileNumber: cleanPhone.slice(-10),
     cityState: String(cityState).trim(),
     categories: Array.isArray(categories) ? categories : (categories ? [categories] : []),
     message: String(message || '').trim(),
