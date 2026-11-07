@@ -83,28 +83,23 @@ export default function SourcingMap() {
                   hub.isHQ ? 'bg-gradient-to-br from-white via-white to-[#FFF6ED]' : 'bg-white'
                 }`}
               >
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-2.5 min-w-0">
                   <div className="w-7 h-7 rounded-lg bg-[#FFF3E8] border border-[#f8b47d]/50 flex items-center justify-center flex-shrink-0 text-[#f16701] shadow-2xs">
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                     </svg>
                   </div>
-                  <div>
-                    <h3 className="text-sm sm:text-base font-extrabold text-[#0F1318] leading-tight">
-                      {hub.city}
-                    </h3>
-                    <span className="text-[10px] font-semibold text-neutral-500">
-                      {hub.state}
-                    </span>
-                  </div>
+                  <h3 className="text-sm sm:text-base font-extrabold text-[#0F1318] leading-tight truncate">
+                    {hub.city}
+                  </h3>
                 </div>
 
                 {hub.isHQ ? (
-                  <span className="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-[#f16701] text-white shadow-xs tracking-wider uppercase whitespace-nowrap">
-                    Central HQ
+                  <span className="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-[#f16701] text-white shadow-xs tracking-wider uppercase whitespace-nowrap flex-shrink-0">
+                    West Bengal • Central HQ
                   </span>
                 ) : (
-                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#FAF8F5] border border-[#f8b47d]/60 text-neutral-800 shadow-2xs whitespace-nowrap">
+                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#FAF8F5] border border-[#f8b47d]/60 text-neutral-800 shadow-2xs whitespace-nowrap flex-shrink-0">
                     {hub.state}
                   </span>
                 )}
@@ -132,23 +127,18 @@ export default function SourcingMap() {
                 key={idx}
                 className="p-3.5 sm:p-4 rounded-xl border-l-4 border-l-[#f16701] border-t border-r border-b border-[#f8b47d]/40 bg-white shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-between gap-3"
               >
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-2.5 min-w-0">
                   <div className="w-7 h-7 rounded-lg bg-[#FFF3E8] border border-[#f8b47d]/50 flex items-center justify-center flex-shrink-0 text-[#f16701] shadow-2xs">
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                     </svg>
                   </div>
-                  <div>
-                    <h3 className="text-sm sm:text-base font-extrabold text-[#0F1318] leading-tight">
-                      {hub.city}
-                    </h3>
-                    <span className="text-[10px] font-semibold text-neutral-500">
-                      {hub.state}
-                    </span>
-                  </div>
+                  <h3 className="text-sm sm:text-base font-extrabold text-[#0F1318] leading-tight truncate">
+                    {hub.city}
+                  </h3>
                 </div>
 
-                <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#FAF8F5] border border-[#f8b47d]/60 text-neutral-800 shadow-2xs whitespace-nowrap">
+                <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#FAF8F5] border border-[#f8b47d]/60 text-neutral-800 shadow-2xs whitespace-nowrap flex-shrink-0">
                   {hub.state}
                 </span>
               </div>

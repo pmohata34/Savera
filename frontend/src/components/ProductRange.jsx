@@ -8,9 +8,7 @@ export default function ProductRange() {
       id: 'sarees',
       categoryNum: '01',
       title: 'Sarees',
-      tagline: 'Cotton, Silk, Designer, and Partywear collections',
       image: '/assets/Sarees.jpeg',
-      content: 'Comprehensive wholesale collections spanning pure Varanasi Katan silks, lightweight organzas, handloom cottons, partywear georgettes, and intricately embellished designer festive sarees direct from composite looms.',
       tags: ['Cotton Sarees', 'Pure Silk', 'Designer Wear', 'Partywear Collections'],
       ctaHref: '#connect'
     },
