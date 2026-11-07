@@ -88,7 +88,7 @@ export default function GrowthJourney() {
 
                 {/* Soft Ambient Glow under the wave */}
                 <path
-                  d="M 20 226 L 100 226 C 200 226, 200 294, 300 294 C 400 294, 400 226, 500 226 C 600 226, 600 294, 700 294 C 800 294, 800 226, 900 226 C 1000 226, 1000 294, 1100 294 L 1180 294"
+                  d="M 20 294 L 100 294 C 200 294, 200 226, 300 226 C 400 226, 400 294, 500 294 C 600 294, 600 226, 700 226 C 800 226, 800 294, 900 294 C 1000 294, 1000 226, 1100 226 L 1180 226"
                   fill="none"
                   stroke="#f8b47d"
                   strokeWidth="8"
@@ -98,7 +98,7 @@ export default function GrowthJourney() {
 
                 {/* Base Soft Guidance Track */}
                 <path
-                  d="M 20 226 L 100 226 C 200 226, 200 294, 300 294 C 400 294, 400 226, 500 226 C 600 226, 600 294, 700 294 C 800 294, 800 226, 900 226 C 1000 226, 1000 294, 1100 294 L 1180 294"
+                  d="M 20 294 L 100 294 C 200 294, 200 226, 300 226 C 400 226, 400 294, 500 294 C 600 294, 600 226, 700 226 C 800 226, 800 294, 900 294 C 1000 294, 1000 226, 1100 226 L 1180 226"
                   fill="none"
                   stroke="#fbd7b4"
                   strokeWidth="2"
@@ -107,7 +107,7 @@ export default function GrowthJourney() {
 
                 {/* Active Dashed Animated Line Streaming from Left to Right */}
                 <path
-                  d="M 20 226 L 100 226 C 200 226, 200 294, 300 294 C 400 294, 400 226, 500 226 C 600 226, 600 294, 700 294 C 800 294, 800 226, 900 226 C 1000 226, 1000 294, 1100 294 L 1180 294"
+                  d="M 20 294 L 100 294 C 200 294, 200 226, 300 226 C 400 226, 400 294, 500 294 C 600 294, 600 226, 700 226 C 800 226, 800 294, 900 294 C 1000 294, 1000 226, 1100 226 L 1180 226"
                   fill="none"
                   stroke="url(#curvedWaveGradient)"
                   strokeWidth="4"
@@ -118,58 +118,15 @@ export default function GrowthJourney() {
               </svg>
             </div>
 
-            {/* 6 Alternating Milestone Columns */}
+            {/* 6 Alternating Milestone Columns - Starts with Bottom Card for 1995 */}
             <div className="grid grid-cols-6 gap-3.5 sm:gap-4 relative z-10 h-full">
               {milestones.map((m, idx) => {
-                const isEven = idx % 2 === 0; // Even: UP, Odd: DOWN
+                const isBottom = idx % 2 === 0; // Even: Start from BOTTOM (1995, 2003, 2010), Odd: TOP (1999, 2006, 2026)
 
                 return (
                   <div key={m.year} className="flex flex-col items-center h-full">
-                    {isEven ? (
-                      /* ── UP CARD (1995, 2003, 2010) ── */
-                      <>
-                        {/* 1. Text Box Above */}
-                        <div className="w-full p-4 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between h-[180px] space-y-1.5 group">
-                          <div>
-                            <div className="flex items-center justify-between mb-1">
-                              <span className="text-lg font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
-                                {m.year}
-                              </span>
-                              <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/35">
-                                0{idx + 1}
-                              </span>
-                            </div>
-                            <h3 className="text-xs font-bold text-[#0F1318] leading-snug line-clamp-2">
-                              {m.title}
-                            </h3>
-                          </div>
-                          <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-4">
-                            {m.description}
-                          </p>
-                        </div>
-
-                        {/* 2. Vertical Stem down to Dot */}
-                        <div className="w-0.5 h-7 bg-gradient-to-b from-[#f8b47d] to-[#f16701]"></div>
-
-                        {/* 3. Dot on Crest of Curve */}
-                        <div className="relative z-20 flex items-center justify-center">
-                          <div className="w-9 h-9 rounded-full bg-white border-3 border-[#f16701] shadow-md flex items-center justify-center transition-transform hover:scale-125 cursor-pointer group">
-                            <span className="w-3 h-3 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] group-hover:scale-125 transition-transform"></span>
-                          </div>
-                        </div>
-
-                        {/* 4. Year Label Under Dot */}
-                        <div className="mt-2 text-center">
-                          <span className="text-xs font-black text-[#0F1318] font-mono tracking-wider">
-                            {m.year}
-                          </span>
-                        </div>
-
-                        {/* Spacer below */}
-                        <div className="flex-1" />
-                      </>
-                    ) : (
-                      /* ── DOWN CARD (1999, 2006, 2026) ── */
+                    {isBottom ? (
+                      /* ── DOWN CARD (1995, 2003, 2010 - Starts from Bottom) ── */
                       <>
                         {/* Spacer above so dot aligns with trough */}
                         <div className="h-[240px]" />
@@ -210,6 +167,49 @@ export default function GrowthJourney() {
                             {m.description}
                           </p>
                         </div>
+                      </>
+                    ) : (
+                      /* ── UP CARD (1999, 2006, 2026) ── */
+                      <>
+                        {/* 1. Text Box Above */}
+                        <div className="w-full p-4 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between h-[180px] space-y-1.5 group">
+                          <div>
+                            <div className="flex items-center justify-between mb-1">
+                              <span className="text-lg font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
+                                {m.year}
+                              </span>
+                              <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/35">
+                                0{idx + 1}
+                              </span>
+                            </div>
+                            <h3 className="text-xs font-bold text-[#0F1318] leading-snug line-clamp-2">
+                              {m.title}
+                            </h3>
+                          </div>
+                          <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-4">
+                            {m.description}
+                          </p>
+                        </div>
+
+                        {/* 2. Vertical Stem down to Dot */}
+                        <div className="w-0.5 h-7 bg-gradient-to-b from-[#f8b47d] to-[#f16701]"></div>
+
+                        {/* 3. Dot on Crest of Curve */}
+                        <div className="relative z-20 flex items-center justify-center">
+                          <div className="w-9 h-9 rounded-full bg-white border-3 border-[#f16701] shadow-md flex items-center justify-center transition-transform hover:scale-125 cursor-pointer group">
+                            <span className="w-3 h-3 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] group-hover:scale-125 transition-transform"></span>
+                          </div>
+                        </div>
+
+                        {/* 4. Year Label Under Dot */}
+                        <div className="mt-2 text-center">
+                          <span className="text-xs font-black text-[#0F1318] font-mono tracking-wider">
+                            {m.year}
+                          </span>
+                        </div>
+
+                        {/* Spacer below */}
+                        <div className="flex-1" />
                       </>
                     )}
                   </div>
