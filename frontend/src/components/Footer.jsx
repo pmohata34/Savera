@@ -3,8 +3,8 @@ import SocialFlipButton from './ui/social-flip-button';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-white via-[#FAF8F5] to-[#f7e5d4]/40 text-neutral-800 pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-t border-[#fbd7b4]/40 relative">
-      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-14">
+    <footer className="bg-gradient-to-b from-white via-[#FAF8F5] to-[#f7e5d4]/40 text-neutral-800 pt-10 pb-8 px-4 sm:px-6 lg:px-8 border-t border-[#fbd7b4]/40 relative">
+      <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10">
 
         {/* 3 Main Columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
@@ -84,10 +84,7 @@ export default function Footer() {
         </div>
 
         {/* Interactive Social Flip Button Capsule */}
-        <div className="pt-6 border-t border-[#fbd7b4]/40 flex flex-col items-center justify-center space-y-2">
-          <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-neutral-500">
-            Connect &amp; Follow Our Network
-          </span>
+        <div className="pt-4 border-t border-[#fbd7b4]/40 flex flex-col items-center justify-center">
           <SocialFlipButton />
         </div>
 

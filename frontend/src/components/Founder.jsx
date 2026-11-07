@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Founder() {
   return (
-    <section id="founder" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="founder" className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Atmospheric Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -10,13 +10,10 @@ export default function Founder() {
         <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-gradient-to-bl from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl animate-float-reverse"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-14 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8 relative z-10">
 
         {/* Section Header */}
-        <div className="border-b border-[#fbd7b4]/50 pb-6 space-y-2">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">
-            Leadership &amp; Heritage
-          </span>
+        <div className="border-b border-[#fbd7b4]/50 pb-5 space-y-1.5">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
             Message from Our Founder
           </h2>

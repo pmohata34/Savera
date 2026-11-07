@@ -36,7 +36,7 @@ export default function HowWeWork() {
   ];
 
   return (
-    <section id="how-we-work" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-[#FFF6EE] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="how-we-work" className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-[#FFF6EE] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Atmospheric Ambient Lighting Mesh */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -44,14 +44,10 @@ export default function HowWeWork() {
         <div className="absolute bottom-1/4 -right-24 w-96 h-96 bg-gradient-to-bl from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl animate-float-reverse"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40 text-xs font-bold uppercase tracking-wider">
-            <span>6-Stage Sourcing Pipeline</span>
-          </div>
-
+        <div className="text-center max-w-3xl mx-auto space-y-2">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
             How We Work
           </h2>

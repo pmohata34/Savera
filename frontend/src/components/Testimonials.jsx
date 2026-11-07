@@ -66,7 +66,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-[#FFF5EC] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden"
+      className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-[#FFF5EC] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden"
     >
       {/* Warm Ambient Lighting Mesh */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -74,7 +74,7 @@ export default function Testimonials() {
         <div className="absolute bottom-1/4 -left-24 w-96 h-96 bg-gradient-to-tr from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl animate-float-reverse"></div>
       </div>
 
-      <div className="max-w-4xl mx-auto space-y-10 relative z-10">
+      <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 relative z-10">
 
         {/* Section Header: ShriVara Typography & Proportions */}
         <div className="text-center space-y-3">

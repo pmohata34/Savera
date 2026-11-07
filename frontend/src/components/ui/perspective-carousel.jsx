@@ -131,30 +131,21 @@ export function PerspectiveCarousel({
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#f7e5d4]/60 to-transparent rounded-full blur-xl pointer-events-none" />
 
                     {/* Top Pill / Number */}
-                    <div className="relative z-10 flex items-center justify-between border-b border-[#fbd7b4]/40 pb-3">
-                      <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] shadow-2xs border border-[#f8b47d]/40">
-                        {item.tag || `Pillar 0${index + 1}`}
-                      </span>
-                      <span className="text-base font-black text-[#f16701] font-mono">
+                    <div className="relative z-10 flex items-center justify-between border-b border-[#fbd7b4]/40 pb-2.5">
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] shadow-2xs border border-[#f8b47d]/40 font-mono">
                         0{index + 1}
                       </span>
                     </div>
 
-                    {/* Main Content: Title, Subtitle, Description */}
+                    {/* Main Content: Verbatim Title & Description */}
                     <div className="relative z-10 my-auto py-2 space-y-2">
                       <h4 className="text-lg sm:text-xl font-black text-[#0F1318] leading-tight">
                         {item.title}
                       </h4>
 
-                      {item.subtitle && (
-                        <p className="text-xs font-bold text-[#f16701]">
-                          {item.subtitle}
-                        </p>
-                      )}
-
                       <div className="w-10 h-0.5 bg-gradient-to-r from-[#f16701] to-[#f8b47d] rounded-full my-2" />
 
-                      <p className="text-xs text-neutral-600 leading-relaxed font-normal">
+                      <p className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed font-normal">
                         {item.description}
                       </p>
                     </div>

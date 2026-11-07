@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function MissionVision() {
   return (
-    <section id="mission-vision" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-[#FAF8F5] to-white border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="mission-vision" className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-[#FAF8F5] to-white border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Atmospheric Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -10,13 +10,9 @@ export default function MissionVision() {
         <div className="absolute bottom-1/3 -left-24 w-96 h-96 bg-gradient-to-tr from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl animate-float-reverse"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8 relative z-10">
 
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40 text-xs font-bold uppercase tracking-wider">
-            <span>Our Guiding Principles</span>
-          </div>
-
+        <div className="text-center max-w-2xl mx-auto space-y-2">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
             Our Mission &amp; Vision
           </h2>

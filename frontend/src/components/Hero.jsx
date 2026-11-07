@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-10 sm:pt-14 pb-10 sm:pb-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-[#FFF6EE] to-[#FDF0E5] border-b border-[#fbd7b4]/40 min-h-[calc(100vh-4.5rem)] flex flex-col justify-between overflow-hidden"
+      className="relative pt-6 sm:pt-8 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-[#FFF6EE] to-[#FDF0E5] border-b border-[#fbd7b4]/40 min-h-[calc(100vh-4.5rem)] flex flex-col justify-between overflow-hidden"
     >
       {/* Background Animated Gradient Mesh */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
