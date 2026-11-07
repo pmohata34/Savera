@@ -59,7 +59,8 @@ Savera Tex Solution LLP`;
     try {
       console.log(`[WhatsApp Automation: CLOUD API] Dispatching message with brochure PDF to +${recipientNumber}...`);
 
-      const response = await fetch(`https://graph.facebook.com/v21.0/${phoneNumberId}/messages`, {
+      // 1. Attempt sending document message with PDF attachment
+      let response = await fetch(`https://graph.facebook.com/v21.0/${phoneNumberId}/messages`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${cloudToken}`,
@@ -78,12 +79,36 @@ Savera Tex Solution LLP`;
         })
       });
 
-      const data = await response.json();
+      let data = await response.json();
+
+      // Fallback: If Meta cannot download media (e.g. testing on localhost), send direct text message
+      if (!response.ok && (data.error?.code === 100 || data.error?.message?.toLowerCase().includes('media') || data.error?.message?.toLowerCase().includes('url'))) {
+        console.warn('[WhatsApp Automation: CLOUD API] Media URL unreachable by Meta (likely localhost). Falling back to direct text message...');
+        response = await fetch(`https://graph.facebook.com/v21.0/${phoneNumberId}/messages`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${cloudToken}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            messaging_product: 'whatsapp',
+            recipient_type: 'individual',
+            to: recipientNumber,
+            type: 'text',
+            text: {
+              preview_url: true,
+              body: `${thankYouText}\n\n📄 Official Brochure: ${brochureUrl}`
+            }
+          })
+        });
+        data = await response.json();
+      }
+
       if (response.ok) {
         console.log(`[WhatsApp Automation: SENT] Message successfully delivered via Meta Cloud API. Message ID:`, data.messages?.[0]?.id);
         return { success: true, provider: 'META_CLOUD_API', data, brochureUrl };
       } else {
-        console.error('[WhatsApp Automation: META ERROR]', data);
+        console.error('[WhatsApp Automation: META ERROR]', JSON.stringify(data, null, 2));
       }
     } catch (err) {
       console.error('[WhatsApp Automation: META EXCEPTION]', err.message);
