@@ -103,50 +103,75 @@ export function InteractiveBook({
           onHoverStart={() => !isOpen && setIsHovering(true)}
           onHoverEnd={() => setIsHovering(false)}
         >
-          {/* Front Face (Cover Art with Rich Orange Gradient) */}
+          {/* Front Face (Cover Art with Rich Luxury Light Gradient & Official Logo) */}
           <div
-            className="absolute inset-0 w-full h-full rounded-r-2xl rounded-l-md shadow-2xl overflow-hidden border border-[#f8b47d]/60 bg-gradient-to-br from-[#f16701] via-[#f48129] to-[#f8b47d] text-white p-6 sm:p-7 flex flex-col justify-between"
+            className="absolute inset-0 w-full h-full rounded-r-2xl rounded-l-md shadow-2xl overflow-hidden border-2 border-[#fbd7b4]/80 bg-gradient-to-br from-[#ff832b] via-[#f16701] to-[#bd4000] text-white p-6 sm:p-7 flex flex-col justify-between"
             style={{ transform: 'translateZ(20px)', backfaceVisibility: 'hidden' }}
           >
             {/* Book Spine Shadow Left Edge */}
-            <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/40 via-black/10 to-transparent pointer-events-none" />
-            <div className="absolute left-4 top-0 bottom-0 w-[1px] bg-white/20" />
+            <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/50 via-black/15 to-transparent pointer-events-none z-20" />
+            <div className="absolute left-4 top-0 bottom-0 w-[1px] bg-white/25 z-20" />
+
+            {/* Ambient Lighting & Luxury Luminous Sheen */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 bg-white/15 rounded-full blur-2xl pointer-events-none" />
+
+            {/* Hardcover Debossed Luxury Borders */}
+            <div className="absolute inset-3 rounded-xl border border-white/30 pointer-events-none" />
+            <div className="absolute inset-4.5 rounded-lg border border-white/15 pointer-events-none" />
 
             {/* Top Foil Embellishment */}
             <div className="relative z-10 flex items-center justify-between">
-              <span className="px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest uppercase bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-xs">
+              <span className="px-3.5 py-1 rounded-full text-[10px] font-extrabold tracking-widest uppercase bg-white/25 backdrop-blur-md border border-white/40 shadow-xs text-transparent bg-clip-text bg-gradient-to-r from-white via-[#FFF8F0] to-[#fbd7b4]">
                 {coverBadge}
               </span>
-              <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
-                <BookOpen className="w-4 h-4 text-white" />
+              <div className="w-8 h-8 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center border border-white/40 shadow-xs">
+                <BookOpen className="w-4 h-4 text-white drop-shadow-xs" />
               </div>
             </div>
 
-            {/* Central Seal & Crest */}
+            {/* Central Seal & Crest with Real Official Logo & Light Gradient Typography */}
             <div className="relative z-10 my-auto text-center space-y-3 px-2">
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-white/15 backdrop-blur-md border border-white/30 p-2 shadow-inner flex items-center justify-center">
-                <img src="/assets/logo_cropped.png" alt="Savera" className="w-full h-full object-contain filter brightness-0 invert" />
+              
+              {/* Official Logo Medallion with Since 1995 Pill */}
+              <div className="relative inline-block mx-auto mb-1">
+                <div className="absolute -inset-1.5 bg-white/30 rounded-2xl blur-md" />
+                <div className="relative w-18 h-18 sm:w-20 sm:h-20 rounded-2xl bg-white p-2 shadow-xl border-2 border-white/90 flex items-center justify-center transform hover:scale-105 transition duration-300">
+                  <img
+                    src="/assets/logo_cropped.png"
+                    alt="Savera Logo"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-[#0F1318] text-[#fbd7b4] text-[8px] font-extrabold uppercase tracking-widest border border-[#f8b47d]/60 shadow-md whitespace-nowrap">
+                  SINCE 1995
+                </div>
               </div>
 
-              <div>
-                <span className="block text-[11px] font-bold uppercase tracking-[0.25em] text-[#fbd7b4]">
+              <div className="pt-2">
+                <span className="block text-[11px] font-bold uppercase tracking-[0.28em] text-transparent bg-clip-text bg-gradient-to-r from-[#FFFDF9] via-[#fbd7b4] to-[#f8b47d] drop-shadow-xs">
                   {coverSubtitle}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight mt-1">
+                <h3 className="text-2xl sm:text-3xl font-extrabold font-playfair tracking-tight leading-tight mt-1 text-transparent bg-clip-text bg-gradient-to-b from-white via-[#FFF7ED] to-[#FFE0C2] drop-shadow-md">
                   {coverTitle}
                 </h3>
               </div>
 
-              <div className="w-12 h-0.5 mx-auto bg-white/40 rounded-full" />
-              <p className="text-xs text-white/90 leading-relaxed font-normal max-w-xs mx-auto">
+              <div className="w-16 h-0.5 mx-auto bg-gradient-to-r from-transparent via-white/70 to-transparent rounded-full" />
+              
+              <p className="text-xs sm:text-[13px] text-transparent bg-clip-text bg-gradient-to-r from-[#FFFDF9] via-white to-[#FFF0DE] leading-relaxed font-normal max-w-xs mx-auto drop-shadow-xs">
                 {coverDescription}
               </p>
             </div>
 
-            {/* Bottom Authority Line */}
-            <div className="relative z-10 pt-4 border-t border-white/25 flex items-center justify-between text-[11px]">
-              <span className="font-bold tracking-wider uppercase text-white/90">{bookAuthor}</span>
-              <span className="text-white/80 font-mono text-[10px]">VOL. 2026</span>
+            {/* Bottom Authority Line with Crisp White Brand Capsule */}
+            <div className="relative z-10 pt-3 border-t border-white/25 flex items-center justify-between text-[11px]">
+              <div className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-white/60 shadow-sm flex items-center gap-1.5">
+                {bookAuthor}
+              </div>
+              <span className="text-white/90 font-mono text-[10px] font-bold tracking-wider px-2 py-0.5 rounded bg-black/25 backdrop-blur-xs border border-white/20">
+                VOL. 2026
+              </span>
             </div>
           </div>
 

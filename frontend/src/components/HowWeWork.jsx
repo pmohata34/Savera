@@ -6,37 +6,31 @@ export default function HowWeWork() {
     {
       num: '01',
       title: 'Understanding Requirements',
-      subtitle: 'Client-First Sourcing Alignment',
       description: "We begin by understanding our clients' specific needs, including product preferences, quality expectations, quantity requirements and target market. This helps us identify suitable sourcing opportunities aligned with their business objectives."
     },
     {
       num: '02',
       title: 'Sourcing from Our Network',
-      subtitle: 'Direct Production Corridors',
       description: "Based on the requirements, we explore our established network of manufacturers across major textile hubs to identify relevant manufacturing partners and suitable sourcing options."
     },
     {
       num: '03',
       title: 'Product Matching & Selection',
-      subtitle: 'Sample Verification & Swatch Scrutiny',
       description: "We help identify and match suitable products with our clients' requirements, considering their preferences, target customers and market needs to support better product selection."
     },
     {
       num: '04',
       title: 'Price Coordination & Negotiation',
-      subtitle: 'Direct Loom Commercial Alignment',
       description: "We facilitate commercial discussions between our clients and manufacturers, helping both parties communicate their expectations and work towards mutually agreeable terms."
     },
     {
       num: '05',
       title: 'Order Processing & Follow-Up',
-      subtitle: 'Dispatch & Production Tracking',
       description: "Once the order terms are finalised, we coordinate with the relevant parties and follow up on the order process to help maintain proper communication and timely progress."
     },
     {
       num: '06',
       title: 'Transparency & Reliable Support',
-      subtitle: 'Generational Relationship Management',
       description: "We prioritise clear communication and transparency throughout the process, keeping our clients and manufacturing partners informed of relevant updates and agreed arrangements."
     }
   ];

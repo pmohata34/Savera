@@ -15,3 +15,4 @@ export default function BrandName({ className = '', as = 'span', saveraClass = '
     </Component>
   );
 }
+
