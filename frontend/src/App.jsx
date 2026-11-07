@@ -18,8 +18,8 @@ export default function App() {
       {/* Fixed Top Luxury Navbar */}
       <Navbar />
 
-      {/* Main Content Sections */}
-      <main className="w-full pt-18">
+      {/* Main Content Sections (pt-[82px] ensures exactly 10px space between navbar and page) */}
+      <main className="w-full pt-[82px]">
         {/* 1. About Us (Hero Section with Heritage Positioning & Metrics) */}
         <Hero />
 
