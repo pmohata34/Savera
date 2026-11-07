@@ -18,11 +18,12 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-xl sm:text-2xl font-black tracking-tight text-[#f16701] leading-none">
-              SAVERA
+            <span className="text-xl sm:text-2xl font-bold font-playfair tracking-normal leading-none inline-flex items-baseline gap-1.5">
+              <span className="text-[#f16701]">SAVERA</span>
+              <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
             </span>
             <span className="text-[9px] font-bold tracking-[0.22em] text-neutral-600 uppercase mt-0.5">
-              TEX SOLUTION LLP
+              Commission Agent of all textile goods
             </span>
           </div>
         </a>
@@ -73,6 +74,7 @@ export default function Navbar() {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="xl:hidden border-t border-[#fbd7b4]/40 bg-white/98 backdrop-blur-2xl px-6 py-5 shadow-2xl flex flex-col gap-2.5 text-sm text-neutral-700">
+          <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">HOME</a>
           <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">About Us</a>
           <a href="#how-we-work" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">How We Work</a>
           <a href="#sourcing-map" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Sourcing Hubs</a>

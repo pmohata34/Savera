@@ -15,8 +15,13 @@ export default function Footer() {
                 <img src="/assets/logo.jpg" alt="Savera Logo" className="w-full h-full object-contain" />
               </div>
               <div>
-                <span className="block text-xl font-extrabold text-[#f16701] leading-none">SAVERA</span>
-                <span className="block text-[9px] font-bold tracking-[0.25em] text-neutral-600 uppercase mt-0.5">TEX SOLUTION LLP</span>
+                <span className="font-playfair font-bold text-xl leading-none inline-flex items-baseline gap-1.5">
+                  <span className="text-[#f16701]">SAVERA</span>
+                  <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
+                </span>
+                <span className="block text-[9px] font-bold tracking-[0.25em] text-neutral-600 uppercase mt-0.5">
+                  COMMISSION AGENT SINCE 1995
+                </span>
               </div>
             </div>
 
@@ -69,7 +74,10 @@ export default function Footer() {
             <div className="p-4.5 rounded-2xl bg-white border border-[#f8b47d]/40 shadow-xs space-y-3 text-xs text-neutral-700">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#f16701]"></span>
-                <span className="font-bold text-neutral-900 text-sm">Savera Tex Solution LLP</span>
+                <span className="font-playfair font-bold text-sm inline-flex items-baseline gap-1">
+                  <span className="text-[#f16701]">SAVERA</span>
+                  <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
+                </span>
               </div>
 
               <div className="text-neutral-600 text-xs leading-relaxed pl-3.5 border-l-2 border-[#f16701]/60 space-y-0.5">
@@ -89,7 +97,7 @@ export default function Footer() {
         {/* Bottom Copyright & Sourcing Network Bar */}
         <div className="pt-8 border-t border-[#fbd7b4]/40 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
           <div>
-            © <strong>Savera Tex Solution LLP</strong>. All rights reserved.
+            © <strong className="font-playfair font-bold inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong>. All rights reserved.
           </div>
           <div className="flex flex-wrap items-center gap-2.5 text-[11px]">
             <span className="font-bold text-neutral-700">Central Office: Kolkata</span>

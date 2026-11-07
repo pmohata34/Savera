@@ -366,8 +366,11 @@ export function InteractiveBook({
               </button>
             </div>
 
-            <p className="text-[10px] text-neutral-400 font-mono">
-              Savera Tex Solution LLP • Wholesale Sourcing Platform
+            <p className="text-[10px] text-neutral-400">
+              <span className="font-playfair font-bold text-xs inline-flex items-baseline gap-1">
+                <span className="text-[#f16701]">SAVERA</span>
+                <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
+              </span> • Wholesale Sourcing Platform
             </p>
           </div>
         </div>

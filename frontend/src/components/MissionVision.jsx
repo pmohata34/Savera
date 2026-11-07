@@ -54,7 +54,7 @@ export default function MissionVision() {
                 We aim to create an environment where manufacturers can expand their reach, connect with genuine buyers and develop lasting business partnerships, while retailers and wholesalers can access suitable manufacturing connections and explore new market opportunities.
               </p>
               <p className="text-xs sm:text-sm text-neutral-600">
-                As the textile industry evolves, we aspire to expand our network, adapt to changing business needs and strengthen our role in connecting the textile trade. We want Savera Tex Solution LLP to be recognised for its experience, market understanding, transparent business practices and commitment to building relationships that create long-term value for everyone.
+                As the textile industry evolves, we aspire to expand our network, adapt to changing business needs and strengthen our role in connecting the textile trade. We want <strong className="font-playfair font-bold text-xs sm:text-sm inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong> to be recognised for its experience, market understanding, transparent business practices and commitment to building relationships that create long-term value for everyone.
               </p>
             </div>
           </div>

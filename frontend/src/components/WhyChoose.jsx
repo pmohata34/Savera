@@ -63,7 +63,7 @@ export default function WhyChoose() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-2.5">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
-            Why Choose Savera Tex Solution LLP?
+            Why Choose <span className="font-playfair font-bold inline-flex items-baseline gap-1.5"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></span>?
           </h2>
 
           <p className="text-sm sm:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52]">
@@ -71,7 +71,7 @@ export default function WhyChoose() {
           </p>
 
           <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal max-w-2xl mx-auto">
-            With experience in the textile market since 1995, <strong>Savera Tex Solution LLP</strong> understands the importance of connecting the right manufacturers with the right buyers. Rotate through our 7 core strategic pillars below.
+            With experience in the textile market since 1995, <strong className="font-playfair font-bold text-sm inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong> understands the importance of connecting the right manufacturers with the right buyers. Rotate through our 7 core strategic pillars below.
           </p>
         </div>
 

@@ -48,7 +48,7 @@ export default function Founder() {
                 Vineet Kr. Taparia
               </h3>
               <p className="text-xs font-bold text-[#f16701]">
-                Founder, Savera Tex Solution LLP
+                Founder, <span className="font-playfair font-bold text-xs inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></span>
               </p>
               <p className="text-[11px] text-neutral-500 pt-0.5">
                 30+ Years of Textile Commission Leadership • Kolkata Central Operations
@@ -79,7 +79,7 @@ export default function Founder() {
               </p>
 
               <p>
-                With this vision, <strong className="text-[#0F1318] font-bold">Savera Tex Solution LLP</strong> carries forward the legacy of Savera Marketing. Today, we work towards bringing textile manufacturers, retailers and wholesalers closer together by creating meaningful business connections. We believe that manufacturers deserve the opportunity to reach the right buyers, while retailers and wholesalers deserve access to reliable manufacturing connections that meet their requirements.
+                With this vision, <strong className="font-playfair font-bold text-xs sm:text-sm inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong> carries forward the legacy of Savera Marketing. Today, we work towards bringing textile manufacturers, retailers and wholesalers closer together by creating meaningful business connections. We believe that manufacturers deserve the opportunity to reach the right buyers, while retailers and wholesalers deserve access to reliable manufacturing connections that meet their requirements.
               </p>
 
               <p>
@@ -87,7 +87,7 @@ export default function Founder() {
               </p>
 
               <p>
-                For me, the success of Savera Tex Solution LLP will never be measured by business figures alone, but by the trust we earn, the relationships we build and the goodwill we create along the way.
+                For me, the success of <strong className="font-playfair font-bold text-xs sm:text-sm inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong> will never be measured by business figures alone, but by the trust we earn, the relationships we build and the goodwill we create along the way.
               </p>
             </div>
 

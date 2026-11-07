@@ -100,7 +100,11 @@ export default function ProductRange() {
             coverTitle="Product Range"
             coverSubtitle="Textile Portfolios & Swatches"
             coverDescription="Connecting manufacturers with buyers across 5 primary commercial categories."
-            bookAuthor="Savera Tex Solution LLP"
+            bookAuthor={
+              <span className="font-playfair font-bold inline-flex items-baseline gap-1">
+                <span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
+              </span>
+            }
             insideCoverBadge="Verified Collections"
             insideCoverTitle="Five Core Product Categories"
             insideCoverDescription="Turn the pages to view authentic photography, weaving specifications, and wholesale sourcing options direct from production looms."

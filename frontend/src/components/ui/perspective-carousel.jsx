@@ -160,9 +160,12 @@ export function PerspectiveCarousel({
                     </div>
 
                     {/* Bottom Brand Line */}
-                    <div className="relative z-10 pt-3 border-t border-[#fbd7b4]/40 flex items-center justify-between text-[10px] text-neutral-400 font-mono">
-                      <span>Savera Tex Solution</span>
-                      <span className="font-bold text-[#f16701]">Pillar {index + 1} of 7</span>
+                    <div className="relative z-10 pt-3 border-t border-[#fbd7b4]/40 flex items-center justify-between text-[10px] text-neutral-400">
+                      <span className="font-playfair font-bold text-xs inline-flex items-baseline gap-1">
+                        <span className="text-[#f16701]">SAVERA</span>
+                        <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
+                      </span>
+                      <span className="font-bold text-[#f16701] font-mono">Pillar {index + 1} of 7</span>
                     </div>
                   </div>
                 </motion.div>

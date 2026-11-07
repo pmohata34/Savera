@@ -45,6 +45,11 @@
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
 }
 
+/* Playfair Display Bold for official brand styling */
+.font-playfair {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+
 /* Brand Gradient Utilities */
 .bg-savera-gradient {
   background: linear-gradient(135deg, #f7e5d4 0%, #fbd7b4 25%, #f8b47d 50%, #f79a52 75%, #f16701 100%);

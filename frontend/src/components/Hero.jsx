@@ -34,7 +34,10 @@ export default function Hero() {
             {/* Verbatim Document Paragraphs (Tailored for 1-Screen Viewport) */}
             <div className="space-y-2.5 text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal max-w-xl">
               <p>
-                <strong className="text-[#f16701] font-bold">Savera Tex Solution LLP</strong> is a textile commission agency that connects manufacturers with retailers and wholesalers across India and international markets. We work with both sides of the textile trade, helping manufacturers reach new buyers and enabling retailers and wholesalers to explore suitable suppliers for their business requirements.
+                <strong className="font-playfair font-bold text-sm sm:text-base inline-flex items-baseline gap-1">
+                  <span className="text-[#f16701]">SAVERA</span>
+                  <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
+                </strong> is a textile commission agency that connects manufacturers with retailers and wholesalers across India and international markets. We work with both sides of the textile trade, helping manufacturers reach new buyers and enabling retailers and wholesalers to explore suitable suppliers for their business requirements.
               </p>
 
               <p className="text-neutral-600">
@@ -43,7 +46,7 @@ export default function Hero() {
 
               <div className="p-3 sm:p-3.5 rounded-xl bg-white/80 border border-[#f8b47d]/40 shadow-2xs">
                 <p className="text-[11px] sm:text-xs font-semibold text-neutral-800 italic">
-                  "At Savera Tex Solution LLP, we believe that successful trade is built on trust, clear communication and strong business relationships. We connect the right businesses to create opportunities for mutual growth."
+                  "At <strong className="font-playfair font-bold not-italic inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong>, we believe that successful trade is built on trust, clear communication and strong business relationships. We connect the right businesses to create opportunities for mutual growth."
                 </p>
               </div>
             </div>
@@ -65,14 +68,6 @@ export default function Hero() {
                   playsInline
                   className="w-full h-full object-cover rounded-xl pointer-events-none"
                 />
-
-                {/* Subtle Header Badge */}
-                <div className="absolute top-3 left-3 z-10 pointer-events-none">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#f16701] backdrop-blur-md border border-[#f8b47d]/60 shadow-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#f16701] animate-ping"></span>
-                    <span>About Us Video</span>
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -92,13 +87,13 @@ export default function Hero() {
             <div className="p-2.5 sm:p-3 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#f16701] leading-none">1,200+</div>
               <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1">Retailers &amp; Wholesalers</p>
-              <p className="text-[10px] text-neutral-500 font-medium">Connected to Direct Looms</p>
+
             </div>
 
             <div className="p-2.5 sm:p-3 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#f16701] leading-none">700+</div>
-              <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1">Manufacturing Mills</p>
-              <p className="text-[10px] text-neutral-500 font-medium">Across 6 Production Hubs</p>
+              <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1">Manufacturing Partnerns</p>
+
             </div>
 
             <div className="p-2.5 sm:p-3 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left">

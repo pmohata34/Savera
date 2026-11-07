@@ -29,8 +29,23 @@ export default function GrowthJourney() {
     },
     {
       year: '2026',
-      title: 'Formation of Savera Tex Solution LLP',
-      description: 'Established Savera Tex Solution LLP, bringing together years of industry experience and business relationships under a structured platform across India and international markets.'
+      title: (
+        <span>
+          Formation of{' '}
+          <strong className="font-playfair font-bold inline-flex items-baseline gap-1">
+            <span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
+          </strong>
+        </span>
+      ),
+      description: (
+        <span>
+          Established{' '}
+          <strong className="font-playfair font-bold inline-flex items-baseline gap-1">
+            <span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
+          </strong>
+          , bringing together years of industry experience and business relationships under a structured platform across India and international markets.
+        </span>
+      )
     }
   ];
 
