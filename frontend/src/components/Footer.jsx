@@ -42,10 +42,6 @@ export default function Footer() {
             <div className="space-y-2.5 text-xs text-neutral-700">
               <div className="flex items-center gap-2.5">
                 <span className="text-[#f16701]">📞</span>
-                <a href="tel:+919432583461" className="hover:text-[#f16701] transition font-medium">+91 94325 83461</a>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <span className="text-[#f16701]">📞</span>
                 <a href="tel:+919477665429" className="hover:text-[#f16701] transition font-medium">+91 94776 65429</a>
               </div>
               <div className="flex items-center gap-2.5">
@@ -54,7 +50,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2.5 pt-1">
                 <span className="text-[#f16701]">✉️</span>
-                <a href="mailto:saveratexsolutionllp@gmail.com" className="hover:text-[#f16701] transition font-medium">saveratexsolutionllp@gmail.com</a>
+                <a href="mailto:info@saveratexsolutionllp.in" className="hover:text-[#f16701] transition font-medium">info@saveratexsolutionllp.in</a>
               </div>
             </div>
 

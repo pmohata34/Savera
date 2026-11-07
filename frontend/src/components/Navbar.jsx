@@ -36,6 +36,7 @@ export default function Navbar() {
           <a href="#growth-journey" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">Growth Journey</a>
           <a href="#why-choose" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">Why Choose Us</a>
           <a href="#founder" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">Founder</a>
+          <a href="#testimonials" className="px-3.5 py-1.5 rounded-full hover:text-[#f16701] hover:bg-white transition">Reviews</a>
         </nav>
 
         {/* Right Action Cluster - VERY RIGHT */}
@@ -79,6 +80,7 @@ export default function Navbar() {
           <a href="#growth-journey" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Growth Journey</a>
           <a href="#why-choose" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Why Choose Us</a>
           <a href="#founder" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Founder Message</a>
+          <a href="#testimonials" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">Client Reviews</a>
           <a href="#connect" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl bg-[#f7e5d4] text-[#f16701] font-bold transition">Inquire Now</a>
         </div>
       )}

@@ -8,6 +8,7 @@ import GrowthJourney from './components/GrowthJourney';
 import WhyChoose from './components/WhyChoose';
 import Founder from './components/Founder';
 import MissionVision from './components/MissionVision';
+import Testimonials from './components/Testimonials';
 import ConnectForm from './components/ConnectForm';
 import Footer from './components/Footer';
 
@@ -43,7 +44,10 @@ export default function App() {
         {/* 8. Mission & Vision */}
         <MissionVision />
 
-        {/* 9. Commercial Sourcing Inquiry Form */}
+        {/* 9. Verified Client Testimonials (Google Business Reviews) */}
+        <Testimonials />
+
+        {/* 10. Commercial Sourcing Inquiry Form */}
         <ConnectForm />
       </main>
 
