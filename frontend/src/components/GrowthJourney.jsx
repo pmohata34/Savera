@@ -50,7 +50,7 @@ export default function GrowthJourney() {
   ];
 
   return (
-    <section id="growth-journey" className="py-14 sm:py-18 px-4 sm:px-8 lg:px-12 bg-gradient-to-b from-white via-[#FAF8F5] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="growth-journey" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-[#FAF8F5] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Atmospheric Ambient Lighting Mesh */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -58,14 +58,17 @@ export default function GrowthJourney() {
         <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-gradient-to-tr from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10">
 
         {/* Section Header */}
         <div className="max-w-3xl space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F1318] tracking-tight">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">
+            Our 30-Year Milestones
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
             Our Growth Journey
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-600 font-normal">
+          <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed">
             A thirty-year journey connecting manufacturers with buyers, expanding continuously from 1995 to 2026.
             Building on our experience since 1995, we continue to strengthen textile connections, develop new business opportunities and create lasting relationships across the industry.
           </p>

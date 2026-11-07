@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-22 pb-6 px-4 sm:px-8 lg:px-12 bg-gradient-to-b from-[#FAF8F5] via-[#FFF6EE] to-[#FDF0E5] border-b border-[#fbd7b4]/40 min-h-[calc(100vh-4.5rem)] flex flex-col justify-between overflow-hidden"
+      className="relative pt-10 sm:pt-14 pb-10 sm:pb-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-[#FFF6EE] to-[#FDF0E5] border-b border-[#fbd7b4]/40 min-h-[calc(100vh-4.5rem)] flex flex-col justify-between overflow-hidden"
     >
       {/* Background Animated Gradient Mesh */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -74,32 +74,29 @@ export default function Hero() {
 
         </div>
 
-        {/* Integrated 5-Card Trust Metrics Bar (Tailored for Asus VivoBook 15) */}
-        <div className="pt-3 border-t border-[#fbd7b4]/50">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3">
+        {/* Integrated 4-Card Trust Metrics Bar */}
+        <div className="pt-6 sm:pt-8 border-t border-[#fbd7b4]/50">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
 
-            <div className="p-2.5 sm:p-3 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left">
+            <div className="p-3 sm:p-4 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left transition-all duration-300 hover:border-[#f16701]/40">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#f16701] leading-none">500+</div>
-              <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1">Active Cities Pan-India &amp; Overseas</p>
+              <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1.5">Active Cities Pan-India &amp; Overseas</p>
             </div>
 
-            <div className="p-2.5 sm:p-3 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left">
+            <div className="p-3 sm:p-4 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left transition-all duration-300 hover:border-[#f16701]/40">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#f16701] leading-none">1,200+</div>
-              <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1">Retailers &amp; Wholesalers</p>
-
+              <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1.5">Retailers &amp; Wholesalers</p>
             </div>
 
-            <div className="p-2.5 sm:p-3 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left">
+            <div className="p-3 sm:p-4 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left transition-all duration-300 hover:border-[#f16701]/40">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#f16701] leading-none">700+</div>
-              <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1">Manufacturing Partnerns</p>
-
+              <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1.5">Manufacturing Partners</p>
             </div>
 
-            <div className="p-2.5 sm:p-3 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left">
+            <div className="p-3 sm:p-4 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left transition-all duration-300 hover:border-[#f16701]/40">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#f16701] leading-none">80+</div>
-              <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1">Counters Launched Upto 2026</p>
+              <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1.5">Counters Launched Upto 2026</p>
             </div>
-
 
           </div>
         </div>

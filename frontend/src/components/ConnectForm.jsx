@@ -109,7 +109,7 @@ export default function ConnectForm() {
   };
 
   return (
-    <section id="connect" className="py-14 sm:py-16 px-4 sm:px-8 lg:px-12 bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="connect" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Atmospheric Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -117,10 +117,14 @@ export default function ConnectForm() {
         <div className="absolute bottom-1/4 -left-24 w-96 h-96 bg-gradient-to-tr from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl animate-float-reverse"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10">
 
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0F1318] tracking-tight">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40 text-xs font-bold uppercase tracking-wider">
+            <span>Inquiry &amp; Support</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
             Connect With <span className="font-playfair font-bold inline-flex items-baseline gap-2"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></span>
           </h2>
           <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">

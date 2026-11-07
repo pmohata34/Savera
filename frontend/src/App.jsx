@@ -19,7 +19,7 @@ export default function App() {
       <Navbar />
 
       {/* Main Content Sections */}
-      <main className="w-full pt-16">
+      <main className="w-full pt-18">
         {/* 1. About Us (Hero Section with Heritage Positioning & Metrics) */}
         <Hero />
 

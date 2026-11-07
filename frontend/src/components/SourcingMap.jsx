@@ -32,7 +32,7 @@ export default function SourcingMap() {
   ];
 
   return (
-    <section id="sourcing-map" className="py-14 sm:py-16 px-4 sm:px-8 lg:px-12 bg-gradient-to-b from-white via-[#FAF8F5] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="sourcing-map" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-[#FAF8F5] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -40,12 +40,15 @@ export default function SourcingMap() {
         <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-gradient-to-tr from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-10 sm:space-y-12 relative z-10">
 
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#fbd7b4]/50 pb-6">
           <div className="space-y-2 max-w-2xl">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F1318] tracking-tight">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">
+              Pan-India Network
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
               Our Sourcing Hubs
             </h2>
             <p className="text-xs sm:text-sm text-neutral-600 font-normal">

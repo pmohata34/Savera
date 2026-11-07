@@ -36,7 +36,7 @@ export default function HowWeWork() {
   ];
 
   return (
-    <section id="how-we-work" className="py-14 sm:py-18 px-4 sm:px-8 lg:px-12 bg-gradient-to-b from-[#FAF8F5] via-[#FFF6EE] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="how-we-work" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-[#FFF6EE] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Atmospheric Ambient Lighting Mesh */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -44,10 +44,14 @@ export default function HowWeWork() {
         <div className="absolute bottom-1/4 -right-24 w-96 h-96 bg-gradient-to-bl from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl animate-float-reverse"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-2.5">
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40 text-xs font-bold uppercase tracking-wider">
+            <span>6-Stage Sourcing Pipeline</span>
+          </div>
+
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
             How We Work
           </h2>
@@ -65,14 +69,18 @@ export default function HowWeWork() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 items-stretch">
           {steps.map((step) => (
             <GlowCard key={step.num} borderWidth="p-[3.5px]">
-              <div className="space-y-3">
-                <h3 className="text-xl sm:text-2xl font-black text-[#0F1318] group-hover:text-[#f16701] transition-colors leading-tight">
-                  {step.title}
-                </h3>
+              <div className="space-y-3 flex flex-col h-full justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-black px-2.5 py-1 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40 font-mono tracking-wider">
+                      STEP {step.num}
+                    </span>
+                  </div>
 
-                <p className="text-xs sm:text-sm font-bold text-[#f16701]">
-                  {step.subtitle}
-                </p>
+                  <h3 className="text-xl sm:text-2xl font-black text-[#0F1318] group-hover:text-[#f16701] transition-colors leading-tight">
+                    {step.title}
+                  </h3>
+                </div>
 
                 <p className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed font-normal pt-1">
                   {step.description}
