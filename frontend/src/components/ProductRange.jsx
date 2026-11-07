@@ -84,12 +84,8 @@ export default function ProductRange() {
             Featured Product Range
           </h2>
 
-          <p className="text-sm sm:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52]">
-            Connecting Manufacturers with Buyers Across 5 Primary Commercial Categories
-          </p>
-
           <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal max-w-2xl mx-auto">
-            Open our 3D wholesale lookbook below to browse pure Varanasi silks, handloom cottons, festive lehengas, fusion ensembles and commercial fabric yardage directly from verified looms.
+            Open our 3D lookbook below to explore our collections.
           </p>
         </div>
 

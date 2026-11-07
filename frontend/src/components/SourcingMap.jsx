@@ -10,16 +10,12 @@ export default function SourcingMap() {
     {
       city: 'Surat',
       state: 'Gujarat',
-      isHQ: false,
-      tag: 'High-Volume Production & Daily Wear',
-      description: 'Major composite textile epicenter connecting high-volume synthetic weaves, daily wear sarees, jacquards, and dress materials.'
+      isHQ: false
     },
     {
       city: 'Ahmedabad',
       state: 'Gujarat',
-      isHQ: false,
-      tag: 'Pure Cottons & Mill Weaves',
-      description: 'Renowned textile hub connecting pure cambric cottons, mill-finish fabrics, printed textiles, and commercial garment yardages.'
+      isHQ: false
     }
   ];
 
@@ -27,23 +23,17 @@ export default function SourcingMap() {
     {
       city: 'Jaipur',
       state: 'Rajasthan',
-      isHQ: false,
-      tag: 'Ethnic Wear & Handblocks',
-      description: 'Sourcing connections for traditional ethnic wear, authentic handblock prints, Sanganeri prints, and contemporary fusion apparel.'
+      isHQ: false
     },
     {
       city: 'Varanasi (Banaras)',
       state: 'Uttar Pradesh',
-      isHQ: false,
-      tag: 'Heritage Silk Brocades',
-      description: 'Centuries of weaving mastery connecting genuine Banarasi Katan silk, organza, tissue georgettes, and ornate bridal sarees.'
+      isHQ: false
     },
     {
       city: 'Bhagalpur',
       state: 'Bihar',
-      isHQ: false,
-      tag: 'Tussar & Handloom Silks',
-      description: 'Specialized regional production corridors for pure Bhagalpuri Tussar silk, textured handloom yardage, and regional artisanal weaves.'
+      isHQ: false
     }
   ];
 
@@ -89,46 +79,34 @@ export default function SourcingMap() {
             {leftHubs.map((hub, idx) => (
               <div
                 key={idx}
-                className={`p-3.5 sm:p-4 rounded-xl border-l-4 border-l-[#f16701] border-t border-r border-b border-[#f8b47d]/40 shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 space-y-2 ${hub.isHQ ? 'bg-gradient-to-br from-white via-white to-[#FFF6ED]' : 'bg-white'
-                  }`}
+                className={`p-3.5 sm:p-4 rounded-xl border-l-4 border-l-[#f16701] border-t border-r border-b border-[#f8b47d]/40 shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-between gap-3 ${
+                  hub.isHQ ? 'bg-gradient-to-br from-white via-white to-[#FFF6ED]' : 'bg-white'
+                }`}
               >
-                <div className="flex items-start justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-lg bg-[#FFF3E8] border border-[#f8b47d]/50 flex items-center justify-center flex-shrink-0 text-[#f16701]">
-                      <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-extrabold text-[#0F1318] leading-tight">
-                        {hub.city}
-                      </h3>
-                      <span className="text-[10px] font-semibold text-neutral-500">
-                        {hub.state}
-                      </span>
-                    </div>
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#FFF3E8] border border-[#f8b47d]/50 flex items-center justify-center flex-shrink-0 text-[#f16701] shadow-2xs">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
                   </div>
-
-                  {hub.isHQ ? (
-                    <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-[#f16701] text-white shadow-xs tracking-wider uppercase">
-                      Central HQ
-                    </span>
-                  ) : (
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FAF8F5] border border-[#f8b47d]/60 text-neutral-800 shadow-2xs">
+                  <div>
+                    <h3 className="text-sm sm:text-base font-extrabold text-[#0F1318] leading-tight">
+                      {hub.city}
+                    </h3>
+                    <span className="text-[10px] font-semibold text-neutral-500">
                       {hub.state}
                     </span>
-                  )}
+                  </div>
                 </div>
 
-                {(hub.tag || hub.description) && (
-                  <div className="pt-0.5 space-y-1">
-                    {hub.tag && <p className="text-[11px] font-bold text-[#f16701]">{hub.tag}</p>}
-                    {hub.description && (
-                      <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-3">
-                        {hub.description}
-                      </p>
-                    )}
-                  </div>
+                {hub.isHQ ? (
+                  <span className="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-[#f16701] text-white shadow-xs tracking-wider uppercase whitespace-nowrap">
+                    Central HQ
+                  </span>
+                ) : (
+                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#FAF8F5] border border-[#f8b47d]/60 text-neutral-800 shadow-2xs whitespace-nowrap">
+                    {hub.state}
+                  </span>
                 )}
               </div>
             ))}
@@ -152,40 +130,27 @@ export default function SourcingMap() {
             {rightHubs.map((hub, idx) => (
               <div
                 key={idx}
-                className="p-3.5 sm:p-4 rounded-xl border-l-4 border-l-[#f16701] border-t border-r border-b border-[#f8b47d]/40 bg-white shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 space-y-2"
+                className="p-3.5 sm:p-4 rounded-xl border-l-4 border-l-[#f16701] border-t border-r border-b border-[#f8b47d]/40 bg-white shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-between gap-3"
               >
-                <div className="flex items-start justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-lg bg-[#FFF3E8] border border-[#f8b47d]/50 flex items-center justify-center flex-shrink-0 text-[#f16701]">
-                      <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-extrabold text-[#0F1318] leading-tight">
-                        {hub.city}
-                      </h3>
-                      <span className="text-[10px] font-semibold text-neutral-500">
-                        {hub.state}
-                      </span>
-                    </div>
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#FFF3E8] border border-[#f8b47d]/50 flex items-center justify-center flex-shrink-0 text-[#f16701] shadow-2xs">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
                   </div>
-
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FAF8F5] border border-[#f8b47d]/60 text-neutral-800 shadow-2xs">
-                    {hub.state}
-                  </span>
+                  <div>
+                    <h3 className="text-sm sm:text-base font-extrabold text-[#0F1318] leading-tight">
+                      {hub.city}
+                    </h3>
+                    <span className="text-[10px] font-semibold text-neutral-500">
+                      {hub.state}
+                    </span>
+                  </div>
                 </div>
 
-                {(hub.tag || hub.description) && (
-                  <div className="pt-0.5 space-y-1">
-                    {hub.tag && <p className="text-[11px] font-bold text-[#f16701]">{hub.tag}</p>}
-                    {hub.description && (
-                      <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-3">
-                        {hub.description}
-                      </p>
-                    )}
-                  </div>
-                )}
+                <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#FAF8F5] border border-[#f8b47d]/60 text-neutral-800 shadow-2xs whitespace-nowrap">
+                  {hub.state}
+                </span>
               </div>
             ))}
           </div>
