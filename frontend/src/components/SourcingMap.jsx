@@ -5,9 +5,7 @@ export default function SourcingMap() {
     {
       city: 'Kolkata',
       state: 'West Bengal',
-      isHQ: true,
-      tag: 'Central Operations & Wholesale HQ',
-      description: 'Our central Burman Street operations office coordinating direct contracts, mill verification, commercial negotiations, and nationwide despatches.'
+      isHQ: true
     },
     {
       city: 'Surat',
@@ -122,12 +120,16 @@ export default function SourcingMap() {
                   )}
                 </div>
 
-                <div className="pt-0.5 space-y-1">
-                  <p className="text-[11px] font-bold text-[#f16701]">{hub.tag}</p>
-                  <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-3">
-                    {hub.description}
-                  </p>
-                </div>
+                {(hub.tag || hub.description) && (
+                  <div className="pt-0.5 space-y-1">
+                    {hub.tag && <p className="text-[11px] font-bold text-[#f16701]">{hub.tag}</p>}
+                    {hub.description && (
+                      <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-3">
+                        {hub.description}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -174,12 +176,16 @@ export default function SourcingMap() {
                   </span>
                 </div>
 
-                <div className="pt-0.5 space-y-1">
-                  <p className="text-[11px] font-bold text-[#f16701]">{hub.tag}</p>
-                  <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-3">
-                    {hub.description}
-                  </p>
-                </div>
+                {(hub.tag || hub.description) && (
+                  <div className="pt-0.5 space-y-1">
+                    {hub.tag && <p className="text-[11px] font-bold text-[#f16701]">{hub.tag}</p>}
+                    {hub.description && (
+                      <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-3">
+                        {hub.description}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
           </div>
