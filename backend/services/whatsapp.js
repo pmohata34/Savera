@@ -34,6 +34,23 @@ ${brochureUrl}
 Regards,
 Savera Tex Solution LLP`;
 
+  // ── Provider 0: Linked WhatsApp Device (Baileys session) ──
+  try {
+    const { isBaileysConnected, sendWhatsAppDocument } = require('./baileys');
+    const { getBrochurePath, BROCHURE_PATH } = require('./brochure');
+
+    if (isBaileysConnected()) {
+      const brochurePath = getBrochurePath() || BROCHURE_PATH;
+      const baileysResult = await sendWhatsAppDocument(recipientNumber, brochurePath, thankYouText);
+      if (baileysResult.success) {
+        console.log(`[WhatsApp Automation: SENT] Message + PDF successfully sent to ${recipientNumber} via Linked Device!`);
+        return { success: true, provider: 'WHATSAPP_LINKED_DEVICE', data: baileysResult, brochureUrl };
+      }
+    }
+  } catch (baileysErr) {
+    console.error('[WhatsApp Automation: BAILEYS ERROR]', baileysErr.message);
+  }
+
   // ── Provider 1: Meta WhatsApp Cloud API ──
   const cloudToken = process.env.WHATSAPP_CLOUD_API_TOKEN;
   const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;

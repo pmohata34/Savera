@@ -33,3 +33,7 @@ desktop.ini
 # Editor directories
 .vscode/
 .idea/
+
+# WhatsApp Auth Session Data
+backend/data/baileys_auth/
+

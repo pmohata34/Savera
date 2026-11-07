@@ -36,7 +36,7 @@ export default function ConnectForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Clean mobile number to exactly 10 digits (format: 9007385793)
+    // Clean mobile number to exactly 10 digits (format: 9477665429)
     let rawDigits = String(formData.mobileNumber || '').replace(/\D/g, '');
     if (rawDigits.startsWith('91') && rawDigits.length > 10) rawDigits = rawDigits.slice(2);
     if (rawDigits.startsWith('0') && rawDigits.length > 10) rawDigits = rawDigits.slice(1);
@@ -45,7 +45,7 @@ export default function ConnectForm() {
     if (cleanPhone.length !== 10) {
       setStatus({
         type: 'error',
-        message: 'Please enter a valid 10-digit mobile number (e.g. 9007385793).'
+        message: 'Please enter a valid 10-digit mobile number (e.g. 9477665429).'
       });
       return;
     }
@@ -53,39 +53,26 @@ export default function ConnectForm() {
     setLoading(true);
     setStatus(null);
 
-    // Prepare client-side WhatsApp inquiry message
+    // Direct chat link for the client if they wish to talk immediately
     const catText = formData.categories.length > 0 ? formData.categories.join(', ') : 'All Collections';
     const waText = encodeURIComponent(
-      `Hello Savera Tex Solution LLP,\n\nI have submitted a sourcing inquiry on your portal:\n• Firm: ${formData.firmName}\n• Contact Person: ${formData.personName} (${cleanPhone})\n• City & State: ${formData.cityState}\n• Product Categories: ${catText}\n• Requirements: ${formData.message || 'Please share your latest collections, brochure, and commercial terms.'}\n\nPlease share your company catalog and mill rate cards.`
+      `Hello Savera Tex Solution LLP,\n\nI have submitted an inquiry for ${formData.firmName || 'my business'} (${cleanPhone}):\n• Sourcing Categories: ${catText}\n• Requirements: ${formData.message || 'Please share product catalog and terms.'}`
     );
     const targetWhatsAppUrl = `https://wa.me/919477665429?text=${waText}`;
-
-    // 1. Immediately launch WhatsApp from client side so the client sends the WhatsApp message to +91 9477665429
-    try {
-      const waWindow = window.open(targetWhatsAppUrl, '_blank');
-      if (!waWindow || waWindow.closed || typeof waWindow.closed === 'undefined') {
-        // Fallback if browser popup blocker stops window.open
-        setTimeout(() => {
-          window.location.href = targetWhatsAppUrl;
-        }, 500);
-      }
-    } catch (popupErr) {
-      console.warn('Popup blocked, will use button/redirect:', popupErr);
-    }
 
     const payload = {
       ...formData,
       mobileNumber: cleanPhone
     };
 
-    // 2. Concurrently record the lead and trigger Gmail email notification
+    // Submit lead: triggers automated WhatsApp brochure to client and Gmail alert to owner
     try {
       const res = await fetch('/api/inquire', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      
+
       let data = {};
       try {
         data = await res.json();
@@ -97,7 +84,7 @@ export default function ConnectForm() {
 
       setStatus({
         type: 'success',
-        message: 'Inquiry submitted! WhatsApp has opened with your inquiry text. If WhatsApp didn\'t open automatically, click the green button below.',
+        message: `Thank you! Your sourcing inquiry has been registered. An automated WhatsApp message with our official brochure has been dispatched to your WhatsApp (+91 ${cleanPhone}).`,
         leadId: returnedLeadId,
         whatsappUrl: targetWhatsAppUrl,
         brochureUrl: data.brochureUrl || '/brochure.pdf'
@@ -115,7 +102,7 @@ export default function ConnectForm() {
       console.warn('API sync completed or offline fallback:', err);
       setStatus({
         type: 'success',
-        message: 'Inquiry submitted! WhatsApp has opened with your inquiry text. Click the green button below to send your details.',
+        message: `Inquiry registered! You can connect with our team directly on WhatsApp or download our brochure below.`,
         whatsappUrl: targetWhatsAppUrl,
         brochureUrl: '/brochure.pdf'
       });
@@ -156,13 +143,13 @@ export default function ConnectForm() {
                   {status.whatsappUrl && (
                     <a href={status.whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition">
                       <span>Open in WhatsApp</span>
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                     </a>
                   )}
                   {status.brochureUrl && (
                     <a href={status.brochureUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#f16701] hover:bg-[#d45500] text-white text-xs font-bold transition">
                       <span>Download Brochure (PDF)</span>
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                     </a>
                   )}
                 </div>
@@ -204,7 +191,7 @@ export default function ConnectForm() {
                     type="tel"
                     required
                     maxLength={10}
-                    placeholder="9007385793"
+                    placeholder="9477665429"
                     value={formData.mobileNumber}
                     onChange={e => {
                       let val = e.target.value.replace(/\D/g, '');
@@ -268,7 +255,7 @@ export default function ConnectForm() {
                 ) : (
                   <>
                     <span>Submit Sourcing Inquiry</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                   </>
                 )}
               </RadialGlowButton>

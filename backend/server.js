@@ -7,6 +7,7 @@ require('dotenv').config();
 const { ensureBrochurePDF, getBrochurePath, BROCHURE_PATH } = require('./services/brochure');
 const { sendLeadNotificationEmail } = require('./services/email');
 const { sendWhatsAppBrochureAutomation } = require('./services/whatsapp');
+const { initBaileys, getWhatsAppStatus, isBaileysConnected } = require('./services/baileys');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -22,6 +23,9 @@ if (!fs.existsSync(DATA_FILE)) {
 
 // Generate / ensure PDF brochure exists safely
 Promise.resolve(ensureBrochurePDF()).catch(err => console.error('[Brochure] Init error:', err));
+
+// Start WhatsApp Linked Device bridge
+initBaileys().catch(err => console.error('[Baileys] Init error:', err));
 
 // Middleware
 app.use(cors({
@@ -75,8 +79,174 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString(),
     brochureAvailable: fs.existsSync(getBrochurePath() || BROCHURE_PATH),
     emailConfigured: Boolean(process.env.GMAIL_APP_PASSWORD),
-    whatsappAutomated: Boolean(process.env.WHATSAPP_CLOUD_API_TOKEN || process.env.TWILIO_ACCOUNT_SID || process.env.WHATSAPP_WEBHOOK_URL)
+    whatsappLinked: isBaileysConnected(),
+    whatsappAutomated: Boolean(isBaileysConnected() || process.env.WHATSAPP_CLOUD_API_TOKEN || process.env.TWILIO_ACCOUNT_SID || process.env.WHATSAPP_WEBHOOK_URL)
   });
+});
+
+// Live WhatsApp Status API
+app.get('/api/whatsapp-status', (req, res) => {
+  res.json(getWhatsAppStatus());
+});
+
+// WhatsApp Link Web Interface (Scan QR to link +91 9477665429)
+app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
+  const status = getWhatsAppStatus();
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Link WhatsApp — Savera Tex Solution LLP</title>
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+      <style>
+        body {
+          font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+          background: #FAF8F5;
+          color: #0F1318;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          margin: 0;
+          padding: 20px;
+          box-sizing: border-box;
+        }
+        .card {
+          background: #ffffff;
+          border-radius: 24px;
+          box-shadow: 0 20px 40px rgba(241, 103, 1, 0.08);
+          border: 1px solid #F8B47D;
+          max-width: 480px;
+          width: 100%;
+          padding: 36px 32px;
+          text-align: center;
+        }
+        .logo {
+          font-size: 13px;
+          font-weight: 800;
+          letter-spacing: 2px;
+          color: #F16701;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+        }
+        h1 {
+          font-size: 24px;
+          font-weight: 800;
+          margin: 0 0 12px 0;
+        }
+        p {
+          font-size: 14px;
+          color: #4A5568;
+          line-height: 1.6;
+          margin: 0 0 24px 0;
+        }
+        .qr-box {
+          background: #FFF9F3;
+          border: 2px dashed #F8B47D;
+          border-radius: 20px;
+          padding: 24px;
+          display: inline-block;
+          margin-bottom: 24px;
+        }
+        .qr-box img {
+          display: block;
+          width: 260px;
+          height: 260px;
+          border-radius: 12px;
+        }
+        .connected-badge {
+          background: #ECFDF5;
+          border: 2px solid #10B981;
+          border-radius: 20px;
+          padding: 32px 24px;
+          margin-bottom: 24px;
+        }
+        .connected-badge h2 {
+          color: #065F46;
+          margin: 12px 0 6px 0;
+          font-size: 20px;
+          font-weight: 800;
+        }
+        .connected-badge p {
+          color: #047857;
+          font-size: 13px;
+          margin: 0;
+        }
+        ol {
+          text-align: left;
+          font-size: 13px;
+          color: #2D3748;
+          line-height: 1.8;
+          margin: 0 auto;
+          max-width: 380px;
+          padding-left: 20px;
+        }
+        .footer-note {
+          margin-top: 24px;
+          font-size: 12px;
+          color: #718096;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <div class="logo">Savera Tex Solution LLP</div>
+        <h1>Automated WhatsApp Delivery</h1>
+        <p>Link your WhatsApp account (<strong>+91 9477665429</strong>) so clients automatically receive the Thank You message and official 12-page PDF brochure on their phone upon submitting the website form.</p>
+
+        <div id="content">
+          ${status.connected ? `
+            <div class="connected-badge">
+              <div style="font-size: 48px;">✅</div>
+              <h2>WhatsApp Connected!</h2>
+              <p>Your WhatsApp account is active. When any client submits the inquiry form, they will automatically receive the thank-you message and brochure PDF directly on their phone!</p>
+            </div>
+          ` : status.qrDataUrl ? `
+            <div class="qr-box">
+              <img src="${status.qrDataUrl}" alt="Scan QR Code to Link WhatsApp">
+            </div>
+            <ol>
+              <li>Open <strong>WhatsApp</strong> on your phone (<strong>+91 9477665429</strong>).</li>
+              <li>Tap <strong>Settings</strong> (iOS) or <strong>⋮ Menu</strong> (Android).</li>
+              <li>Select <strong>Linked Devices</strong> &rarr; <strong>Link a Device</strong>.</li>
+              <li>Scan the QR code above.</li>
+            </ol>
+          ` : `
+            <div class="qr-box" style="padding: 40px 20px;">
+              <p style="margin: 0; font-weight: 700; color: #F16701;">Initializing WhatsApp Bridge...</p>
+              <p style="margin: 8px 0 0 0; font-size: 12px;">The QR code will appear in a moment.</p>
+            </div>
+          `}
+        </div>
+
+        <div class="footer-note">
+          Automatic refresh active • <a href="/" style="color: #F16701; text-decoration: none; font-weight: 700;">Back to Portal</a>
+        </div>
+      </div>
+
+      <script>
+        setInterval(async () => {
+          try {
+            const res = await fetch('/api/whatsapp-status');
+            const data = await res.json();
+            if (data.connected && !document.querySelector('.connected-badge')) {
+              window.location.reload();
+            } else if (!data.connected && data.qrDataUrl) {
+              const img = document.querySelector('.qr-box img');
+              if (img && img.src !== data.qrDataUrl) {
+                img.src = data.qrDataUrl;
+              } else if (!img) {
+                window.location.reload();
+              }
+            }
+          } catch (e) {}
+        }, 2500);
+      </script>
+    </body>
+    </html>
+  `);
 });
 
 // Root Info
