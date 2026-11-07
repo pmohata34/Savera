@@ -109,7 +109,7 @@ export default function ConnectForm() {
   };
 
   return (
-    <section id="connect" className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="connect" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Atmospheric Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -129,7 +129,7 @@ export default function ConnectForm() {
         </div>
 
         <div className="max-w-3xl mx-auto w-full">
-          <div className="bg-white p-6 sm:p-10 md:p-12 rounded-3xl border border-[#f8b47d]/40 shadow-xl">
+          <div className="bg-white p-6 sm:p-8 md:p-10 rounded-3xl border border-[#f8b47d]/40 shadow-xl">
             {status && (
               <div className={`mb-6 p-5 rounded-2xl border ${status.type === 'error' ? 'bg-rose-50 border-rose-200 text-rose-800' : 'bg-emerald-50 border-emerald-200 text-emerald-900'} space-y-1`}>
                 <p className="font-bold text-sm">{status.message}</p>
