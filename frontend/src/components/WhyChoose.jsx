@@ -36,7 +36,7 @@ export default function WhyChoose() {
   ];
 
   return (
-    <section id="why-choose" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 scroll-mt-24 sm:scroll-mt-28 bg-gradient-to-b from-[#FDF0E5] via-[#FAF8F5] to-white border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="why-choose" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FDF0E5] via-[#FAF8F5] to-white border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Atmospheric Ambient Lighting Mesh */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

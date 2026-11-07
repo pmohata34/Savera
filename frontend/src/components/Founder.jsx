@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Founder() {
   return (
-    <section id="founder" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 scroll-mt-24 sm:scroll-mt-28 bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="founder" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Atmospheric Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -22,20 +22,29 @@ export default function Founder() {
           </p>
         </div>
 
-        {/* Editorial 2-Column Split: Balanced 50/50 Width with Natural Spacing & Matching Bottom Levels */}
+        {/* Editorial 2-Column Split: Balanced 50/50 Width with Both Sides Aligned at the Exact Same Bottom Level */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
 
-          {/* Left Column: Clean Archival Portrait + Dedicated Nameplate Under Photo */}
+          {/* Left Column: Solid Orange Frame + Perfectly Fitted Portrait + Nameplate */}
           <div className="space-y-3">
             
-            {/* The Photo Container (Cropped height to align cleanly with right text and eliminate empty space) */}
-            <div className="relative rounded-2xl overflow-hidden bg-white p-2.5 sm:p-3 border border-[#f8b47d]/40 shadow-lg group">
-              <div className="h-[350px] sm:h-[370px] lg:h-[385px] w-full rounded-xl overflow-hidden relative shadow-inner bg-[#FAF8F5]">
+            {/* Solid Luxury Orange Frame (User customizable frame with clear photo dimensions) */}
+            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-white to-[#FFF6EE] p-3 sm:p-3.5 border-3 border-[#f16701] shadow-xl shadow-[#f16701]/10 group">
+              {/* Inner Archival Matting & Photo Container */}
+              <div className="h-[360px] sm:h-[380px] w-full rounded-xl overflow-hidden relative shadow-inner bg-gradient-to-b from-[#FFFDF9] via-[#FAF8F5] to-[#FDF0E5] flex items-center justify-center border border-[#f8b47d]/40 p-2">
                 <img
                   src="/photos/founder_vineet_taparia.jpg"
                   alt="Mr. Vineet Kr. Taparia"
-                  className="w-full h-full object-cover object-top group-hover:scale-102 transition duration-500 ease-out"
+                  className="w-full h-full object-contain drop-shadow-md group-hover:scale-102 transition duration-500 ease-out"
                 />
+              </div>
+
+              {/* Exact Photo Dimension Spec Badge */}
+              <div className="mt-2.5 pt-2 border-t border-[#fbd7b4]/60 flex items-center justify-between px-1 text-[11px] font-mono text-neutral-600">
+                <span className="font-semibold text-neutral-700">Photo Frame Ratio: 4:5 Portrait</span>
+                <span className="font-bold text-[#f16701] bg-[#FFF3E8] px-2 py-0.5 rounded border border-[#f8b47d]/50">
+                  Size: 600 × 750 px
+                </span>
               </div>
             </div>
 
@@ -57,7 +66,7 @@ export default function Founder() {
 
           </div>
 
-          {/* Right Column: Verbatim Founder Message from Document (Natural tight flow with no artificial gap) */}
+          {/* Right Column: Verbatim Founder Message from Document (Natural tight flow with zero artificial gap) */}
           <div className="space-y-3.5 sm:space-y-4">
 
             <div className="space-y-1">
