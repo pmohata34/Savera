@@ -89,6 +89,30 @@ app.get('/api/whatsapp-status', (req, res) => {
   res.json(getWhatsAppStatus());
 });
 
+// Test WhatsApp Dispatch to specified phone number (e.g. /api/test-whatsapp?phone=9007385793)
+app.get('/api/test-whatsapp', async (req, res) => {
+  const phone = req.query.phone || '9007385793';
+  const testLead = {
+    id: `TEST-${Date.now().toString().slice(-4)}`,
+    firmName: 'Savera Live Test',
+    personName: 'Test Client',
+    mobileNumber: phone,
+    cityState: 'Kolkata, West Bengal',
+    categories: ['Sarees (Cotton, Silk, Designer & Partywear)'],
+    message: 'Testing automated brochure delivery'
+  };
+  const host = req.get('host') || `localhost:${PORT}`;
+  const protocol = req.protocol === 'https' || req.get('x-forwarded-proto') === 'https' ? 'https' : 'http';
+  const serverBaseUrl = process.env.PUBLIC_APP_URL || `${protocol}://${host}`;
+
+  const result = await sendWhatsAppBrochureAutomation(testLead, serverBaseUrl);
+  res.json({
+    phone,
+    isLinked: isBaileysConnected(),
+    result
+  });
+});
+
 // WhatsApp Link Web Interface (Scan QR to link +91 9477665429)
 app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
   const status = getWhatsAppStatus();
