@@ -29,13 +29,23 @@ export default function GrowthJourney() {
     },
     {
       year: '2026',
-      title:
+      title: (
         <span>
           Formation of{' '}
           <strong className="font-playfair font-bold inline-flex items-baseline gap-1">
             <span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
           </strong>
         </span>
+      ),
+      description: (
+        <span>
+          Established{' '}
+          <strong className="font-playfair font-bold inline-flex items-baseline gap-1">
+            <span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
+          </strong>
+          , bringing together years of industry experience and business relationships under a structured business platform, with a broader vision of connecting manufacturers, retailers and wholesalers across India and international markets.
+        </span>
+      )
     }
   ];
 
@@ -56,17 +66,18 @@ export default function GrowthJourney() {
             Our Growth Journey
           </h2>
           <p className="text-xs sm:text-sm text-neutral-600 font-normal">
+            A thirty-year journey connecting manufacturers with buyers, expanding continuously from 1995 to 2026.
             Building on our experience since 1995, we continue to strengthen textile connections, develop new business opportunities and create lasting relationships across the industry.
           </p>
         </div>
 
-        {/* ── DESKTOP ALTERNATING UP & DOWN TIMELINE WITH ANIMATED DASHED CURVE ── */}
+        {/* ── DESKTOP ALTERNATING TIMELINE WITH ANIMATED DASHED CURVE ── */}
         <div className="hidden lg:block relative py-6">
-          <div className="relative min-h-[570px] w-full">
+          <div className="relative min-h-[600px] w-full">
 
             {/* Background Sinuous SVG Wave (Dashed & Animated Left to Right) */}
             <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-              <svg viewBox="0 0 1200 570" preserveAspectRatio="none" className="w-full h-full">
+              <svg viewBox="0 0 1200 600" preserveAspectRatio="none" className="w-full h-full">
                 <defs>
                   <linearGradient id="curvedWaveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#f7e5d4" />
@@ -78,7 +89,7 @@ export default function GrowthJourney() {
 
                 {/* Soft Ambient Glow under the wave */}
                 <path
-                  d="M 20 314 L 100 314 C 200 314, 200 236, 300 236 C 400 236, 400 314, 500 314 C 600 314, 600 236, 700 236 C 800 236, 800 314, 900 314 C 1000 314, 1000 236, 1100 236 L 1180 236"
+                  d="M 20 320 L 100 320 C 200 320, 200 240, 300 240 C 400 240, 400 320, 500 320 C 600 320, 600 240, 700 240 C 800 240, 800 320, 900 320 C 1000 320, 1000 240, 1100 240 L 1180 240"
                   fill="none"
                   stroke="#f8b47d"
                   strokeWidth="8"
@@ -88,7 +99,7 @@ export default function GrowthJourney() {
 
                 {/* Base Soft Guidance Track */}
                 <path
-                  d="M 20 314 L 100 314 C 200 314, 200 236, 300 236 C 400 236, 400 314, 500 314 C 600 314, 600 236, 700 236 C 800 236, 800 314, 900 314 C 1000 314, 1000 236, 1100 236 L 1180 236"
+                  d="M 20 320 L 100 320 C 200 320, 200 240, 300 240 C 400 240, 400 320, 500 320 C 600 320, 600 240, 700 240 C 800 240, 800 320, 900 320 C 1000 320, 1000 240, 1100 240 L 1180 240"
                   fill="none"
                   stroke="#fbd7b4"
                   strokeWidth="2"
@@ -97,7 +108,7 @@ export default function GrowthJourney() {
 
                 {/* Active Dashed Animated Line Streaming from Left to Right */}
                 <path
-                  d="M 20 314 L 100 314 C 200 314, 200 236, 300 236 C 400 236, 400 314, 500 314 C 600 314, 600 236, 700 236 C 800 236, 800 314, 900 314 C 1000 314, 1000 236, 1100 236 L 1180 236"
+                  d="M 20 320 L 100 320 C 200 320, 200 240, 300 240 C 400 240, 400 320, 500 320 C 600 320, 600 240, 700 240 C 800 240, 800 320, 900 320 C 1000 320, 1000 240, 1100 240 L 1180 240"
                   fill="none"
                   stroke="url(#curvedWaveGradient)"
                   strokeWidth="4"
@@ -114,34 +125,34 @@ export default function GrowthJourney() {
                 const isBottom = idx % 2 === 0; // Even: Start from BOTTOM (1995, 2003, 2010), Odd: TOP (1999, 2006, 2026)
 
                 return (
-                  <div key={idx} className="flex flex-col items-center h-full">
+                  <div key={m.year} className="flex flex-col items-center h-full">
                     {isBottom ? (
                       /* ── DOWN CARD (1995, 2003, 2010 - Starts from Bottom) ── */
                       <>
-                        {/* Spacer above so dot aligns with trough */}
+                        {/* 1. Spacer above so dot aligns with trough at Y=320 */}
                         <div className="h-[250px]" />
 
-                        {/* 1. Year Label Above Dot */}
-                        <div className="mb-2 text-center">
+                        {/* 2. Year Label Above Dot */}
+                        <div className="h-5 mb-2 flex items-center justify-center text-center">
                           <span className="text-xs font-black text-[#0F1318] font-mono tracking-wider">
                             {m.year}
                           </span>
                         </div>
 
-                        {/* 2. Dot on Trough of Curve */}
+                        {/* 3. Dot on Trough of Curve */}
                         <div className="relative z-20 flex items-center justify-center">
                           <div className="w-9 h-9 rounded-full bg-white border-3 border-[#f16701] shadow-md flex items-center justify-center transition-transform hover:scale-125 cursor-pointer group">
                             <span className="w-3 h-3 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] group-hover:scale-125 transition-transform"></span>
                           </div>
                         </div>
 
-                        {/* 3. Vertical Stem down to Card */}
+                        {/* 4. Vertical Stem down to Card */}
                         <div className="w-0.5 h-6 bg-gradient-to-b from-[#f16701] to-[#f8b47d]"></div>
 
-                        {/* 4. Full Text Box Below (No Truncation / No line-clamp) */}
-                        <div className="w-full p-4 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-start min-h-[195px] space-y-2 group">
+                        {/* 5. Full Text Box Below */}
+                        <div className="w-full p-3.5 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-start min-h-[200px] space-y-1.5 group">
                           <div className="flex items-center justify-between">
-                            <span className="text-lg font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
+                            <span className="text-base font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
                               {m.year}
                             </span>
                             <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/35">
@@ -159,10 +170,10 @@ export default function GrowthJourney() {
                     ) : (
                       /* ── UP CARD (1999, 2006, 2026 - Text Box Above) ── */
                       <>
-                        {/* 1. Full Text Box Above (No Truncation / No line-clamp) */}
-                        <div className="w-full p-4 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-start min-h-[195px] space-y-2 group">
+                        {/* 1. Full Text Box Above */}
+                        <div className="w-full p-3.5 rounded-2xl bg-white border border-[#f8b47d]/40 hover:border-[#f16701]/60 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-start min-h-[200px] space-y-1.5 group">
                           <div className="flex items-center justify-between">
-                            <span className="text-lg font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
+                            <span className="text-base font-black text-[#f16701] tracking-tight group-hover:scale-105 transition-transform inline-block">
                               {m.year}
                             </span>
                             <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/35">
@@ -188,14 +199,14 @@ export default function GrowthJourney() {
                         </div>
 
                         {/* 4. Year Label Under Dot */}
-                        <div className="mt-2 text-center">
+                        <div className="h-5 mt-2 flex items-center justify-center text-center">
                           <span className="text-xs font-black text-[#0F1318] font-mono tracking-wider">
                             {m.year}
                           </span>
                         </div>
 
-                        {/* Spacer below */}
-                        <div className="flex-1" />
+                        {/* 5. Spacer below so dot aligns with crest at Y=240 */}
+                        <div className="h-[250px]" />
                       </>
                     )}
                   </div>
@@ -209,7 +220,7 @@ export default function GrowthJourney() {
         {/* ── MOBILE CONNECTED VERTICAL TIMELINE ── */}
         <div className="lg:hidden relative pl-6 border-l-2 border-dashed border-[#f16701]/70 ml-3 space-y-6">
           {milestones.map((m, idx) => (
-            <div key={idx} className="relative group">
+            <div key={m.year} className="relative group">
               {/* Dot on the vertical line */}
               <div className="absolute -left-[31px] top-4 w-6 h-6 rounded-full bg-white border-3 border-[#f16701] flex items-center justify-center shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#f16701]"></span>
