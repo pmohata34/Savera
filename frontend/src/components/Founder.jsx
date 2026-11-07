@@ -22,15 +22,15 @@ export default function Founder() {
           </p>
         </div>
 
-        {/* Editorial 2-Column Split: Portrait & Under-Photo Nameplate vs. Official Words */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* Editorial 2-Column Split: Balanced 50/50 Full-Ratio Portrait vs. Official Words */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
 
-          {/* Left Column: Clean Archival Portrait (ZERO TEXT ON PHOTO) + Dedicated Nameplate UNDER Photo */}
-          <div className="lg:col-span-5 space-y-3.5">
+          {/* Left Column: Full-Ratio Archival Portrait + Dedicated Nameplate Under Photo */}
+          <div className="flex flex-col h-full space-y-3.5">
             
-            {/* The Photo Container (Pure, Clean Photo with Zero Overlaid Text) */}
-            <div className="relative rounded-2xl overflow-hidden bg-white p-3 border border-[#f8b47d]/40 shadow-lg group">
-              <div className="h-[360px] sm:h-[400px] w-full rounded-xl overflow-hidden relative shadow-inner bg-[#FAF8F5]">
+            {/* The Photo Container with Full Natural Portrait Ratio */}
+            <div className="flex-1 relative rounded-2xl overflow-hidden bg-white p-3 border border-[#f8b47d]/40 shadow-lg group flex flex-col">
+              <div className="flex-1 w-full min-h-[480px] sm:min-h-[540px] lg:min-h-[580px] rounded-xl overflow-hidden relative shadow-inner bg-[#FAF8F5]">
                 <img
                   src="/photos/founder_vineet_taparia.jpg"
                   alt="Mr. Vineet Kr. Taparia"
@@ -57,8 +57,8 @@ export default function Founder() {
 
           </div>
 
-          {/* Right Column: Verbatim Founder Message from Document */}
-          <div className="lg:col-span-7 space-y-6">
+          {/* Right Column: Verbatim Founder Message from Document (Balanced 50% Width) */}
+          <div className="space-y-6 flex flex-col justify-between h-full">
 
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">
