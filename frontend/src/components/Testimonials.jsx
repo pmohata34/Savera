@@ -66,7 +66,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FAF8F5] via-[#FFF5EC] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden"
+      className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 scroll-mt-24 sm:scroll-mt-28 bg-gradient-to-b from-[#FAF8F5] via-[#FFF5EC] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden"
     >
       {/* Warm Ambient Lighting Mesh */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

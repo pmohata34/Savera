@@ -32,7 +32,7 @@ export default function SourcingMap() {
   ];
 
   return (
-    <section id="sourcing-map" className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-[#FAF8F5] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
+    <section id="sourcing-map" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 scroll-mt-24 sm:scroll-mt-28 bg-gradient-to-b from-white via-[#FAF8F5] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden">
 
       {/* Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
