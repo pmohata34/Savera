@@ -22,15 +22,15 @@ export default function Founder() {
           </p>
         </div>
 
-        {/* Editorial 2-Column Split: Balanced 50/50 Full-Ratio Portrait vs. Official Words */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+        {/* Editorial 2-Column Split: Balanced 50/50 Width with Natural, Tight Spacing */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
 
-          {/* Left Column: Full-Ratio Archival Portrait + Dedicated Nameplate Under Photo */}
-          <div className="flex flex-col h-full space-y-3.5">
+          {/* Left Column: Clean Archival Portrait + Dedicated Nameplate Under Photo */}
+          <div className="space-y-3.5">
             
-            {/* The Photo Container with Full Natural Portrait Ratio */}
-            <div className="flex-1 relative rounded-2xl overflow-hidden bg-white p-3 border border-[#f8b47d]/40 shadow-lg group flex flex-col">
-              <div className="flex-1 w-full min-h-[480px] sm:min-h-[540px] lg:min-h-[580px] rounded-xl overflow-hidden relative shadow-inner bg-[#FAF8F5]">
+            {/* The Photo Container (Clean, Proportionate & No Excessive Height) */}
+            <div className="relative rounded-2xl overflow-hidden bg-white p-3 border border-[#f8b47d]/40 shadow-lg group">
+              <div className="h-[380px] sm:h-[420px] w-full rounded-xl overflow-hidden relative shadow-inner bg-[#FAF8F5]">
                 <img
                   src="/photos/founder_vineet_taparia.jpg"
                   alt="Mr. Vineet Kr. Taparia"
@@ -57,19 +57,19 @@ export default function Founder() {
 
           </div>
 
-          {/* Right Column: Verbatim Founder Message from Document (Balanced 50% Width) */}
-          <div className="space-y-6 flex flex-col justify-between h-full">
+          {/* Right Column: Verbatim Founder Message from Document (Natural, Tight Spacing - Zero Blank Space) */}
+          <div className="space-y-5">
 
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">
                 Foundational Philosophy
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0F1318] leading-snug">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[#0F1318] leading-snug">
                 "Goodwill is more valuable than money, and trust is the true foundation of business."
               </h3>
             </div>
 
-            <div className="space-y-4 text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
+            <div className="space-y-3.5 text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
               <p>
                 Every successful business begins with a belief. When I started <strong className="text-[#0F1318] font-bold">Savera Marketing</strong> in 1995 as a small proprietorship, my belief was simple: goodwill is more valuable than money, and trust is the true foundation of business. This belief has guided me throughout my journey and continues to define the way we work today.
               </p>
@@ -92,7 +92,7 @@ export default function Founder() {
             </div>
 
             {/* Concluding Belief Card */}
-            <div className="p-5 rounded-xl bg-gradient-to-r from-[#f7e5d4] via-[#fbd7b4]/40 to-white border border-[#f8b47d]/50 shadow-xs">
+            <div className="p-4 rounded-xl bg-gradient-to-r from-[#f7e5d4] via-[#fbd7b4]/40 to-white border border-[#f8b47d]/50 shadow-xs">
               <p className="text-xs sm:text-sm font-bold text-neutral-800 italic">
                 "Our journey began with trust, has grown through relationships and will continue with the same values for generations to come."
               </p>
