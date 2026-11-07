@@ -8,7 +8,10 @@ export default function ProductRange() {
       id: 'sarees',
       categoryNum: '01',
       title: 'Sarees',
+      tagline: 'Silk, cotton, designer, and partywear collections',
       image: '/assets/Sarees.jpeg',
+      content: 'Comprehensive wholesale saree portfolios direct from premier weaving clusters in Varanasi, Surat, and Bengal. Featuring pure Banarasi silks, lightweight daily wear cottons, ornate bridal partywear, and contemporary designer weaves.',
+      specs: ['Hubs: Varanasi, Surat & Bengal', 'Direct Mill Wholesale Batches'],
       tags: ['Cotton Sarees', 'Pure Silk', 'Designer Wear', 'Partywear Collections'],
       ctaHref: '#connect'
     },
@@ -19,6 +22,7 @@ export default function ProductRange() {
       tagline: 'Stitched and unstitched varieties',
       image: '/assets/Salwar_Suit.jpeg',
       content: 'Extensive portfolio of daily-wear and festive salwar suit sets available in unstitched 3-piece cuts as well as ready-to-wear tailored sets. Features premium cottons, chanderi silks, modal, and handblock prints.',
+      specs: ['Hubs: Jaipur & Ahmedabad', 'Unstitched 3-Piece & Tailored'],
       tags: ['Stitched Suits', 'Unstitched Dress Materials', '3-Piece Sets', 'Handblock Prints'],
       ctaHref: '#connect'
     },
@@ -29,6 +33,7 @@ export default function ProductRange() {
       tagline: 'Bridal, festive, and partywear collections',
       image: '/assets/Lehengas.jpeg',
       content: 'Bridal masterpieces, festive occasion wear, and contemporary lightweight partywear lehenga sets. Masterfully crafted with intricate zardozi, gota patti, resham embroidery, sequins, and opulent flares.',
+      specs: ['Craft: Zardozi & Gota Patti', 'Semi-Stitched & Designer Sets'],
       tags: ['Bridal Lehengas', 'Festive Wear', 'Partywear Collections', 'Semi-Stitched Sets'],
       ctaHref: '#connect'
     },
@@ -39,6 +44,7 @@ export default function ProductRange() {
       tagline: 'Gowns, kurtis, and fusion sets',
       image: '/assets/Indo_Western.jpeg',
       content: 'Modern silhouettes meeting traditional textiles: floor-length evening gowns, asymmetrical tunic kurtis, co-ord jacket sets, and fusion drape dresses designed for the modern ethnic retail market.',
+      specs: ['Styles: Gowns & Co-ords', 'Modern Ethnic Retail'],
       tags: ['Designer Gowns', 'Contemporary Kurtis', 'Fusion Sets', 'Co-ord Ensembles'],
       ctaHref: '#connect'
     },
@@ -46,9 +52,10 @@ export default function ProductRange() {
       id: 'fabrics',
       categoryNum: '05',
       title: 'Fabrics',
-      tagline: 'Dyable, dyed, printed, silk, and cotton fabrics',
+      tagline: 'Dyeable, dyed, printed, silk, and cotton fabrics',
       image: '/assets/Fabrics.jpeg',
       content: 'Industrial and commercial wholesale fabric yardage covering pure dyeable whites, mills-dyed solids, screen and digital prints, pure silks, viscose blends, modal muslins, and rich cambric cottons.',
+      specs: ['Hubs: Surat & Ahmedabad', 'Bulk Mill Yardage & Rolls'],
       tags: ['Dyeable Fabrics', 'Dyed Solids', 'Printed Yardage', 'Silk & Cotton Blends'],
       ctaHref: '#connect'
     }
@@ -58,9 +65,10 @@ export default function ProductRange() {
     pageNumber: idx + 1,
     title: p.title,
     tagline: p.tagline,
-    stageTag: `Category 0${idx + 1} • Portfolio`,
+    stageTag: `Category 0${idx + 1}`,
     image: p.image,
     content: p.content,
+    specs: p.specs,
     tags: p.tags,
     ctaHref: p.ctaHref
   }));

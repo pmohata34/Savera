@@ -259,7 +259,7 @@ export function InteractiveBook({
 
                   {/* Header: Category Badge + Page Number */}
                   <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-2.5">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-[#f16701] bg-[#f7e5d4] px-2.5 py-0.5 rounded-full border border-[#f8b47d]/40">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#f16701] bg-[#FFF3E8] px-3 py-1 rounded-full border border-[#f8b47d]/40">
                       {page.stageTag || `Category 0${index + 1}`}
                     </span>
                     <span className="text-xs font-mono font-bold text-neutral-400">
@@ -267,42 +267,77 @@ export function InteractiveBook({
                     </span>
                   </div>
 
-                  {/* Page Body: Title, Tagline, Description, Chips */}
-                  <div className="flex-1 py-3 flex flex-col justify-center space-y-2.5">
-                    <div>
-                      <h4 className="text-lg sm:text-xl font-black text-[#0F1318] leading-tight">
+                  {/* Page Body: Fills the entire page generously with big typography & wholesale profile */}
+                  <div className="flex-1 py-4 flex flex-col justify-between space-y-3">
+                    
+                    {/* Big Title & Tagline */}
+                    <div className="space-y-1">
+                      <h4 className="text-2xl sm:text-3xl font-extrabold font-playfair text-[#0F1318] leading-tight tracking-tight">
                         {page.title}
                       </h4>
                       {page.tagline && (
-                        <p className="text-xs font-bold text-[#f16701] mt-0.5">
+                        <p className="text-xs sm:text-sm font-bold text-[#f16701]">
                           {page.tagline}
                         </p>
                       )}
                     </div>
 
-                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal">
+                    {/* Rich Content Paragraph */}
+                    <p className="text-xs sm:text-[13px] text-neutral-700 leading-relaxed font-normal">
                       {page.content}
                     </p>
 
-                    {/* Tags / Specs Chips */}
-                    {page.tags && page.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 pt-1">
-                        {page.tags.map((t, tIdx) => (
-                          <span
-                            key={tIdx}
-                            className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#FAF8F5] text-neutral-700 border border-[#fbd7b4]/60"
-                          >
-                            {t}
-                          </span>
-                        ))}
+                    {/* Wholesale Commercial Sourcing Box */}
+                    {page.specs && page.specs.length > 0 && (
+                      <div className="p-3 rounded-xl bg-gradient-to-r from-[#FAF8F5] via-[#FFF8F0] to-[#FAF8F5] border border-[#f8b47d]/40 space-y-1.5 shadow-2xs">
+                        <span className="block font-bold text-[#0F1318] uppercase tracking-wider text-[10px]">
+                          Commercial Sourcing Profile:
+                        </span>
+                        <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-700 font-medium">
+                          {page.specs.map((s, sIdx) => (
+                            <span key={sIdx} className="inline-flex items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#f16701]"></span>
+                              {s}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     )}
+
+                    {/* Key Wholesale Varieties Chips */}
+                    {page.tags && page.tags.length > 0 && (
+                      <div className="space-y-1.5">
+                        <span className="block text-[10px] font-bold text-neutral-500 uppercase tracking-wider">
+                          Key Product Varieties:
+                        </span>
+                        <div className="flex flex-wrap gap-2">
+                          {page.tags.map((t, tIdx) => (
+                            <span
+                              key={tIdx}
+                              className="px-3 py-1 rounded-lg text-xs font-bold bg-[#FAF8F5] text-neutral-800 border border-[#fbd7b4]/80 shadow-2xs hover:border-[#f16701] transition"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                   </div>
 
-                  {/* Footer Hint */}
-                  <div className="pt-2.5 border-t border-[#fbd7b4]/30 flex items-center justify-between text-[11px] text-neutral-500">
-                    <span>Turn Page</span>
-                    <span className="text-[#f16701] font-bold">→</span>
+                  {/* Footer Hint & CTA */}
+                  <div className="pt-2.5 border-t border-[#fbd7b4]/30 flex items-center justify-between text-xs text-neutral-500">
+                    <a
+                      href={page.ctaHref || "#connect"}
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1 font-bold text-[#f16701] hover:underline"
+                    >
+                      <span>Inquire Sourcing</span>
+                      <span>→</span>
+                    </a>
+                    <span className="text-[11px] font-medium text-neutral-400">
+                      Turn Page →
+                    </span>
                   </div>
                 </div>
 
