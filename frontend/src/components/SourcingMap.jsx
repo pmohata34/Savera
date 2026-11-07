@@ -5,18 +5,21 @@ export default function SourcingMap() {
     {
       city: 'Kolkata',
       state: 'West Bengal',
-      tag: 'Headquarters & Single Office',
-      description: 'Central operations office managing trade and direct connections across all partner manufacturing hubs.'
+      isHQ: true,
+      tag: 'Central Operations & Wholesale HQ',
+      description: 'Our central Burman Street operations office coordinating direct contracts, mill verification, commercial negotiations, and nationwide despatches.'
     },
     {
       city: 'Surat',
       state: 'Gujarat',
+      isHQ: false,
       tag: 'High-Volume Production & Daily Wear',
       description: 'Major composite textile epicenter connecting high-volume synthetic weaves, daily wear sarees, jacquards, and dress materials.'
     },
     {
       city: 'Ahmedabad',
       state: 'Gujarat',
+      isHQ: false,
       tag: 'Pure Cottons & Mill Weaves',
       description: 'Renowned textile hub connecting pure cambric cottons, mill-finish fabrics, printed textiles, and commercial garment yardages.'
     }
@@ -26,18 +29,21 @@ export default function SourcingMap() {
     {
       city: 'Jaipur',
       state: 'Rajasthan',
+      isHQ: false,
       tag: 'Ethnic Wear & Handblocks',
       description: 'Sourcing connections for traditional ethnic wear, authentic handblock prints, Sanganeri prints, and contemporary fusion apparel.'
     },
     {
       city: 'Varanasi (Banaras)',
       state: 'Uttar Pradesh',
+      isHQ: false,
       tag: 'Heritage Silk Brocades',
       description: 'Centuries of weaving mastery connecting genuine Banarasi Katan silk, organza, tissue georgettes, and ornate bridal sarees.'
     },
     {
       city: 'Bhagalpur',
       state: 'Bihar',
+      isHQ: false,
       tag: 'Tussar & Handloom Silks',
       description: 'Specialized regional production corridors for pure Bhagalpuri Tussar silk, textured handloom yardage, and regional artisanal weaves.'
     }
@@ -72,7 +78,7 @@ export default function SourcingMap() {
             </div>
             <div className="text-center px-3">
               <span className="block text-xl font-extrabold text-[#f16701] leading-none">700+</span>
-              <span className="text-[9px] font-bold uppercase text-neutral-500">Partner Mills</span>
+              <span className="text-[9px] font-bold uppercase text-neutral-500">Manufacturing Partners</span>
             </div>
           </div>
         </div>
@@ -85,21 +91,43 @@ export default function SourcingMap() {
             {leftHubs.map((hub, idx) => (
               <div
                 key={idx}
-                className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#f8b47d]/35 hover:border-[#f16701]/50 shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 space-y-1.5"
+                className={`p-3.5 sm:p-4 rounded-xl border-l-4 border-l-[#f16701] border-t border-r border-b border-[#f8b47d]/40 shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 space-y-2 ${hub.isHQ ? 'bg-gradient-to-br from-white via-white to-[#FFF6ED]' : 'bg-white'
+                  }`}
               >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-[#0F1318] flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#f16701]"></span>
-                    {hub.city}
-                  </h3>
-                  <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701]">
-                    {hub.state}
-                  </span>
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-lg bg-[#FFF3E8] border border-[#f8b47d]/50 flex items-center justify-center flex-shrink-0 text-[#f16701]">
+                      <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-extrabold text-[#0F1318] leading-tight">
+                        {hub.city}
+                      </h3>
+                      <span className="text-[10px] font-semibold text-neutral-500">
+                        {hub.state}
+                      </span>
+                    </div>
+                  </div>
+
+                  {hub.isHQ ? (
+                    <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-[#f16701] text-white shadow-xs tracking-wider uppercase">
+                      Central HQ
+                    </span>
+                  ) : (
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FAF8F5] border border-[#f8b47d]/60 text-neutral-800 shadow-2xs">
+                      {hub.state}
+                    </span>
+                  )}
                 </div>
-                <p className="text-[11px] font-semibold text-[#f16701]">{hub.tag}</p>
-                <p className="text-[11px] text-neutral-600 leading-snug font-normal line-clamp-3">
-                  {hub.description}
-                </p>
+
+                <div className="pt-0.5 space-y-1">
+                  <p className="text-[11px] font-bold text-[#f16701]">{hub.tag}</p>
+                  <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-3">
+                    {hub.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -109,18 +137,11 @@ export default function SourcingMap() {
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#f16701]/20 via-[#f8b47d]/15 to-transparent rounded-3xl blur-xl opacity-60"></div>
 
             <div className="relative bg-white p-4 sm:p-6 rounded-2xl border border-[#fbd7b4]/60 shadow-lg w-full flex flex-col items-center justify-center">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#f16701] mb-2">
-                Active Production Corridors (6 Hubs)
-              </span>
               <img
-                src="/assets/India_Map_Orange.png"
+                src="/assets/India_Map.png"
                 alt="Pan-India Sourcing Map"
                 className="w-full max-h-[380px] sm:max-h-[420px] object-contain drop-shadow-sm hover:scale-102 transition duration-500"
               />
-              <div className="mt-3 flex items-center gap-2 text-[11px] text-neutral-500 font-medium">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#f16701]"></span>
-                <span>Gujarat, Rajasthan, UP, Bihar &amp; West Bengal</span>
-              </div>
             </div>
           </div>
 
@@ -129,21 +150,36 @@ export default function SourcingMap() {
             {rightHubs.map((hub, idx) => (
               <div
                 key={idx}
-                className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#f8b47d]/35 hover:border-[#f16701]/50 shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 space-y-1.5"
+                className="p-3.5 sm:p-4 rounded-xl border-l-4 border-l-[#f16701] border-t border-r border-b border-[#f8b47d]/40 bg-white shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 space-y-2"
               >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-[#0F1318] flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#f16701]"></span>
-                    {hub.city}
-                  </h3>
-                  <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#f7e5d4] text-[#f16701]">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-lg bg-[#FFF3E8] border border-[#f8b47d]/50 flex items-center justify-center flex-shrink-0 text-[#f16701]">
+                      <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-extrabold text-[#0F1318] leading-tight">
+                        {hub.city}
+                      </h3>
+                      <span className="text-[10px] font-semibold text-neutral-500">
+                        {hub.state}
+                      </span>
+                    </div>
+                  </div>
+
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FAF8F5] border border-[#f8b47d]/60 text-neutral-800 shadow-2xs">
                     {hub.state}
                   </span>
                 </div>
-                <p className="text-[11px] font-semibold text-[#f16701]">{hub.tag}</p>
-                <p className="text-[11px] text-neutral-600 leading-snug font-normal line-clamp-3">
-                  {hub.description}
-                </p>
+
+                <div className="pt-0.5 space-y-1">
+                  <p className="text-[11px] font-bold text-[#f16701]">{hub.tag}</p>
+                  <p className="text-[11px] text-neutral-600 leading-relaxed font-normal line-clamp-3">
+                    {hub.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
