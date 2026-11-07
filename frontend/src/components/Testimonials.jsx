@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const testimonials = [
   {
@@ -52,7 +52,6 @@ const testimonials = [
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDark, setIsDark] = useState(true); // Default to Dark Luxury as in the 1st reference photo
 
   const current = testimonials[currentIndex];
 
@@ -67,61 +66,28 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className={`py-16 sm:py-20 px-4 sm:px-8 lg:px-12 border-b transition-colors duration-500 relative overflow-hidden ${
-        isDark
-          ? 'bg-[#0E0B09] border-neutral-800 text-white'
-          : 'bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF8F5] border-[#fbd7b4]/40 text-[#0F1318]'
-      }`}
+      className="py-16 sm:py-20 px-4 sm:px-8 lg:px-12 bg-gradient-to-b from-[#FAF8F5] via-[#FFF5EC] to-[#FDF0E5] border-b border-[#fbd7b4]/40 relative overflow-hidden"
     >
-      {/* Ambient Lighting Glows */}
+      {/* Warm Ambient Lighting Mesh */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className={`absolute top-1/4 -right-24 w-96 h-96 rounded-full blur-3xl transition-opacity duration-700 ${
-            isDark ? 'bg-[#f16701]/10' : 'bg-gradient-to-bl from-[#f7e5d4] to-[#f8b47d]/20'
-          }`}
-        ></div>
-        <div
-          className={`absolute bottom-1/4 -left-24 w-96 h-96 rounded-full blur-3xl transition-opacity duration-700 ${
-            isDark ? 'bg-[#f16701]/10' : 'bg-gradient-to-tr from-[#fbd7b4] to-[#f16701]/15'
-          }`}
-        ></div>
+        <div className="absolute top-1/4 -right-24 w-96 h-96 bg-gradient-to-bl from-[#f7e5d4] to-[#f8b47d]/25 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-1/4 -left-24 w-96 h-96 bg-gradient-to-tr from-[#fbd7b4] to-[#f16701]/15 rounded-full blur-3xl animate-float-reverse"></div>
       </div>
 
       <div className="max-w-4xl mx-auto space-y-10 relative z-10">
 
-        {/* Section Header: Formatted exactly like ShriVara Reference */}
+        {/* Section Header: ShriVara Typography & Proportions */}
         <div className="text-center space-y-3">
           
-          {/* Subtle Theme Toggle (Luxury Noir / Warm Ivory) */}
-          <div className="flex justify-end mb-2">
-            <button
-              type="button"
-              onClick={() => setIsDark(!isDark)}
-              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider transition border ${
-                isDark
-                  ? 'bg-neutral-900/80 border-[#f8b47d]/30 text-[#fbd7b4] hover:border-[#f16701]'
-                  : 'bg-white border-[#f8b47d]/50 text-neutral-600 hover:text-[#f16701]'
-              }`}
-              title="Toggle between Luxury Noir (Pic 1) and Warm Ivory (Site theme)"
-            >
-              <span>{isDark ? '🌙 Luxury Noir' : '☀️ Warm Ivory'}</span>
-              <span className="text-[9px] opacity-60">| Switch</span>
-            </button>
-          </div>
-
           {/* — TESTIMONIALS — with refined horizontal rules */}
           <div className="flex items-center justify-center gap-3 text-xs sm:text-sm font-bold tracking-[0.28em] text-[#f16701] uppercase">
-            <span className={`w-8 sm:w-12 h-px ${isDark ? 'bg-[#f16701]/60' : 'bg-[#f16701]/70'}`}></span>
+            <span className="w-8 sm:w-12 h-px bg-[#f16701]/70"></span>
             <span>TESTIMONIALS</span>
-            <span className={`w-8 sm:w-12 h-px ${isDark ? 'bg-[#f16701]/60' : 'bg-[#f16701]/70'}`}></span>
+            <span className="w-8 sm:w-12 h-px bg-[#f16701]/70"></span>
           </div>
 
-          {/* "What Our Clients Say" with "Clients" in elegant italic serif accent */}
-          <h2
-            className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight ${
-              isDark ? 'text-white' : 'text-[#0F1318]'
-            }`}
-          >
+          {/* "What Our Clients Say" with "Clients" highlighted in italic serif */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F1318] tracking-tight">
             What Our <span className="text-[#f16701] italic font-serif font-normal">Clients</span> Say
           </h2>
         </div>
@@ -129,75 +95,51 @@ export default function Testimonials() {
         {/* Carousel Card Container */}
         <div className="relative">
 
-          {/* Active Testimonial Card */}
-          <div
-            className={`relative rounded-3xl p-7 sm:p-10 md:p-12 transition-all duration-500 border ${
-              isDark
-                ? 'bg-[#15110E] border-[#f8b47d]/40 shadow-2xl'
-                : 'bg-white border-[#f8b47d]/60 shadow-xl'
-            }`}
-          >
-            {/* Large Accent Quotation Mark (66 shape) */}
+          {/* Active Testimonial Card in Warm Gradient Luxe Styling */}
+          <div className="relative rounded-3xl p-7 sm:p-10 md:p-12 bg-gradient-to-br from-white via-white to-[#FFF6ED] border border-[#f8b47d]/60 shadow-xl hover:border-[#f16701]/60 transition-all duration-300">
+            
+            {/* Quotation Mark (66 shape) in Savera Orange */}
             <div className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#f16701] leading-none mb-4 sm:mb-6 select-none font-bold">
               “
             </div>
 
             {/* Testimonial Quote Text: Italicized, High-End Editorial Serif */}
-            <div
-              className={`space-y-4 text-sm sm:text-base md:text-lg italic font-serif leading-relaxed font-normal min-h-[160px] sm:min-h-[140px] ${
-                isDark ? 'text-[#FAF8F5]/90' : 'text-neutral-700'
-              }`}
-            >
+            <div className="space-y-4 text-sm sm:text-base md:text-lg italic font-serif leading-relaxed text-neutral-800 font-normal min-h-[160px] sm:min-h-[140px]">
               {current.paragraphs.map((p, idx) => (
                 <p key={idx}>{p}</p>
               ))}
             </div>
 
             {/* Bottom Attribution Line: Dash prefix + Uppercase author + tag */}
-            <div
-              className={`mt-8 pt-6 border-t flex flex-wrap items-center justify-between gap-3 ${
-                isDark ? 'border-neutral-800' : 'border-[#fbd7b4]/40'
-              }`}
-            >
+            <div className="mt-8 pt-6 border-t border-[#fbd7b4]/50 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <span className="w-6 sm:w-8 h-px bg-[#f16701]"></span>
                 <div>
                   <h4 className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em] text-[#f16701]">
                     {current.name}
                   </h4>
-                  <p
-                    className={`text-[11px] sm:text-xs font-medium uppercase tracking-wider mt-0.5 ${
-                      isDark ? 'text-neutral-400' : 'text-neutral-500'
-                    }`}
-                  >
+                  <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-600 mt-0.5">
                     {current.role}
                   </p>
                 </div>
               </div>
 
-              {/* Review Index Pill */}
-              <div
-                className={`text-[11px] font-mono px-2.5 py-1 rounded-full ${
-                  isDark ? 'bg-neutral-900 text-neutral-400' : 'bg-[#FAF8F5] text-neutral-500'
-                }`}
-              >
+              {/* Review Counter Badge */}
+              <div className="text-[11px] font-bold font-mono px-3 py-1 rounded-full bg-[#FAF8F5] text-neutral-600 border border-[#f8b47d]/40">
                 {currentIndex + 1} / {testimonials.length}
               </div>
             </div>
           </div>
 
-          {/* Navigation Controls: Previous / Next Buttons */}
+          {/* Navigation Controls: Previous / Next Buttons & Indicator Dots */}
           <div className="flex items-center justify-between pt-6 sm:pt-8">
+            
             {/* Prev Button */}
             <button
               type="button"
               onClick={handlePrev}
               aria-label="Previous testimonial"
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
-                isDark
-                  ? 'bg-[#15110E] border-[#f8b47d]/40 text-[#FAF8F5] hover:border-[#f16701] hover:text-[#f16701] hover:bg-[#1f1814]'
-                  : 'bg-white border-[#f8b47d]/60 text-neutral-700 hover:border-[#f16701] hover:text-[#f16701] hover:bg-[#FAF8F5] shadow-xs'
-              }`}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white border border-[#f8b47d]/60 text-neutral-700 hover:border-[#f16701] hover:text-[#f16701] hover:bg-[#FAF8F5] shadow-xs transition-all duration-200 cursor-pointer"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
@@ -216,8 +158,6 @@ export default function Testimonials() {
                   className={`transition-all duration-300 rounded-full h-2 cursor-pointer ${
                     currentIndex === idx
                       ? 'w-7 bg-[#f16701]'
-                      : isDark
-                      ? 'w-2 bg-neutral-700 hover:bg-neutral-500'
                       : 'w-2 bg-[#fbd7b4] hover:bg-[#f8b47d]'
                   }`}
                 />
@@ -229,11 +169,7 @@ export default function Testimonials() {
               type="button"
               onClick={handleNext}
               aria-label="Next testimonial"
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
-                isDark
-                  ? 'bg-[#15110E] border-[#f8b47d]/40 text-[#FAF8F5] hover:border-[#f16701] hover:text-[#f16701] hover:bg-[#1f1814]'
-                  : 'bg-white border-[#f8b47d]/60 text-neutral-700 hover:border-[#f16701] hover:text-[#f16701] hover:bg-[#FAF8F5] shadow-xs'
-              }`}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white border border-[#f8b47d]/60 text-neutral-700 hover:border-[#f16701] hover:text-[#f16701] hover:bg-[#FAF8F5] shadow-xs transition-all duration-200 cursor-pointer"
             >
               <span>Next</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -102,9 +102,9 @@ export default function Hero() {
             </div>
 
             <div className="p-2.5 sm:p-3 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#f16701] leading-none">25+</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-[#f16701] leading-none">80+</div>
               <p className="text-[11px] font-bold uppercase text-neutral-900 mt-1">Counters Launched</p>
-              <p className="text-[10px] text-neutral-500 font-medium">Turnkey Store Inceptions</p>
+              <p className="text-[10px] text-neutral-500 font-medium">Upto 2026</p>
             </div>
 
             <div className="p-2.5 sm:p-3 rounded-xl bg-white/90 border border-[#f8b47d]/30 shadow-2xs text-center md:text-left col-span-2 sm:col-span-1">

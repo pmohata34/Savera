@@ -6,7 +6,7 @@ export default function SourcingMap() {
       city: 'Kolkata',
       state: 'West Bengal',
       tag: 'Headquarters & Single Office',
-      description: '1/C Burman Street, 3rd Floor, Room No. 312. Central operations office managing trade and direct connections across all partner manufacturing hubs.'
+      description: 'Central operations office managing trade and direct connections across all partner manufacturing hubs.'
     },
     {
       city: 'Surat',
