@@ -1,6 +1,5 @@
 import React from 'react';
 import InteractiveBook from './ui/interactive-book';
-import RadialGlowButton from './ui/radial-glow-button';
 
 export default function ProductRange() {
   const products = [
@@ -136,20 +135,6 @@ export default function ProductRange() {
             width={360}
             height={510}
           />
-        </div>
-
-        {/* Centered Popped Inquiry CTA */}
-        <div className="pt-4 flex justify-center">
-          <RadialGlowButton
-            as="a"
-            href="#connect"
-            size="md"
-          >
-            <span>Inquire Catalog &amp; Swatches</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </RadialGlowButton>
         </div>
 
       </div>
