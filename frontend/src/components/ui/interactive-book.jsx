@@ -282,12 +282,12 @@ export function InteractiveBook({
                   <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/10 via-black/5 to-transparent pointer-events-none" />
 
                   {/* Header: Category Badge + Page Number */}
-                  <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-2.5">
-                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#f16701] bg-[#FFF3E8] px-3 py-1 rounded-full border border-[#f8b47d]/40">
-                      {page.stageTag || `Category 0${index + 1}`}
+                  <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-2">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#f16701] bg-[#FFF3E8] px-3 py-0.5 rounded-full border border-[#f8b47d]/40">
+                      Category 0{index + 1}
                     </span>
                     <span className="text-xs font-mono font-bold text-neutral-400">
-                      Plate 0{page.pageNumber * 2 - 1}
+                      0{index + 1} / 0{pages.length}
                     </span>
                   </div>
 
@@ -311,7 +311,24 @@ export function InteractiveBook({
                       {page.content}
                     </p>
 
-                    {/* Wholesale Commercial Sourcing Box */}
+                    {/* OUR COLLECTION INCLUDES */}
+                    {page.includes && page.includes.length > 0 && (
+                      <div className="pt-2 border-t border-[#fbd7b4]/40 space-y-1.5">
+                        <span className="block text-[11px] font-black text-[#0F1318] uppercase tracking-wider">
+                          OUR COLLECTION INCLUDES
+                        </span>
+                        <div className="grid grid-cols-2 gap-y-1.5 gap-x-2">
+                          {page.includes.map((item, iIdx) => (
+                            <div key={iIdx} className="flex items-start gap-1.5 text-xs text-neutral-800 font-medium leading-snug">
+                              <span className="text-[#f16701] font-bold text-sm leading-none shrink-0">•</span>
+                              <span>{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Wholesale Commercial Sourcing Box (Fallback) */}
                     {page.specs && page.specs.length > 0 && (
                       <div className="p-3 rounded-xl bg-gradient-to-r from-[#FAF8F5] via-[#FFF8F0] to-[#FAF8F5] border border-[#f8b47d]/40 space-y-1.5 shadow-2xs">
                         <span className="block font-bold text-[#0F1318] uppercase tracking-wider text-[10px]">
@@ -328,7 +345,7 @@ export function InteractiveBook({
                       </div>
                     )}
 
-                    {/* Key Wholesale Varieties Chips */}
+                    {/* Key Wholesale Varieties Chips (Fallback) */}
                     {page.tags && page.tags.length > 0 && (
                       <div className="space-y-1.5">
                         <span className="block text-[10px] font-bold text-neutral-500 uppercase tracking-wider">
@@ -393,7 +410,7 @@ export function InteractiveBook({
                         {/* Only Category Name at Bottom */}
                         <div className="relative z-10">
                           <h4 className="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-md">
-                            {isLastPage ? "Composite Loom Weaving" : spreadProduct.title}
+                            {spreadProduct.title}
                           </h4>
                         </div>
                       </div>

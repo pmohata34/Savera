@@ -7,69 +7,90 @@ export default function ProductRange() {
     {
       id: 'sarees',
       categoryNum: '01',
-      title: 'Sarees',
-      tagline: 'Silk, cotton, designer, and partywear collections',
+      title: '01. SAREES',
+      tagline: 'A Diverse Collection of Traditional & Contemporary Sarees',
       image: '/assets/Sarees.jpeg',
-      content: 'Comprehensive wholesale saree portfolios direct from premier weaving clusters in Varanasi, Surat, and Bengal. Featuring pure Banarasi silks, lightweight daily wear cottons, ornate bridal partywear, and contemporary designer weaves.',
-      specs: ['Hubs: Varanasi, Surat & Bengal', 'Direct Mill Wholesale Batches'],
-      tags: ['Cotton Sarees', 'Pure Silk', 'Designer Wear', 'Partywear Collections'],
+      content: 'Explore an extensive range of sarees featuring elegant designs, beautiful textures and traditional craftsmanship, suitable for different occasions and preferences.',
+      includes: [
+        'Cotton Sarees',
+        'Silk Sarees',
+        'Designer Sarees',
+        'Partywear Sarees'
+      ],
       ctaHref: '#connect'
     },
     {
       id: 'salwar-suits',
       categoryNum: '02',
-      title: 'Salwar Suits',
-      tagline: 'Stitched and unstitched varieties',
+      title: '02. SALWAR SUITS',
+      tagline: 'Elegance, Comfort & Versatile Designs',
       image: '/assets/Salwar_Suit.jpeg',
-      content: 'Extensive portfolio of daily-wear and festive salwar suit sets available in unstitched 3-piece cuts as well as ready-to-wear tailored sets. Features premium cottons, chanderi silks, modal, and handblock prints.',
-      specs: ['Hubs: Jaipur & Ahmedabad', 'Unstitched 3-Piece & Tailored'],
-      tags: ['Stitched Suits', 'Unstitched Dress Materials', '3-Piece Sets', 'Handblock Prints'],
+      content: 'Discover a variety of salwar suit collections combining traditional aesthetics with contemporary designs, offering styles for everyday wear and special occasions.',
+      includes: [
+        'Stitched Salwar Suits',
+        'Unstitched Dress Materials',
+        'Printed Collections',
+        'Embroidered Suits'
+      ],
       ctaHref: '#connect'
     },
     {
       id: 'lehengas',
       categoryNum: '03',
-      title: 'Lehengas',
-      tagline: 'Bridal, festive, and partywear collections',
+      title: '03. LEHENGAS',
+      tagline: 'Celebrating Tradition with Timeless Elegance',
       image: '/assets/Lehengas.jpeg',
-      content: 'Bridal masterpieces, festive occasion wear, and contemporary lightweight partywear lehenga sets. Masterfully crafted with intricate zardozi, gota patti, resham embroidery, sequins, and opulent flares.',
-      specs: ['Craft: Zardozi & Gota Patti', 'Semi-Stitched & Designer Sets'],
-      tags: ['Bridal Lehengas', 'Festive Wear', 'Partywear Collections', 'Semi-Stitched Sets'],
+      content: 'Explore beautiful lehenga collections featuring intricate embroidery, exquisite detailing and attractive designs for weddings, festivals and special celebrations',
+      includes: [
+        'Bridal Lehengas',
+        'Festive Lehengas',
+        'Partywear Lehengas',
+        'Designer Lehengas'
+      ],
       ctaHref: '#connect'
     },
     {
       id: 'indo-western',
       categoryNum: '04',
-      title: 'Indo Western Wear',
-      tagline: 'Gowns, kurtis, and fusion sets',
+      title: '04. INDO WESTERN WEAR',
+      tagline: 'Where Traditional Elegance Meets Modern Fashion',
       image: '/assets/Indo_Western.jpeg',
-      content: 'Modern silhouettes meeting traditional textiles: floor-length evening gowns, asymmetrical tunic kurtis, co-ord jacket sets, and fusion drape dresses designed for the modern ethnic retail market.',
-      specs: ['Styles: Gowns & Co-ords', 'Modern Ethnic Retail'],
-      tags: ['Designer Gowns', 'Contemporary Kurtis', 'Fusion Sets', 'Co-ord Ensembles'],
+      content: 'Discover Indo Western styles that blend Indian aesthetics with contemporary silhouettes, creating distinctive looks for celebrations and special occasions.',
+      includes: [
+        'Indo Western Gowns',
+        'Fusion Wear',
+        'Designer Gowns',
+        'Contemporary Kurtis & Sets'
+      ],
       ctaHref: '#connect'
     },
     {
       id: 'fabrics',
       categoryNum: '05',
-      title: 'Fabrics',
-      tagline: 'Dyeable, dyed, printed, silk, and cotton fabrics',
+      title: '05. FABRICS',
+      tagline: 'An Extensive Range of Textures, Colours & Designs',
       image: '/assets/Fabrics.jpeg',
-      content: 'Industrial and commercial wholesale fabric yardage covering pure dyeable whites, mills-dyed solids, screen and digital prints, pure silks, viscose blends, modal muslins, and rich cambric cottons.',
-      specs: ['Hubs: Surat & Ahmedabad', 'Bulk Mill Yardage & Rolls'],
-      tags: ['Dyeable Fabrics', 'Dyed Solids', 'Printed Yardage', 'Silk & Cotton Blends'],
+      content: 'Explore a diverse selection of fabrics available in different textures, patterns, colours and finishes, suitable for various garment and styling requirements.',
+      includes: [
+        'Dyable Fabrics',
+        'Dyed Fabrics',
+        'Printed Fabrics',
+        'Silk Fabrics',
+        'Cotton Fabrics'
+      ],
       ctaHref: '#connect'
     }
   ];
 
   const bookPages = products.map((p, idx) => ({
     pageNumber: idx + 1,
+    categoryNum: p.categoryNum,
     title: p.title,
     tagline: p.tagline,
-    stageTag: `Category 0${idx + 1}`,
+    stageTag: `0${idx + 1}`,
     image: p.image,
     content: p.content,
-    specs: p.specs,
-    tags: p.tags,
+    includes: p.includes,
     ctaHref: p.ctaHref
   }));
 
