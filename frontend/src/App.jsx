@@ -52,7 +52,19 @@ export default function App() {
       if (hash === '#buyer-guide' || path === '/buyer-guide') {
         setCurrentView('buyer-guide');
         window.scrollTo({ top: 0, behavior: 'instant' });
-      } else if (!hash || hash === '#' || hash.startsWith('#hero') || hash.startsWith('#how-we-work') || hash.startsWith('#products') || hash.startsWith('#connect')) {
+      } else if (
+        !hash ||
+        hash === '#' ||
+        hash === '#hero' ||
+        hash === '#how-we-work' ||
+        hash === '#sourcing-map' ||
+        hash === '#products' ||
+        hash === '#growth-journey' ||
+        hash === '#why-choose' ||
+        hash === '#founder' ||
+        hash === '#testimonials' ||
+        hash === '#connect'
+      ) {
         setCurrentView('home');
       }
     };

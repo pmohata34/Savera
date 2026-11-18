@@ -28,6 +28,8 @@ export function InteractiveBook({
   const BOOK_OPEN_DURATION = 1.2;
   const EASING = [0.25, 0, 0, 1];
 
+  const maxPageIndex = pages.length - 2;
+
   const handleOpenBook = () => setIsOpen(true);
 
   const handleCloseBook = (e) => {
@@ -38,7 +40,7 @@ export function InteractiveBook({
 
   const nextPage = (e) => {
     e?.stopPropagation();
-    if (currentPageIndex < pages.length - 1) {
+    if (currentPageIndex < maxPageIndex) {
       setCurrentPageIndex((prev) => prev + 1);
     }
   };
@@ -268,14 +270,19 @@ export function InteractiveBook({
               >
                 {/* Front Face of Page (Right Spread) */}
                 <div
-                  className="absolute inset-0 w-full h-full p-6 sm:p-7 flex flex-col justify-between bg-white rounded-r-2xl cursor-pointer hover:bg-[#FFFDFB] transition-colors"
+                  className={cn(
+                    "absolute inset-0 w-full h-full p-6 sm:p-7 flex flex-col justify-between bg-white rounded-r-2xl select-none",
+                    index >= pages.length - 1 ? "cursor-default" : "cursor-pointer hover:bg-[#FFFDFB] transition-colors"
+                  )}
                   style={{
                     transform: `translateZ(${(pages.length - index) * 1 + 2}px)`,
                     backfaceVisibility: 'hidden',
                   }}
                   onClick={(e) => {
                     e.stopPropagation();
-                    nextPage();
+                    if (index < pages.length - 1) {
+                      nextPage();
+                    }
                   }}
                 >
                   {/* Left Gutter Crease Shadow */}
@@ -417,38 +424,11 @@ export function InteractiveBook({
             );
           })}
 
-          {/* ── BACK COVER (Static Inside) ── */}
+          {/* ── REAR HARDBACK BACKING CASING (No extra pages or text) ── */}
           <div
-            className="absolute inset-0 w-full h-full bg-[#FAF8F5] rounded-r-2xl rounded-l-md shadow-xl border border-[#f8b47d]/40 flex flex-col justify-between p-7 text-center pointer-events-auto"
+            className="absolute inset-0 w-full h-full bg-[#FAF8F5] rounded-r-2xl rounded-l-md shadow-xl border border-[#f8b47d]/40 pointer-events-none"
             style={{ transform: 'translateZ(0px)', zIndex: 1 }}
-          >
-            <div className="flex-1 flex flex-col items-center justify-center space-y-3">
-              <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40">
-                End of Lookbook
-              </span>
-              <h4 className="text-xl font-black text-[#0F1318]">
-                Custom Loom Orders &amp; Weaving
-              </h4>
-              <p className="text-xs text-neutral-600 max-w-xs leading-relaxed">
-                Need custom yarn specifications, jacquard motifs, or special loom runs? Our 700+ partner mills accommodate commercial contracts.
-              </p>
-              <button
-                type="button"
-                onClick={restartBook}
-                className="mt-3 relative z-30 inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#f16701] to-[#f48129] text-white text-xs font-bold uppercase tracking-wider shadow-md hover:opacity-95 transition transform hover:scale-105 cursor-pointer pointer-events-auto"
-              >
-                <RefreshCcw className="w-3.5 h-3.5" />
-                <span>Read From Beginning</span>
-              </button>
-            </div>
-
-            <p className="text-[10px] text-neutral-400">
-              <span className="font-playfair font-bold text-xs inline-flex items-baseline gap-1">
-                <span className="text-[#f16701]">SAVERA</span>
-                <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
-              </span> • Wholesale Sourcing Platform
-            </p>
-          </div>
+          />
         </div>
       </motion.div>
 
@@ -459,7 +439,7 @@ export function InteractiveBook({
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 15 }}
-            className="mt-8 z-20 flex items-center gap-4 bg-white/95 px-5 py-2.5 rounded-full border border-[#f8b47d]/50 shadow-lg backdrop-blur-md"
+            className="mt-8 z-20 flex items-center gap-3 sm:gap-4 bg-white/95 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-[#f8b47d]/50 shadow-lg backdrop-blur-md"
           >
             {/* Prev Button */}
             <button
@@ -473,16 +453,14 @@ export function InteractiveBook({
             </button>
 
             {/* Page Counter */}
-            <div className="text-xs font-bold text-neutral-700 min-w-[150px] text-center">
+            <div className="text-xs font-bold text-neutral-700 min-w-[150px] sm:min-w-[170px] text-center select-none">
               {currentPageIndex === -1 ? (
                 <span>
                   <span className="text-[#f16701] font-black">1</span> of {pages.length} • {pages[0]?.title?.replace(/^\d+[\.\s]+/, '') || "Sarees"}
                 </span>
-              ) : currentPageIndex >= pages.length - 1 ? (
-                <span className="text-[#f16701]">Lookbook End</span>
               ) : (
                 <span>
-                  <span className="text-[#f16701] font-black">{currentPageIndex + 2}</span> of {pages.length} • {pages[currentPageIndex + 1]?.title?.replace(/^\d+[\.\s]+/, '')}
+                  <span className="text-[#f16701] font-black">{Math.min(currentPageIndex + 2, pages.length)}</span> of {pages.length} • {pages[Math.min(currentPageIndex + 1, pages.length - 1)]?.title?.replace(/^\d+[\.\s]+/, '')}
                 </span>
               )}
             </div>
@@ -490,7 +468,7 @@ export function InteractiveBook({
             {/* Next Button */}
             <button
               onClick={nextPage}
-              disabled={currentPageIndex >= pages.length - 1}
+              disabled={currentPageIndex >= maxPageIndex}
               className="p-2 rounded-full hover:bg-[#f7e5d4] text-neutral-700 hover:text-[#f16701] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer"
               title="Next Page"
               aria-label="Next Page"
@@ -498,12 +476,23 @@ export function InteractiveBook({
               <ChevronRight className="w-5 h-5" />
             </button>
 
+            {/* Read from Beginning / Reset */}
+            <button
+              onClick={restartBook}
+              disabled={currentPageIndex === -1}
+              className="p-2 rounded-full hover:bg-[#f7e5d4] text-neutral-700 hover:text-[#f16701] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer"
+              title="Read from Beginning"
+              aria-label="Read from Beginning"
+            >
+              <RefreshCcw className="w-4 h-4" />
+            </button>
+
             <div className="w-[1px] h-5 bg-[#fbd7b4]" />
 
             {/* Close Button */}
             <button
               onClick={handleCloseBook}
-              className="px-3.5 py-1.5 rounded-full bg-[#f7e5d4] hover:bg-[#f8b47d] text-[#f16701] text-xs font-bold uppercase tracking-wider transition cursor-pointer flex items-center gap-1.5"
+              className="px-3 sm:px-3.5 py-1.5 rounded-full bg-[#f7e5d4] hover:bg-[#f8b47d] text-[#f16701] text-xs font-bold uppercase tracking-wider transition cursor-pointer flex items-center gap-1.5"
             >
               <X className="w-3.5 h-3.5" />
               <span>Close Book</span>

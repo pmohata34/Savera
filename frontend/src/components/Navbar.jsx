@@ -41,23 +41,8 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
           </div>
         </a>
 
-        {/* Center Nav Capsule in Sequential Order - VISIBLE ON DESKTOP SCREENS (>= 1280px) */}
-        {currentView === 'buyer-guide' ? (
-          <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1 bg-[#FAF8F5] p-1 rounded-full border border-[#fbd7b4]/60 text-[11px] 2xl:text-xs font-bold text-neutral-600 shadow-inner flex-shrink-0">
-            <button
-              type="button"
-              onClick={() => onNavigate && onNavigate('home')}
-              className="px-2.5 2xl:px-3 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap flex items-center gap-1 cursor-pointer"
-            >
-              <ArrowLeft className="w-3 h-3 text-[#f16701]" />
-              <span>Home</span>
-            </button>
-            <a href="#how-we-work-guide" className="px-2 2xl:px-2.5 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap">1. Sourcing Process</a>
-            <a href="#agent-checks" className="px-2 2xl:px-2.5 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap">2. 8 Checks</a>
-            <a href="#comparison" className="px-2 2xl:px-2.5 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap">3. Direct vs Savera</a>
-            <a href="#buying-brief" className="px-2 2xl:px-2.5 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap">4. Buying Brief</a>
-          </nav>
-        ) : (
+        {/* Center Nav Capsule in Sequential Order - VISIBLE ON DESKTOP SCREENS (>= 1280px) ONLY ON HOME PAGE */}
+        {currentView === 'home' && (
           <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1 bg-[#FAF8F5] p-1 rounded-full border border-[#fbd7b4]/60 text-[11px] 2xl:text-xs font-bold text-neutral-600 shadow-inner flex-shrink-0">
             <a href="#hero" className="px-2 2xl:px-2.5 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap">About Us</a>
             <a href="#how-we-work" className="px-2 2xl:px-2.5 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap">How We Work</a>
@@ -159,10 +144,6 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
                 <ArrowLeft className="w-4 h-4" />
                 <span>Return to Main Website</span>
               </button>
-              <a href="#how-we-work-guide" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">1. Sourcing Process</a>
-              <a href="#agent-checks" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">2. 8 Checks Before Trade</a>
-              <a href="#comparison" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">3. Direct vs Savera</a>
-              <a href="#buying-brief" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2 rounded-xl hover:bg-[#FAF8F5] hover:text-[#f16701] transition">4. Prepare Buying Brief</a>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
