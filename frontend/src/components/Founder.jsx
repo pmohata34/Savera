@@ -22,27 +22,27 @@ export default function Founder() {
           </p>
         </div>
 
-        {/* Editorial 2-Column Split: Balanced 50/50 Width with Both Sides Aligned at the Exact Same Bottom Level */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+        {/* Custom Proportional Split: ~30-34% Left (Portrait Photo) & ~66-70% Right (Written Philosophy) */}
+        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-10 xl:gap-12">
 
-          {/* Left Column: Solid Orange Frame + Perfectly Fitted Portrait + Nameplate */}
-          <div className="space-y-3">
+          {/* Left Column: Natural 3:4 Aspect Ratio Frame (0 Letterbox, 0 Crop) + Executive Nameplate */}
+          <div className="w-full max-w-[360px] sm:max-w-[380px] lg:max-w-none lg:w-[34%] xl:w-[31%] mx-auto lg:mx-0 space-y-3.5 flex-shrink-0">
             
-            {/* Solid Luxury Orange Frame */}
-            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-white to-[#FFF6EE] p-3 sm:p-3.5 border-3 border-[#f16701] shadow-xl shadow-[#f16701]/10 group">
-              {/* Inner Archival Matting & Photo Container */}
-              <div className="h-[380px] sm:h-[410px] w-full rounded-xl overflow-hidden relative shadow-inner bg-gradient-to-b from-[#FFFDF9] via-[#FAF8F5] to-[#FDF0E5] flex items-center justify-center border border-[#f8b47d]/40">
+            {/* Solid Luxury Orange Outer Frame */}
+            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-white to-[#FFF6EE] p-2.5 sm:p-3 border-2 border-[#f16701] shadow-xl shadow-[#f16701]/10 group">
+              {/* Inner Archival Container perfectly matched to 3:4 image aspect ratio */}
+              <div className="w-full aspect-[3/4] rounded-xl overflow-hidden relative shadow-inner bg-[#FAF8F5] border border-[#f8b47d]/40">
                 <img
                   src="/assets/founder.jpeg"
-                  alt="Mr. Vineet Kr. Taparia"
-                  className="w-full h-full object-cover object-top drop-shadow-md group-hover:scale-102 transition duration-500 ease-out"
+                  alt="Mr. Vineet Kr. Taparia - Founder"
+                  className="w-full h-full object-cover object-top drop-shadow-sm group-hover:scale-102 transition duration-500 ease-out"
                 />
               </div>
             </div>
 
-            {/* Dedicated Nameplate Under the Photo */}
-            <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-br from-white to-[#f7e5d4]/40 border border-[#f8b47d]/40 shadow-xs text-center space-y-0.5">
-              <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40 mb-0.5">
+            {/* Dedicated Executive Nameplate Directly Under Photo */}
+            <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-br from-white to-[#f7e5d4]/40 border border-[#f8b47d]/40 shadow-xs text-center space-y-1">
+              <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40">
                 Established 1995
               </span>
               <h3 className="text-xl font-black text-[#0F1318] tracking-tight">
@@ -58,19 +58,19 @@ export default function Founder() {
 
           </div>
 
-          {/* Right Column: Verbatim Founder Message from Document (Natural tight flow with zero artificial gap) */}
-          <div className="space-y-3.5 sm:space-y-4">
+          {/* Right Column: Verbatim Written Founder Message (66-70% Width) */}
+          <div className="w-full lg:flex-1 space-y-4">
 
             <div className="space-y-1">
               <span className="text-xs font-bold uppercase tracking-widest text-[#f16701]">
                 Foundational Philosophy
               </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-[#0F1318] leading-snug">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0F1318] leading-tight">
                 "Goodwill is more valuable than money, and trust is the true foundation of business."
               </h3>
             </div>
 
-            <div className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
+            <div className="space-y-3 sm:space-y-3.5 text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
               <p>
                 Every successful business begins with a belief. When I started <strong className="text-[#0F1318] font-bold">Savera Marketing</strong> in 1995 as a small proprietorship, my belief was simple: goodwill is more valuable than money, and trust is the true foundation of business. This belief has guided me throughout my journey and continues to define the way we work today.
               </p>
@@ -92,8 +92,8 @@ export default function Founder() {
               </p>
             </div>
 
-            {/* Concluding Belief Card: Sits directly below paragraph with natural spacing */}
-            <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-[#f7e5d4] via-[#fbd7b4]/40 to-white border border-[#f8b47d]/50 shadow-xs">
+            {/* Concluding Belief Card */}
+            <div className="p-4 rounded-xl bg-gradient-to-r from-[#f7e5d4] via-[#fbd7b4]/40 to-white border border-[#f8b47d]/50 shadow-xs">
               <p className="text-xs sm:text-sm font-bold text-neutral-800 italic">
                 "Our journey began with trust, has grown through relationships and will continue with the same values for generations to come."
               </p>
