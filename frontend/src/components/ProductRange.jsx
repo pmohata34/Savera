@@ -98,6 +98,7 @@ export default function ProductRange() {
         {/* ── 3D INTERACTIVE TEXTILE LOOKBOOK (Open Book in Products) ── */}
         <div className="w-full flex justify-center py-2">
           <InteractiveBook
+            coverImage="/assets/product_range_cover.jpg"
             coverBadge="Wholesale Lookbook • Since 1995"
             coverTitle="Product Range"
             coverSubtitle="Textile Portfolios & Swatches"
@@ -112,7 +113,7 @@ export default function ProductRange() {
             insideCoverDescription="Turn the pages to view authentic photography, weaving specifications, and wholesale sourcing options direct from production looms."
             pages={bookPages}
             width={360}
-            height={500}
+            height={510}
           />
         </div>
 
