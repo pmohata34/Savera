@@ -218,38 +218,6 @@ export default function BuyerGuide({ onBack, onInquire }) {
             </p>
           </div>
 
-          {/* Quick Section Anchor Pills (Without Numbers) */}
-          <div className="flex flex-wrap gap-2 pt-2">
-            <button
-              type="button"
-              onClick={() => document.getElementById('how-we-work-guide')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition cursor-pointer"
-            >
-              Sourcing Process
-            </button>
-            <button
-              type="button"
-              onClick={() => document.getElementById('agent-checks')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition cursor-pointer"
-            >
-              8 Checks Before You Trade
-            </button>
-            <button
-              type="button"
-              onClick={() => document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition cursor-pointer"
-            >
-              Direct vs Savera
-            </button>
-            <button
-              type="button"
-              onClick={() => document.getElementById('buying-brief')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition cursor-pointer"
-            >
-              Prepare Your Buying Brief
-            </button>
-          </div>
-
         </div>
       </div>
 
