@@ -223,7 +223,7 @@ export function InteractiveBook({
                 {/* Only Category Name at Bottom */}
                 <div className="relative z-10">
                   <h4 className="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-md">
-                    {pages[0].title}
+                    {pages[0].title.replace(/^\d+[\.\s]+/, '')}
                   </h4>
                 </div>
               </div>
@@ -268,7 +268,7 @@ export function InteractiveBook({
               >
                 {/* Front Face of Page (Right Spread) */}
                 <div
-                  className="absolute inset-0 w-full h-full p-5 sm:p-6 flex flex-col justify-between bg-white rounded-r-2xl cursor-pointer hover:bg-[#FFFDFB] transition-colors"
+                  className="absolute inset-0 w-full h-full p-6 sm:p-7 flex flex-col justify-between bg-white rounded-r-2xl cursor-pointer hover:bg-[#FFFDFB] transition-colors"
                   style={{
                     transform: `translateZ(${(pages.length - index) * 1 + 2}px)`,
                     backfaceVisibility: 'hidden',
@@ -281,23 +281,13 @@ export function InteractiveBook({
                   {/* Left Gutter Crease Shadow */}
                   <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/10 via-black/5 to-transparent pointer-events-none" />
 
-                  {/* Header: Category Badge + Page Number */}
-                  <div className="flex items-center justify-between border-b border-[#fbd7b4]/50 pb-2">
-                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#f16701] bg-[#FFF3E8] px-3 py-0.5 rounded-full border border-[#f8b47d]/40">
-                      Category 0{index + 1}
-                    </span>
-                    <span className="text-xs font-mono font-bold text-neutral-400">
-                      0{index + 1} / 0{pages.length}
-                    </span>
-                  </div>
-
                   {/* Page Body: Fills the entire page generously with big typography & wholesale profile */}
-                  <div className="flex-1 py-4 flex flex-col justify-between space-y-3">
+                  <div className="flex-1 flex flex-col justify-between space-y-4 py-2">
                     
                     {/* Big Title & Tagline */}
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       <h4 className="text-2xl sm:text-3xl font-extrabold font-playfair text-[#0F1318] leading-tight tracking-tight">
-                        {page.title}
+                        {page.title.replace(/^\d+[\.\s]+/, '')}
                       </h4>
                       {page.tagline && (
                         <p className="text-xs sm:text-sm font-bold text-[#f16701]">
@@ -313,11 +303,11 @@ export function InteractiveBook({
 
                     {/* OUR COLLECTION INCLUDES */}
                     {page.includes && page.includes.length > 0 && (
-                      <div className="pt-2 border-t border-[#fbd7b4]/40 space-y-1.5">
+                      <div className="pt-3 border-t border-[#fbd7b4]/40 space-y-2">
                         <span className="block text-[11px] font-black text-[#0F1318] uppercase tracking-wider">
                           OUR COLLECTION INCLUDES
                         </span>
-                        <div className="grid grid-cols-2 gap-y-1.5 gap-x-2">
+                        <div className="grid grid-cols-2 gap-y-2 gap-x-2">
                           {page.includes.map((item, iIdx) => (
                             <div key={iIdx} className="flex items-start gap-1.5 text-xs text-neutral-800 font-medium leading-snug">
                               <span className="text-[#f16701] font-bold text-sm leading-none shrink-0">•</span>
@@ -365,21 +355,6 @@ export function InteractiveBook({
                     )}
 
                   </div>
-
-                  {/* Footer Hint & CTA */}
-                  <div className="pt-2.5 border-t border-[#fbd7b4]/30 flex items-center justify-between text-xs text-neutral-500">
-                    <a
-                      href={page.ctaHref || "#connect"}
-                      onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1 font-bold text-[#f16701] hover:underline"
-                    >
-                      <span>Inquire Sourcing</span>
-                      <span>→</span>
-                    </a>
-                    <span className="text-[11px] font-medium text-neutral-400">
-                      Turn Page →
-                    </span>
-                  </div>
                 </div>
 
                 {/* Back Face of Page (Left Spread: Rich Image matching the next active right page) */}
@@ -410,7 +385,7 @@ export function InteractiveBook({
                         {/* Only Category Name at Bottom */}
                         <div className="relative z-10">
                           <h4 className="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-md">
-                            {spreadProduct.title}
+                            {spreadProduct.title.replace(/^\d+[\.\s]+/, '')}
                           </h4>
                         </div>
                       </div>
@@ -501,13 +476,13 @@ export function InteractiveBook({
             <div className="text-xs font-bold text-neutral-700 min-w-[150px] text-center">
               {currentPageIndex === -1 ? (
                 <span>
-                  Category <span className="text-[#f16701] font-black">1</span> of {pages.length} • {pages[0]?.title || "Sarees"}
+                  <span className="text-[#f16701] font-black">1</span> of {pages.length} • {pages[0]?.title?.replace(/^\d+[\.\s]+/, '') || "Sarees"}
                 </span>
               ) : currentPageIndex >= pages.length - 1 ? (
-                <span className="text-[#f16701]">Lookbook End • Mill Orders</span>
+                <span className="text-[#f16701]">Lookbook End</span>
               ) : (
                 <span>
-                  Category <span className="text-[#f16701] font-black">{currentPageIndex + 2}</span> of {pages.length} • {pages[currentPageIndex + 1]?.title}
+                  <span className="text-[#f16701] font-black">{currentPageIndex + 2}</span> of {pages.length} • {pages[currentPageIndex + 1]?.title?.replace(/^\d+[\.\s]+/, '')}
                 </span>
               )}
             </div>

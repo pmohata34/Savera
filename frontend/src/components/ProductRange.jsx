@@ -7,7 +7,7 @@ export default function ProductRange() {
     {
       id: 'sarees',
       categoryNum: '01',
-      title: '01. SAREES',
+      title: 'SAREES',
       tagline: 'A Diverse Collection of Traditional & Contemporary Sarees',
       image: '/assets/Sarees.jpeg',
       content: 'Explore an extensive range of sarees featuring elegant designs, beautiful textures and traditional craftsmanship, suitable for different occasions and preferences.',
@@ -22,7 +22,7 @@ export default function ProductRange() {
     {
       id: 'salwar-suits',
       categoryNum: '02',
-      title: '02. SALWAR SUITS',
+      title: 'SALWAR SUITS',
       tagline: 'Elegance, Comfort & Versatile Designs',
       image: '/assets/Salwar_Suit.jpeg',
       content: 'Discover a variety of salwar suit collections combining traditional aesthetics with contemporary designs, offering styles for everyday wear and special occasions.',
@@ -37,7 +37,7 @@ export default function ProductRange() {
     {
       id: 'lehengas',
       categoryNum: '03',
-      title: '03. LEHENGAS',
+      title: 'LEHENGAS',
       tagline: 'Celebrating Tradition with Timeless Elegance',
       image: '/assets/Lehengas.jpeg',
       content: 'Explore beautiful lehenga collections featuring intricate embroidery, exquisite detailing and attractive designs for weddings, festivals and special celebrations',
@@ -52,7 +52,7 @@ export default function ProductRange() {
     {
       id: 'indo-western',
       categoryNum: '04',
-      title: '04. INDO WESTERN WEAR',
+      title: 'INDO WESTERN WEAR',
       tagline: 'Where Traditional Elegance Meets Modern Fashion',
       image: '/assets/Indo_Western.jpeg',
       content: 'Discover Indo Western styles that blend Indian aesthetics with contemporary silhouettes, creating distinctive looks for celebrations and special occasions.',
@@ -67,7 +67,7 @@ export default function ProductRange() {
     {
       id: 'fabrics',
       categoryNum: '05',
-      title: '05. FABRICS',
+      title: 'FABRICS',
       tagline: 'An Extensive Range of Textures, Colours & Designs',
       image: '/assets/Fabrics.jpeg',
       content: 'Explore a diverse selection of fabrics available in different textures, patterns, colours and finishes, suitable for various garment and styling requirements.',
