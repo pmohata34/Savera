@@ -28,23 +28,15 @@ export default function Founder() {
           {/* Left Column: Solid Orange Frame + Perfectly Fitted Portrait + Nameplate */}
           <div className="space-y-3">
             
-            {/* Solid Luxury Orange Frame (User customizable frame with clear photo dimensions) */}
+            {/* Solid Luxury Orange Frame */}
             <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-white to-[#FFF6EE] p-3 sm:p-3.5 border-3 border-[#f16701] shadow-xl shadow-[#f16701]/10 group">
               {/* Inner Archival Matting & Photo Container */}
-              <div className="h-[360px] sm:h-[380px] w-full rounded-xl overflow-hidden relative shadow-inner bg-gradient-to-b from-[#FFFDF9] via-[#FAF8F5] to-[#FDF0E5] flex items-center justify-center border border-[#f8b47d]/40 p-2">
+              <div className="h-[380px] sm:h-[410px] w-full rounded-xl overflow-hidden relative shadow-inner bg-gradient-to-b from-[#FFFDF9] via-[#FAF8F5] to-[#FDF0E5] flex items-center justify-center border border-[#f8b47d]/40">
                 <img
-                  src="/photos/founder_vineet_taparia.jpg"
+                  src="/assets/founder.jpeg"
                   alt="Mr. Vineet Kr. Taparia"
-                  className="w-full h-full object-contain drop-shadow-md group-hover:scale-102 transition duration-500 ease-out"
+                  className="w-full h-full object-cover object-top drop-shadow-md group-hover:scale-102 transition duration-500 ease-out"
                 />
-              </div>
-
-              {/* Exact Photo Dimension Spec Badge */}
-              <div className="mt-2.5 pt-2 border-t border-[#fbd7b4]/60 flex items-center justify-between px-1 text-[11px] font-mono text-neutral-600">
-                <span className="font-semibold text-neutral-700">Photo Frame Ratio: 4:5 Portrait</span>
-                <span className="font-bold text-[#f16701] bg-[#FFF3E8] px-2 py-0.5 rounded border border-[#f8b47d]/50">
-                  Size: 600 × 750 px
-                </span>
               </div>
             </div>
 

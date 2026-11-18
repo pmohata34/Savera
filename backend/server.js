@@ -37,7 +37,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve the brochure PDF publicly
-app.get(['/brochure.pdf', '/assets/Savera_Brochure.pdf', '/api/brochure'], (req, res) => {
+app.get(['/brochure.pdf', '/assets/Savera_Brochure.pdf', '/assets/Savera%20Tex%20Solution%20LLP%20Website%20Brochure.pdf', '/api/brochure'], (req, res) => {
   const file = getBrochurePath() || BROCHURE_PATH;
   if (fs.existsSync(file)) {
     res.setHeader('Content-Type', 'application/pdf');
