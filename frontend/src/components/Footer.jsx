@@ -60,6 +60,25 @@ export default function Footer({ onNavigate }) {
                 <span className="text-[#f16701]">✉️</span>
                 <a href="mailto:info@saveratexsolutionllp.in" className="hover:text-[#f16701] transition font-medium">info@saveratexsolutionllp.in</a>
               </div>
+              <div className="flex items-center gap-3.5 pt-1.5 text-xs text-neutral-700 font-semibold">
+                <a 
+                  href="https://www.instagram.com/savera_tex_solution_llp?utm_source=qr" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-[#f16701] flex items-center gap-1.5 transition"
+                >
+                  <span className="text-[#ee2a7b]">📸</span> Instagram
+                </a>
+                <span className="text-neutral-300">•</span>
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61590857903957&sk=about" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-[#f16701] flex items-center gap-1.5 transition"
+                >
+                  <span className="text-[#1877F2]">🌐</span> Facebook
+                </a>
+              </div>
             </div>
 
             <div className="pt-2.5 border-t border-[#fbd7b4]/40 text-[11px] text-neutral-600 space-y-1">
