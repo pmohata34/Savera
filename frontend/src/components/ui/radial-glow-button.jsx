@@ -52,7 +52,9 @@ export function RadialGlowButton({
   )`;
 
   const sizeClasses = {
-    sm: 'px-5 py-2.5 text-xs',
+    nav: 'px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs',
+    xs: 'px-3 py-1.5 text-[11px]',
+    sm: 'px-4 sm:px-5 py-2 sm:py-2.5 text-xs',
     md: 'px-7 py-3 text-xs sm:text-[13px]',
     lg: 'px-8 py-3.5 text-sm',
   }[size] || 'px-6 py-3 text-xs';

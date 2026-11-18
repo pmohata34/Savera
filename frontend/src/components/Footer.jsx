@@ -116,20 +116,9 @@ export default function Footer({ onNavigate }) {
         <div className="pt-4 border-t border-[#fbd7b4]/40 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-neutral-500 text-center sm:text-left">
           <p>© <strong className="font-playfair font-bold inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong>. All rights reserved.</p>
 
-          <div className="flex items-center gap-4 text-[11px] text-neutral-500">
-            <a
-              href="#buyer-guide"
-              onClick={(e) => {
-                e.preventDefault();
-                if (onNavigate) onNavigate('buyer-guide');
-              }}
-              className="text-[#f16701] font-semibold hover:underline"
-            >
-              Buyer's Guide Handbook
-            </a>
-            <span>•</span>
-            <span>Pan-India Textile Commission Agency • Since 1995</span>
-          </div>
+          <p className="text-[11px] text-neutral-500">
+            Pan-India Textile Commission Agency • Since 1995
+          </p>
         </div>
 
       </div>
