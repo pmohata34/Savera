@@ -41,8 +41,47 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
           </div>
         </a>
 
-        {/* Center Nav Capsule in Sequential Order - VISIBLE ON DESKTOP SCREENS (>= 1280px) ONLY ON HOME PAGE */}
-        {currentView === 'home' && (
+        {/* Center Nav Capsule in Sequential Order - VISIBLE ON DESKTOP SCREENS (>= 1280px) */}
+        {currentView === 'buyer-guide' ? (
+          <nav className="hidden xl:flex items-center gap-1 2xl:gap-1.5 bg-[#FAF8F5] p-1 rounded-full border border-[#fbd7b4]/60 text-[11px] 2xl:text-xs font-bold text-neutral-600 shadow-inner flex-shrink-0">
+            <button
+              type="button"
+              onClick={() => {
+                document.getElementById('how-we-work-guide')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-2.5 2xl:px-3 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap cursor-pointer"
+            >
+              Sourcing Process
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                document.getElementById('agent-checks')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-2.5 2xl:px-3 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap cursor-pointer"
+            >
+              8 Checks Before Trade
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-2.5 2xl:px-3 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap cursor-pointer"
+            >
+              Direct vs Savera
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                document.getElementById('buying-brief')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-2.5 2xl:px-3 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap cursor-pointer"
+            >
+              Prepare Buying Brief
+            </button>
+          </nav>
+        ) : (
           <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1 bg-[#FAF8F5] p-1 rounded-full border border-[#fbd7b4]/60 text-[11px] 2xl:text-xs font-bold text-neutral-600 shadow-inner flex-shrink-0">
             <a href="#hero" className="px-2 2xl:px-2.5 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap">About Us</a>
             <a href="#how-we-work" className="px-2 2xl:px-2.5 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap">How We Work</a>
@@ -67,13 +106,13 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
                 ? 'bg-[#0F1318] text-white hover:bg-neutral-800 border-neutral-700'
                 : 'bg-white text-neutral-800 hover:text-[#f16701] hover:border-[#f16701] border-[#fbd7b4] hover:bg-[#FFFDF9]'
             }`}
-            title={currentView === 'buyer-guide' ? "Return to Homepage" : "Buyer's Guide Handbook"}
+            title={currentView === 'buyer-guide' ? "Back to Main Website" : "Buyer's Guide Handbook"}
           >
             {currentView === 'buyer-guide' ? (
               <>
                 <ArrowLeft className="w-3.5 h-3.5 text-[#f16701] flex-shrink-0" />
-                <span className="hidden sm:inline">Back to Home</span>
-                <span className="sm:hidden">Home</span>
+                <span className="hidden sm:inline">Back to Website</span>
+                <span className="sm:hidden">Website</span>
               </>
             ) : (
               <>
@@ -142,7 +181,47 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
                 className="px-4 py-2.5 rounded-xl bg-[#FAF8F5] text-[#f16701] font-bold flex items-center gap-2 text-left transition hover:bg-[#fbd7b4]/30"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span>Return to Main Website</span>
+                <span>Back to Website</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  document.getElementById('how-we-work-guide')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-4 py-2 rounded-xl text-left hover:bg-[#FAF8F5] hover:text-[#f16701] transition"
+              >
+                Sourcing Process
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  document.getElementById('agent-checks')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-4 py-2 rounded-xl text-left hover:bg-[#FAF8F5] hover:text-[#f16701] transition"
+              >
+                8 Checks Before Trade
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-4 py-2 rounded-xl text-left hover:bg-[#FAF8F5] hover:text-[#f16701] transition"
+              >
+                Direct vs Savera
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  document.getElementById('buying-brief')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-4 py-2 rounded-xl text-left hover:bg-[#FAF8F5] hover:text-[#f16701] transition"
+              >
+                Prepare Buying Brief
               </button>
               <button
                 onClick={() => {

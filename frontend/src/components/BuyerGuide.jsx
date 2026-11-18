@@ -197,8 +197,8 @@ export default function BuyerGuide({ onBack, onInquire }) {
       <div className="bg-gradient-to-b from-[#FDF0E5] via-[#FAF8F5] to-white border-b border-[#fbd7b4]/60 pt-6 pb-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto space-y-6">
           
-          {/* Back Button & Badge */}
-          <div className="flex flex-wrap items-center justify-between gap-4">
+          {/* Back Button */}
+          <div className="flex items-center">
             <button
               onClick={onBack}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-neutral-800 text-xs sm:text-sm font-bold border border-[#fbd7b4] shadow-xs hover:border-[#f16701] hover:text-[#f16701] transition cursor-pointer"
@@ -206,11 +206,6 @@ export default function BuyerGuide({ onBack, onInquire }) {
               <ArrowLeft className="w-4 h-4 text-[#f16701]" />
               <span>Back to Home</span>
             </button>
-
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider text-[#f16701] bg-[#FFF3E8] border border-[#f8b47d]/40">
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>Official Buyer's Guide</span>
-            </span>
           </div>
 
           {/* Guide Header Title */}
@@ -223,20 +218,36 @@ export default function BuyerGuide({ onBack, onInquire }) {
             </p>
           </div>
 
-          {/* Quick Section Anchor Pills */}
+          {/* Quick Section Anchor Pills (Without Numbers) */}
           <div className="flex flex-wrap gap-2 pt-2">
-            <a href="#how-we-work-guide" className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition">
-              1. Sourcing Process (8 Steps)
-            </a>
-            <a href="#agent-checks" className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition">
-              2. 8 Checks Before You Trade
-            </a>
-            <a href="#comparison" className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition">
-              3. Direct vs Savera
-            </a>
-            <a href="#buying-brief" className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition">
-              4. Prepare Your Buying Brief
-            </a>
+            <button
+              type="button"
+              onClick={() => document.getElementById('how-we-work-guide')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition cursor-pointer"
+            >
+              Sourcing Process
+            </button>
+            <button
+              type="button"
+              onClick={() => document.getElementById('agent-checks')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition cursor-pointer"
+            >
+              8 Checks Before You Trade
+            </button>
+            <button
+              type="button"
+              onClick={() => document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition cursor-pointer"
+            >
+              Direct vs Savera
+            </button>
+            <button
+              type="button"
+              onClick={() => document.getElementById('buying-brief')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-700 border border-[#fbd7b4]/70 hover:border-[#f16701] hover:text-[#f16701] shadow-2xs transition cursor-pointer"
+            >
+              Prepare Your Buying Brief
+            </button>
           </div>
 
         </div>
