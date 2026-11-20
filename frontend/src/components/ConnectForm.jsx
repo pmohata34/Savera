@@ -58,7 +58,7 @@ export default function ConnectForm() {
       mobileNumber: cleanPhone
     };
 
-    const API_BASE = import.meta.env.VITE_API_URL || '';
+    const API_BASE = import.meta.env.VITE_API_URL || 'https://savera-nmur.onrender.com';
 
     // Submit lead: triggers automated WhatsApp brochure to client and Gmail alert to owner
     try {
