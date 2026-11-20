@@ -72,7 +72,7 @@ export default function Founder() {
 
             <div className="space-y-3 sm:space-y-3.5 text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
               <p>
-                Every successful business begins with a belief. When I started <strong className="text-[#0F1318] font-bold">Savera Marketing</strong> in 1995 as a small proprietorship, my belief was simple: goodwill is more valuable than money, and trust is the true foundation of business. This belief has guided me throughout my journey and continues to define the way we work today.
+                Every successful business begins with a belief. When I started <strong className="text-[#0F1318] font-bold"><span className="text-[#f16701]">Savera</span> Marketing</strong> in 1995 as a small proprietorship, my belief was simple: goodwill is more valuable than money, and trust is the true foundation of business. This belief has guided me throughout my journey and continues to define the way we work today.
               </p>
 
               <p>
@@ -80,7 +80,7 @@ export default function Founder() {
               </p>
 
               <p>
-                With this vision, <strong className="font-playfair font-bold text-xs sm:text-sm inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong> carries forward the legacy of Savera Marketing. Today, we work towards bringing textile manufacturers, retailers and wholesalers closer together by creating meaningful business connections. We believe that manufacturers deserve the opportunity to reach the right buyers, while retailers and wholesalers deserve access to reliable manufacturing connections that meet their requirements.
+                With this vision, <strong className="font-playfair font-bold text-xs sm:text-sm inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong> carries forward the legacy of <span className="text-[#f16701]">Savera</span> Marketing. Today, we work towards bringing textile manufacturers, retailers and wholesalers closer together by creating meaningful business connections. We believe that manufacturers deserve the opportunity to reach the right buyers, while retailers and wholesalers deserve access to reliable manufacturing connections that meet their requirements.
               </p>
 
               <p>

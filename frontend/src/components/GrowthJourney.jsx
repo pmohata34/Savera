@@ -1,4 +1,5 @@
 import React from 'react';
+import { highlightSavera } from '../utils/highlightSavera';
 
 export default function GrowthJourney() {
   const milestones = [
@@ -213,10 +214,10 @@ export default function GrowthJourney() {
                           </span>
                         </div>
                         <h3 className="text-xs font-bold text-[#0F1318] leading-snug">
-                          {m.title}
+                          {highlightSavera(m.title)}
                         </h3>
                         <p className="text-[11px] text-neutral-600 leading-relaxed font-normal">
-                          {m.description}
+                          {highlightSavera(m.description)}
                         </p>
                       </div>
                     ) : (
@@ -231,10 +232,10 @@ export default function GrowthJourney() {
                           </span>
                         </div>
                         <h3 className="text-xs font-bold text-[#0F1318] leading-snug">
-                          {m.title}
+                          {highlightSavera(m.title)}
                         </h3>
                         <p className="text-[11px] text-neutral-600 leading-relaxed font-normal">
-                          {m.description}
+                          {highlightSavera(m.description)}
                         </p>
                       </div>
                     )}
@@ -266,10 +267,10 @@ export default function GrowthJourney() {
                   </span>
                 </div>
                 <h3 className="text-xs font-bold text-[#0F1318]">
-                  {m.title}
+                  {highlightSavera(m.title)}
                 </h3>
                 <p className="text-xs text-neutral-600 font-normal leading-relaxed">
-                  {m.description}
+                  {highlightSavera(m.description)}
                 </p>
               </div>
             </div>

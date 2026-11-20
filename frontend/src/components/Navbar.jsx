@@ -69,7 +69,7 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
               }}
               className="px-2.5 2xl:px-3 py-1 rounded-full hover:text-[#f16701] hover:bg-white transition whitespace-nowrap cursor-pointer"
             >
-              Direct vs Savera
+              Direct vs <span className="text-[#f16701]">Savera</span>
             </button>
             <button
               type="button"
@@ -211,7 +211,7 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
                 }}
                 className="px-4 py-2 rounded-xl text-left hover:bg-[#FAF8F5] hover:text-[#f16701] transition"
               >
-                Direct vs Savera
+                Direct vs <span className="text-[#f16701]">Savera</span>
               </button>
               <button
                 type="button"

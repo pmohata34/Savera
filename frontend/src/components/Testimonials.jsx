@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { highlightSavera } from '../utils/highlightSavera';
 
 const testimonials = [
   {
@@ -130,7 +131,7 @@ export default function Testimonials() {
             {/* Testimonial Quote Text: Italicized, High-End Editorial Serif */}
             <div className="space-y-4 text-sm sm:text-base md:text-lg italic font-serif leading-relaxed text-neutral-800 font-normal min-h-[150px] sm:min-h-[130px]">
               {current.paragraphs.map((p, idx) => (
-                <p key={idx}>{p}</p>
+                <p key={idx}>{highlightSavera(p)}</p>
               ))}
             </div>
 

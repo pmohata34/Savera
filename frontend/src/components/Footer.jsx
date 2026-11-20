@@ -85,8 +85,7 @@ export default function Footer({ onNavigate: _onNavigate } = {}) {
               </div>
 
               <div className="text-neutral-600 text-xs leading-relaxed pl-3.5 border-l-2 border-[#f16701]/60 space-y-0.5">
-                <p className="font-semibold text-neutral-800">1/C Burman Street, 3rd Floor</p>
-                <p className="font-semibold text-neutral-800">Room No. 312</p>
+                <p className="font-semibold text-neutral-800">1/C Burman Street, 3rd Floor, Room No. 312</p>
                 <p className="text-neutral-700">Kolkata – 700007, West Bengal</p>
               </div>
             </div>

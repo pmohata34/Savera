@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, RefreshCcw, X, BookOpen } from 'lucide-react';
 import { cn } from '../../lib/utils';
+import { highlightSavera } from '../../utils/highlightSavera';
 
 export function InteractiveBook({
   coverImage,
@@ -186,8 +187,8 @@ export function InteractiveBook({
 
                 {/* Bottom Authority Line with Crisp White Brand Capsule */}
                 <div className="relative z-10 pt-3 border-t border-white/25 flex items-center justify-between text-[11px]">
-                  <div className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-white/60 shadow-sm flex items-center gap-1.5">
-                    {bookAuthor}
+                  <div className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-white/60 shadow-sm flex items-center gap-1.5 font-bold">
+                    {highlightSavera(bookAuthor)}
                   </div>
                   <span className="text-white/90 font-mono text-[10px] font-bold tracking-wider px-2 py-0.5 rounded bg-black/25 backdrop-blur-xs border border-white/20">
                     VOL. 2026
