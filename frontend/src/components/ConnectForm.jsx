@@ -76,11 +76,13 @@ export default function ConnectForm() {
       }
 
       const returnedLeadId = data.leadId || `ST-${Date.now().toString().slice(-6)}`;
+      const returnedWhatsappUrl = data.whatsappUrl || `https://wa.me/919477665429?text=${encodeURIComponent(`Hello Savera Tex Solution LLP,\n\nI have submitted a sourcing inquiry on your portal (Ref: ${returnedLeadId}):\n- Firm: ${formData.firmName}\n- Contact: ${formData.personName} (${cleanPhone})\n- Location: ${formData.cityState}\n\nPlease share your current catalogs and mill rate cards.`)}`;
 
       setStatus({
         type: 'success',
         message: 'Thank you for connecting with Savera Tex Solution LLP. We have received your business enquiry and appreciate your interest in our textile trade services. Our team will review your requirements and get in touch with you shortly.',
-        leadId: returnedLeadId
+        leadId: returnedLeadId,
+        whatsappUrl: returnedWhatsappUrl
       });
 
       setFormData({
@@ -130,6 +132,18 @@ export default function ConnectForm() {
                 <p className="font-bold text-sm">{status.message}</p>
                 {status.leadId && (
                   <p className="text-xs text-neutral-600">Reference ID: <span className="font-mono font-bold text-neutral-900">{status.leadId}</span></p>
+                )}
+                {status.whatsappUrl && (
+                  <div className="pt-2">
+                    <a
+                      href={status.whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#25D366] text-white text-xs font-bold hover:bg-[#1ebe5d] transition shadow-xs"
+                    >
+                      <span>💬 Open WhatsApp with Sourcing Enquiry</span>
+                    </a>
+                  </div>
                 )}
               </div>
             )}
