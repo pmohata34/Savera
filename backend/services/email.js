@@ -8,9 +8,12 @@ const { getBrochurePath } = require('./brochure');
  * Uses Nodemailer with Gmail SMTP.
  */
 async function sendLeadNotificationEmail(lead) {
+  const receiverEmail = process.env.NOTIFICATION_RECEIVER || 'info@saveratexsolutionllp.in';
   const gmailUser = process.env.GMAIL_USER || 'saveratexsolutionllp@gmail.com';
   const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
-  const receiverEmail = process.env.NOTIFICATION_RECEIVER || 'saveratexsolutionllp@gmail.com';
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
 
   const catList = lead.categories && lead.categories.length > 0
     ? lead.categories.map(c => `<li style="margin-bottom: 4px; color: #0F1318; font-weight: 600;">• ${c}</li>`).join('')
@@ -112,31 +115,52 @@ async function sendLeadNotificationEmail(lead) {
     </html>
   `;
 
-  // Check if live credentials exist
-  if (!gmailAppPassword) {
+  // Check if live credentials exist (either Domain SMTP or Gmail)
+  const isSmtpConfigured = Boolean(smtpHost && smtpUser && smtpPass);
+  const isGmailConfigured = Boolean(gmailAppPassword);
+
+  if (!isSmtpConfigured && !isGmailConfigured) {
     console.log('\n============================================================');
     console.log('[Email Notification: SIMULATED MODE]');
     console.log(`To: ${receiverEmail}`);
     console.log(`Subject: ⚡ New Sourcing Inquiry: ${lead.firmName} (${lead.cityState}) — Ref: ${lead.id}`);
     console.log(`Client: ${lead.personName} (+91 ${lead.mobileNumber})`);
-    console.log(`Notice: To receive live Gmails, configure GMAIL_APP_PASSWORD in backend/.env`);
+    console.log(`Notice: Configure SMTP (GoDaddy) or GMAIL_APP_PASSWORD in backend/.env to deliver to ${receiverEmail}`);
     console.log('============================================================\n');
 
     return {
       success: true,
       mode: 'SIMULATED',
-      message: 'Email notification prepared (running in simulation mode until GMAIL_APP_PASSWORD is set in .env).'
+      message: `Email notification prepared for ${receiverEmail} (simulation mode until SMTP/Gmail credentials set).`
     };
   }
 
   try {
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: gmailUser,
-        pass: gmailAppPassword
-      }
-    });
+    let transporter;
+    let senderAddress;
+
+    if (isSmtpConfigured) {
+      const port = Number(process.env.SMTP_PORT) || 465;
+      transporter = nodemailer.createTransport({
+        host: smtpHost,
+        port,
+        secure: port === 465 || process.env.SMTP_SECURE === 'true',
+        auth: {
+          user: smtpUser,
+          pass: smtpPass
+        }
+      });
+      senderAddress = smtpUser;
+    } else {
+      transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: gmailUser,
+          pass: gmailAppPassword
+        }
+      });
+      senderAddress = gmailUser;
+    }
 
     const attachments = [];
     const brochurePath = getBrochurePath();
@@ -148,7 +172,7 @@ async function sendLeadNotificationEmail(lead) {
     }
 
     const info = await transporter.sendMail({
-      from: `"Savera Sourcing Portal" <${gmailUser}>`,
+      from: `"Savera Sourcing Portal" <${senderAddress}>`,
       to: receiverEmail,
       subject: `⚡ New Sourcing Inquiry: ${lead.firmName} (${lead.cityState}) — Ref: ${lead.id}`,
       html: htmlContent,
@@ -162,7 +186,7 @@ async function sendLeadNotificationEmail(lead) {
       messageId: info.messageId
     };
   } catch (err) {
-    console.error('[Email Notification: ERROR] Failed to send email via Gmail SMTP:', err.message);
+    console.error('[Email Notification: ERROR] Failed to send email:', err.message);
     return {
       success: false,
       error: err.message
