@@ -99,7 +99,7 @@ export default function Footer({ onNavigate: _onNavigate } = {}) {
           <p>© <strong className="font-playfair font-bold inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong>. All rights reserved.</p>
 
           <p className="text-[11px] text-neutral-500">
-            Pan-India Textile Commission Agency • Since 1995
+            Pan-India Textile Commission Agency • Formerly Savera Marketing & Savera Group • Founded by Vineet Kumar Taparia • Est. 1995
           </p>
         </div>
 
