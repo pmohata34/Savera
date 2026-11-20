@@ -48,14 +48,11 @@ export default function Founder() {
               <h3 className="text-xl font-black text-[#0F1318] tracking-tight">
                 Vineet Kr. Taparia
               </h3>
-              <p className="text-[11px] text-neutral-600 font-medium">
-                Vineet Kumar Taparia
-              </p>
               <p className="text-xs font-bold text-[#f16701]">
                 Founder, <span className="font-playfair font-bold text-xs inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></span>
               </p>
               <p className="text-[11px] text-neutral-500 pt-0.5">
-                30+ Years Textile Leadership • Formerly Savera Marketing
+                30+ Years of Textile Commission Leadership • Kolkata Central Operations
               </p>
             </div>
 
