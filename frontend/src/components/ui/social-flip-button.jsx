@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Mail } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
-export const defaultSocialItems = [
+const defaultSocialItems = [
   {
     letter: 'C',
     icon: (
@@ -21,7 +21,7 @@ export const defaultSocialItems = [
     letter: 'O',
     icon: <MapPin className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white" strokeWidth={2.2} />,
     label: 'Kolkata Central Office (Google Maps)',
-    href: 'https://maps.google.com/?q=1/C+Burman+Street+Kolkata+700007',
+    href: 'https://maps.app.goo.gl/kWRLKioj2Ly23uaq8',
     backBg: 'bg-gradient-to-br from-rose-500 to-red-600 shadow-md shadow-red-500/25',
   },
   {
@@ -92,10 +92,10 @@ const SocialFlipNode = ({
   const Wrapper = item.href ? 'a' : 'div';
   const wrapperProps = item.href
     ? {
-        href: item.href,
-        target: item.href.startsWith('#') ? undefined : '_blank',
-        rel: item.href.startsWith('#') ? undefined : 'noopener noreferrer',
-      }
+      href: item.href,
+      target: item.href.startsWith('#') ? undefined : '_blank',
+      rel: item.href.startsWith('#') ? undefined : 'noopener noreferrer',
+    }
     : { onClick: item.onClick };
 
   return (

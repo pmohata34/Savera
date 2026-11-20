@@ -1,18 +1,12 @@
 import React from 'react';
 import { 
   ArrowLeft, 
-  BookOpen, 
-  CheckCircle2, 
   ShieldCheck, 
   Scale, 
   FileText, 
-  Send, 
-  Sparkles,
-  ArrowRight,
-  Building,
-  Check
+  ArrowRight, 
+  Building 
 } from 'lucide-react';
-import RadialGlowButton from './ui/radial-glow-button';
 
 export default function BuyerGuide({ onBack, onInquire }) {
   const steps = [

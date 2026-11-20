@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, RefreshCcw, X, BookOpen } from 'lucide-react';
 import { cn } from '../../lib/utils';
@@ -32,30 +32,26 @@ export function InteractiveBook({
 
   const handleOpenBook = () => setIsOpen(true);
 
-  const handleCloseBook = (e) => {
+  const handleCloseBook = useCallback((e) => {
     e?.stopPropagation();
     setIsOpen(false);
     setCurrentPageIndex(-1);
-  };
+  }, []);
 
-  const nextPage = (e) => {
+  const nextPage = useCallback((e) => {
     e?.stopPropagation();
-    if (currentPageIndex < maxPageIndex) {
-      setCurrentPageIndex((prev) => prev + 1);
-    }
-  };
+    setCurrentPageIndex((prev) => (prev < maxPageIndex ? prev + 1 : prev));
+  }, [maxPageIndex]);
 
-  const prevPage = (e) => {
+  const prevPage = useCallback((e) => {
     e?.stopPropagation();
-    if (currentPageIndex >= 0) {
-      setCurrentPageIndex((prev) => prev - 1);
-    }
-  };
+    setCurrentPageIndex((prev) => (prev >= 0 ? prev - 1 : prev));
+  }, []);
 
-  const restartBook = (e) => {
+  const restartBook = useCallback((e) => {
     e?.stopPropagation();
     setCurrentPageIndex(-1);
-  };
+  }, []);
 
   // Keyboard navigation
   useEffect(() => {
@@ -67,7 +63,7 @@ export function InteractiveBook({
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, currentPageIndex, pages.length]);
+  }, [isOpen, currentPageIndex, pages.length, nextPage, prevPage, handleCloseBook]);
 
   return (
     <div
@@ -225,7 +221,7 @@ export function InteractiveBook({
                 {/* Only Category Name at Bottom */}
                 <div className="relative z-10">
                   <h4 className="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-md">
-                    {pages[0].title.replace(/^\d+[\.\s]+/, '')}
+                    {pages[0].title.replace(/^\d+[.\s]+/, '')}
                   </h4>
                 </div>
               </div>
@@ -294,7 +290,7 @@ export function InteractiveBook({
                     {/* Big Title & Tagline */}
                     <div className="space-y-1.5">
                       <h4 className="text-2xl sm:text-3xl font-extrabold font-playfair text-[#0F1318] leading-tight tracking-tight">
-                        {page.title.replace(/^\d+[\.\s]+/, '')}
+                        {page.title.replace(/^\d+[.\s]+/, '')}
                       </h4>
                       {page.tagline && (
                         <p className="text-xs sm:text-sm font-bold text-[#f16701]">
@@ -378,7 +374,6 @@ export function InteractiveBook({
                 >
                   {(() => {
                     const spreadProduct = pages[index + 1] || page;
-                    const isLastPage = index === pages.length - 1;
 
                     return spreadProduct.image ? (
                       <div className="relative w-full h-full overflow-hidden flex flex-col justify-end p-6 sm:p-7 text-white">
@@ -392,7 +387,7 @@ export function InteractiveBook({
                         {/* Only Category Name at Bottom */}
                         <div className="relative z-10">
                           <h4 className="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-md">
-                            {spreadProduct.title.replace(/^\d+[\.\s]+/, '')}
+                            {spreadProduct.title.replace(/^\d+[.\s]+/, '')}
                           </h4>
                         </div>
                       </div>
@@ -456,11 +451,11 @@ export function InteractiveBook({
             <div className="text-xs font-bold text-neutral-700 min-w-[150px] sm:min-w-[170px] text-center select-none">
               {currentPageIndex === -1 ? (
                 <span>
-                  <span className="text-[#f16701] font-black">1</span> of {pages.length} • {pages[0]?.title?.replace(/^\d+[\.\s]+/, '') || "Sarees"}
+                  <span className="text-[#f16701] font-black">1</span> of {pages.length} • {pages[0]?.title?.replace(/^\d+[.\s]+/, '') || "Sarees"}
                 </span>
               ) : (
                 <span>
-                  <span className="text-[#f16701] font-black">{Math.min(currentPageIndex + 2, pages.length)}</span> of {pages.length} • {pages[Math.min(currentPageIndex + 1, pages.length - 1)]?.title?.replace(/^\d+[\.\s]+/, '')}
+                  <span className="text-[#f16701] font-black">{Math.min(currentPageIndex + 2, pages.length)}</span> of {pages.length} • {pages[Math.min(currentPageIndex + 1, pages.length - 1)]?.title?.replace(/^\d+[.\s]+/, '')}
                 </span>
               )}
             </div>

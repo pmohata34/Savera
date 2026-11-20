@@ -53,21 +53,16 @@ export default function ConnectForm() {
     setLoading(true);
     setStatus(null);
 
-    // Direct chat link for the client if they wish to talk immediately
-    const catText = formData.categories.length > 0 ? formData.categories.join(', ') : 'All Collections';
-    const waText = encodeURIComponent(
-      `Hello Savera Tex Solution LLP,\n\nI have submitted an inquiry for ${formData.firmName || 'my business'} (${cleanPhone}):\n• Sourcing Categories: ${catText}\n• Requirements: ${formData.message || 'Please share product catalog and terms.'}`
-    );
-    const targetWhatsAppUrl = `https://wa.me/919477665429?text=${waText}`;
-
     const payload = {
       ...formData,
       mobileNumber: cleanPhone
     };
 
+    const API_BASE = import.meta.env.VITE_API_URL || '';
+
     // Submit lead: triggers automated WhatsApp brochure to client and Gmail alert to owner
     try {
-      const res = await fetch('/api/inquire', {
+      const res = await fetch(`${API_BASE}/api/inquire`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -76,7 +71,7 @@ export default function ConnectForm() {
       let data = {};
       try {
         data = await res.json();
-      } catch (jsonErr) {
+      } catch {
         data = {};
       }
 

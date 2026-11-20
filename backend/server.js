@@ -28,8 +28,13 @@ Promise.resolve(ensureBrochurePDF()).catch(err => console.error('[Brochure] Init
 initBaileys().catch(err => console.error('[Baileys] Init error:', err));
 
 // Middleware
+const rawCors = process.env.CORS_ORIGIN;
+const corsOrigins = rawCors
+  ? (rawCors.includes(',') ? rawCors.split(',').map(s => s.trim()) : rawCors)
+  : '*';
+
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || '*',
+  origin: corsOrigins,
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
