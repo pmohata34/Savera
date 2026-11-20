@@ -137,7 +137,7 @@ async function ensureBrochurePDF() {
   doc.fillColor('#CBD5E0').font('Helvetica').fontSize(8.5)
      .text('Address: 1/C Burman Street, 3rd Floor, Room No. 312, Kolkata – 700007, West Bengal, India', 40, 778)
      .text('Phone: +91 94325 83461 / +91 94776 65429 / +91 94776 65430', 40, 792)
-     .text('Email: saveratexsolutionllp@gmail.com • Business Hours: Mon–Sat 10:30 AM to 7:30 PM IST', 40, 806);
+     .text('Email: info@saveratexsolutionllp.in • Business Hours: Mon–Sat 10:30 AM to 7:30 PM IST', 40, 806);
 
   doc.end();
 
