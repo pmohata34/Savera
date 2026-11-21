@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RadialGlowButton from './ui/radial-glow-button';
+import { highlightSavera } from '../utils/highlightSavera';
 
 export default function ConnectForm() {
   const [formData, setFormData] = useState({
@@ -126,7 +127,7 @@ export default function ConnectForm() {
           <div className="bg-white p-6 sm:p-8 md:p-10 rounded-3xl border border-[#f8b47d]/40 shadow-xl">
             {status && (
               <div className={`mb-6 p-5 rounded-2xl border ${status.type === 'error' ? 'bg-rose-50 border-rose-200 text-rose-800' : 'bg-emerald-50 border-emerald-200 text-emerald-900'} space-y-1`}>
-                <p className="font-bold text-sm">{status.message}</p>
+                <p className="font-bold text-sm">{highlightSavera(status.message)}</p>
                 {status.leadId && (
                   <p className="text-xs text-neutral-600">Reference ID: <span className="font-mono font-bold text-neutral-900">{status.leadId}</span></p>
                 )}

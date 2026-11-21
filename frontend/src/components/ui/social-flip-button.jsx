@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Mail } from 'lucide-react';
 import { cn } from '../../lib/utils';
+import { highlightSavera } from '../../utils/highlightSavera';
 
 const defaultSocialItems = [
   {
@@ -120,7 +121,7 @@ const SocialFlipNode = ({
             transition={{ duration: 0.18, ease: 'easeOut' }}
             className="absolute left-1/2 bottom-full z-50 whitespace-nowrap rounded-xl bg-[#0F1318] px-3 py-1 text-[11px] font-bold text-white shadow-xl border border-[#f8b47d]/40 pointer-events-none"
           >
-            {item.label}
+            {highlightSavera(item.label)}
             {/* Arrow Pointer */}
             <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-2 w-2 rotate-45 bg-[#0F1318] border-r border-b border-[#f8b47d]/40" />
           </motion.div>

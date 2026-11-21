@@ -209,7 +209,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
               Buyer's Guide &amp; Sourcing Handbook
             </h1>
             <p className="text-sm sm:text-base text-neutral-600 max-w-3xl leading-relaxed">
-              Essential guidance for retailers, wholesalers, and commercial buyers trading in Indian textiles through {highlightSavera('Savera')} Tex Solution LLP.
+              Essential guidance for retailers, wholesalers, and commercial buyers trading in Indian textiles through {highlightSavera('Savera Tex Solution LLP')}.
             </p>
           </div>
 
@@ -233,7 +233,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
 
           <div className="p-5 sm:p-6 rounded-2xl bg-white border border-[#fbd7b4]/70 shadow-xs space-y-3">
             <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-              At {highlightSavera('Savera')} Tex Solution LLP, every new business relationship begins with understanding the buyer's business and purchasing requirements.
+              At {highlightSavera('Savera Tex Solution LLP')}, every new business relationship begins with understanding the buyer's business and purchasing requirements.
             </p>
             <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
               We follow a structured approach to understand the buyer's expectations, establish a suitable purchasing budget, identify relevant products and connect with appropriate manufacturers.
@@ -278,7 +278,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
               Begin Your Sourcing Journey with {highlightSavera('Savera')}
             </h3>
             <p className="text-sm text-neutral-700 leading-relaxed">
-              Whether you are looking for sarees, salwar suits, lehengas, Indo-Western wear or fabrics, {highlightSavera('Savera')} Tex Solution LLP welcomes enquiries from retailers, wholesalers and textile businesses.
+              Whether you are looking for sarees, salwar suits, lehengas, Indo-Western wear or fabrics, {highlightSavera('Savera Tex Solution LLP')} welcomes enquiries from retailers, wholesalers and textile businesses.
             </p>
             <p className="text-sm text-neutral-700 leading-relaxed font-semibold">
               Share your business requirements with us and begin a discussion about suitable sourcing possibilities.
@@ -361,10 +361,10 @@ export default function BuyerGuide({ onBack, onInquire }) {
           <div className="p-6 rounded-2xl bg-white border border-[#fbd7b4] shadow-xs space-y-3">
             <h3 className="text-lg font-bold text-[#0F1318] flex items-center gap-2">
               <Building className="w-5 h-5 text-[#f16701]" />
-              <span>How {highlightSavera('Savera')} Tex Solution LLP Works</span>
+              <span>How {highlightSavera('Savera Tex Solution LLP')} Works</span>
             </h3>
             <p className="text-sm text-neutral-700 leading-relaxed">
-              {highlightSavera('Savera')} Tex Solution LLP operates as a textile commission agent, connecting retailers, wholesalers and other buyers with manufacturers and suppliers. Our sourcing network includes major textile centres such as Surat, Jaipur, Kolkata, Ahmedabad, Bhagalpur and Varanasi.
+              {highlightSavera('Savera Tex Solution LLP')} operates as a textile commission agent, connecting retailers, wholesalers and other buyers with manufacturers and suppliers. Our sourcing network includes major textile centres such as Surat, Jaipur, Kolkata, Ahmedabad, Bhagalpur and Varanasi.
             </p>
             <p className="text-sm text-neutral-700 leading-relaxed">
               We deal in a range of textile and ethnic-wear categories, including sarees, salwar suits, lehengas, Indo-Western wear and fabrics. Our role is to understand the buyer's requirements, discuss suitable product options within the buyer's budget and identify relevant manufacturers or suppliers.
@@ -374,7 +374,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
             </p>
             <div className="pt-2 border-t border-[#fbd7b4]/40">
               <p className="text-xs sm:text-sm font-semibold text-[#f16701] italic">
-                "At {highlightSavera('Savera')} Tex Solution LLP, we believe that clear communication, transparent commercial arrangements and a proper understanding of responsibilities are important foundations for a business relationship."
+                "At {highlightSavera('Savera Tex Solution LLP')}, we believe that clear communication, transparent commercial arrangements and a proper understanding of responsibilities are important foundations for a business relationship."
               </p>
             </div>
           </div>
@@ -389,7 +389,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
               Part 03
             </span>
             <h2 className="text-2xl sm:text-3xl font-black font-playfair text-[#0F1318]">
-              Buying Directly or Through {highlightSavera('Savera')} Tex Solution LLP?
+              Buying Directly or Through {highlightSavera('Savera Tex Solution LLP')}?
             </h2>
           </div>
 
@@ -398,7 +398,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
               Textile sourcing involves finding the right manufacturers, exploring products, understanding market prices and managing supplier communication. Buyers can handle these activities independently or take assistance from a commission agent.
             </p>
             <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-              {highlightSavera('Savera')} Tex Solution LLP connects buyers with textile manufacturers and suppliers, helping them navigate the sourcing process according to their business requirements.
+              {highlightSavera('Savera Tex Solution LLP')} connects buyers with textile manufacturers and suppliers, helping them navigate the sourcing process according to their business requirements.
             </p>
           </div>
 
@@ -420,7 +420,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
                       Buying Directly
                     </th>
                     <th className="py-3.5 px-4 sm:px-6 font-bold text-[#f16701] uppercase tracking-wider w-3/8 bg-[#FFF8F0]">
-                      Through {highlightSavera('Savera')} Tex Solution LLP
+                      Through {highlightSavera('Savera Tex Solution LLP')}
                     </th>
                   </tr>
                 </thead>
@@ -449,7 +449,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
               Working with {highlightSavera('Savera')}
             </h3>
             <p className="text-sm text-neutral-700 leading-relaxed">
-              {highlightSavera('Savera')} Tex Solution LLP works as a commission agent, connecting buyers with manufacturers and suppliers across major textile centres, including Surat, Jaipur, Kolkata, Ahmedabad, Bhagalpur and Varanasi.
+              {highlightSavera('Savera Tex Solution LLP')} works as a commission agent, connecting buyers with manufacturers and suppliers across major textile centres, including Surat, Jaipur, Kolkata, Ahmedabad, Bhagalpur and Varanasi.
             </p>
             <p className="text-sm text-neutral-700 leading-relaxed">
               Our role is to help buyers identify relevant manufacturing sources, explore product options and facilitate communication throughout the sourcing process.
@@ -472,7 +472,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
 
           <div className="p-5 sm:p-6 rounded-2xl bg-white border border-[#fbd7b4]/70 shadow-xs space-y-3">
             <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-              A well-defined buying requirement helps make the textile sourcing process more organised. Before approaching {highlightSavera('Savera')} Tex Solution LLP, consider the products you need, your preferred quality, approximate quantity and purchasing budget.
+              A well-defined buying requirement helps make the textile sourcing process more organised. Before approaching {highlightSavera('Savera Tex Solution LLP')}, consider the products you need, your preferred quality, approximate quantity and purchasing budget.
             </p>
             <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
               Sharing these details helps us understand your expectations and explore suitable manufacturing sources.
@@ -525,7 +525,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
                 Ready to begin?
               </h3>
               <p className="text-sm sm:text-base text-white/95 leading-relaxed">
-                Fill out the enquiry form available on our website and share your buying requirements with {highlightSavera('Savera')} Tex Solution LLP to start your textile sourcing discussion.
+                Fill out the enquiry form available on our website and share your buying requirements with {highlightSavera('Savera Tex Solution LLP')} to start your textile sourcing discussion.
               </p>
             </div>
 

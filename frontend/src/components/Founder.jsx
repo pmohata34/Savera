@@ -46,7 +46,7 @@ export default function Founder() {
                 Vineet Kr. Taparia
               </h3>
               <p className="text-xs font-bold text-[#f16701]">
-                Founder, <span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
+                Founder, <span className="font-playfair font-bold inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></span>
               </p>
             </div>
 
