@@ -74,7 +74,7 @@ Savera Tex Solution LLP`;
           document: {
             link: brochureUrl,
             caption: thankYouText,
-            filename: 'Savera_Tex_Solution_Brochure.pdf'
+            filename: 'Savera Tex Solution LLP Brochure.pdf'
           }
         })
       });

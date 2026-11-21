@@ -166,7 +166,7 @@ async function sendLeadNotificationEmail(lead) {
     const brochurePath = getBrochurePath();
     if (brochurePath && fs.existsSync(brochurePath)) {
       attachments.push({
-        filename: 'Savera_Tex_Solution_Brochure.pdf',
+        filename: 'Savera Tex Solution LLP Brochure.pdf',
         path: brochurePath
       });
     }

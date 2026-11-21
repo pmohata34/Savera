@@ -146,7 +146,7 @@ async function sendWhatsAppDocument(recipientPhone, pdfPath, captionText) {
     const result = await sock.sendMessage(jid, {
       document: fileBuffer,
       mimetype: 'application/pdf',
-      fileName: 'Savera_Tex_Solution_Brochure.pdf',
+      fileName: 'Savera Tex Solution LLP Brochure.pdf',
       caption: captionText
     });
 
