@@ -151,10 +151,20 @@ async function ensureBrochurePDF() {
 }
 
 function getBrochurePath() {
-  if (fs.existsSync(BROCHURE_PATH)) {
-    return BROCHURE_PATH;
+  const candidates = [
+    path.join(ASSETS_DIR, 'Savera Tex Solution LLP Brochure.pdf'),
+    path.join(ASSETS_DIR, 'Savera_Brochure.pdf'),
+    path.join(__dirname, '..', '..', 'frontend', 'public', 'Savera Tex Solution LLP Brochure.pdf'),
+    path.join(__dirname, '..', '..', 'frontend', 'public', 'brochure.pdf')
+  ];
+
+  for (const p of candidates) {
+    if (fs.existsSync(p)) {
+      return p;
+    }
   }
-  return null;
+
+  return fs.existsSync(BROCHURE_PATH) ? BROCHURE_PATH : null;
 }
 
 module.exports = {

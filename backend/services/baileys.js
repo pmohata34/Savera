@@ -10,6 +10,7 @@ let isConnected = false;
 let currentQRDataUrl = null;
 let currentRawQR = null;
 let isInitializing = false;
+let authClearFunc = null;
 
 // Ensure auth dir exists
 if (!fs.existsSync(AUTH_DIR)) {
@@ -21,7 +22,30 @@ async function initBaileys() {
   isInitializing = true;
 
   try {
-    const { state, saveCreds } = await useMultiFileAuthState(AUTH_DIR);
+    let state, saveCreds;
+
+    if (process.env.DATABASE_URL) {
+      console.log('[WhatsApp Bridge] Initializing PostgreSQL PERSISTENT session storage...');
+      try {
+        const { usePostgresAuthState } = require('./pgAuthState');
+        const pgAuth = await usePostgresAuthState(process.env.DATABASE_URL);
+        state = pgAuth.state;
+        saveCreds = pgAuth.saveCreds;
+        authClearFunc = pgAuth.clearAllData;
+        console.log('[WhatsApp Bridge] PostgreSQL session storage ready.');
+      } catch (pgErr) {
+        console.error('[WhatsApp Bridge: PG ERROR] Failed to connect to PostgreSQL, falling back to local files:', pgErr.message);
+        const localAuth = await useMultiFileAuthState(AUTH_DIR);
+        state = localAuth.state;
+        saveCreds = localAuth.saveCreds;
+      }
+    } else {
+      console.log('[WhatsApp Bridge] Using local file system for session storage.');
+      const localAuth = await useMultiFileAuthState(AUTH_DIR);
+      state = localAuth.state;
+      saveCreds = localAuth.saveCreds;
+    }
+
     const { version } = await fetchLatestBaileysVersion().catch(() => ({ version: [2, 3000, 1015901307] }));
 
     sock = makeWASocket({
@@ -41,7 +65,7 @@ async function initBaileys() {
         currentRawQR = qr;
         try {
           currentQRDataUrl = await qrcode.toDataURL(qr, { width: 300, margin: 2 });
-          console.log('\n[WhatsApp Bridge] New QR Code generated! Open http://localhost:5000/whatsapp-link to scan.');
+          console.log('\n[WhatsApp Bridge] New QR Code generated! Open /whatsapp-link to scan.');
         } catch (err) {
           console.error('[WhatsApp Bridge] Error generating QR Data URL:', err);
         }
@@ -56,7 +80,10 @@ async function initBaileys() {
         console.log(`[WhatsApp Bridge] Connection closed (status: ${statusCode})`);
 
         if (statusCode === DisconnectReason.loggedOut) {
-          console.log('[WhatsApp Bridge] Logged out. Resetting auth directory for a fresh scan.');
+          console.log('[WhatsApp Bridge] Logged out. Resetting session credentials.');
+          if (authClearFunc) {
+            try { await authClearFunc(); } catch (e) {}
+          }
           try {
             fs.rmSync(AUTH_DIR, { recursive: true, force: true });
             fs.mkdirSync(AUTH_DIR, { recursive: true });
@@ -177,6 +204,9 @@ async function resetWhatsAppSession() {
       sock.end();
     } catch (e) {}
     sock = null;
+  }
+  if (authClearFunc) {
+    try { await authClearFunc(); } catch (e) {}
   }
   try {
     fs.rmSync(AUTH_DIR, { recursive: true, force: true });
