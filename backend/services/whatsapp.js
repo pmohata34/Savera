@@ -194,7 +194,55 @@ Savera Tex Solution LLP`;
   };
 }
 
+/**
+ * Sends an instant WhatsApp lead alert with full client details to the owner/admin.
+ */
+async function sendAdminWhatsAppLeadAlert(lead) {
+  const adminNumbers = (process.env.ADMIN_WHATSAPP_NUMBER || process.env.WHATSAPP_NUMBER || '919477665429')
+    .split(',')
+    .map(n => n.trim().replace(/\D/g, ''))
+    .filter(Boolean);
+
+  const catText = lead.categories && lead.categories.length > 0 ? lead.categories.join(', ') : 'General / All Collections';
+  const timeStr = new Date(lead.submittedAt || Date.now()).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+  const adminMsg = 
+`⚡ *NEW SOURCING INQUIRY RECEIVED!*
+━━━━━━━━━━━━━━━━━━━━
+*Reference ID:* ${lead.id}
+*Firm Name:* ${lead.firmName}
+*Contact Person:* ${lead.personName}
+*Mobile / WhatsApp:* +91 ${lead.mobileNumber}
+*City & State:* ${lead.cityState}
+*Product Categories:* ${catText}
+*Requirements / Note:*
+"${lead.message || 'No additional message provided.'}"
+
+*Received At:* ${timeStr} IST
+━━━━━━━━━━━━━━━━━━━━
+👉 *Click to chat directly with client:*
+https://wa.me/91${lead.mobileNumber}?text=Hello%20${encodeURIComponent(lead.personName)},%20we%20received%20your%20sourcing%20inquiry%20(Ref:%20${lead.id})%20at%20Savera%20Tex%20Solution%20LLP.`;
+
+  try {
+    const { isBaileysConnected, sendWhatsAppText } = require('./baileys');
+    if (isBaileysConnected()) {
+      for (const num of adminNumbers) {
+        const result = await sendWhatsAppText(num, adminMsg);
+        if (result.success) {
+          console.log(`[Admin Alert: SENT] Successfully alerted owner at ${num} on WhatsApp!`);
+        }
+      }
+      return { success: true, provider: 'WHATSAPP_LINKED_DEVICE' };
+    }
+  } catch (err) {
+    console.error('[Admin WhatsApp Alert: ERROR]', err.message);
+  }
+
+  return { success: false };
+}
+
 module.exports = {
-  sendWhatsAppBrochureAutomation
+  sendWhatsAppBrochureAutomation,
+  sendAdminWhatsAppLeadAlert
 };
 

@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const { ensureBrochurePDF, getBrochurePath, BROCHURE_PATH } = require('./services/brochure');
 const { sendLeadNotificationEmail } = require('./services/email');
-const { sendWhatsAppBrochureAutomation } = require('./services/whatsapp');
+const { sendWhatsAppBrochureAutomation, sendAdminWhatsAppLeadAlert } = require('./services/whatsapp');
 const { initBaileys, getWhatsAppStatus, isBaileysConnected, resetWhatsAppSession } = require('./services/baileys');
 
 const app = express();
@@ -367,6 +367,13 @@ app.post('/api/inquire', async (req, res) => {
     whatsappResult = await sendWhatsAppBrochureAutomation(newLead, serverBaseUrl);
   } catch (err) {
     console.error('[Inquire: WhatsApp Trigger Failed]', err.message);
+  }
+
+  // 4b. Trigger WhatsApp Lead Alert to Owner
+  try {
+    await sendAdminWhatsAppLeadAlert(newLead);
+  } catch (err) {
+    console.error('[Inquire: Admin WhatsApp Alert Failed]', err.message);
   }
 
   // 5. Generate direct fallback WhatsApp chat URL

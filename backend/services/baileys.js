@@ -138,6 +138,36 @@ async function sendWhatsAppDocument(recipientPhone, pdfPath, captionText) {
   }
 }
 
+async function sendWhatsAppText(recipientPhone, messageText) {
+  if (!isConnected || !sock) {
+    return {
+      success: false,
+      error: 'WhatsApp is not linked.'
+    };
+  }
+
+  const cleanDigits = String(recipientPhone).replace(/\D/g, '');
+  const phone10 = cleanDigits.slice(-10);
+  const jid = `91${phone10}@s.whatsapp.net`;
+
+  try {
+    console.log(`[WhatsApp Bridge] Sending automated text alert to ${jid}...`);
+    const result = await sock.sendMessage(jid, { text: messageText });
+    console.log(`[WhatsApp Bridge: SENT] Successfully delivered text alert to ${jid}. Message ID: ${result?.key?.id}`);
+    return {
+      success: true,
+      messageId: result?.key?.id,
+      recipient: jid
+    };
+  } catch (err) {
+    console.error(`[WhatsApp Bridge: ERROR] Failed to send text message to ${jid}:`, err.message);
+    return {
+      success: false,
+      error: err.message
+    };
+  }
+}
+
 async function resetWhatsAppSession() {
   isConnected = false;
   currentQRDataUrl = null;
@@ -160,6 +190,7 @@ module.exports = {
   initBaileys,
   getWhatsAppStatus,
   sendWhatsAppDocument,
+  sendWhatsAppText,
   resetWhatsAppSession,
   isBaileysConnected: () => isConnected
 };
