@@ -519,20 +519,24 @@ export default function BuyerGuide({ onBack, onInquire }) {
           </div>
 
           {/* Ready to Begin Card */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#ff832b] via-[#f16701] to-[#c74500] text-white shadow-xl space-y-5 text-center">
-            <div className="max-w-2xl mx-auto space-y-2">
-              <h3 className="text-2xl sm:text-3xl font-black font-playfair tracking-tight">
+          <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-[#0F1318] via-[#1B140E] to-[#2B170B] border-2 border-[#f8b47d]/40 text-white shadow-2xl space-y-5 text-center relative overflow-hidden">
+            {/* Ambient Background Glows */}
+            <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#f16701]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#f8b47d]/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="max-w-2xl mx-auto space-y-2 relative z-10">
+              <h3 className="text-2xl sm:text-3xl font-black font-playfair tracking-tight text-white">
                 Ready to begin?
               </h3>
-              <p className="text-sm sm:text-base text-white/95 leading-relaxed">
+              <p className="text-sm sm:text-base text-neutral-200 leading-relaxed">
                 Fill out the enquiry form available on our website and share your buying requirements with {highlightSavera('Savera Tex Solution LLP')} to start your textile sourcing discussion.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2 relative z-10">
               <button
                 onClick={onInquire}
-                className="px-6 py-3 rounded-full bg-white text-[#f16701] hover:bg-[#FFF8F0] font-bold text-sm shadow-md transition transform hover:scale-105 cursor-pointer inline-flex items-center gap-2"
+                className="px-6 py-3 rounded-full bg-gradient-to-r from-[#f16701] to-[#ff7715] hover:from-[#ff7715] hover:to-[#f16701] text-white font-bold text-sm shadow-lg shadow-[#f16701]/30 transition transform hover:scale-105 cursor-pointer inline-flex items-center gap-2"
               >
                 <span>Fill Out Enquiry Form</span>
                 <ArrowRight className="w-4 h-4" />
@@ -540,7 +544,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
 
               <button
                 onClick={onBack}
-                className="px-5 py-3 rounded-full bg-black/20 hover:bg-black/30 text-white font-semibold text-sm border border-white/30 backdrop-blur-xs transition cursor-pointer"
+                className="px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/25 backdrop-blur-xs transition cursor-pointer"
               >
                 Back to Main Website
               </button>
