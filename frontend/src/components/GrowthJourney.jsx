@@ -30,7 +30,7 @@ export default function GrowthJourney() {
     },
     {
       year: '2026',
-      title: 'Formation of Savera',
+      title: 'Formation of Savera Tex Solution LLP',
       description: 'Established Savera Tex Solution LLP, bringing together years of industry experience and business relationships under a structured platform across India and international markets.'
     }
   ];

@@ -7,7 +7,7 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#fbd7b4]/50 shadow-xs">
-      <div className="w-full max-w-[1536px] mx-auto px-3 sm:px-5 lg:px-6 xl:px-8 h-16 sm:h-18 flex items-center justify-between gap-2 sm:gap-3 xl:gap-4">
+      <div className="w-full max-w-[1536px] mx-auto px-2 min-[360px]:px-2.5 sm:px-5 lg:px-6 xl:px-8 h-16 sm:h-18 flex items-center justify-between gap-1 min-[360px]:gap-1.5 sm:gap-3 xl:gap-4">
 
         {/* Brand Pill with Prominent Cropped Official Logo & Visible 'Since 1995' - VERY LEFT */}
         <a 
@@ -18,21 +18,21 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
               onNavigate('home');
             }
           }}
-          className="flex items-center gap-2 sm:gap-2.5 md:gap-3 group flex-shrink-0 min-w-0"
+          className="flex items-center gap-1.5 sm:gap-2.5 md:gap-3 group shrink min-w-0"
         >
-          <div className="h-9 w-9 sm:h-11 sm:w-11 xl:h-12 xl:w-12 rounded-xl overflow-hidden bg-white p-1 border border-[#f8b47d]/40 shadow-xs flex items-center justify-center flex-shrink-0 group-hover:border-[#f16701] transition">
+          <div className="h-8 w-8 min-[360px]:h-8.5 min-[360px]:w-8.5 sm:h-11 sm:w-11 xl:h-12 xl:w-12 rounded-xl overflow-hidden bg-white p-0.5 sm:p-1 border border-[#f8b47d]/40 shadow-xs flex items-center justify-center shrink-0 group-hover:border-[#f16701] transition">
             <img
               src="/assets/logo_cropped.png"
               alt="Savera - Since 1995"
               className="w-full h-full object-contain"
             />
           </div>
-          <div className="flex flex-col min-w-0">
-            <span className="text-[15px] sm:text-lg md:text-xl xl:text-2xl font-bold font-playfair tracking-normal leading-none inline-flex items-baseline gap-1 sm:gap-1.5 whitespace-nowrap">
-              <span className="text-[#f16701]">SAVERA</span>
-              <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
+          <div className="flex flex-col min-w-0 font-playfair">
+            <span className="font-playfair text-[13px] min-[360px]:text-[14px] min-[400px]:text-[15.5px] sm:text-lg md:text-xl xl:text-2xl font-bold tracking-tight sm:tracking-normal leading-none inline-flex items-baseline gap-1 sm:gap-1.5 whitespace-nowrap">
+              <span className="font-playfair font-bold text-[#f16701]">Savera</span>
+              <span className="font-playfair font-bold text-[#0F1318]">Tex Solution LLP</span>
             </span>
-            <span className="text-[7px] min-[360px]:text-[7.5px] sm:text-[8px] xl:text-[9px] font-bold tracking-[0.08em] min-[360px]:tracking-[0.14em] xl:tracking-[0.22em] text-neutral-600 uppercase mt-0.5 whitespace-nowrap">
+            <span className="font-sans text-[6.5px] min-[360px]:text-[7px] sm:text-[8px] xl:text-[9px] font-bold tracking-[0.04em] min-[360px]:tracking-[0.10em] xl:tracking-[0.22em] text-neutral-600 uppercase mt-0.5 whitespace-nowrap">
               Commission Agent of all textile goods
             </span>
           </div>
@@ -92,13 +92,13 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
         )}
 
         {/* Right Action Cluster - VERY RIGHT */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3 flex-shrink-0">
+        <div className="flex items-center gap-1 min-[360px]:gap-1.5 sm:gap-2.5 xl:gap-3 shrink-0">
           
           {/* Buyer's Guide Button Beside Inquire Button */}
           <button
             type="button"
             onClick={() => onNavigate && onNavigate(currentView === 'buyer-guide' ? 'home' : 'buyer-guide')}
-            className={`inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-extrabold tracking-wider uppercase transition cursor-pointer shadow-xs border ${
+            className={`inline-flex items-center justify-center gap-1 sm:gap-1.5 p-1.5 sm:px-3.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-extrabold tracking-wider uppercase transition cursor-pointer shadow-xs border ${
               currentView === 'buyer-guide'
                 ? 'bg-[#0F1318] text-white hover:bg-neutral-800 border-neutral-700'
                 : 'bg-white text-neutral-800 hover:text-[#f16701] hover:border-[#f16701] border-[#fbd7b4] hover:bg-[#FFFDF9]'
@@ -107,15 +107,13 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
           >
             {currentView === 'buyer-guide' ? (
               <>
-                <ArrowLeft className="w-3.5 h-3.5 text-[#f16701] flex-shrink-0" />
+                <ArrowLeft className="w-3.5 h-3.5 text-[#f16701] shrink-0" />
                 <span className="hidden sm:inline">Back to Website</span>
-                <span className="sm:hidden">Website</span>
               </>
             ) : (
               <>
-                <BookOpen className="w-3.5 h-3.5 text-[#f16701] flex-shrink-0" />
+                <BookOpen className="w-3.5 h-3.5 text-[#f16701] shrink-0" />
                 <span className="hidden sm:inline">Buyer's Guide</span>
-                <span className="sm:hidden hidden xs:inline">Guide</span>
               </>
             )}
           </button>
@@ -127,9 +125,9 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
               onClick={() => onNavigate && onNavigate('home', '#connect')}
               size="nav"
             >
-              <span className="hidden xs:inline">Inquire Now</span>
-              <span className="xs:hidden">Inquire</span>
-              <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="hidden sm:inline">Inquire Now</span>
+              <span className="sm:hidden">Inquire</span>
+              <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </RadialGlowButton>
@@ -139,9 +137,9 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
               href="#connect"
               size="nav"
             >
-              <span className="hidden xs:inline">Inquire Now</span>
-              <span className="xs:hidden">Inquire</span>
-              <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="hidden sm:inline">Inquire Now</span>
+              <span className="sm:hidden">Inquire</span>
+              <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </RadialGlowButton>
@@ -150,10 +148,10 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
           {/* Mobile & Tablet Hamburger Toggle (< 1280px) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-1.5 sm:p-2 rounded-xl bg-[#FAF8F5] text-neutral-700 hover:bg-[#fbd7b4]/30 transition cursor-pointer border border-[#fbd7b4]/60"
+            className="xl:hidden p-1.5 sm:p-2 rounded-xl bg-[#FAF8F5] text-neutral-700 hover:bg-[#fbd7b4]/30 transition cursor-pointer border border-[#fbd7b4]/60 shrink-0"
             aria-label="Toggle navigation menu"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4.5 h-4.5 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               ) : (

@@ -90,8 +90,8 @@ export default function Footer({ onNavigate: _onNavigate } = {}) {
               </div>
 
               <div className="text-neutral-600 text-xs leading-relaxed pl-3.5 border-l-2 border-[#f16701]/60 space-y-0.5">
-                <p className="font-semibold text-neutral-800">1/C, Madan Mohan Burman St</p>
-                <p className="text-neutral-700">3rd Floor, Room No. 312, Raja Katra, Machuabazar</p>
+                <p className="font-semibold text-neutral-800">1/C, Burman Street</p>
+                <p className="text-neutral-700">3rd Floor, Room No. 312</p>
                 <p className="text-neutral-700">Kolkata – 700007, West Bengal</p>
               </div>
             </a>
@@ -103,8 +103,20 @@ export default function Footer({ onNavigate: _onNavigate } = {}) {
         <div className="pt-4 border-t border-[#fbd7b4]/40 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-neutral-500 text-center sm:text-left">
           <p>© <strong className="font-playfair font-bold inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></strong>. All rights reserved.</p>
 
-          <p className="text-[11px] text-neutral-500">
-            Pan-India Textile Commission Agency • Since 1995
+          <p className="text-[11px] text-neutral-500 flex items-center justify-center sm:justify-end gap-1.5 flex-wrap">
+            <span>Pan-India Textile Commission Agency • Since 1995</span>
+            <span className="hidden sm:inline">•</span>
+            <span>
+              Developed by{' '}
+              <a
+                href="https://www.pranjalmohata.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-neutral-800 hover:text-[#f16701] transition-colors underline decoration-[#f16701]/40 underline-offset-2 hover:decoration-[#f16701]"
+              >
+                Pranjal Mohata
+              </a>
+            </span>
           </p>
         </div>
 

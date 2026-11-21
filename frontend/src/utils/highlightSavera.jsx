@@ -28,8 +28,8 @@ export function highlightSavera(text) {
           key={idx}
           className="font-playfair font-bold inline-flex items-baseline gap-1"
         >
-          <span className="text-[#f16701]">{saveraWord}</span>
-          <span className="text-inherit">{restWords}</span>
+          <span className="font-playfair font-bold text-[#f16701]">{saveraWord}</span>
+          <span className="font-playfair font-bold text-inherit">{restWords}</span>
         </span>
       );
     }

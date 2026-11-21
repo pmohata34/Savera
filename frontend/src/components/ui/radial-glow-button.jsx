@@ -52,7 +52,7 @@ export function RadialGlowButton({
   )`;
 
   const sizeClasses = {
-    nav: 'px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs',
+    nav: 'px-2.5 min-[360px]:px-3 sm:px-4 py-1.5 sm:py-2 text-[10.5px] min-[360px]:text-[11px] sm:text-xs',
     xs: 'px-3 py-1.5 text-[11px]',
     sm: 'px-4 sm:px-5 py-2 sm:py-2.5 text-xs',
     md: 'px-7 py-3 text-xs sm:text-[13px]',
@@ -103,7 +103,7 @@ export function RadialGlowButton({
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-white/20 via-transparent to-black/10 pointer-events-none" />
 
         {/* Button Content */}
-        <span className="relative z-10 flex items-center gap-2">
+        <span className="relative z-10 flex items-center gap-1 sm:gap-2">
           {children}
         </span>
       </Component>

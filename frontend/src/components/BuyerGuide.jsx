@@ -205,7 +205,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
 
           {/* Guide Header Title */}
           <div className="space-y-3">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-playfair tracking-tight text-[#0F1318]">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0F1318]">
               Buyer's Guide &amp; Sourcing Handbook
             </h1>
             <p className="text-sm sm:text-base text-neutral-600 max-w-3xl leading-relaxed">
@@ -226,7 +226,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
             <span className="text-[11px] font-black text-[#f16701] uppercase tracking-widest block mb-1">
               Part 01
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black font-playfair text-[#0F1318]">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F1318]">
               How We Work with New Buyers
             </h2>
           </div>
@@ -294,7 +294,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
             <span className="text-[11px] font-black text-[#f16701] uppercase tracking-widest block mb-1">
               Part 02
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black font-playfair text-[#0F1318]">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F1318]">
               How to Check a Textile Commission Agent Before You Trade
             </h2>
           </div>
@@ -388,7 +388,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
             <span className="text-[11px] font-black text-[#f16701] uppercase tracking-widest block mb-1">
               Part 03
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black font-playfair text-[#0F1318]">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F1318]">
               Buying Directly or Through {highlightSavera('Savera Tex Solution LLP')}?
             </h2>
           </div>
@@ -413,27 +413,32 @@ export default function BuyerGuide({ onBack, onInquire }) {
               <table className="w-full text-left border-collapse text-xs sm:text-sm">
                 <thead>
                   <tr className="bg-[#FAF8F5] border-b border-[#fbd7b4]">
-                    <th className="py-3.5 px-4 sm:px-6 font-extrabold text-[#0F1318] uppercase tracking-wider w-1/4">
+                    <th className="py-3 px-2 sm:py-3.5 sm:px-6 font-extrabold text-[#0F1318] uppercase tracking-wider w-1/4 text-[10px] min-[360px]:text-[11px] sm:text-xs">
                       Key Area
                     </th>
-                    <th className="py-3.5 px-4 sm:px-6 font-bold text-neutral-600 uppercase tracking-wider w-3/8">
+                    <th className="py-3 px-2 sm:py-3.5 sm:px-6 font-bold text-neutral-600 uppercase tracking-wider w-3/8 text-[10px] min-[360px]:text-[11px] sm:text-xs">
                       Buying Directly
                     </th>
-                    <th className="py-3.5 px-4 sm:px-6 font-bold text-[#f16701] uppercase tracking-wider w-3/8 bg-[#FFF8F0]">
-                      Through {highlightSavera('Savera Tex Solution LLP')}
+                    <th className="py-3 px-2 sm:py-3.5 sm:px-6 font-bold text-[#f16701] uppercase tracking-wider w-3/8 bg-[#FFF8F0]">
+                      <span className="block whitespace-nowrap text-[10px] min-[360px]:text-[11px] sm:text-xs">
+                        Through <span className="font-playfair font-bold">Savera</span>
+                      </span>
+                      <span className="block whitespace-nowrap font-playfair font-bold text-[9.5px] min-[360px]:text-[10.5px] sm:text-xs">
+                        Tex Solution LLP
+                      </span>
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#fbd7b4]/40">
                   {comparisonRows.map((row, rIdx) => (
                     <tr key={rIdx} className="hover:bg-[#FFFDFB] transition">
-                      <td className="py-4 px-4 sm:px-6 font-bold text-[#0F1318] align-top">
+                      <td className="py-3 px-2 sm:py-4 sm:px-6 font-bold text-[#0F1318] align-top text-xs sm:text-sm">
                         {row.area}
                       </td>
-                      <td className="py-4 px-4 sm:px-6 text-neutral-600 leading-relaxed align-top">
+                      <td className="py-3 px-2 sm:py-4 sm:px-6 text-neutral-600 leading-relaxed align-top text-xs sm:text-sm">
                         {row.direct}
                       </td>
-                      <td className="py-4 px-4 sm:px-6 text-neutral-800 font-medium leading-relaxed align-top bg-[#FFFDF9]">
+                      <td className="py-3 px-2 sm:py-4 sm:px-6 text-neutral-800 font-medium leading-relaxed align-top bg-[#FFFDF9] text-xs sm:text-sm">
                         {highlightSavera(row.savera)}
                       </td>
                     </tr>
@@ -465,7 +470,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
             <span className="text-[11px] font-black text-[#f16701] uppercase tracking-widest block mb-1">
               Part 04
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black font-playfair text-[#0F1318]">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F1318]">
               Prepare Your Buying Brief
             </h2>
           </div>
@@ -525,7 +530,7 @@ export default function BuyerGuide({ onBack, onInquire }) {
             <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#f8b47d]/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="max-w-2xl mx-auto space-y-2 relative z-10">
-              <h3 className="text-2xl sm:text-3xl font-black font-playfair tracking-tight text-white">
+              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
                 Ready to begin?
               </h3>
               <p className="text-sm sm:text-base text-neutral-200 leading-relaxed">

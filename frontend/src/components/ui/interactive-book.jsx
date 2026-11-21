@@ -173,7 +173,7 @@ export function InteractiveBook({
                     <span className="block text-[11px] font-bold uppercase tracking-[0.28em] text-transparent bg-clip-text bg-gradient-to-r from-[#FFFDF9] via-[#fbd7b4] to-[#f8b47d] drop-shadow-xs">
                       {coverSubtitle}
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold font-playfair tracking-tight leading-tight mt-1 text-transparent bg-clip-text bg-gradient-to-b from-white via-[#FFF7ED] to-[#FFE0C2] drop-shadow-md">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight mt-1 text-transparent bg-clip-text bg-gradient-to-b from-white via-[#FFF7ED] to-[#FFE0C2] drop-shadow-md">
                       {coverTitle}
                     </h3>
                   </div>
@@ -290,7 +290,7 @@ export function InteractiveBook({
                     
                     {/* Big Title & Tagline */}
                     <div className="space-y-1.5">
-                      <h4 className="text-2xl sm:text-3xl font-extrabold font-playfair text-[#0F1318] leading-tight tracking-tight">
+                      <h4 className="text-2xl sm:text-3xl font-extrabold text-[#0F1318] leading-tight tracking-tight">
                         {page.title.replace(/^\d+[.\s]+/, '')}
                       </h4>
                       {page.tagline && (

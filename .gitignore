@@ -21,7 +21,8 @@ _references/
 scratch/
 savera_designer_masterpiece.html
 photos/
-fonts/
+/fonts/
+!frontend/public/fonts/
 *.tmp
 *.log
 
