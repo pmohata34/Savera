@@ -1,4 +1,4 @@
-const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion } = require('@whiskeysockets/baileys');
+const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, Browsers } = require('@whiskeysockets/baileys');
 const pino = require('pino');
 const qrcode = require('qrcode');
 const path = require('path');
@@ -12,6 +12,14 @@ let currentRawQR = null;
 let isInitializing = false;
 let authClearFunc = null;
 
+const connectionLogs = [];
+function logEvent(msg, extra = null) {
+  const entry = { time: new Date().toISOString(), msg, extra: extra ? String(extra) : null };
+  connectionLogs.unshift(entry);
+  if (connectionLogs.length > 50) connectionLogs.pop();
+  console.log(`[WhatsApp Bridge] ${msg}`, extra || '');
+}
+
 // Ensure auth dir exists
 if (!fs.existsSync(AUTH_DIR)) {
   fs.mkdirSync(AUTH_DIR, { recursive: true });
@@ -21,26 +29,34 @@ async function initBaileys() {
   if (isInitializing) return;
   isInitializing = true;
 
+  if (sock) {
+    try {
+      sock.ev.removeAllListeners();
+      sock.end();
+    } catch (e) {}
+    sock = null;
+  }
+
   try {
     let state, saveCreds;
 
     if (process.env.DATABASE_URL) {
-      console.log('[WhatsApp Bridge] Initializing PostgreSQL PERSISTENT session storage...');
+      logEvent('Initializing PostgreSQL PERSISTENT session storage...');
       try {
         const { usePostgresAuthState } = require('./pgAuthState');
         const pgAuth = await usePostgresAuthState(process.env.DATABASE_URL);
         state = pgAuth.state;
         saveCreds = pgAuth.saveCreds;
         authClearFunc = pgAuth.clearAllData;
-        console.log('[WhatsApp Bridge] PostgreSQL session storage ready.');
+        logEvent('PostgreSQL session storage ready.');
       } catch (pgErr) {
-        console.error('[WhatsApp Bridge: PG ERROR] Failed to connect to PostgreSQL, falling back to local files:', pgErr.message);
+        logEvent('Failed to connect to PostgreSQL, falling back to local files', pgErr.message);
         const localAuth = await useMultiFileAuthState(AUTH_DIR);
         state = localAuth.state;
         saveCreds = localAuth.saveCreds;
       }
     } else {
-      console.log('[WhatsApp Bridge] Using local file system for session storage.');
+      logEvent('Using local file system for session storage.');
       const localAuth = await useMultiFileAuthState(AUTH_DIR);
       state = localAuth.state;
       saveCreds = localAuth.saveCreds;
@@ -53,7 +69,12 @@ async function initBaileys() {
       auth: state,
       logger: pino({ level: 'silent' }),
       printQRInTerminal: false,
-      browser: ['Savera Tex Solution', 'Chrome', '1.0.0']
+      browser: Browsers.ubuntu('Chrome'),
+      connectTimeoutMs: 60000,
+      defaultQueryTimeoutMs: 60000,
+      keepAliveIntervalMs: 15000,
+      emitOwnEvents: true,
+      retryRequestDelayMs: 250
     });
 
     sock.ev.on('creds.update', saveCreds);
@@ -65,9 +86,9 @@ async function initBaileys() {
         currentRawQR = qr;
         try {
           currentQRDataUrl = await qrcode.toDataURL(qr, { width: 300, margin: 2 });
-          console.log('\n[WhatsApp Bridge] New QR Code generated! Open /whatsapp-link to scan.');
+          logEvent('New QR Code generated for scanning.');
         } catch (err) {
-          console.error('[WhatsApp Bridge] Error generating QR Data URL:', err);
+          logEvent('Error generating QR Data URL', err.message);
         }
       }
 
@@ -76,11 +97,12 @@ async function initBaileys() {
         currentQRDataUrl = null;
         currentRawQR = null;
         const statusCode = lastDisconnect?.error?.output?.statusCode;
+        const errMsg = lastDisconnect?.error?.message || String(lastDisconnect?.error || '');
 
-        console.log(`[WhatsApp Bridge] Connection closed (status: ${statusCode})`);
+        logEvent(`Connection closed (status: ${statusCode})`, errMsg);
 
         if (statusCode === DisconnectReason.loggedOut) {
-          console.log('[WhatsApp Bridge] Logged out. Resetting session credentials.');
+          logEvent('Logged out by user. Resetting session credentials.');
           if (authClearFunc) {
             try { await authClearFunc(); } catch (e) {}
           }
@@ -90,25 +112,51 @@ async function initBaileys() {
           } catch (e) {}
         }
 
-        // Always restart to generate a fresh QR code for the next scan
+        // Reconnect after brief pause
+        const delay = statusCode === DisconnectReason.restartRequired ? 500 : 2000;
         setTimeout(() => {
           isInitializing = false;
           initBaileys();
-        }, 1500);
+        }, delay);
       } else if (connection === 'open') {
         isConnected = true;
         currentQRDataUrl = null;
         currentRawQR = null;
         isInitializing = false;
-        console.log('\n============================================================');
-        console.log('[WhatsApp Bridge: CONNECTED]');
-        console.log('WhatsApp linked successfully! Automated brochure delivery is LIVE.');
-        console.log('============================================================\n');
+        logEvent('CONNECTED! WhatsApp linked successfully! Automated brochure delivery is LIVE.');
       }
     });
   } catch (err) {
-    console.error('[WhatsApp Bridge] Init error:', err.message);
+    logEvent('Init error', err.message);
     isInitializing = false;
+  }
+}
+
+async function getPairingCode(phoneNumber) {
+  if (!sock) {
+    throw new Error('WhatsApp service initializing. Please wait a few seconds and try again.');
+  }
+  if (isConnected) {
+    throw new Error('WhatsApp is already linked and connected.');
+  }
+
+  const cleanDigits = String(phoneNumber).replace(/\D/g, '');
+  const phone10 = cleanDigits.slice(-10);
+  const phoneNum = `91${phone10}`;
+
+  logEvent(`Requesting pairing code for ${phoneNum}...`);
+  try {
+    const rawCode = await sock.requestPairingCode(phoneNum);
+    const formatted = rawCode?.match(/.{1,4}/g)?.join('-') || rawCode;
+    logEvent(`Pairing code received successfully: ${formatted}`);
+    return {
+      raw: rawCode,
+      formatted,
+      phone: phoneNum
+    };
+  } catch (err) {
+    logEvent(`Pairing code error: ${err.message}`);
+    throw err;
   }
 }
 
@@ -219,6 +267,8 @@ async function resetWhatsAppSession() {
 module.exports = {
   initBaileys,
   getWhatsAppStatus,
+  getPairingCode,
+  getLogs: () => connectionLogs,
   sendWhatsAppDocument,
   sendWhatsAppText,
   resetWhatsAppSession,

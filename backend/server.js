@@ -136,7 +136,29 @@ app.get('/api/whatsapp-reset', async (req, res) => {
   res.redirect('/whatsapp-link');
 });
 
-// WhatsApp Link Web Interface (Scan QR to link +91 9477665429)
+// Request 8-digit Pairing Code (no camera / no QR scan needed)
+app.all('/api/whatsapp-pairing-code', async (req, res) => {
+  try {
+    const phone = req.query.phone || req.body?.phone || '9477665429';
+    const { getPairingCode } = require('./services/baileys');
+    const result = await getPairingCode(phone);
+    res.json({ success: true, ...result });
+  } catch (err) {
+    res.status(400).json({ success: false, error: err.message });
+  }
+});
+
+// Live Debug Endpoint
+app.get('/api/whatsapp-debug', (req, res) => {
+  const { getWhatsAppStatus, getLogs } = require('./services/baileys');
+  res.json({
+    status: getWhatsAppStatus(),
+    databaseConfigured: Boolean(process.env.DATABASE_URL),
+    logs: getLogs ? getLogs() : []
+  });
+});
+
+// WhatsApp Link Web Interface (Scan QR or Enter Pairing Code)
 app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
   const status = getWhatsAppStatus();
   res.send(`
@@ -148,6 +170,7 @@ app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
       <title>Link WhatsApp — Savera Tex Solution LLP</title>
       <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
       <style>
+        * { box-sizing: border-box; }
         body {
           font-family: 'Plus Jakarta Sans', Arial, sans-serif;
           background: #FAF8F5;
@@ -157,17 +180,16 @@ app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
           justify-content: center;
           min-height: 100vh;
           margin: 0;
-          padding: 20px;
-          box-sizing: border-box;
+          padding: 24px 16px;
         }
         .card {
           background: #ffffff;
-          border-radius: 24px;
-          box-shadow: 0 20px 40px rgba(241, 103, 1, 0.08);
+          border-radius: 28px;
+          box-shadow: 0 20px 50px rgba(241, 103, 1, 0.09);
           border: 1px solid #F8B47D;
-          max-width: 480px;
+          max-width: 520px;
           width: 100%;
-          padding: 36px 32px;
+          padding: 36px 28px;
           text-align: center;
         }
         .logo {
@@ -176,32 +198,77 @@ app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
           letter-spacing: 2px;
           color: #F16701;
           text-transform: uppercase;
-          margin-bottom: 8px;
+          margin-bottom: 6px;
         }
         h1 {
           font-size: 24px;
           font-weight: 800;
-          margin: 0 0 12px 0;
+          margin: 0 0 10px 0;
+          color: #0F1318;
         }
-        p {
-          font-size: 14px;
+        p.subtitle {
+          font-size: 13.5px;
           color: #4A5568;
-          line-height: 1.6;
-          margin: 0 0 24px 0;
+          line-height: 1.5;
+          margin: 0 0 20px 0;
+        }
+        .tabs {
+          display: flex;
+          background: #F4EFEB;
+          padding: 4px;
+          border-radius: 12px;
+          margin-bottom: 24px;
+          gap: 4px;
+        }
+        .tab-btn {
+          flex: 1;
+          padding: 10px 14px;
+          border: none;
+          background: transparent;
+          font-weight: 700;
+          font-size: 13px;
+          color: #718096;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+        .tab-btn.active {
+          background: #FFFFFF;
+          color: #F16701;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        .tab-content {
+          display: none;
+        }
+        .tab-content.active {
+          display: block;
         }
         .qr-box {
           background: #FFF9F3;
           border: 2px dashed #F8B47D;
           border-radius: 20px;
-          padding: 24px;
+          padding: 20px;
           display: inline-block;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
         }
         .qr-box img {
           display: block;
-          width: 260px;
-          height: 260px;
+          width: 250px;
+          height: 250px;
           border-radius: 12px;
+        }
+        .code-display {
+          background: #0F1318;
+          color: #F16701;
+          font-family: monospace;
+          font-size: 32px;
+          font-weight: 800;
+          letter-spacing: 4px;
+          padding: 16px 20px;
+          border-radius: 14px;
+          margin: 16px 0;
+          border: 2px solid #F8B47D;
+          user-select: all;
         }
         .connected-badge {
           background: #ECFDF5;
@@ -227,8 +294,40 @@ app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
           color: #2D3748;
           line-height: 1.8;
           margin: 0 auto;
-          max-width: 380px;
+          max-width: 420px;
           padding-left: 20px;
+        }
+        .input-group {
+          display: flex;
+          gap: 8px;
+          margin-bottom: 16px;
+        }
+        .input-group input {
+          flex: 1;
+          padding: 12px 16px;
+          border: 1px solid #CBD5E0;
+          border-radius: 12px;
+          font-size: 15px;
+          font-weight: 600;
+          font-family: inherit;
+        }
+        .btn-primary {
+          background: #F16701;
+          color: #FFFFFF;
+          border: none;
+          padding: 12px 20px;
+          font-weight: 700;
+          font-size: 13px;
+          border-radius: 12px;
+          cursor: pointer;
+          transition: background 0.2s;
+        }
+        .btn-primary:hover {
+          background: #D45500;
+        }
+        .btn-primary:disabled {
+          background: #A0AEC0;
+          cursor: not-allowed;
         }
         .footer-note {
           margin-top: 24px;
@@ -242,9 +341,9 @@ app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
         <div class="logo">Savera Tex Solution LLP</div>
         <h1>Automated WhatsApp Delivery</h1>
         <div style="margin-bottom: 16px; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 9999px; display: inline-block; background: ${process.env.DATABASE_URL ? '#ECFDF5' : '#FFFBEB'}; color: ${process.env.DATABASE_URL ? '#047857' : '#B45309'}; border: 1px solid ${process.env.DATABASE_URL ? '#A7F3D0' : '#FDE68A'};">
-          ${process.env.DATABASE_URL ? '🔒 Permanent Session: PostgreSQL Active' : '⚠️ Session: Ephemeral Disk (Add DATABASE_URL in Render to persist)'}
+          ${process.env.DATABASE_URL ? '🔒 Permanent Session: PostgreSQL Active' : '⚠️ Session: Ephemeral Disk (Connect DATABASE_URL in Render to persist)'}
         </div>
-        <p>Link your WhatsApp account (<strong>+91 9477665429</strong>) so clients automatically receive the Thank You message and official 12-page PDF brochure on their phone upon submitting the website form.</p>
+        <p class="subtitle">Link WhatsApp account (<strong>+91 94776 65429</strong>) to deliver the official brochure and thank-you message to clients automatically.</p>
 
         <div id="content">
           ${status.connected ? `
@@ -253,36 +352,110 @@ app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
               <h2>WhatsApp Connected!</h2>
               <p>Your WhatsApp account is active. When any client submits the inquiry form, they will automatically receive the thank-you message and brochure PDF directly on their phone!</p>
             </div>
-          ` : status.qrDataUrl ? `
-            <div class="qr-box">
-              <img src="${status.qrDataUrl}" alt="Scan QR Code to Link WhatsApp">
-            </div>
-            <ol>
-              <li>Open <strong>WhatsApp</strong> on your phone (<strong>+91 9477665429</strong>).</li>
-              <li>Tap <strong>Settings</strong> (iOS) or <strong>⋮ Menu</strong> (Android).</li>
-              <li>Select <strong>Linked Devices</strong> &rarr; <strong>Link a Device</strong>.</li>
-              <li>Scan the QR code above.</li>
-            </ol>
           ` : `
-            <div class="qr-box" style="padding: 40px 20px;">
-              <p style="margin: 0; font-weight: 700; color: #F16701;">Initializing WhatsApp Bridge...</p>
-              <p style="margin: 8px 0 0 0; font-size: 12px;">The QR code will appear in a moment.</p>
+            <div class="tabs">
+              <button class="tab-btn active" onclick="switchTab('qr')">📷 Option 1: Scan QR</button>
+              <button class="tab-btn" onclick="switchTab('code')">🔢 Option 2: Pairing Code (No Camera)</button>
+            </div>
+
+            <!-- Tab 1: QR Code -->
+            <div id="tab-qr" class="tab-content active">
+              ${status.qrDataUrl ? `
+                <div class="qr-box">
+                  <img src="${status.qrDataUrl}" alt="Scan QR Code to Link WhatsApp">
+                </div>
+              ` : `
+                <div class="qr-box" style="padding: 40px 20px;">
+                  <p style="margin: 0; font-weight: 700; color: #F16701;">Initializing WhatsApp Bridge...</p>
+                  <p style="margin: 8px 0 0 0; font-size: 12px;">QR code will appear in a moment.</p>
+                </div>
+              `}
+              <ol>
+                <li>Open <strong>WhatsApp</strong> on your phone (<strong>+91 9477665429</strong>).</li>
+                <li>Tap <strong>Settings</strong> (iOS) or <strong>⋮ Menu</strong> (Android).</li>
+                <li>Select <strong>Linked Devices</strong> &rarr; <strong>Link a Device</strong>.</li>
+                <li>Point your camera at the QR code above.</li>
+              </ol>
+            </div>
+
+            <!-- Tab 2: Pairing Code -->
+            <div id="tab-code" class="tab-content">
+              <p style="font-size: 13px; color: #4A5568; margin-top: 0;">Enter your WhatsApp phone number to generate an 8-character code. Enter it inside WhatsApp to link instantly without needing your camera.</p>
+              
+              <div class="input-group">
+                <input type="text" id="phoneInput" value="9477665429" placeholder="Enter 10-digit phone number">
+                <button class="btn-primary" id="btnGetCode" onclick="fetchPairingCode()">Get Code</button>
+              </div>
+
+              <div id="pairingCodeResult" style="display: none;">
+                <div style="font-size: 12px; font-weight: 700; color: #4A5568; text-transform: uppercase; letter-spacing: 1px;">Your 8-Digit Pairing Code:</div>
+                <div class="code-display" id="codeDisplay">----</div>
+                <ol>
+                  <li>Open <strong>WhatsApp</strong> on your phone.</li>
+                  <li>Go to <strong>Linked Devices</strong> &rarr; <strong>Link a Device</strong>.</li>
+                  <li>Tap <strong>"Link with phone number instead"</strong> at the bottom.</li>
+                  <li>Type the 8-digit code shown above.</li>
+                </ol>
+              </div>
+              <div id="pairingError" style="display: none; color: #DC2626; font-size: 13px; font-weight: 600; margin-top: 12px;"></div>
             </div>
           `}
         </div>
 
-        <div style="margin-top: 18px;">
+        <div style="margin-top: 20px;">
           <a href="/api/whatsapp-reset" style="display: inline-block; padding: 8px 18px; border-radius: 9999px; background: #FFF3E8; color: #F16701; border: 1px solid #F8B47D; font-size: 11px; font-weight: 700; text-decoration: none; transition: background 0.2s;">
-            🔄 Generate Fresh QR Code / Reset Session
+            🔄 Refresh / Reset Session
           </a>
         </div>
 
         <div class="footer-note">
-          Automatic refresh active • <a href="/" style="color: #F16701; text-decoration: none; font-weight: 700;">Back to Portal</a>
+          Automatic status sync active • <a href="/" style="color: #F16701; text-decoration: none; font-weight: 700;">Back to Portal</a> • <a href="/api/whatsapp-debug" target="_blank" style="color: #718096; text-decoration: none;">View Logs</a>
         </div>
       </div>
 
       <script>
+        function switchTab(tab) {
+          document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          if (tab === 'qr') {
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+            document.getElementById('tab-qr').classList.add('active');
+          } else {
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            document.getElementById('tab-code').classList.add('active');
+          }
+        }
+
+        async function fetchPairingCode() {
+          const btn = document.getElementById('btnGetCode');
+          const phoneInput = document.getElementById('phoneInput');
+          const resultBox = document.getElementById('pairingCodeResult');
+          const codeDisplay = document.getElementById('codeDisplay');
+          const errBox = document.getElementById('pairingError');
+
+          btn.disabled = true;
+          btn.innerText = 'Generating...';
+          errBox.style.display = 'none';
+
+          try {
+            const res = await fetch('/api/whatsapp-pairing-code?phone=' + encodeURIComponent(phoneInput.value.trim()));
+            const data = await res.json();
+            if (data.success && data.formatted) {
+              codeDisplay.innerText = data.formatted;
+              resultBox.style.display = 'block';
+            } else {
+              errBox.innerText = data.error || 'Failed to generate code. Please try refreshing.';
+              errBox.style.display = 'block';
+            }
+          } catch (e) {
+            errBox.innerText = 'Network error: ' + e.message;
+            errBox.style.display = 'block';
+          } finally {
+            btn.disabled = false;
+            btn.innerText = 'Get Code';
+          }
+        }
+
         setInterval(async () => {
           try {
             const res = await fetch('/api/whatsapp-status');
@@ -293,8 +466,6 @@ app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
               const img = document.querySelector('.qr-box img');
               if (img && img.src !== data.qrDataUrl) {
                 img.src = data.qrDataUrl;
-              } else if (!img) {
-                window.location.reload();
               }
             }
           } catch (e) {}
@@ -302,6 +473,8 @@ app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
       </script>
     </body>
     </html>
+  `);
+});
   `);
 });
 
