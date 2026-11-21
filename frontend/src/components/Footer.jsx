@@ -75,7 +75,12 @@ export default function Footer({ onNavigate: _onNavigate } = {}) {
               OFFICE ADDRESS
             </h4>
 
-            <div className="p-4 rounded-2xl bg-white border border-[#f8b47d]/40 shadow-xs space-y-2.5 text-xs text-neutral-700">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=3rd+floor,+Room+No.+312,+1/C,+Madan+Mohan+Burman+St,+Raja+Katra,+Machuabazar,+Kolkata,+West+Bengal+700007"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block p-4 rounded-2xl bg-white border border-[#f8b47d]/40 shadow-xs hover:border-[#f16701] transition space-y-2.5 text-xs text-neutral-700 group cursor-pointer"
+            >
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#f16701]"></span>
                 <span className="font-playfair font-bold text-sm inline-flex items-baseline gap-1">
@@ -85,10 +90,11 @@ export default function Footer({ onNavigate: _onNavigate } = {}) {
               </div>
 
               <div className="text-neutral-600 text-xs leading-relaxed pl-3.5 border-l-2 border-[#f16701]/60 space-y-0.5">
-                <p className="font-semibold text-neutral-800">1/C Burman Street, 3rd Floor, Room No. 312</p>
+                <p className="font-semibold text-neutral-800">1/C, Madan Mohan Burman St</p>
+                <p className="text-neutral-700">3rd Floor, Room No. 312, Raja Katra, Machuabazar</p>
                 <p className="text-neutral-700">Kolkata – 700007, West Bengal</p>
               </div>
-            </div>
+            </a>
           </div>
 
         </div>

@@ -13,7 +13,7 @@ const defaultSocialItems = [
         className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
       />
     ),
-    label: 'Savera Tex Solution',
+    label: 'SAVERA TEX SOLUTION LLP',
     href: '#hero',
     backBg: 'bg-white border-2 border-[#f16701] shadow-md shadow-[#f16701]/20',
   },
@@ -21,7 +21,7 @@ const defaultSocialItems = [
     letter: 'O',
     icon: <MapPin className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white" strokeWidth={2.2} />,
     label: 'Kolkata Central Office (Google Maps)',
-    href: 'https://maps.app.goo.gl/kWRLKioj2Ly23uaq8',
+    href: 'https://www.google.com/maps/search/?api=1&query=3rd+floor,+Room+No.+312,+1/C,+Madan+Mohan+Burman+St,+Raja+Katra,+Machuabazar,+Kolkata,+West+Bengal+700007',
     backBg: 'bg-gradient-to-br from-rose-500 to-red-600 shadow-md shadow-red-500/25',
   },
   {
@@ -73,7 +73,7 @@ const defaultSocialItems = [
         className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
       />
     ),
-    label: 'Savera • Since 1995',
+    label: 'Since 1995',
     href: '#hero',
     backBg: 'bg-white border-2 border-[#f16701] shadow-md shadow-[#f16701]/20',
   },
