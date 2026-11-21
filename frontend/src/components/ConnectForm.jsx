@@ -115,8 +115,13 @@ export default function ConnectForm() {
       <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8 relative z-10">
 
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
-            Connect With <span className="font-playfair font-bold inline-flex items-baseline gap-2"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></span>
+          <h2 className="text-2xl min-[380px]:text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
+            <span className="block sm:inline">
+              Connect With <span className="font-playfair font-bold text-[#f16701]">SAVERA</span>
+            </span>{' '}
+            <span className="block sm:inline font-playfair font-bold text-[#0F1318] whitespace-nowrap">
+              TEX SOLUTION LLP
+            </span>
           </h2>
           <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
             Whether you are a manufacturer looking to expand your buyer network or a retailer seeking reliable sourcing from India's premier textile hubs, our team is ready to assist.

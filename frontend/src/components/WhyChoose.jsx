@@ -48,8 +48,13 @@ export default function WhyChoose() {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-1.5">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
-            Why Choose <span className="font-playfair font-bold inline-flex items-baseline gap-1.5"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></span>?
+          <h2 className="text-2xl min-[380px]:text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1318] tracking-tight">
+            <span className="block sm:inline">
+              Why Choose <span className="font-playfair font-bold text-[#f16701]">SAVERA</span>
+            </span>{' '}
+            <span className="block sm:inline font-playfair font-bold text-[#0F1318] whitespace-nowrap">
+              TEX SOLUTION LLP ?
+            </span>
           </h2>
 
           <p className="text-sm sm:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#f16701] via-[#f48129] to-[#f79a52]">
