@@ -90,6 +90,7 @@ app.get('/api/health', (req, res) => {
     service: 'Savera Tex Solution LLP Backend API',
     timestamp: new Date().toISOString(),
     brochureAvailable: fs.existsSync(getBrochurePath() || BROCHURE_PATH),
+    databaseConfigured: Boolean(process.env.DATABASE_URL),
     emailConfigured: Boolean(process.env.GMAIL_APP_PASSWORD),
     whatsappLinked: isBaileysConnected(),
     whatsappAutomated: Boolean(isBaileysConnected() || process.env.WHATSAPP_CLOUD_API_TOKEN || process.env.TWILIO_ACCOUNT_SID || process.env.WHATSAPP_WEBHOOK_URL)
@@ -240,6 +241,9 @@ app.get(['/whatsapp-link', '/whatsapp-qr'], (req, res) => {
       <div class="card">
         <div class="logo">Savera Tex Solution LLP</div>
         <h1>Automated WhatsApp Delivery</h1>
+        <div style="margin-bottom: 16px; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 9999px; display: inline-block; background: ${process.env.DATABASE_URL ? '#ECFDF5' : '#FFFBEB'}; color: ${process.env.DATABASE_URL ? '#047857' : '#B45309'}; border: 1px solid ${process.env.DATABASE_URL ? '#A7F3D0' : '#FDE68A'};">
+          ${process.env.DATABASE_URL ? '🔒 Permanent Session: PostgreSQL Active' : '⚠️ Session: Ephemeral Disk (Add DATABASE_URL in Render to persist)'}
+        </div>
         <p>Link your WhatsApp account (<strong>+91 9477665429</strong>) so clients automatically receive the Thank You message and official 12-page PDF brochure on their phone upon submitting the website form.</p>
 
         <div id="content">
