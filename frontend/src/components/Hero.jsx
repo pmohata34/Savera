@@ -1,6 +1,42 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Play } from 'lucide-react';
 
 export default function Hero() {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Force DOM properties required by iOS Safari & mobile browsers
+    video.defaultMuted = true;
+    video.muted = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(() => {
+          // Autoplay blocked by device power saver / policy
+          setIsPlaying(false);
+        });
+    }
+  }, []);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      video.play().then(() => setIsPlaying(true)).catch(() => {});
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
   return (
     <section
       id="hero"
@@ -58,16 +94,33 @@ export default function Hero() {
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#f16701]/25 via-[#f8b47d]/20 to-transparent rounded-3xl blur-xl opacity-70"></div>
 
             <div className="relative bg-white p-2.5 sm:p-3 rounded-2xl border border-[#fbd7b4]/60 shadow-lg w-full max-w-md group">
-              <div className="h-[230px] sm:h-[270px] lg:h-[310px] xl:h-[340px] w-full rounded-xl overflow-hidden relative shadow-inner bg-[#FAF8F5]">
+              <div 
+                onClick={togglePlay}
+                className="h-[230px] sm:h-[270px] lg:h-[310px] xl:h-[340px] w-full rounded-xl overflow-hidden relative shadow-inner bg-[#FAF8F5] cursor-pointer"
+              >
                 <video
+                  ref={videoRef}
                   src="/assets/about_us.mp4"
-                  poster="/photos/clean_hero.jpg"
+                  poster="/assets/video_logo_poster.jpg"
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover rounded-xl pointer-events-none"
+                  webkit-playsinline="true"
+                  preload="auto"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  className="w-full h-full object-cover rounded-xl"
                 />
+
+                {/* Tap to Play Overlay if autoplay is blocked by phone power saver */}
+                {!isPlaying && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[1px] transition-all z-10">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#f16701] text-white flex items-center justify-center shadow-xl shadow-[#f16701]/40 transform hover:scale-110 active:scale-95 transition">
+                      <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-white translate-x-0.5" />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>

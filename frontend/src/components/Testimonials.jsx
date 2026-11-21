@@ -43,7 +43,7 @@ const testimonials = [
   {
     id: 5,
     name: 'Sandhya Tayal',
-    role: 'Kolkata Sourcing Client',
+    role: 'Client',
     tag: 'Direct Manufacturer Network',
     paragraphs: [
       `Always cooperative ..knowledgeable..and experienced and main thing is has a v well connection with renowned manufacturers of Kolkata..thank savera textiles for serving best 👍`
@@ -79,7 +79,7 @@ export default function Testimonials() {
 
         {/* Section Header: ShriVara Typography & Proportions */}
         <div className="text-center space-y-2">
-          
+
           {/* — TESTIMONIALS — with refined horizontal rules */}
           <div className="flex items-center justify-center gap-3 text-xs sm:text-sm font-bold tracking-[0.28em] text-[#f16701] uppercase">
             <span className="w-8 sm:w-12 h-px bg-[#f16701]/70"></span>
@@ -122,7 +122,7 @@ export default function Testimonials() {
 
           {/* Active Testimonial Card in Warm Gradient Luxe Styling */}
           <div className="relative rounded-3xl p-6 sm:p-10 md:p-12 bg-gradient-to-br from-white via-white to-[#FFF6ED] border border-[#f8b47d]/60 shadow-xl hover:border-[#f16701]/60 transition-all duration-300">
-            
+
             {/* Quotation Mark (66 shape) in Savera Orange */}
             <div className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#f16701] leading-none mb-3 sm:mb-5 select-none font-bold">
               “
@@ -164,11 +164,10 @@ export default function Testimonials() {
                 type="button"
                 onClick={() => setCurrentIndex(idx)}
                 aria-label={`Go to review ${idx + 1}`}
-                className={`transition-all duration-300 rounded-full h-2 cursor-pointer ${
-                  currentIndex === idx
+                className={`transition-all duration-300 rounded-full h-2 cursor-pointer ${currentIndex === idx
                     ? 'w-7 bg-[#f16701]'
                     : 'w-2 bg-[#fbd7b4] hover:bg-[#f8b47d]'
-                }`}
+                  }`}
               />
             ))}
           </div>

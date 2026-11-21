@@ -32,11 +32,8 @@ export default function Navbar({ currentView = 'home', onNavigate }) {
               <span className="text-[#f16701]">SAVERA</span>
               <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
             </span>
-            <span className="hidden sm:block text-[8px] xl:text-[9px] font-bold tracking-[0.16em] xl:tracking-[0.22em] text-neutral-600 uppercase mt-0.5 whitespace-nowrap">
+            <span className="text-[7px] min-[360px]:text-[7.5px] sm:text-[8px] xl:text-[9px] font-bold tracking-[0.08em] min-[360px]:tracking-[0.14em] xl:tracking-[0.22em] text-neutral-600 uppercase mt-0.5 whitespace-nowrap">
               Commission Agent of all textile goods
-            </span>
-            <span className="sm:hidden text-[7.5px] font-bold tracking-[0.12em] text-neutral-500 uppercase mt-0.5 whitespace-nowrap">
-              Textile Commission Agent
             </span>
           </div>
         </a>

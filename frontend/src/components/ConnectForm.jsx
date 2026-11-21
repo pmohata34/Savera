@@ -18,8 +18,7 @@ export default function ConnectForm() {
     'Salwar Suits (Stitched & Unstitched Materials)',
     'Lehengas (Bridal, Festive & Partywear)',
     'Indo Western Wear (Gowns, Kurtis & Fusion)',
-    'Fabrics (Dyeable, Printed, Silk & Cotton)',
-    'Specialized Commercial Loom Contracts'
+    'Fabrics (Dyeable, Printed, Silk & Cotton)'
   ];
 
   const handleCheckboxChange = (cat) => {

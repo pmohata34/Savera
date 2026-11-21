@@ -27,7 +27,7 @@ export default function Founder() {
 
           {/* Left Column: Natural 3:4 Aspect Ratio Frame (0 Letterbox, 0 Crop) + Executive Nameplate */}
           <div className="w-full max-w-[360px] sm:max-w-[380px] lg:max-w-none lg:w-[34%] xl:w-[31%] mx-auto lg:mx-0 space-y-3.5 flex-shrink-0">
-            
+
             {/* Solid Luxury Orange Outer Frame */}
             <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-white to-[#FFF6EE] p-2.5 sm:p-3 border-2 border-[#f16701] shadow-xl shadow-[#f16701]/10 group">
               {/* Inner Archival Container perfectly matched to 3:4 image aspect ratio */}
@@ -42,17 +42,11 @@ export default function Founder() {
 
             {/* Dedicated Executive Nameplate Directly Under Photo */}
             <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-br from-white to-[#f7e5d4]/40 border border-[#f8b47d]/40 shadow-xs text-center space-y-1">
-              <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest bg-[#f7e5d4] text-[#f16701] border border-[#f8b47d]/40">
-                Established 1995
-              </span>
               <h3 className="text-xl font-black text-[#0F1318] tracking-tight">
                 Vineet Kr. Taparia
               </h3>
               <p className="text-xs font-bold text-[#f16701]">
-                Founder, <span className="font-playfair font-bold text-xs inline-flex items-baseline gap-1"><span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span></span>
-              </p>
-              <p className="text-[11px] text-neutral-500 pt-0.5">
-                30+ Years of Textile Commission Leadership • Kolkata Central Operations
+                Founder, <span className="text-[#f16701]">SAVERA</span> <span className="text-[#0F1318]">TEX SOLUTION LLP</span>
               </p>
             </div>
 
