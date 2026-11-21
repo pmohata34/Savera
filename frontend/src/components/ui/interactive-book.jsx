@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, RefreshCcw, X, BookOpen } from 'lucide-react';
+import { ChevronLeft, ChevronRight, RefreshCcw, X, BookOpen, ZoomIn, ZoomOut } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { highlightSavera } from '../../utils/highlightSavera';
 
@@ -22,9 +22,42 @@ export function InteractiveBook({
   const [isOpen, setIsOpen] = useState(false);
   const [currentPageIndex, setCurrentPageIndex] = useState(-1);
   const [isHovering, setIsHovering] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+
+  // Responsive scaling for mobile devices
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const widthNum = typeof width === 'number' ? width : 360;
   const heightNum = typeof height === 'number' ? height : 490;
+
+  // Responsive scaling calculations:
+  // When closed: requires widthNum + safe horizontal margins (~24px).
+  // When open: requires (widthNum * 2) + safe horizontal margins (~24px).
+  const paddingH = 24;
+  const requiredClosed = widthNum + paddingH;
+  const requiredOpen = (widthNum * 2) + paddingH;
+
+  const scaleClosed = windowWidth < requiredClosed
+    ? Math.max(0.72, (windowWidth - paddingH) / widthNum)
+    : 1;
+
+  const scaleOpen = windowWidth < requiredOpen
+    ? Math.max(0.42, (windowWidth - paddingH) / (widthNum * 2))
+    : 1;
+
+  const effectiveScale = isZoomed && windowWidth < 768
+    ? 0.95
+    : (isOpen ? scaleOpen : scaleClosed);
 
   const BOOK_OPEN_DURATION = 1.2;
   const EASING = [0.25, 0, 0, 1];
@@ -37,6 +70,7 @@ export function InteractiveBook({
     e?.stopPropagation();
     setIsOpen(false);
     setCurrentPageIndex(-1);
+    setIsZoomed(false);
   }, []);
 
   const nextPage = useCallback((e) => {
@@ -66,27 +100,75 @@ export function InteractiveBook({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, currentPageIndex, pages.length, nextPage, prevPage, handleCloseBook]);
 
+  // Touch swipe gesture support for mobile
+  const handleTouchStart = (e) => {
+    if (e.targetTouches.length === 1) {
+      setTouchStart(e.targetTouches[0].clientX);
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStart === null) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStart - touchEnd;
+    if (Math.abs(diff) > 45) {
+      if (diff > 45) {
+        nextPage();
+      } else {
+        prevPage();
+      }
+    }
+    setTouchStart(null);
+  };
+
   return (
     <div
-      className={cn("relative flex flex-col items-center justify-center my-4 overflow-visible", className)}
+      className={cn("relative flex flex-col items-center justify-center my-2 sm:my-4 overflow-visible w-full", className)}
       style={{
-        perspective: '2000px',
-        minHeight: heightNum + 80,
+        minHeight: Math.round(heightNum * effectiveScale) + (isOpen ? 65 : 40),
       }}
+      onTouchStart={isOpen ? handleTouchStart : undefined}
+      onTouchEnd={isOpen ? handleTouchEnd : undefined}
     >
-      {/* 3D Book Container */}
-      <motion.div
-        className="relative"
+      {/* ── RESPONSIVE SCALED 3D BOOK WRAPPER ── */}
+      <div
+        className={cn(
+          "relative flex items-center justify-center transition-all duration-300 ease-out",
+          isZoomed && "overflow-x-auto max-w-full pb-2"
+        )}
         style={{
-          width: widthNum,
-          height: heightNum,
-          transformStyle: 'preserve-3d',
+          width: isOpen ? Math.round(widthNum * 2 * effectiveScale) : Math.round(widthNum * effectiveScale),
+          height: Math.round(heightNum * effectiveScale),
+          perspective: '2500px',
         }}
-        initial={{ x: 0 }}
-        animate={{ x: isOpen ? widthNum / 2 : 0 }}
-        transition={{ duration: BOOK_OPEN_DURATION, ease: EASING }}
       >
-        {/* ── FRONT COVER ── */}
+        <div
+          className="transition-transform duration-300 ease-out origin-center shrink-0"
+          style={{
+            transform: `scale(${effectiveScale})`,
+            transformOrigin: 'center center',
+            width: widthNum,
+            height: heightNum,
+            perspective: '2000px',
+            transformStyle: 'preserve-3d',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          {/* 3D Book Container */}
+          <motion.div
+            className="relative"
+            style={{
+              width: widthNum,
+              height: heightNum,
+              transformStyle: 'preserve-3d',
+            }}
+            initial={{ x: 0 }}
+            animate={{ x: isOpen ? widthNum / 2 : 0 }}
+            transition={{ duration: BOOK_OPEN_DURATION, ease: EASING }}
+          >
+            {/* ── FRONT COVER ── */}
         <motion.div
           className="absolute inset-0 w-full h-full origin-left cursor-pointer select-none"
           initial={{ rotateY: 0, zIndex: 100 }}
@@ -427,6 +509,8 @@ export function InteractiveBook({
           />
         </div>
       </motion.div>
+    </div>
+  </div>
 
       {/* ── EXTERNAL NAVIGATION CONTROLS (Always accessible when open) ── */}
       <AnimatePresence>
@@ -435,21 +519,21 @@ export function InteractiveBook({
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 15 }}
-            className="mt-8 z-20 flex items-center gap-3 sm:gap-4 bg-white/95 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-[#f8b47d]/50 shadow-lg backdrop-blur-md"
+            className="mt-3 sm:mt-6 z-20 flex items-center justify-center gap-1 sm:gap-3 bg-white/95 px-2.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full border border-[#f8b47d]/50 shadow-lg backdrop-blur-md max-w-[96vw]"
           >
             {/* Prev Button */}
             <button
               onClick={prevPage}
               disabled={currentPageIndex < 0}
-              className="p-2 rounded-full hover:bg-[#f7e5d4] text-neutral-700 hover:text-[#f16701] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer"
+              className="p-1.5 sm:p-2 rounded-full hover:bg-[#f7e5d4] text-neutral-700 hover:text-[#f16701] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer shrink-0"
               title="Previous Page"
               aria-label="Previous Page"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Page Counter */}
-            <div className="text-xs font-bold text-neutral-700 min-w-[150px] sm:min-w-[170px] text-center select-none">
+            <div className="text-[11px] sm:text-xs font-bold text-neutral-700 min-w-0 px-1 sm:min-w-[150px] text-center select-none truncate">
               {currentPageIndex === -1 ? (
                 <span>
                   <span className="text-[#f16701] font-black">1</span> of {pages.length} • {pages[0]?.title?.replace(/^\d+[.\s]+/, '') || "Sarees"}
@@ -465,33 +549,51 @@ export function InteractiveBook({
             <button
               onClick={nextPage}
               disabled={currentPageIndex >= maxPageIndex}
-              className="p-2 rounded-full hover:bg-[#f7e5d4] text-neutral-700 hover:text-[#f16701] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer"
+              className="p-1.5 sm:p-2 rounded-full hover:bg-[#f7e5d4] text-neutral-700 hover:text-[#f16701] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer shrink-0"
               title="Next Page"
               aria-label="Next Page"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Read from Beginning / Reset */}
             <button
               onClick={restartBook}
               disabled={currentPageIndex === -1}
-              className="p-2 rounded-full hover:bg-[#f7e5d4] text-neutral-700 hover:text-[#f16701] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer"
+              className="p-1.5 sm:p-2 rounded-full hover:bg-[#f7e5d4] text-neutral-700 hover:text-[#f16701] disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer shrink-0"
               title="Read from Beginning"
               aria-label="Read from Beginning"
             >
-              <RefreshCcw className="w-4 h-4" />
+              <RefreshCcw className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
 
-            <div className="w-[1px] h-5 bg-[#fbd7b4]" />
+            {/* Zoom / Full View Toggle on Mobile */}
+            {windowWidth < 768 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsZoomed(!isZoomed);
+                }}
+                className={cn(
+                  "p-1.5 rounded-full transition cursor-pointer shrink-0",
+                  isZoomed ? "bg-[#f16701] text-white" : "hover:bg-[#f7e5d4] text-neutral-700 hover:text-[#f16701]"
+                )}
+                title={isZoomed ? "Fit Full Book" : "Zoom 100%"}
+                aria-label={isZoomed ? "Fit Full Book" : "Zoom 100%"}
+              >
+                {isZoomed ? <ZoomOut className="w-3.5 h-3.5" /> : <ZoomIn className="w-3.5 h-3.5" />}
+              </button>
+            )}
+
+            <div className="w-[1px] h-4 sm:h-5 bg-[#fbd7b4] shrink-0" />
 
             {/* Close Button */}
             <button
               onClick={handleCloseBook}
-              className="px-3 sm:px-3.5 py-1.5 rounded-full bg-[#f7e5d4] hover:bg-[#f8b47d] text-[#f16701] text-xs font-bold uppercase tracking-wider transition cursor-pointer flex items-center gap-1.5"
+              className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#f7e5d4] hover:bg-[#f8b47d] text-[#f16701] text-[11px] sm:text-xs font-bold uppercase tracking-wider transition cursor-pointer flex items-center gap-1 shrink-0"
             >
               <X className="w-3.5 h-3.5" />
-              <span>Close Book</span>
+              <span>Close</span>
             </button>
           </motion.div>
         )}
